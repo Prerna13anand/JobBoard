@@ -1,0 +1,272 @@
+/* ---------- Reset & base ---------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f5f7;
+  color: #1f2328;
+  line-height: 1.5;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 24px 20px;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.job-count {
+  margin: 0;
+  font-size: 1rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+/* ---------- Main / status ---------- */
+
+.site-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* ---------- Controls (search, location filter, sorting) ---------- */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.search-input,
+.location-select,
+.sort-select {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #1f2328;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input {
+  flex: 1 1 320px;
+  width: 100%;
+  max-width: 480px;
+}
+
+.location-select {
+  flex: 0 1 220px;
+  min-width: 0;
+  max-width: 220px;
+}
+
+.sort-select {
+  flex: 0 1 170px;
+  min-width: 0;
+  max-width: 170px;
+}
+
+.search-input:focus,
+.location-select:focus,
+.sort-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.clear-filters-btn {
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: #374151;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.clear-filters-btn:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.clear-filters-btn:focus-visible {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.status-message {
+  text-align: center;
+  font-size: 1rem;
+  color: #6b7280;
+  padding: 40px 0;
+  margin: 0;
+}
+
+.status-message.error {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.status-message:empty {
+  display: none;
+}
+
+/* ---------- Job grid & cards ---------- */
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+  border-color: #d1d5db;
+}
+
+.job-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.job-card-header .badge {
+  flex-shrink: 0;
+}
+
+.job-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #111827;
+  text-decoration: none;
+  line-height: 1.35;
+}
+
+.job-title:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.job-company {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.job-location {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #6b7280;
+}
+
+.job-posted {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* ---------- Badges ---------- */
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.badge-remote {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-onsite {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-tag {
+  background-color: #eef2ff;
+  color: #3730a3;
+  font-weight: 500;
+}
+
+.badge-tag-more {
+  background-color: #f3f4f6;
+  color: #4b5563;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.35rem;
+  }
+
+  .job-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .search-input,
+  .location-select,
+  .sort-select,
+  .clear-filters-btn {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">Job Board</h1>
+      <p id="jobCount" class="job-count"></p>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="controls">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search jobs, companies, or tags..."
+        aria-label="Search jobs, companies, or tags"
+      />
+      <select id="locationSelect" class="location-select" aria-label="Filter by location">
+        <option value="">All Locations</option>
+      </select>
+      <select id="sortSelect" class="sort-select" aria-label="Sort jobs">
+        <option value="newest">Newest</option>
+        <option value="title-asc">Title A&ndash;Z</option>
+      </select>
+      <button type="button" id="clearFiltersBtn" class="clear-filters-btn">Clear Filters</button>
+    </div>
+    <p id="statusMessage" class="status-message"></p>
+    <div id="jobGrid" class="job-grid"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
