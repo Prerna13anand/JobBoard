@@ -23,6 +23,17 @@ def iso_string_to_date(date_string):
         return date_string[:10]
 
 
+def uk_date_to_iso(date_string):
+    """Convert a UK-style "DD/MM/YYYY" date string to ISO "YYYY-MM-DD"."""
+    if not date_string:
+        return ""
+
+    try:
+        return datetime.strptime(date_string, "%d/%m/%Y").strftime("%Y-%m-%d")
+    except ValueError:
+        return ""
+
+
 def dedupe_tags(*tag_lists):
     """Merge multiple tag lists into one, dropping empties and preserving order."""
     merged = []

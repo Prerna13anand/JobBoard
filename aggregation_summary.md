@@ -3,26 +3,42 @@
 ## Project Status
 
 - Phase 1 (No-auth API Integration): Completed
+- Phase 2 (API-key Provider Integration): Completed
 
 ## Data Sources
 
+### Phase 1 - No-auth providers
+
 | Source | Jobs Fetched | Notes |
 |---|---|---|
-| Arbeitnow | 898 | Fully paginated via `links.next`; returned every job currently listed (capped at 200 pages / 20,000 jobs as a safety ceiling, never reached). |
+| Arbeitnow | 910 | Fully paginated via `links.next`; returned every job currently listed (capped at 200 pages / 20,000 jobs as a safety ceiling, never reached). |
 | Himalayas | 3,000 | Offset-paginated (`offset`/`limit`), but `limit` is ignored server-side and always returns 20 jobs/page. Reports 90,000+ total jobs; fetching the full archive would take thousands of sequential requests, so pulls are capped at 150 pages (3,000 most recent postings, sorted newest-first). |
 | RemoteOK | 100 | No pagination at all - a `page` param is silently ignored. Endpoint always returns the ~100 most recent jobs in a single request. Requires a browser-like `User-Agent` header or the request is blocked (403). |
 | Jobicy | 100 | No pagination - a `page` param returns an explicit HTTP 400. The `count` param is honored up to a hard cap of 100. |
 | The Muse | 2,000 | Page-paginated with a fixed page size of 20. Reports 400,000+ jobs across 20,000+ pages, but the public (unauthenticated) API hard-rejects any page number ≥ 100 with a 400 error - so 100 pages (2,000 jobs) is the maximum obtainable without an API key. |
 | Bundesagentur für Arbeit | 10,000 | Offset-paginated (`page`/`size`) via the public Jobsuche API used by arbeitsagentur.de itself. Enforces a hard result-window limit of `page * size` <= 10,000 regardless of the 1,000,000+ jobs reported as available - 50 pages of 200 fetches the maximum allowed. Requires an `X-API-Key` header, satisfied with the well-known public key the official website ships in its own frontend (not a personal/secret credential). |
 
+### Phase 2 - API-key providers
+
+| Source | Jobs Fetched | Notes |
+|---|---|---|
+| Jooble | 1,127 | Requires a non-empty `keywords` value; a single space is sent as a wildcard. `ResultOnPage` honored up to 100/page, but the wildcard query's real result window empties out around page 12 regardless of the much larger reported total - pagination stops on a short page rather than exhausting a self-imposed cap. |
+| USAJOBS | 10,000 | Auth via three headers (`Host`, `User-Agent`, `Authorization-Key`), not a query param. `ResultsPerPage` tested well above the commonly-cited 500, but the API's real reachable result window caps at exactly 10,000 regardless of page size - reached with 20 pages of 500. `remote` is a genuine field (`UserArea.Details.RemoteIndicator`), not a heuristic. |
+| Adzuna | 2,000 | Country-scoped endpoint (`us` used here); no keyword required. `results_per_page` silently caps at 50. No pagination ceiling was found in testing (checked to page 5000), so - unlike the hard-capped APIs above - pagination is self-limited to 40 pages (2,000 jobs) to avoid unnecessary requests. |
+| Reed | 9,000 | Auth via HTTP Basic Auth (API key as username, empty password). `resultsToTake` caps at 100/page. `resultsToSkip` returns HTTP 500 (not an empty page) above roughly 9,900-9,920, so pagination is capped safely below that boundary. No job-category/employment-type field exists in the response, so `tags` is always empty for this source. |
+| SerpApi | 50 | Google Jobs via a metered, paid API (confirmed: 200 searches/month on the free plan via a real account-balance check before implementation). Cursor-based pagination, 10 jobs/page; capped at 5 pages (50 jobs) by design to conserve quota rather than pushed to any technical limit. `posted_at` is relative text ("3 days ago"), converted to an approximate date; `work_from_home` is a genuine boolean field. |
+| OpenWeb Ninja | 50 | JSearch API; metered (200 requests/month free tier). Cursor-based pagination; capped at 5 pages (50 jobs) for the same quota-conservation reason as SerpApi. The account initially returned a 403 "not subscribed" error - not a code issue - and a nested response nuance (jobs live under `data.jobs`, not `data` directly) was corrected once real access was confirmed. |
+| CareerJet | 2,000 | Current v4 API (`search.api.careerjet.net`), distinct from the older "affid"-based widget API. Requires the account's calling IP to be allowlisted on CareerJet's dashboard, and a `Referer` header (any value) - neither is mentioned in the documentation as reviewed. `page_size` is documented as adjustable but silently ignored (always 20/page); dates are RFC 2822 formatted, not ISO. No pagination ceiling found, so capped at 100 pages (2,000 jobs) like Adzuna. |
+| TheirStack | 50 | Jobs-search endpoint only (company enrichment/contacts/CRM endpoints on the same platform were deliberately not used). Bills **1 API credit per job returned** - a different cost model than any other source here - confirmed via a free account-balance check before testing. At least one filter (`posted_at_max_age_days` used here, set broadly) is required. Capped at 50 jobs by design to conserve credits; the request `limit` is trimmed on the final page so it never over-fetches past that cap. |
+
 ## Aggregation Statistics
 
-- **Total sources integrated:** 6
-- **Total jobs fetched (pre-dedup):** 16,098
-- **Duplicate jobs removed:** 185
-- **Final unique jobs:** 15,913
+- **Total sources integrated:** 14 (6 Phase 1 + 8 Phase 2)
+- **Total jobs fetched (pre-dedup):** 40,387 (sum of the per-provider counts above, from the latest full pipeline run)
+- **Duplicate jobs removed:** 66
+- **Final unique jobs:** 40,321
 - **Duplicate URLs remaining:** 0
-- **Schema validation result:** Passed - all records contain exactly the 7 required fields with correct types (strings, list of strings, boolean)
+- **Schema validation result:** Passed - all records contain exactly the 7 required fields with correct types (strings, list of strings, boolean), across every Phase 1 and Phase 2 source
 
 ## Technical Highlights
 
@@ -31,9 +47,10 @@
 - **Deduplication by URL:** After collecting jobs from all sources, `jobs.py` deduplicates the combined list keyed on the job's `url` - the one field guaranteed to uniquely identify a specific posting, including across sources that occasionally surface the same externally-hosted job.
 - **Schema validation:** Output is verified after every merge to confirm all records have the correct keys, correct field types, and no duplicate URLs before being written to `jobs.json`.
 - **Error handling:** Each source's `run()` method isolates failures - a network error, bad response, or per-record normalization issue in one source is logged and skipped rather than aborting the entire aggregation run, so a single broken API can't take down the whole pipeline.
-- **Pagination support:** Implemented per-source according to what each API actually allows - full pagination (Arbeitnow), capped/best-effort pagination up to a documented or discovered limit (Himalayas, The Muse, Bundesagentur), or single-shot fetches for APIs with no pagination (RemoteOK, Jobicy).
+- **Pagination support:** Implemented per-source according to what each API actually allows - full pagination (Arbeitnow), capped/best-effort pagination up to a documented or discovered limit (Himalayas, The Muse, Bundesagentur, USAJOBS, Reed, CareerJet), single-shot fetches for APIs with no pagination (RemoteOK, Jobicy), or deliberately conservative pagination on metered/paid APIs to control cost rather than exhaust a technical limit (SerpApi, OpenWeb Ninja, TheirStack).
+- **Credential management:** Phase 2 sources read their API keys/credentials exclusively from `sources/config.py`, which loads them from a git-ignored `.env` file via `python-dotenv`. No credential is ever hardcoded, and any Phase 2 source with a missing or empty credential raises inside `fetch_raw()`, which the existing `BaseJobSource.run()` error handling already catches and logs - skipping that source gracefully using the same mechanism as any other fetch failure, with no special-casing required.
 
-## API Observations
+## API Observations - Phase 1
 
 - **Arbeitnow:** Clean, fully-paginated REST API with a `links.next` cursor; no meaningful limits encountered.
 - **Himalayas:** Advertises an adjustable `limit` param that the server actually ignores (always 20/page); very large total archive (90,000+) made full pagination impractical, so recency-based capping was used instead.
@@ -41,6 +58,21 @@
 - **Jobicy:** Single-page snapshot API; explicitly rejects unsupported pagination params with a 400 error rather than ignoring them.
 - **The Muse:** Reports a very large total job count, but the public API silently caps usable pagination at page 99 (returns a 400 "page too high" error beyond that) - discovered by hitting the error during implementation and adjusting the page ceiling accordingly.
 - **Bundesagentur für Arbeit:** Requires an API key header, but a public, non-secret key (used by the agency's own website) is sufficient. Enforces a strict `page * size <= 10,000` result-window limit typical of Elasticsearch-backed search APIs; some listings link out to third-party ATS pages (`externeUrl`) while others exist only on arbeitsagentur.de, requiring a constructed fallback URL from the job's reference number.
+
+## API Observations - Phase 2
+
+- **Jooble:** Requires a non-empty `keywords` value (no unscoped browse mode); a wildcard single-space query approximates one. The real usable result window for a broad query is far smaller than the reported total match count.
+- **USAJOBS:** Documentation-heavy site that couldn't be rendered for inspection, so behavior was confirmed entirely via live requests. Auth is three headers rather than a single key param. Provides a genuine `remote` boolean, unlike most other sources.
+- **Adzuna:** Country-scoped index (one query per country); silently caps `results_per_page` at 50 regardless of the requested value. No pagination ceiling found - the only source alongside CareerJet where that's true.
+- **Reed:** Basic Auth instead of a header/query-param key. Hits a hard result-window boundary that surfaces as an HTTP 500 rather than an empty page, unlike every other capped source. No job-category data at all in its response.
+- **SerpApi:** The first metered, pay-per-request source integrated; a real account-balance check (a free lookup) was done before any billable search. Only relative posting dates are available, not absolute ones.
+- **OpenWeb Ninja:** Also metered. Initially blocked by an account-level "not subscribed" condition unrelated to the code; once resolved, a nested-response detail (`data.jobs`, not `data`) needed correcting against real data.
+- **CareerJet:** The current v4 API differs substantially from older "affid"-based examples still found online. Two requirements - IP allowlisting and a mandatory `Referer` header - were undocumented in the reviewed docs and only surfaced through live testing (the first needed a dashboard change on the account itself). Dates are RFC 2822, not ISO.
+- **TheirStack:** The only source that bills per job returned rather than per request - a materially different cost model that shaped how pagination was capped. Its platform also hosts non-job resources (company/contact/CRM data) that were deliberately left untouched, using only the jobs-search endpoint.
+
+## Phase 2 Final Status
+
+Phase 2 (API-key provider integration) is complete. Eight additional sources - Jooble, USAJOBS, Adzuna, Reed, SerpApi, OpenWeb Ninja, CareerJet, and TheirStack - are integrated using the same modular `BaseJobSource` pattern as Phase 1, reading credentials exclusively from environment variables via `sources/config.py`. Every Phase 2 source was verified with real API requests during implementation, confirmed to normalize correctly into the shared schema, and confirmed to skip gracefully when its credentials are absent.
 
 ## Final Status
 
@@ -104,16 +136,18 @@ The frontend was tested both manually and with automated Playwright tests drivin
 
 The backend aggregation pipeline (`jobs.py`, `sources/`) was not modified during any of the frontend milestones - all frontend work only reads the `jobs.json` file the backend produces. The frontend is a static HTML/CSS/JavaScript application with no build step, structured around small, composable functions (`applyFilters`, `applySort`, `updateView`, etc.) rather than one large script, so it stays easy to extend.
 
-The overall project architecture remains modular on both sides. On the backend, new job sources can be added as self-contained modules without changing the aggregation pipeline. This leaves room to later support:
+The overall project architecture remains modular on both sides. On the backend, Phase 2 added eight API-key providers - Jooble, USAJOBS, Adzuna, Reed, SerpApi, OpenWeb Ninja, CareerJet, and TheirStack - as self-contained modules, without changing the aggregation pipeline, the frontend, or any Phase 1 source. Credentials for these providers are read from environment variables via `sources/config.py`, never hardcoded. This same modular pattern leaves room to later support:
 
 - Greenhouse
 - Lever
-- API-key providers such as Jooble, Adzuna, Reed, CareerJet, etc.
+- Additional API-key or ATS providers as needed
 
 ## Final Status
 
 Phase 1 is complete.
 
+Phase 2 is complete.
+
 Frontend Milestones 2-5 are complete.
 
-The project is ready for review and future expansion.
+The project now aggregates jobs from all Phase 1 and Phase 2 providers into a single normalized dataset, and is ready for review and future expansion.
