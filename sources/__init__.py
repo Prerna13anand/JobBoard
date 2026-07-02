@@ -17,9 +17,11 @@ from .adzuna import AdzunaSource
 from .arbeitnow import ArbeitnowSource
 from .bundesagentur import BundesagenturSource
 from .careerjet import CareerJetSource
+from .greenhouse import GreenhouseSource
 from .himalayas import HimalayasSource
 from .jobicy import JobicySource
 from .jooble import JoobleSource
+from .lever import LeverSource
 from .openwebninja import OpenWebNinjaSource
 from .reed import ReedSource
 from .remoteok import RemoteOKSource
@@ -45,4 +47,6 @@ SOURCES = [
     OpenWebNinjaSource(),
     CareerJetSource(),
     TheirStackSource(),
+    GreenhouseSource(),
+    LeverSource(),
 ]
