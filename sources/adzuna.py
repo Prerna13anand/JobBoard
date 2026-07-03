@@ -29,7 +29,7 @@ import requests
 
 from .base import BaseJobSource
 from .config import ADZUNA_APP_ID, ADZUNA_APP_KEY
-from .utils import dedupe_tags, iso_string_to_date
+from .utils import dedupe_tags, iso_string_to_date, request_with_retry
 
 API_URL = "https://api.adzuna.com/v1/api/jobs"
 COUNTRY = "us"
@@ -42,7 +42,7 @@ PAGE_SIZE = 50
 # since Adzuna's own index has no discovered pagination ceiling.
 MAX_PAGES = 40
 
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 30
 
 # Adzuna has no dedicated remote flag, so - as with Jooble/Bundesagentur -
 # remote-friendly postings are detected via keyword in the title/location.
@@ -60,7 +60,8 @@ class AdzunaSource(BaseJobSource):
         jobs = []
 
         for page in range(1, MAX_PAGES + 1):
-            response = requests.get(
+            response = request_with_retry(
+                requests.get,
                 f"{API_URL}/{COUNTRY}/search/{page}",
                 params={
                     "app_id": ADZUNA_APP_ID,
@@ -69,7 +70,6 @@ class AdzunaSource(BaseJobSource):
                 },
                 timeout=REQUEST_TIMEOUT,
             )
-            response.raise_for_status()
             payload = response.json()
 
             page_jobs = payload.get("results", [])

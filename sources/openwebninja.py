@@ -26,7 +26,7 @@ import requests
 
 from .base import BaseJobSource
 from .config import OPENWEBNINJA_API_KEY
-from .utils import dedupe_tags, iso_string_to_date, timestamp_to_iso_date
+from .utils import dedupe_tags, iso_string_to_date, request_with_retry, timestamp_to_iso_date
 
 API_URL = "https://api.openwebninja.com/jsearch/search-v2"
 
@@ -38,7 +38,7 @@ SEARCH_QUERY = "jobs"
 # free plan) - see module docstring.
 MAX_PAGES = 5
 
-REQUEST_TIMEOUT = 20
+REQUEST_TIMEOUT = 30
 
 
 class OpenWebNinjaSource(BaseJobSource):
@@ -54,8 +54,9 @@ class OpenWebNinjaSource(BaseJobSource):
         jobs = []
 
         for _ in range(MAX_PAGES):
-            response = requests.get(API_URL, headers=headers, params=params, timeout=REQUEST_TIMEOUT)
-            response.raise_for_status()
+            response = request_with_retry(
+                requests.get, API_URL, headers=headers, params=params, timeout=REQUEST_TIMEOUT
+            )
             payload = response.json()
 
             data = payload.get("data") or {}

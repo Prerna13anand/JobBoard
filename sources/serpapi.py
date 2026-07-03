@@ -37,7 +37,7 @@ import requests
 
 from .base import BaseJobSource
 from .config import SERPAPI_API_KEY
-from .utils import dedupe_tags
+from .utils import dedupe_tags, request_with_retry
 
 API_URL = "https://serpapi.com/search"
 
@@ -50,7 +50,7 @@ SEARCH_QUERY = "jobs"
 # pushed to whatever the API would technically allow.
 MAX_PAGES = 5
 
-REQUEST_TIMEOUT = 20
+REQUEST_TIMEOUT = 30
 
 _RELATIVE_POSTED_PATTERN = re.compile(r"(\d+)\+?\s*(minute|hour|day|week|month|year)s?\s+ago")
 _RELATIVE_UNIT_TO_DAYS = {"minute": 0, "hour": 0, "day": 1, "week": 7, "month": 30, "year": 365}
@@ -90,8 +90,7 @@ class SerpApiSource(BaseJobSource):
         params = {"engine": "google_jobs", "q": SEARCH_QUERY, "api_key": SERPAPI_API_KEY}
 
         for _ in range(MAX_PAGES):
-            response = requests.get(API_URL, params=params, timeout=REQUEST_TIMEOUT)
-            response.raise_for_status()
+            response = request_with_retry(requests.get, API_URL, params=params, timeout=REQUEST_TIMEOUT)
             payload = response.json()
 
             page_jobs = payload.get("jobs_results", [])

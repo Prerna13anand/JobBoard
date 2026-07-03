@@ -1,6 +1,9 @@
 """Small helpers shared across job source implementations."""
 
+import time
 from datetime import datetime, timezone
+
+import requests
 
 
 def timestamp_to_iso_date(unix_timestamp):
@@ -40,3 +43,38 @@ def dedupe_tags(*tag_lists):
     for tags in tag_lists:
         merged.extend(tags or [])
     return list(dict.fromkeys(merged))
+
+
+# HTTP statuses worth retrying: rate limiting and server-side errors, all
+# of which can plausibly succeed on a later attempt. Anything else (bad
+# request, bad/missing credentials, not found, etc.) is a permanent
+# problem retrying won't fix, so it's raised immediately instead.
+_RETRYABLE_STATUS_CODES = frozenset({429, 500, 502, 503, 504})
+
+
+def request_with_retry(method, url, *, max_attempts=3, backoff_seconds=2, **kwargs):
+    """
+    Call a `requests` method (e.g. `requests.get`, `requests.post`) with
+    retries for transient failures only: connection errors, timeouts, and
+    HTTP 429/500/502/503/504. Uses exponential backoff between attempts
+    (2s, 4s, ... for the default backoff_seconds=2).
+
+    Any other HTTP error status (400/401/402/403/404/etc.) is raised
+    immediately without retrying. After the final attempt fails, the
+    underlying exception is raised as-is, so a caller's existing
+    try/except around the request keeps working unchanged.
+    """
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = method(url, **kwargs)
+            response.raise_for_status()
+            return response
+        except requests.HTTPError as exc:
+            status = exc.response.status_code if exc.response is not None else None
+            if status not in _RETRYABLE_STATUS_CODES or attempt == max_attempts:
+                raise
+        except (requests.ConnectionError, requests.Timeout):
+            if attempt == max_attempts:
+                raise
+
+        time.sleep(backoff_seconds * (2 ** (attempt - 1)))

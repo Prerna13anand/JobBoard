@@ -34,7 +34,7 @@ postings are detected via keyword.
 import requests
 
 from .base import BaseJobSource
-from .utils import dedupe_tags, iso_string_to_date
+from .utils import dedupe_tags, iso_string_to_date, request_with_retry
 
 API_URL = "https://boards-api.greenhouse.io/v1/boards"
 
@@ -186,9 +186,225 @@ COMPANY_SLUGS = [
     "pathrobotics",
     "locusrobotics",
     "diligentrobotics",
+    "apptronik",
+    "formic",
+
+    # Aerospace
+    "rocketlab",
+    "astranis",
+    "planetlabs",
+    "vardaspace",
+
+    # Automotive
+    "lucidmotors",
+
+    # Banking / FinTech (expansion)
+    "sofi",
+    "n26",
+    "monzo",
+    "creditkarma",
+    "public",
+    "highnote",
+    "lithic",
+    "billtrust",
+    "melio",
+
+    # Insurance
+    "oscar",
+    "coalition",
+    "pieinsurance",
+    "openly",
+    "ethos",
+    "root",
+    "atbay",
+
+    # Biotech / Pharmaceuticals
+    "ginkgobioworks",
+    "generatebiomedicines",
+    "altoslabs",
+    "colossalbiosciences",
+    "formbio",
+
+    # Cybersecurity (expansion)
+    "chainguard",
+
+    # Cloud Infrastructure / DevTools
+    "fivetran",
+    "postman",
+    "launchdarkly",
+    "hightouch",
+    "circleci",
+    "warp",
+
+    # Telecommunications
+    "twilio",
+    "dialpad",
+    "vonage",
+    "bandwidth",
+
+    # Energy
+    "watershed",
+
+    # Logistics / Supply Chain
+    "fourkites",
+    "flexe",
+    "samsara",
+
+    # Retail / E-commerce (expansion)
+    "glossier",
+    "brooklinen",
+    "renttherunway",
+
+    # Hospitality / Travel
+    "tripactions",
+    "vacasa",
+
+    # Education / EdTech
+    "duolingo",
+    "khanacademy",
+    "coursera",
+    "udemy",
+    "outschool",
+    "codeorg",
+    "masterclass",
+    "degreed",
+    "coursehero",
+
+    # Media / Entertainment / Gaming (expansion)
+    "buzzfeed",
+    "voxmedia",
+    "naughtydog",
+    "insomniac",
+    "bungie",
+
+    # Advertising / Marketing
+    "braze",
+    "taboola",
+    "iterable",
+    "customerio",
+    "movableink",
+    "listrak",
+
+    # Consulting
+    "thoughtworks",
+
+    # Real Estate / Construction
+    "urbancompass",
+    "rxr",
+    "entera",
+    "turbotenant",
+    "ingenious",
+    "butlr",
+    "housebuyersofamerica",
+    "hover",
+
+    # Non-profit
+    "givedirectly",
+    "donorschoose",
+
+    # Aerospace / Defense / Space (large-volume expansion)
+    "spacex",
+    "andurilindustries",
+    "axon",
+    "k2spacecorporation",
+    "muonspace",
+    "aevexaerospace",
+    "altentechnologyusa",
+    "defenseunicorns",
+    "freeformfuturecorp",
+    "divergent",
+
+    # AI (large-volume expansion)
+    "xai",
+    "gleanwork",
+    "snorkelai",
+    "agencywithin",
+    "remesh",
+    "loop",
+
+    # Enterprise Software / Data Platforms (large-volume expansion)
+    "datavant2",
+    "alphasense",
+    "torq",
+    "merge",
+    "lucidsoftware",
+    "intrinsicrobotics",
+    "mithril",
+
+    # Gaming / Media / Entertainment (large-volume expansion)
+    "sonyinteractiveentertainmentglobal",
+    "hasbro",
+    "neteasegames",
+    "gsgcareers",
+    "eleventhhourgames",
+    "penninteractive",
+    "mrbeastyoutube",
+    "axs",
+
+    # FinTech / Banking (large-volume expansion)
+    "nubank",
+    "branch",
+    "enova",
+    "pathward",
+    "opploans",
+    "splashfinancial",
+    "creditunionofcolorado",
+
+    # Insurance (large-volume expansion)
+    "amwins",
+    "ethoslife",
+    "nextinsurance66",
+    "slideinsurance",
+    "sureify",
+
+    # Healthcare / Biotech / Pharmaceuticals (large-volume expansion)
+    "khealthcareers",
+    "oura",
+    "upwardhealth",
+    "bridgebio",
+    "legendcareers",
+    "xairatherapeutics",
+    "aspectbiosystems",
+    "epicbio",
+    "nuvalent",
+    "smarterdx",
+
+    # Retail / E-commerce (large-volume expansion)
+    "quince",
+    "residenthome",
+    "vtex",
+    "brilliantearth",
+    "babylist",
+    "weedmaps77",
+
+    # Logistics / Supply Chain (large-volume expansion)
+    "yqn",
+    "shipbobinc",
+    "itslogisticsllc",
+    "gatherai",
+
+    # Consulting / Professional Services (large-volume expansion)
+    "teneo",
+    "careerteam",
+    "versaterm",
+    "lts",
+    "cooksys",
+    "perform-careers",
+
+    # Education / EdTech (large-volume expansion)
+    "zetacharterschools",
+    "perscholashires",
+    "unitedcharterschools",
+    "relaygraduateschoolofeducation",
+    "furtherearlycareer",
+
+    # Other (SaaS holding companies, wellness)
+    "saasgroup",
+    "levelaccess",
+    "future",
 ]
 
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 30
 
 # Greenhouse has no dedicated remote flag, so - as with Jooble/Bundesagentur/
 # Adzuna/Reed/CareerJet - remote-friendly postings are detected via keyword.
@@ -204,12 +420,12 @@ class GreenhouseSource(BaseJobSource):
 
         for slug in COMPANY_SLUGS:
             try:
-                response = requests.get(
+                response = request_with_retry(
+                    requests.get,
                     f"{API_URL}/{slug}/jobs",
                     params={"content": "true"},
                     timeout=REQUEST_TIMEOUT,
                 )
-                response.raise_for_status()
                 payload = response.json()
             except requests.RequestException as exc:
                 print(f"[{self.name}] skipped company '{slug}': {exc}")

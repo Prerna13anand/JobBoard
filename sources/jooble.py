@@ -28,7 +28,7 @@ import requests
 
 from .base import BaseJobSource
 from .config import JOOBLE_API_KEY
-from .utils import dedupe_tags, iso_string_to_date
+from .utils import dedupe_tags, iso_string_to_date, request_with_retry
 
 API_URL = "https://jooble.org/api"
 
@@ -44,7 +44,7 @@ PAGE_SIZE = 100
 # regardless - see module docstring.
 MAX_PAGES = 20
 
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 30
 
 # Jooble aggregates general (mostly on-site) postings with no dedicated
 # remote flag, so - similar to the Bundesagentur source - remote-friendly
@@ -65,12 +65,12 @@ class JoobleSource(BaseJobSource):
         api_url = f"{API_URL}/{JOOBLE_API_KEY}"
 
         for page in range(1, MAX_PAGES + 1):
-            response = requests.post(
+            response = request_with_retry(
+                requests.post,
                 api_url,
                 json={"keywords": SEARCH_KEYWORDS, "page": str(page), "ResultOnPage": str(PAGE_SIZE)},
                 timeout=REQUEST_TIMEOUT,
             )
-            response.raise_for_status()
             payload = response.json()
 
             page_jobs = payload.get("jobs", [])

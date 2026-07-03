@@ -41,16 +41,20 @@ heuristic.
 import requests
 
 from .base import BaseJobSource
-from .utils import dedupe_tags, timestamp_to_iso_date
+from .utils import dedupe_tags, request_with_retry, timestamp_to_iso_date
 
 API_URL = "https://api.lever.co/v0/postings"
 
-# Company site slugs to fetch. Confirmed live against the real API before
-# picking this initial set - many other well-known companies (e.g.
+# Company site slugs to fetch. Every slug below was confirmed live against
+# the real API before being added. Many well-known companies (e.g.
 # "netflix", "shopify", "notion") either have no open postings on Lever or
-# 404 outright, having moved to a different ATS. Add a new company by
-# adding its slug here; no other code changes are needed.
+# 404 outright, having moved to a different ATS - Lever skews toward
+# smaller/venture-backed companies rather than large household names, so
+# most additions here were sourced from real jobs.lever.co URLs rather than
+# guessed. Add a new company by adding its slug here; no other code
+# changes are needed - fetch_raw() iterates over this list automatically.
 COMPANY_SLUGS = [
+    # Original set
     "palantir",
     "farfetch",
     "ro",
@@ -60,10 +64,222 @@ COMPANY_SLUGS = [
     "prosper",
     "articulate",
     "15five",
+
+    # AI
+    "mistral",
+    "shieldai",
+    "field-ai",
+    "levelai",
+    "hive",
+    "metr",
+    "anyscale",
+    "imbue",
+    "labelbox",
+    "getwingapp",
+    "CordTechnologies",
+
+    # Robotics
+    "gravisrobotics",
+    "ambirobotics",
+    "osaro",
+    "isee",
+
+    # Healthcare
+    "lyrahealth",
+    "includedhealth",
+    "hhaexchange",
+    "h1",
+
+    # FinTech
+    "qonto",
+    "BestEgg",
+    "greenlight",
+    "finix",
+    "policyme",
+    "finch",
+    "termgrid",
+    "startengine",
+    "fundrise",
+    "plaid",
+    "kraken",
+    "ranger",
+
+    # Cybersecurity
+    "tevora",
+    "BlackCloak",
+
+    # Cloud
+    "thinkahead",
+    "actian",
+    "egen",
+    "redcanyonsoftware",
+    "tagup",
+    "rackspace",
+
+    # SaaS
+    "gohighlevel",
+    "entrata",
+    "restaurant365",
+    "happyco",
+    "analyticpartners",
+    "workwave",
+    "pipedrive",
+    "sprucesystems",
+    "trueplatform",
+    "supermove",
+    "freshworks",
+    "clari",
+    "atlassian",
+    "bazaarvoice",
+
+    # Gaming
+    "xsolla",
+    "larian",
+    "peakgames",
+    "dreamgames",
+
+    # E-commerce
+    "despegar",
+    "trendyol",
+    "finn",
+    "rover",
+    "gettyimages",
+
+    # Enterprise Software
+    "weloglobal",
+    "latitudeinc",
+    "3pillarglobal",
+    "cwsc",
+    "jobandtalent",
+    "perforce",
+    "decilegroup",
+    "hatchit",
+    "fiscalnote",
+    "trinet",
+
+    # Other (consulting, nonprofit, media, VC - additional industry
+    # diversity beyond the categories above)
+    "standtogether",
+    "unusual",
+    "repurposeglobal",
+    "girlswhocode",
+    "jiostar",
+
+    # Retail / E-commerce (large-volume expansion)
+    "boxlunch",
+    "gopuff",
+    "cscgeneration-2",
+    "arcteryx.com",
+    "flowlife",
+    "serv-u-success",
+    "LyraCollective",
+
+    # Government Contractors / Defense (large-volume expansion)
+    "cgsfederal",
+    "tsmg",
+    "agile-defense",
+    "hermeus",
+    "inflowfed",
+    "21hhs",
+
+    # Hospitality / Travel (large-volume expansion)
+    "destinationknot",
+    "bfsaulhotels",
+    "placemakr",
+
+    # Media / Entertainment (large-volume expansion)
+    "spotify",
+    "distro",
+    "justwatch",
+    "digitalmediamanagement",
+    "raptv",
+    "theathletic",
+    "sunshinesachs",
+    "nationaljournal",
+
+    # Gaming (large-volume expansion)
+    "whoop",
+    "blackbirdinteractive",
+    "spyke-games",
+
+    # Enterprise Software / SaaS (large-volume expansion)
+    "pigment",
+    "metabase",
+    "sugarcrm",
+    "upguard",
+    "tonkean",
+    "quantummetric",
+    "contentsquare",
+
+    # Consulting / Professional Services (large-volume expansion)
+    "Aprio",
+    "kpmgnz",
+    "cimgroup",
+    "brightonjones",
+    "ghj",
+    "kitware",
+
+    # FinTech / Banking (large-volume expansion)
+    "capital",
+    "Flex",
+    "bannerbank",
+    "forbrightbank",
+    "modeln",
+    "offchainlabs",
+    "deleteme",
+
+    # Insurance (large-volume expansion)
+    "protective",
+
+    # Logistics / Supply Chain (large-volume expansion)
+    "arrivelogistics",
+    "spreetail",
+    "loopreturns",
+
+    # Healthcare (large-volume expansion)
+    "pointclickcare",
+    "aledade",
+    "avalerehealth",
+    "next-health",
+    "everlywell",
+    "salvohealth",
+    "revhealth",
+    "grailbio",
+
+    # Biotech / Pharmaceuticals (large-volume expansion)
+    "rapidmicrobio",
+    "LyciaTherapeutics",
+    "crescent-biopharma",
+
+    # Cybersecurity (large-volume expansion)
+    "LuminDigital",
+    "ethenalabs",
+
+    # AI (large-volume expansion)
+    "get-vocal-pbc",
+    "AIFund",
+
+    # Cloud (large-volume expansion)
+    "ecldc",
+
+    # Education (large-volume expansion)
+    "brilliant",
+    "ou-education-services",
+
+    # Non-profit (large-volume expansion)
+    "wr",
+    "aipconnect",
+    "cdcfoundation",
+    "mcgovern",
+
+    # Other (large-volume expansion)
+    "remofirst",
+    "prophethomes",
+    "voxy-engen",
 ]
 
 PAGE_SIZE = 100
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 30
 
 
 class LeverSource(BaseJobSource):
@@ -78,12 +294,12 @@ class LeverSource(BaseJobSource):
 
             while True:
                 try:
-                    response = requests.get(
+                    response = request_with_retry(
+                        requests.get,
                         f"{API_URL}/{slug}",
                         params={"mode": "json", "skip": skip, "limit": PAGE_SIZE},
                         timeout=REQUEST_TIMEOUT,
                     )
-                    response.raise_for_status()
                     page_jobs = response.json()
                 except requests.RequestException as exc:
                     print(f"[{self.name}] skipped company '{slug}': {exc}")

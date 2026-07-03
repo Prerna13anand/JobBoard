@@ -52,6 +52,7 @@ from requests.auth import HTTPBasicAuth
 
 from .base import BaseJobSource
 from .config import CAREERJET_API_KEY
+from .utils import request_with_retry
 
 API_URL = "https://search.api.careerjet.net/v4/query"
 
@@ -79,7 +80,7 @@ PAGE_SIZE = 20
 # jobs, the same target volume used for Adzuna.
 MAX_PAGES = 100
 
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 30
 
 # CareerJet has no dedicated remote flag, so - as with Jooble/Bundesagentur/
 # Adzuna/Reed - remote-friendly postings are detected via keyword.
@@ -99,7 +100,8 @@ class CareerJetSource(BaseJobSource):
         jobs = []
 
         for page in range(1, MAX_PAGES + 1):
-            response = requests.get(
+            response = request_with_retry(
+                requests.get,
                 API_URL,
                 auth=auth,
                 headers=headers,
@@ -112,7 +114,6 @@ class CareerJetSource(BaseJobSource):
                 },
                 timeout=REQUEST_TIMEOUT,
             )
-            response.raise_for_status()
             payload = response.json()
 
             page_jobs = payload.get("jobs", [])

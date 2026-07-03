@@ -18,6 +18,8 @@ over a million). Using the largest page size that stays within that window
 (size=200, pages 1-50) fetches the maximum 10,000 jobs the API allows.
 """
 
+import time
+
 import requests
 
 from .base import BaseJobSource
@@ -31,7 +33,14 @@ PAGE_SIZE = 200
 # 50 pages * 200 jobs/page = 10,000 jobs, the API's hard result-window cap.
 MAX_PAGES = 50
 
-REQUEST_TIMEOUT = 15
+REQUEST_TIMEOUT = 30
+
+# A single page gets up to this many total attempts (the original request
+# plus retries) before it's treated as a real failure - covers transient
+# network hiccups (timeouts, connection resets) rather than a persistent
+# problem with the API or the result-window cap.
+MAX_ATTEMPTS_PER_PAGE = 3
+RETRY_DELAY_SECONDS = 2
 
 # Cheap heuristic for remote-friendly postings: this API has no dedicated
 # remote/home-office flag on the job listing itself, so we look for the
@@ -47,20 +56,33 @@ class BundesagenturSource(BaseJobSource):
         jobs = []
 
         for page in range(1, MAX_PAGES + 1):
-            try:
-                response = requests.get(
-                    API_URL,
-                    headers={"X-API-Key": API_KEY},
-                    params={"page": page, "size": PAGE_SIZE},
-                    timeout=REQUEST_TIMEOUT,
-                )
-                response.raise_for_status()
-                payload = response.json()
-            except requests.RequestException as exc:
+            payload = None
+
+            for attempt in range(1, MAX_ATTEMPTS_PER_PAGE + 1):
+                try:
+                    response = requests.get(
+                        API_URL,
+                        headers={"X-API-Key": API_KEY},
+                        params={"page": page, "size": PAGE_SIZE},
+                        timeout=REQUEST_TIMEOUT,
+                    )
+                    response.raise_for_status()
+                    payload = response.json()
+                    break
+                except requests.RequestException as exc:
+                    last_exc = exc
+                    if attempt < MAX_ATTEMPTS_PER_PAGE:
+                        print(
+                            f"[{self.name}] page {page} attempt {attempt}/{MAX_ATTEMPTS_PER_PAGE} failed: "
+                            f"{exc} - retrying"
+                        )
+                        time.sleep(RETRY_DELAY_SECONDS)
+
+            if payload is None:
                 # A single bad page (e.g. a transient error, or the result
                 # window boundary being hit sooner than expected) shouldn't
                 # discard jobs already collected from earlier pages.
-                print(f"[{self.name}] stopped early at page {page}: {exc}")
+                print(f"[{self.name}] stopped early at page {page}: {last_exc}")
                 break
 
             page_jobs = payload.get("stellenangebote", [])
