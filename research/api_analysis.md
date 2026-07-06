@@ -2090,3 +2090,600 @@ full window‑partitioning, the location‑normalization layer, the paid aggrega
 migration to the following iteration. In short: **turn on the filters and countries we already have
 access to, make the data refresh and expire, and plug the worst regional gaps with the one no‑auth
 government API and our existing ATS machinery — before spending effort or money on anything new.**
+
+---
+---
+
+# FOURTH RESEARCH PASS (Section 20)
+
+*Final appended section. Sections 1–19 above are unchanged. Still analysis/research only — no
+code, `jobs.py`, `jobs.json`, reports, or charts created or modified; nothing implemented. Every
+figure below is drawn from the same provider implementations audited in Sections 4, 9, and 17 of
+this document, plus the per‑provider fetch counts already established in this project's
+`aggregation_summary.md`, which this section treats as the canonical "current jobs collected"
+baseline (the raw per‑source fetch count, before cross‑provider URL dedup — the right granularity
+for asking "is *this provider* already maxed out").*
+
+---
+
+## SECTION 20 — Maximum Extractable Jobs from Existing Providers
+
+This section asks a narrower question than Sections 5–19: **not** "should we add a new provider,"
+but **"is each provider we already have wired up already returning everything it realistically
+can, given its own API's own rules?"** For every one of the 20 registered providers, this section
+determines the current fetch count, whether that is already the practical ceiling, and — where it
+is not — estimates how much more is realistically obtainable using only capabilities the provider's
+own API already exposes (no scraping, no new authentication tiers beyond what's already held).
+
+### 20.1 Phase 1 — no‑auth providers
+
+#### Arbeitnow
+- **Current jobs collected:** 930 (fetched to exhaustion via `links.next` cursor pagination; the
+  200‑page/20,000‑job safety cap is never reached).
+- **Public API limitations:** none encountered beyond the absence of any filter dimension — this
+  is a full‑board browse‑only API.
+- **Pagination limits:** cursor‑based, followed until the cursor is exhausted — not a limiting
+  factor; the entire current board is already returned.
+- **Request limits:** none documented.
+- **Result limits:** none — 930 **is** the full board, not a truncation.
+- **Available filters:** none. No keyword, location, category, or date request parameter exists.
+- **Incremental sync supported:** No explicit date filter; `created_at` is returned per job and
+  could support a client‑side watermark.
+- **Additional countries queryable:** No — single German‑market board, not partitioned by country.
+- **Multiple keyword searches:** No mechanism exists.
+- **Category searches:** No mechanism exists.
+- **Location‑based searches:** No mechanism exists.
+- **Company‑based searches:** No mechanism exists.
+- **Classification: Category A.** Already extracting essentially everything possible — the API
+  offers no dimension to partition further, and full pagination already reaches exhaustion.
+- **Additional jobs estimate:** ~0–100 (natural board growth only).
+
+#### Himalayas
+- **Current jobs collected:** 3,000 (150 pages × 20/page, fixed page size; self‑imposed cap
+  against a reported archive of 90,000+).
+- **Public API limitations:** the basic `/jobs/api` endpoint ignores the requested `limit` and
+  always returns 20/page; a richer `/jobs/api/search` endpoint exists and is unused.
+- **Pagination limits:** offset/limit, 20/page fixed; `MAX_PAGES=150` is *our own* setting, not an
+  API‑enforced ceiling.
+- **Request limits:** none documented; exhausting the full 90k archive at 20/page would take
+  ~4,500 sequential requests — impractical at that granularity.
+- **Result limits:** none enforced by the API itself beyond the fixed 20/page size.
+- **Available filters:** on `/jobs/api/search` — keyword, `country`, `worldwide`, seniority,
+  employment type, `companySlug`, timezone — all unused today.
+- **Incremental sync supported:** Not directly (no date filter on the basic endpoint); jobs are
+  newest‑first, so a date/ID watermark could approximate it.
+- **Additional countries queryable:** **Yes**, via `/search`'s `country` parameter — unused.
+- **Multiple keyword searches:** Yes, via `/search` — unused.
+- **Category searches:** Yes, via `/search` — unused.
+- **Location‑based searches:** Partial (via `country`/`worldwide`, since Himalayas is remote‑only).
+- **Company‑based searches:** Yes, via `companySlug` — unused.
+- **Classification: Category C.** 3,000 is only ~3.3% of the reported 90,000+ archive, and the
+  unused, filterable `/search` endpoint is a direct, low‑effort path to a much larger recent slice.
+- **Additional jobs estimate:** **+10,000–20,000**, by raising the page cap moderately and/or
+  partitioning by `country` and employment type across `/search`, without attempting to exhaust
+  the full archive.
+
+#### RemoteOK
+- **Current jobs collected:** ~100 (single unpaginated snapshot; `page` is silently ignored).
+- **Public API limitations:** the documented endpoint is a fixed‑size snapshot of the ~100 most
+  recent postings; no larger result set is exposed at this endpoint under any query.
+- **Pagination limits:** none — no working pagination mechanism exists.
+- **Request limits:** none documented.
+- **Result limits:** hard ceiling at ~100, an inherent characteristic of this endpoint.
+- **Available filters:** none confirmed on `https://remoteok.com/api`. The public website exposes
+  browsable tag‑specific URLs, but these were **not verified in this project as a separately
+  queryable API endpoint** — this should be tested live before being relied on, not assumed.
+- **Incremental sync supported:** No — no `since`/date parameter exists.
+- **Additional countries queryable:** Not applicable (remote‑only).
+- **Multiple keyword searches:** No mechanism confirmed.
+- **Category searches:** No mechanism confirmed on the endpoint in use.
+- **Location‑based searches:** Not applicable.
+- **Company‑based searches:** No mechanism confirmed.
+- **Classification: Category A.** Already extracting essentially everything the documented public
+  endpoint exposes.
+- **Additional jobs estimate:** ~0 via the current endpoint. Any more would require live
+  verification of whether tag‑scoped endpoints exist and are independently queryable — unconfirmed,
+  so no number is assumed here.
+
+#### Jobicy
+- **Current jobs collected:** 100 (hard cap on `count`; no pagination — a `page` param returns
+  HTTP 400).
+- **Public API limitations:** absolute 100‑job ceiling per call regardless of parameters.
+- **Pagination limits:** none supported at all.
+- **Request limits:** none documented.
+- **Result limits:** 100 per call, hard‑capped.
+- **Available filters:** `geo`, `industry`, `tag` are documented and available — unused (only
+  `count` is sent today).
+- **Incremental sync supported:** No documented `since` parameter.
+- **Additional countries queryable:** Yes, via `geo` — unused.
+- **Multiple keyword searches:** Not directly (no free‑text keyword param); `tag` is the closest
+  equivalent.
+- **Category searches:** Yes, via `industry`/`tag` — unused.
+- **Location‑based searches:** Yes, via `geo` — unused.
+- **Company‑based searches:** No company filter confirmed.
+- **Classification: Category B.** No pagination exists, so any single call is capped at 100 — but
+  each distinct `geo`/`industry`/`tag` value returns its **own** independent up‑to‑100 window, so
+  running several filtered calls (instead of one unfiltered call) nets more unique jobs after dedup.
+- **Additional jobs estimate:** **+200–400**, by running a handful of `geo`/`industry`‑partitioned
+  queries instead of a single unfiltered one — modest in absolute terms given the board's small
+  total size, but a meaningful multiple of the current 100.
+
+#### The Muse
+- **Current jobs collected:** 2,000 (100 pages × 20/page; the unauthenticated API hard‑rejects
+  `page ≥ 100` with HTTP 400).
+- **Public API limitations:** page‑100 ceiling is an **API‑enforced** limitation for unauthenticated
+  access, not self‑imposed — reported total is 400,000+ jobs across 20,000+ pages.
+- **Pagination limits:** fixed 20/page (`per_page` accepted but ignored); 100‑page ceiling per
+  unscoped query.
+- **Request limits:** not separately documented.
+- **Result limits:** 2,000 is a hard unauthenticated‑tier ceiling **per query**.
+- **Available filters:** `location`, `company`, `category`, `level` — all supported, all unused
+  (current integration runs one unscoped browse only).
+- **Incremental sync supported:** No explicit date filter used; newest‑first ordering allows a
+  `publication_date` watermark.
+- **Additional countries queryable:** Indirectly, via `location` — unused.
+- **Multiple keyword searches:** No free‑text keyword parameter documented; `category`/`level` are
+  the closest partitioning mechanism.
+- **Category searches:** Yes, `category` — unused.
+- **Location‑based searches:** Yes, `location` — unused.
+- **Company‑based searches:** Yes, `company` — unused.
+- **Classification: Category C.** The 2,000‑job ceiling applies **per unscoped query**; because
+  `category`/`location`/`company` filters are accepted, partitioning one broad browse into several
+  filtered queries — each independently subject to its own 2,000‑job ceiling — extracts meaningfully
+  more without needing an API key.
+- **Additional jobs estimate:** **+3,000–6,000**, by partitioning across major categories and a
+  handful of locations, each run as its own capped‑at‑2,000 query. (Registering for an API key would
+  likely raise the per‑query ceiling further; the exact authenticated‑tier limit was not verified in
+  this pass.)
+
+#### Bundesagentur für Arbeit
+- **Current jobs collected:** 10,000 (50 pages × 200/page — the API's own hard result‑window limit;
+  `page*size` cannot exceed 10,000 regardless of the 1,000,000+ jobs reported as available).
+- **Public API limitations:** strict Elasticsearch‑style result‑window cap, typical of this backend;
+  requires the well‑known public `X‑API‑Key`.
+- **Pagination limits:** offset‑based (`page`/`size`); 10,000 is a hard ceiling regardless of page
+  size chosen.
+- **Request limits:** none numerically documented; occasional transient timeouts around page 20–50
+  are already handled with retry/backoff.
+- **Result limits:** 10,000 — already the maximum obtainable from **a single unfiltered query**.
+- **Available filters:** `wo`+`umkreis` (location/radius), `was` (keyword), **`veroeffentlichtseit`**
+  (days since published), `arbeitszeit`/`angebotsart`/`befristung` (job type) — all supported, all
+  unused.
+- **Incremental sync supported:** Yes — `veroeffentlichtseit` — unused.
+- **Additional countries queryable:** No — single‑country (Germany) API by design.
+- **Multiple keyword searches:** Yes, `was` — unused.
+- **Category searches:** Partial, via `angebotsart`/`arbeitszeit` job‑type facets — unused.
+- **Location‑based searches:** Yes, `wo`/`umkreis` — unused.
+- **Company‑based searches:** No reliable employer‑name filter confirmed.
+- **Classification: Category C.** Despite already hitting the hard 10,000 window on one query, the
+  reported total inventory (1,000,000+) leaves enormous headroom behind that single‑query cap —
+  location and keyword filters can each open an independent 10,000‑job window.
+- **Additional jobs estimate:** **+15,000–30,000**, by partitioning into a handful of regional
+  (`wo`) or keyword (`was`) queries, each independently capped at 10,000; partitioning by German
+  state could go higher still, bounded by request budget and dedup overhead.
+
+### 20.2 Phase 2 — API‑key providers
+
+#### Jooble
+- **Current jobs collected:** 1,129 (wildcard single‑space `keywords`; pagination stops once a page
+  comes back short — around page 12 at 100/page — despite the API reporting hundreds of thousands
+  of total matches for a broad query).
+- **Public API limitations:** the **effective** result window for a wildcard query collapses far
+  below the reported total match count; `ResultOnPage` silently falls back to 30 above 100.
+- **Pagination limits:** page+`ResultOnPage` (≤100 honored); `MAX_PAGES=20` self‑imposed, though the
+  real wildcard window empties around page 12 regardless.
+- **Request limits:** none documented beyond the result‑window behavior above.
+- **Result limits:** ~1,100–1,200 is the practical ceiling for a single **wildcard** query — a
+  consequence of how the API ranks/exhausts a near‑empty query, not a documented hard cap.
+- **Available filters:** `location`, `salary`, and **`datecreatedfrom`** — all supported, all
+  unused; `keywords` is required and currently a wildcard.
+- **Incremental sync supported:** Yes — `datecreatedfrom` — unused.
+- **Additional countries queryable:** Not documented as a separate parameter in this integration;
+  locale‑specific behavior was not verified in this pass.
+- **Multiple keyword searches:** Yes — real, specific keywords are very likely to each return a
+  distinct, larger result set than the current wildcard.
+- **Category searches:** No explicit category filter confirmed; `keywords` is the primary lever.
+- **Location‑based searches:** Yes, `location` — unused.
+- **Company‑based searches:** No company filter confirmed.
+- **Classification: Category C.** The wildcard query is the single biggest self‑imposed limiter —
+  it collapses to a ~1,100‑job window despite a much larger index behind it.
+- **Additional jobs estimate:** **+3,000–8,000**, by replacing the wildcard with a handful of
+  targeted keyword and location‑partitioned queries, each pulled to its own natural result‑window
+  limit — this would also reduce cross‑provider duplication versus browsing everything.
+
+#### USAJOBS
+- **Current jobs collected:** 10,000 (20 pages × 500/page; confirmed hard ceiling — an offset of
+  10,000 returns zero results).
+- **Public API limitations:** `SearchResultCountAll` result window is capped at exactly 10,000
+  regardless of `ResultsPerPage`; rate limiting is described only as "per User‑Agent string," with
+  no published number.
+- **Pagination limits:** `Page`+`ResultsPerPage`; tested up to 5,000/page (latency scales), but the
+  10,000 total‑result ceiling applies regardless of page size.
+- **Request limits:** none numerically documented.
+- **Result limits:** 10,000 — already the maximum obtainable from **a single unfiltered query**.
+- **Available filters:** `LocationName`+`Radius`, `Keyword`, **`JobCategoryCode`** (O*NET series),
+  `PositionScheduleTypeCode`, salary/pay‑grade range, and **`DatePosted`** — all supported, all
+  unused.
+- **Incremental sync supported:** Yes — `DatePosted` — unused.
+- **Additional countries queryable:** Not applicable — exclusively the US federal job index.
+- **Multiple keyword searches:** Yes, `Keyword` — unused.
+- **Category searches:** Yes — `JobCategoryCode` is a rich, well‑populated facet — unused.
+- **Location‑based searches:** Yes, `LocationName`+`Radius` — unused.
+- **Company‑based searches:** Partial — `Organization` (federal agency) filtering exists; this
+  project browses across all agencies.
+- **Classification: Category C.** Despite already hitting the hard 10,000‑job window on an
+  unfiltered query, `JobCategoryCode` and `LocationName` are real, well‑populated filters that can
+  each open an independent 10,000‑job window.
+- **Additional jobs estimate:** **+10,000–20,000**, by partitioning across a handful of major
+  occupation categories or geographic regions, each independently capped at 10,000.
+
+#### Adzuna
+- **Current jobs collected:** 2,000 (40 pages × 50/page self‑imposed cap; no pagination ceiling
+  found in live testing up to page 5,000).
+- **Public API limitations:** `results_per_page` silently caps at 50; the country‑wide index runs
+  into the millions, so 2,000 is **entirely a self‑imposed cap**, not an API limitation.
+- **Pagination limits:** page+`results_per_page` (≤50); no discovered ceiling.
+- **Request limits:** a free‑tier daily call cap exists (exact number not verified in this pass) but
+  is not being approached at the current 40‑page/run usage.
+- **Result limits:** none discovered — the only constraint here is self‑imposed.
+- **Available filters:** `what`/`what_and`/`what_or`/`what_exclude` (keyword), `where` (location),
+  `category`, `company`, `salary_min`/`salary_max`, job‑type flags, and **`max_days_old`** (date) —
+  all supported, **all unused** beyond the country path itself.
+- **Incremental sync supported:** Yes — `max_days_old` — unused.
+- **Additional countries queryable:** **Yes — the single largest opportunity of any provider in
+  this project.** Adzuna is queried per‑country via the URL path; the existing key already grants
+  access to `ca`, `gb`, `de`, `fr`, `es`, `nl`, `it`, `pl`, `at`, `br`, `mx`, and others — today,
+  only `us` is ever queried.
+- **Multiple keyword searches:** Yes, `what` variants — unused.
+- **Category searches:** Yes, `category` — unused.
+- **Location‑based searches:** Yes, `where` — unused.
+- **Company‑based searches:** Yes, `company` — unused.
+- **Classification: Category C.** By far the largest opportunity in the provider set — 2,000
+  reflects a self‑imposed cap on **one country** out of the many the existing key already covers,
+  requiring no code change beyond iterating the country parameter.
+- **Additional jobs estimate:** **+20,000–40,000**, by running the same 40‑page/2,000‑job pattern
+  already in production across 10+ additional countries the key already supports — before even
+  considering `max_days_old` or category partitioning within each country.
+
+#### Reed
+- **Current jobs collected:** 9,000 (90 pages × 100/page; capped safely below the discovered
+  ~9,900–9,920 boundary where `resultsToSkip` starts returning HTTP 500 instead of an empty page).
+- **Public API limitations:** hits a hard result‑window boundary that **errors** rather than
+  returning an empty page — unusual among this project's sources.
+- **Pagination limits:** `resultsToTake` (≤100)+`resultsToSkip`; `MAX_PAGES=90` set safely below the
+  discovered error boundary.
+- **Request limits:** none separately documented.
+- **Result limits:** ~9,900–9,920 is the practical ceiling for **a single unfiltered query**.
+- **Available filters:** `keywords`, `locationName`+`distance`, salary range, and job‑type flags —
+  all supported, all unused (broad UK‑wide browse only); no category/employment‑type field exists in
+  the response at all.
+- **Incremental sync supported:** No date‑filter request parameter is documented/available.
+- **Additional countries queryable:** Not applicable — UK‑only board by design.
+- **Multiple keyword searches:** Yes, `keywords` — unused.
+- **Category searches:** No category filter exists in this API.
+- **Location‑based searches:** Yes, `locationName`+`distance` — unused.
+- **Company‑based searches:** Yes, `employerId` — unused (limited value for discovery, since it
+  requires already knowing employer IDs).
+- **Classification: Category C.** Despite already sitting close to the ~9,900‑job single‑query
+  ceiling, `keywords` and `locationName` are real, well‑populated filters that can each open an
+  independent large result set.
+- **Additional jobs estimate:** **+8,000–15,000**, by partitioning into a handful of UK‑region or
+  keyword‑scoped queries, each pulled independently up to its own ~9,900‑job practical ceiling.
+
+#### SerpApi (Google Jobs)
+- **Current jobs collected:** 50 (5 pages × 10/page; deliberately small since each page is a
+  billable search against a 250‑searches/month free‑plan quota).
+- **Public API limitations:** metered, pay‑per‑request; the constraint here is **entirely a
+  self‑imposed cost control**, not a technical ceiling — the underlying Google Jobs index is far
+  larger.
+- **Pagination limits:** token‑based (`next_page_token`), 10 jobs/page; no technical ceiling was
+  tested since each page costs one billable search.
+- **Request limits:** 250 searches/month on the free plan (confirmed via a real account‑balance
+  check before implementation).
+- **Result limits:** none technical — purely budget‑constrained.
+- **Available filters:** `location`, `q` (required keyword), and `chips` (relative date, employment
+  type, work‑from‑home) — all supported; only a generic wildcard `q="jobs"` is used with no location
+  or date `chips` applied.
+- **Incremental sync supported:** Partially — `chips` supports relative date filters (e.g.,
+  `date_posted=today`), though the underlying `posted_at` field is itself only a relative string.
+- **Additional countries queryable:** Yes, via `location`/`uule` — unused.
+- **Multiple keyword searches:** Yes, though each additional query consumes more of the monthly
+  quota — a cost trade‑off, not a technical limitation.
+- **Category searches:** Partial, via `chips` employment‑type facets — unused.
+- **Location‑based searches:** Yes, `location` — unused.
+- **Company‑based searches:** Partial, only via the free‑text `q` parameter.
+- **Classification: Category B.** Moderate opportunity constrained by **cost**, not technical
+  limits.
+- **Additional jobs estimate:** Roughly proportional to whatever additional monthly quota is
+  allocated — e.g., using the full 250‑search/month budget (vs. today's 5 searches/run) at 10
+  jobs/search could yield up to ~2,500 jobs/month if run once; no net‑new volume is available
+  without more quota or accepting fewer runs elsewhere.
+
+#### OpenWeb Ninja (JSearch)
+- **Current jobs collected:** ~47–50 (5 pages via cursor pagination; deliberately small on a
+  200‑requests/month free‑plan quota).
+- **Public API limitations:** metered; free plan allows 200 requests/month total.
+- **Pagination limits:** cursor‑based (`cursor`); no technical ceiling tested since cost accrues per
+  request.
+- **Request limits:** 200 requests/month on the free plan.
+- **Result limits:** none technical — purely budget‑constrained.
+- **Available filters:** `country`, `date_posted`, `employment_types`, `remote_jobs_only`,
+  `job_requirements` — all supported; only a generic wildcard `query="jobs"` is used with no country
+  or date filter applied.
+- **Incremental sync supported:** Yes — `date_posted` — unused.
+- **Additional countries queryable:** **Yes** — `country` is supported and unused; a direct,
+  low‑cost way to target India, Southeast Asia, or other under‑covered regions from an
+  already‑integrated, already‑keyed source.
+- **Multiple keyword searches:** Yes, budget‑permitting.
+- **Category searches:** Partial, via `employment_types`.
+- **Location‑based searches:** Yes, via `country`/location‑style parameters.
+- **Company‑based searches:** Partial, only via free‑text `query`.
+- **Classification: Category B.** Moderate opportunity, cost‑constrained; the most valuable unused
+  lever is `country`, letting this source target a specific coverage gap instead of a generic global
+  wildcard.
+- **Additional jobs estimate:** Limited by the fixed 200‑request/month quota; reallocating existing
+  quota toward `country`‑scoped queries (e.g., `country=in`) would not increase total volume but
+  would meaningfully increase *useful, targeted* volume in currently weak regions — a reallocation,
+  not a net addition, unless the quota itself is increased.
+
+#### Careerjet
+- **Current jobs collected:** 2,000 (100 pages × 20/page self‑imposed cap; no pagination ceiling
+  found in live testing up to page 100, similar to Adzuna's situation).
+- **Public API limitations:** documented `page_size` is silently ignored (always 20/page); requires
+  IP allowlisting and a `Referer` header — both undocumented requirements found only through live
+  testing.
+- **Pagination limits:** `page` (20/page fixed); no discovered ceiling — self‑imposed stop at 100
+  pages, out of a reported ~320,000+ total matches for the wildcard query used.
+- **Request limits:** none separately documented.
+- **Result limits:** none discovered — like Adzuna, entirely self‑imposed.
+- **Available filters:** `keywords` (required; currently the wildcard "jobs"), `location`,
+  `contracttype`/`contractperiod`; localized country sites are reachable via **`locale_code`** (UK,
+  Germany, India, Brazil, Singapore‑region locales, etc.) — entirely unused today.
+- **Incremental sync supported:** No date‑filter request parameter is documented/available.
+- **Additional countries queryable:** **Yes, via `locale_code`** — a real, currently entirely
+  unused lever that could add UK, India, Brazil, and other regional coverage from a source already
+  integrated.
+- **Multiple keyword searches:** Yes — real, targeted keywords would each return a distinct,
+  non‑overlapping result set.
+- **Category searches:** No explicit category filter; keyword and contract‑type filters are the
+  closest lever.
+- **Location‑based searches:** Yes, `location` — unused.
+- **Company‑based searches:** No company filter confirmed.
+- **Classification: Category C.** Both the wildcard keyword and the single implicit locale are
+  unnecessary self‑limitations on an already‑authenticated source.
+- **Additional jobs estimate:** **+5,000–10,000**, by adding a handful of `locale_code`‑scoped
+  passes (e.g., UK, India, Brazil) alongside the existing US‑equivalent pass, each independently
+  capped at ~2,000 by the same self‑imposed page limit.
+
+#### TheirStack
+- **Current jobs collected:** 0 (the account's current plan does not include Jobs API access;
+  every request returns HTTP 402 Payment Required).
+- **Public API limitations:** bills **1 credit per job returned** (not per request); at least one
+  filter is required — an unfiltered browse is rejected outright.
+- **Pagination limits:** 0‑indexed `page`+`limit`, no documented maximum; the integration trims the
+  final page's `limit` to respect its own `MAX_JOBS=50` cap.
+- **Request limits:** not applicable while blocked by the 402 plan restriction.
+- **Result limits:** `MAX_JOBS=50` is self‑imposed (to control per‑job billing), not a technical
+  ceiling.
+- **Available filters:** `posted_at_max_age_days`/`posted_at_gte`/`posted_at_lte` (date), plus
+  company, location, and remote filters — all supported; only a broad 30‑day date window is set
+  today.
+- **Incremental sync supported:** Yes — the date‑range filters are exactly this mechanism, already
+  partially used.
+- **Additional countries queryable:** Yes — location filtering is supported.
+- **Multiple keyword searches:** Not clearly applicable — this API is filter‑based (company/
+  location/date), not free‑text search.
+- **Category searches:** Not confirmed as a distinct filter dimension.
+- **Location‑based searches:** Yes — supported.
+- **Company‑based searches:** Yes — supported, and could target specific high‑value employers
+  directly.
+- **Classification: Category A** *in its current state* — not because the API is exhausted, but
+  because the **account's plan blocks all access**, making "additional extractable jobs" moot until
+  the billing issue is resolved. Once resolved, this would immediately become at least a Category
+  B/C source given its rich filter set — but that reclassification depends on a billing decision,
+  not an engineering one.
+- **Additional jobs estimate:** 0 while plan‑gated; if access were restored, even the existing
+  `MAX_JOBS=50` self‑cap could be raised, bounded entirely by budget given the per‑job billing model.
+
+### 20.3 Phase 3 — ATS providers
+
+*All six ATS providers share one structural fact: none of them expose a keyword, location, category,
+or date **request filter** — each is a full‑board, per‑company fetch. For every one of them, the
+only real lever is the curated company list, not query mechanics.*
+
+#### Greenhouse
+- **Current jobs collected:** 22,728 (single‑shot fetch per company across ~230 curated slugs; each
+  call returns a company's entire current board).
+- **Public API limitations:** none — no auth required; no pagination exists because none is needed.
+- **Pagination limits:** not applicable.
+- **Request limits:** none documented; one request per configured company per run.
+- **Result limits:** none beyond each company's actual board size — already fully captured.
+- **Available filters:** none beyond `content=true` (already used, at no extra cost).
+- **Incremental sync supported:** No request‑side date filter; `first_published`/`updated_at` are
+  returned per job for client‑side diffing.
+- **Additional countries queryable:** Not applicable — no country dimension on this API.
+- **Multiple keyword searches:** Not applicable — no keyword search exists.
+- **Category searches:** Not applicable — departments are returned as data, not queried.
+- **Location‑based searches:** Not applicable — no location filter exists.
+- **Company‑based searches:** **The only lever** — coverage is 100% a function of `COMPANY_SLUGS`.
+- **Classification: Category B.** The API already returns everything possible for every configured
+  company; the opportunity is entirely in broadening the company list.
+- **Additional jobs estimate:** **+5,000–15,000**, by adding ~50–100 additional verified slugs
+  concentrated in under‑represented regions/industries (Canada, SEA, LATAM, India).
+
+#### Lever
+- **Current jobs collected:** 17,755 (single‑shot in practice across ~180 curated slugs; real
+  `skip`/`limit` pagination exists but no configured company has ever needed a second page).
+- **Public API limitations:** none — no auth required for GET.
+- **Pagination limits:** `skip`+`limit` (100/page), already followed to exhaustion per company.
+- **Request limits:** none documented.
+- **Result limits:** none beyond each company's actual board size.
+- **Available filters:** none — full‑board fetch only.
+- **Incremental sync supported:** No request‑side filter; `createdAt` (Unix ms) supports
+  client‑side diffing.
+- **Additional countries queryable:** Not applicable.
+- **Multiple keyword searches:** Not applicable.
+- **Category searches:** Not applicable (`categories.team`/`department` are data, not filters).
+- **Location‑based searches:** Not applicable.
+- **Company‑based searches:** **The only lever.**
+- **Classification: Category B.** Company‑list expansion only.
+- **Additional jobs estimate:** **+5,000–10,000**, by adding ~50–100 additional verified slugs,
+  particularly since Lever skews smaller/venture‑backed companies rather than large enterprises.
+
+#### Ashby
+- **Current jobs collected:** 5,171 (single‑shot across 102 verified slugs, of ~350 candidates
+  tried — a ~29% hit rate).
+- **Public API limitations:** none — no auth required.
+- **Pagination limits:** not applicable.
+- **Request limits:** none documented.
+- **Result limits:** none beyond each company's actual board size.
+- **Available filters:** none beyond the unused, coverage‑irrelevant `includeCompensation=true`.
+- **Incremental sync supported:** No request‑side filter; `publishedAt` supports client‑side
+  diffing.
+- **Additional countries queryable:** Not applicable.
+- **Multiple keyword searches:** Not applicable.
+- **Category searches:** Not applicable (`department`/`team` are data, not filters).
+- **Location‑based searches:** Not applicable.
+- **Company‑based searches:** **The only lever.**
+- **Classification: Category B.** Company‑list expansion only, with a moderate historical hit
+  rate suggesting further candidate discovery has diminishing but still positive returns.
+- **Additional jobs estimate:** **+2,000–5,000**, by sourcing additional slugs outside Ashby's
+  current AI/SaaS/FinTech‑heavy coverage — manufacturing, logistics, and consulting were explicitly
+  thin in the existing list.
+
+#### SmartRecruiters
+- **Current jobs collected:** 65,193 (real, required `offset`/`limit` pagination across 100
+  verified company identifiers, of ~200 candidates tried; some boards run into the thousands —
+  Domino's alone: 24,445+).
+- **Public API limitations:** none on this public posting endpoint; an unknown identifier returns
+  HTTP 200 with `totalFound: 0` rather than a 404, so verification requires checking `totalFound`.
+- **Pagination limits:** `offset`+`limit` (100/page), already followed to exhaustion per company.
+- **Request limits:** none documented.
+- **Result limits:** none beyond each company's actual board size — already fully captured.
+- **Available filters:** none beyond pagination.
+- **Incremental sync supported:** No request‑side filter; `releasedDate` supports client‑side
+  diffing.
+- **Additional countries queryable:** Not applicable.
+- **Multiple keyword searches:** Not applicable.
+- **Category searches:** Not applicable (`department`/`function`/`typeOfEmployment` are data).
+- **Location‑based searches:** Not applicable.
+- **Company‑based searches:** **The only lever** — already the single largest provider in the
+  entire dataset (41.8% of all jobs).
+- **Classification: Category B.** Company‑list expansion only; the API is already fully exploited
+  per configured company.
+- **Additional jobs estimate:** **+5,000–15,000**, by adding more verified identifiers — though
+  given this provider's already‑flagged concentration risk (Sections 1, 9, 13), further expansion
+  should be weighed against the goal of *diversifying* the provider mix, not just maximizing
+  SmartRecruiters volume specifically.
+
+#### Workable
+- **Current jobs collected:** 7,644 (single‑shot across 89 verified slugs, of ~200 candidates tried
+  — a ~44.5% hit rate).
+- **Public API limitations:** none on this public widget endpoint; an unknown subdomain 404s
+  cleanly (unlike SmartRecruiters).
+- **Pagination limits:** not applicable.
+- **Request limits:** none documented.
+- **Result limits:** none beyond each company's actual board size.
+- **Available filters:** none — full‑board fetch only.
+- **Incremental sync supported:** No request‑side filter; `published_on`/`created_at` support
+  client‑side diffing.
+- **Additional countries queryable:** Not applicable.
+- **Multiple keyword searches:** Not applicable.
+- **Category searches:** Not applicable (`department`/`function`/`employment_type` are data).
+- **Location‑based searches:** Not applicable.
+- **Company‑based searches:** **The only lever** — Workable's SMB/staffing/consulting‑skewed
+  customer base requires more targeted candidate sourcing than Ashby/SmartRecruiters.
+- **Classification: Category B.** Company‑list expansion only.
+- **Additional jobs estimate:** **+3,000–7,000**, by sourcing additional slugs in staffing,
+  consulting/IT‑services, fintech, healthcare, legal, and retail/e‑commerce — the segments where
+  this project already found genuine, large, active Workable boards.
+
+#### Teamtailor
+- **Current jobs collected:** 474 (single‑shot fetch per company's public `jobs.rss` feed across 25
+  verified subdomains, of ~35 candidates tried — a 71% hit rate, the highest of any Phase 3 source).
+- **Public API limitations:** the documented Web API requires a per‑company key this project cannot
+  obtain; the public RSS feed is the only usable no‑auth surface.
+- **Pagination limits:** not applicable — the feed returns the entire current published list.
+- **Request limits:** none documented.
+- **Result limits:** none beyond each company's actual board size.
+- **Available filters:** none — RSS has no query parameters.
+- **Incremental sync supported:** No request‑side filter; `pubDate` (RFC 822) supports client‑side
+  diffing.
+- **Additional countries queryable:** Not applicable (the `.na.teamtailor.com` variant is a hosting
+  detail, not a filter).
+- **Multiple keyword searches:** Not applicable.
+- **Category searches:** Not applicable (`tt:department`/`tt:role`/`tt:division` are data).
+- **Location‑based searches:** Not applicable.
+- **Company‑based searches:** **The only lever**, and the highest‑yield one of any ATS source given
+  the 71% candidate hit rate already observed.
+- **Classification: Category B.** Company‑list expansion only; this is the smallest ATS contributor
+  today, so even modest list growth is a large *relative* increase.
+- **Additional jobs estimate:** **+500–1,500**, by sourcing additional Teamtailor‑hosted career
+  sites via the same HTML‑inspection discovery method already used for the current 25.
+
+### 20.4 Summary table
+
+| Provider | Current Jobs | Estimated Maximum | Additional Jobs Possible | Recommended Strategy |
+|---|---:|---:|---:|---|
+| Arbeitnow | 930 | ~950–1,000 | ~0–100 | None — full board already exhausted; no filter dimension exists |
+| Himalayas | 3,000 | 13,000–23,000 | +10,000–20,000 | Switch to `/search`; partition by `country`/category |
+| RemoteOK | 100 | ~100 | ~0 | None confirmed; verify if tag‑scoped endpoints exist before assuming more |
+| Jobicy | 100 | 300–500 | +200–400 | Partition by `geo`/`industry`/`tag` across multiple calls |
+| The Muse | 2,000 | 5,000–8,000 | +3,000–6,000 | Partition by `category`/`location`; consider an API key |
+| Bundesagentur | 10,000 | 25,000–40,000 | +15,000–30,000 | Partition by region (`wo`) or keyword (`was`) |
+| Jooble | 1,129 | 4,000–9,000 | +3,000–8,000 | Replace wildcard with targeted keywords/locations |
+| USAJOBS | 10,000 | 20,000–30,000 | +10,000–20,000 | Partition by `JobCategoryCode` or `LocationName` |
+| **Adzuna** | **2,000** | **22,000–42,000** | **+20,000–40,000** | **Query additional countries already covered by the existing key** |
+| Reed | 9,000 | 17,000–24,000 | +8,000–15,000 | Partition by UK region/keyword |
+| SerpApi | 50 | ~2,500/mo (budget‑bound) | Budget‑dependent | Reallocate quota to targeted location/date queries |
+| OpenWeb Ninja | ~47 | ~200/mo (budget‑bound) | Budget‑dependent | Reallocate quota toward country‑scoped (e.g. India) queries |
+| Careerjet | 2,000 | 7,000–12,000 | +5,000–10,000 | Add `locale_code` passes + real keywords |
+| TheirStack | 0 | 0 (plan‑gated) | 0 until plan restored | Resolve the account/billing restriction first |
+| Greenhouse | 22,728 | 27,728–37,728 | +5,000–15,000 | Expand curated company‑slug list |
+| Lever | 17,755 | 22,755–27,755 | +5,000–10,000 | Expand curated company‑slug list |
+| Ashby | 5,171 | 7,171–10,171 | +2,000–5,000 | Source additional slugs outside AI/SaaS/FinTech |
+| SmartRecruiters | 65,193 | 70,193–80,193 | +5,000–15,000 | Expand slug list, but weigh against concentration risk |
+| Workable | 7,644 | 10,644–14,644 | +3,000–7,000 | Source slugs in staffing/consulting/fintech/healthcare |
+| Teamtailor | 474 | 974–1,974 | +500–1,500 | Source additional career sites (highest 71% candidate hit rate) |
+
+### 20.5 Classification rollup
+
+- **Category A — already extracting essentially everything possible (3 providers):** Arbeitnow,
+  RemoteOK, and TheirStack (the last one maxed at *zero* due to a billing block, not an engineering
+  ceiling — reclassify once the plan issue is resolved).
+- **Category B — moderate opportunity using existing API capabilities (9 providers):** Jobicy,
+  SerpApi, OpenWeb Ninja, Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Teamtailor. For the
+  six ATS providers in this group, the API itself is already fully exploited per configured
+  company — the entire opportunity is in the curated company list, not in query mechanics.
+- **Category C — large opportunity using existing API capabilities (8 providers):** Himalayas, The
+  Muse, Bundesagentur, Jooble, USAJOBS, **Adzuna**, Reed, Careerjet. Every one of these already
+  supports a keyword, location, category, or country filter that today's integration does not use,
+  and in most cases the current fetch is already at a hard per‑query ceiling that only partitioning
+  (not exhausting) can get past.
+
+### 20.6 Conclusions
+
+**Which existing providers offer the greatest opportunity for additional coverage.** Adzuna is,
+by a wide margin, the single greatest opportunity in the entire provider set: **+20,000–40,000**
+jobs are obtainable purely by querying additional countries the existing API key already has
+access to, with no new authentication, no new provider, and no query‑mechanics work beyond
+iterating a country parameter. Behind it, Bundesagentur, USAJOBS, Himalayas, Reed, Careerjet,
+Jooble, and The Muse together represent a further **+56,000–99,000** in combined realistic
+additional volume, all achievable via filters and query partitioning these APIs already support.
+
+**Which providers have already reached their practical limits.** Arbeitnow and RemoteOK are
+already returning essentially everything their respective APIs expose — Arbeitnow because its
+full current board is already fetched to exhaustion with no filter dimension to partition by, and
+RemoteOK because its documented endpoint is a fixed ~100‑job snapshot with no confirmed filtering
+mechanism. TheirStack is *effectively* at its limit too, but only because of an account/billing
+block, not because its API has been exhausted — it should be re‑evaluated the moment Jobs API
+access is restored.
+
+**Which providers should be optimized before integrating additional APIs.** The eight Category C
+providers — Adzuna first and foremost, then Bundesagentur, USAJOBS, Reed, Himalayas, Jooble,
+Careerjet, and The Muse — should be optimized **before** any new provider from Sections 10, 11, or
+16 is integrated. Collectively they represent on the order of **75,000–140,000** additional jobs
+obtainable from infrastructure that already exists, already has valid credentials where needed,
+and already has a working, tested normalization path in this codebase. The marginal engineering
+cost of using an existing key's untapped filter capability is far lower than standing up any new
+integration, making this the correct place to invest before expanding the provider roster further.
