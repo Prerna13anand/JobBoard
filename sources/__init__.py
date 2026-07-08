@@ -15,6 +15,7 @@ jobs.py never needs to change when a new source is added.
 from . import config  # noqa: F401 - loads .env on startup for Phase 2 (API-key) sources
 from .adzuna import AdzunaSource
 from .arbeitnow import ArbeitnowSource
+from .arbetsformedlingen import ArbetsformedlingenSource
 from .ashby import AshbySource
 from .bundesagentur import BundesagenturSource
 from .careerjet import CareerJetSource
@@ -46,6 +47,7 @@ SOURCES = [
     TheMuseSource(),
     BundesagenturSource(),
     RemotiveSource(),
+    ArbetsformedlingenSource(),
     JoobleSource(),
     USAJobsSource(),
     AdzunaSource(),

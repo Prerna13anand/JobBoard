@@ -1,0 +1,967 @@
+[
+ {
+  "name": "4dayweek.io",
+  "regions": [
+   "Remote/Global"
+  ],
+  "type": "Public",
+  "access_model": "Paid",
+  "cost_details": "Employer posting is paid; feed/API access terms not publicly detailed.",
+  "auth_required": "Unknown (RSS likely open; API terms unspecified)",
+  "docs_available": "Limited (feed/API referenced on site; no full public spec found)",
+  "notes": "Niche 4-day-week board; API/RSS advertised but detailed spec not publicly confirmed. verified on https://4dayweek.io/ and https://www.jobsearchdb.com/job-board/4dayweek-io | Access detail: Job board for 4-day-week / reduced-hours roles; site advertises API and RSS feed access for aggregators (feed/API linked in footer). Most roles remote.",
+  "pagination": "page/limit query params: v2 (recommended) - page (default 1) + limit (default 25, max 100); v1 (legacy) - page + limit only, same defaults; iterate ?page=1..N until has_more == false",
+  "pagination_type": "page",
+  "limitations": "Not documented publicly; feed/API specifics unverified.",
+  "unique_job_id": "Job URL/slug on 4dayweek.io"
+ },
+ {
+  "name": "Adzuna",
+  "regions": [
+   "Canada",
+   "Europe (Other)",
+   "LATAM",
+   "Singapore/SEA"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free tier (existing key)",
+  "auth_required": "Yes (already held)",
+  "docs_available": "Yes",
+  "notes": "Existing Adzuna key already covers Canada ('ca'); enabling it is a config-only change, not a new integration. See report Sec 11/16 (Canada).",
+  "pagination": "page path + results_per_page (silently capped at 50)",
+  "pagination_type": "page",
+  "limitations": "Same pattern as other Adzuna countries",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Apideck",
+  "regions": [
+   "Global"
+  ],
+  "type": "ATS Unified API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "30-day free trial; Launch EUR599/mo (1 category, from 25 consumers); Scale EUR1,299/mo (3 categories, from 100 consumers); Enterprise custom (unlimited categories, from 300 consumers); consumer-based pricing (unlimited calls/connectors per consumer)",
+  "auth_required": "Yes (API key + consumer-token, base unify.apideck.com)",
+  "docs_available": "Yes",
+  "notes": "Unified ATS API with Jobs, Applicants, Applications (full CRUD) across 11 ATS connectors (Bullhorn, Greenhouse, JobAdder, Lever, Workable, Workday, etc.). Verified on apideck.com/pricing, apideck.com/ats-api, developers.apideck.com/apis/ats/reference",
+  "pagination": "Cursor-based: cursor param + limit (1-200, default 20); next/previous cursors returned in the response's meta.cursors property",
+  "pagination_type": "cursor",
+  "limitations": "Not stated on pages viewed",
+  "unique_job_id": "Yes (normalized record id)"
+ },
+ {
+  "name": "Apify",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Platform: Free $0/mo ($5 usage included), Starter $29/mo, Scale $199/mo, Business $999/mo; compute $0.2-$0.13 per CU. Job Actors: bebity/linkedin-jobs-scraper $29.99/mo rental+usage (max 1,000 rows/run); curious_coder/linkedin-jobs-search-scraper $30/mo rental+usage; misceres/indeed-scraper pay-per-result from $3.00 per 1,000 listings",
+  "auth_required": "Yes (API token)",
+  "docs_available": "Yes",
+  "notes": "Marketplace of third-party Actors; strongest purpose-built LinkedIn Jobs + Indeed scrapers of the scraping group. Verified on apify.com/pricing and the named actor pages",
+  "pagination": "Yes",
+  "pagination_type": "Item-limit params (maxItemsPerSearch, rows)",
+  "limitations": "Plan concurrency/compute budget; per-actor row caps (e.g. 1,000 rows/run); scraping-based, observe target ToS",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Arbetsformedlingen JobSearch API (Sweden)",
+  "regions": [
+   "Sweden"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free; JobSearch read API requires no API key (per arbetsformedlingen.se 'APIs and open data' and JobTech Dev docs)",
+  "auth_required": "No (JobSearch/JobStream read APIs are keyless; a separate authenticated partner API exists only for employers submitting ads)",
+  "docs_available": "Yes",
+  "notes": "Confirmed real and well documented: JobSearch API (jobsearch.api.jobtechdev.se) for searching current ads and JobStream API for streaming updates, maintained by Arbetsformedlingen/JobTech Dev with docs on GitLab (gitlab.com/arbetsformedlingen/job-ads/jobsearch-apis). This is the one EU public-employment-service API confirmed genuinely open/keyless.",
+  "pagination": "Yes (offset/limit per API docs)",
+  "pagination_type": "Offset-based (per docs)",
+  "limitations": "Documented as free/open; exact numeric rate limit not published in available docs (Unknown)",
+  "unique_job_id": "Ad ID (per AdFields documentation)"
+ },
+ {
+  "name": "Bright Data",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Jobs Scraper API $1 per 1,000 records (list), promo $0.75/1k; LinkedIn Jobs dataset purchase from $250 for 100K records (~$0.0025/rec), subscription discounts up to 80%; free tier 5,000 credits/mo (~$7.50), no card",
+  "auth_required": "Yes (API key)",
+  "docs_available": "Yes",
+  "notes": "Purpose-built Jobs Scraper API covering LinkedIn Jobs, Indeed, Glassdoor; also sells pre-built LinkedIn job datasets. Verified on brightdata.com/products/web-scraper/jobs-scraper, /linkedin/jobs, /datasets/linkedin, docs.brightdata.com",
+  "pagination": "Async snapshot model: trigger a collection/filter job, poll status, then GET /datasets/snapshots/{id}/download with batch_size (min 1,000 records/batch) + part (batch number, starting at 1) to page through large snapshot results",
+  "pagination_type": "part/batch (offset-style batching of a pre-built snapshot)",
+  "limitations": "Rate limits not published; handles up to 5,000 URLs per request; pay only for successful results; scraping-based, observe target ToS",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+  "regions": [
+   "Poland"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (open data)",
+  "auth_required": "Unknown - dataset page found on dane.gov.pl, but exact access format (API vs. file download) could not be confirmed",
+  "docs_available": "Partial - dataset listed at dane.gov.pl/pl/dataset/538,oferty-pracy-psz, but page content/format not confirmed",
+  "notes": "Confirmed real: CBOP (Centralna Baza Ofert Pracy) is Poland's national shared database of public-employment-office job offers, browsable at oferty.praca.gov.pl and listed as an open dataset on dane.gov.pl. Whether it is exposed as a queryable API vs. periodic file dumps is unconfirmed. | Access detail: Free / Open (dataset listed on dane.gov.pl open-data portal)",
+  "pagination": "Not page/offset-based - full criteria pull via SOAP WebService (POST to /integration/services/oferta or /v2/oferta with a Wojewodztwo/region, Jednostka/office, or Wszystkie/all criterion), returned as a ZIP of JSON files split into batches of max 1,000 offers per file",
+  "pagination_type": "Batch (max 1,000 records/file, criteria-scoped SOAP pull, not a live page/cursor)",
+  "limitations": "20 calls/cycle limit during 17:00-07:00 access window; service unavailable outside defined hours; two service versions available (legacy /oferta and /v2/oferta with language selection: pl/ru/by/en/ua)",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "CareerOneStop / NLx \"List Jobs V2\"",
+  "regions": [
+   "United States"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (partner-gated)",
+  "auth_required": "Yes (token; approval needed)",
+  "docs_available": "Yes",
+  "notes": "US non-federal government job data; requires partner approval/token. See report Sec 16 (US).",
+  "pagination": "Offset-style path parameters: {startRecord}/{pageSize} (e.g. /v2/jobsearch/{userId}/{keyword}/{location}/{radius}/{sortColumns}/{sortOrder}/{startRecord}/{pageSize}/{days}); all parameters required on every request",
+  "pagination_type": "N/A",
+  "limitations": "Not fully published",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Careerjet",
+  "regions": [
+   "United Kingdom"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free tier (existing key)",
+  "auth_required": "Yes (locale_code param, already held)",
+  "docs_available": "Yes",
+  "notes": "Already-integrated Careerjet supports locale_code for a UK-scoped pass; current run is wildcard/unscoped. See report Sec 16 (UK).",
+  "pagination": "page; page_size documented but silently ignored (always 20/page)",
+  "pagination_type": "page",
+  "limitations": "20/page fixed; no ceiling found",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Coresignal",
+  "regions": [
+   "India",
+   "United States"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Enterprise",
+  "cost_details": "Paid (from $49/mo)",
+  "auth_required": "Yes",
+  "docs_available": "Yes",
+  "notes": "Enterprise-only multi-source dataset. Cost-gated, scale play. See report Sec 16 (US).",
+  "pagination": "Cursor-based: after parameter (numeric ID cursor, or score+timestamp+ID cursor when sorting by score) plus items_per_page (max 1,000/page); response includes x-next-page-after, x-total-pages, x-total-results headers",
+  "pagination_type": "Unknown (not integrated; enterprise dataset, docs not reviewed in code)",
+  "limitations": "Per plan",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Diffbot",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free $0/mo (10,000 credits/mo); Startup $299/mo (250,000 credits, $0.001/credit); Plus $899/mo (1,000,000 credits, $0.0009/credit); Enterprise custom. Extract 1 page = 1 credit; Export 1 KG entity = 25 credits",
+  "auth_required": "Yes (API token)",
+  "docs_available": "Yes",
+  "notes": "Dedicated Job API extracts structured postings (title, datePosted, employer, salary, locations, remote, skills, requirements) on-demand from a given URL; not a bulk pre-collected dataset. Verified on diffbot.com/pricing, docs.diffbot.com/reference/job",
+  "pagination": "Offset/size via DQL Search API: from (offset, default 0) + size (default 50, max enforced so from+size <= 10,000 for facet queries; size=-1 returns all results)",
+  "pagination_type": "offset",
+  "limitations": "Free 5 calls/min; Startup 5 calls/sec; Plus 25 calls/sec; Enterprise 25+/sec",
+  "unique_job_id": "Yes (diffbotUri unique object ID)"
+ },
+ {
+  "name": "Fantastic Jobs / Active Jobs DB",
+  "regions": [
+   "India",
+   "United States"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free trial; ~$1/1,000 jobs",
+  "auth_required": "Yes",
+  "docs_available": "Yes",
+  "notes": "RapidAPI wrapper aggregating multiple ATS/boards. Add if budget allows. See report Sec 16 (US).",
+  "pagination": "Offset/limit: limit param (1-1,000 per request, default 100) + offset param; increase offset by limit each call until a response returns fewer rows than limit",
+  "pagination_type": "Unknown (not integrated; RapidAPI wrapper, docs not reviewed in code)",
+  "limitations": "Generous; hourly refresh",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Findwork.dev",
+  "regions": [
+   "United States"
+  ],
+  "type": "Public",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free tier",
+  "auth_required": "Yes (token)",
+  "docs_available": "Partial",
+  "notes": "US/remote tech job API; volume unverified. See report Sec 10.2 (US).",
+  "pagination": "Unknown",
+  "pagination_type": "N/A",
+  "limitations": "Unknown",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "France Travail (ex-Pole emploi)",
+  "regions": [
+   "Europe (Other)"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (registration required)",
+  "auth_required": "Yes (OAuth2)",
+  "docs_available": "Yes",
+  "notes": "Authoritative French national job board; requires OAuth2 registration. See report Sec 16 (Europe).",
+  "pagination": "Offset-style via range parameter (e.g. range=0-149, default 0-149); max 150 results/request, max range endpoint index 1149 (up to 1150 total results per query); rate-limited to 3 req/sec; larger result sets require narrowing with minCreationDate/maxCreationDate",
+  "pagination_type": "N/A",
+  "limitations": "Not fully published",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Freshersworld",
+  "regions": [
+   "India"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free",
+  "cost_details": "Free (no auth) - if feed still live",
+  "auth_required": "None",
+  "docs_available": "Yes (historically)",
+  "notes": "The only India consumer board with a historical RSS/XML feed; verify it is still live before relying on it. See report Sec 16.2 (India).",
+  "pagination": "RSS/XML (verify current)",
+  "pagination_type": "Unknown (see existing Pagination column: RSS/XML (verify current))",
+  "limitations": "Limited filters; verify current availability",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "GOV.UK Find a Job (DWP)",
+  "regions": [
+   "United Kingdom"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (access model unclear)",
+  "auth_required": "For employers submitting vacancies: SFTP upload using username/password credentials, per DWP's official 'Find a Job' Bulk Upload Specification (XML files sent to an SFTP server with assigned credentials). No confirmed public read/search API exists for third parties to consume listings.",
+  "docs_available": "Partial",
+  "notes": "UK government job service (successor to Universal Jobmatch); read-access model unconfirmed. See report Sec 16 (UK). Access model corrected to Free (the government service itself is free; the uncertainty is about whether third-party read access is available at all, not about cost).",
+  "pagination": "Unknown",
+  "pagination_type": "N/A",
+  "limitations": "Unknown",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Get on Board",
+  "regions": [
+   "LATAM"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Likely free/low-cost (unverified)",
+  "auth_required": "Likely yes",
+  "docs_available": "Unknown (advertised, not independently verified)",
+  "notes": "LATAM tech-focused job board; one of the few LATAM boards with an advertised public API (unverified). See report Sec 16 (LATAM).",
+  "pagination": "page/per_page query params; page default 1, per_page default and max 100",
+  "pagination_type": "N/A",
+  "limitations": "Unknown",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "HasData",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free $0 (1,000 credits, c1); Startup $49/mo (200K, c15); Business $99/mo (1M, c30); Enterprise $249/mo (3M, c50). Web scraping $0.08/1k; Indeed Jobs API ~$0.37-$2.45 per 1,000 rows (10 credits/row); Glassdoor Jobs API $0.75/1k; only successful results charged",
+  "auth_required": "Yes (x-api-key header)",
+  "docs_available": "Yes",
+  "notes": "Dedicated Indeed Jobs API and Glassdoor Jobs API (title, company, location, salary, job type, benefits); 60+ locales; no LinkedIn Jobs scraper. Verified on hasdata.com/prices, hasdata.com/apis/indeed-api, docs.hasdata.com",
+  "pagination": "Unknown",
+  "pagination_type": "Unknown",
+  "limitations": "Concurrency caps (1/15/30/50), 429 on exceed; scraping-based",
+  "unique_job_id": "Uses Indeed native job key (jk=...)"
+ },
+ {
+  "name": "Hasjob",
+  "regions": [
+   "India"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free",
+  "cost_details": "Free (no auth) - if still live",
+  "auth_required": "None",
+  "docs_available": "Unknown (verify)",
+  "notes": "Small community tech board with a public listings feed; tiny volume. See report Sec 16.2 (India).",
+  "pagination": "RSS/JSON (verify)",
+  "pagination_type": "Unknown (see existing Pagination column: RSS/JSON (verify))",
+  "limitations": "Limited filters",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Hello Work Job Information API (ハローワーク求人情報提供サービス, MHLW)",
+  "regions": [
+   "Japan"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Not disclosed as a paid service; access is via registration/approval rather than a fee, per the ministry's implementation manuals",
+  "auth_required": "Yes - requires a registered user ID/password to obtain a same-day access token before each data pull",
+  "docs_available": "Full - official API interface specification PDF and implementation/user manuals are published by MHLW",
+  "notes": "Verified via MHLW's official Hello Work Internet Service documentation (apiintahyeisusiyousyomasukinngu.pdf spec, e-Gov API catalog listing, and online01/online02 registration guides). This is a real, documented XML-based API operated by Japan's Ministry of Health, Labour and Welfare, but it is gated behind a registration/approval process for private job-placement businesses, local governments, or training institutions - not an open self-serve API. Only postings employers have explicitly consented to share externally are exposed. | Access detail: Restricted - free registration/approval required as a licensed private job-placement business, local government body, or educational institution",
+  "pagination": "Offset-based (max 1,000 records per call, repeat with paging parameters)",
+  "pagination_type": "Offset-based (max 1,000 records per call, repeat with paging parameters)",
+  "limitations": "Max 1,000 job records per request (must paginate for more); token obtained via login is valid only for the day it was issued; three job categories (general, disability, new-graduate) served separately",
+  "unique_job_id": "求人番号 (job order number) - present per posting; the XML output is sorted by 受付年月日 (reception date) descending then 求人番号 ascending"
+ },
+ {
+  "name": "Hong Kong Government Job Vacancy Open Data APIs (Civil Service Bureau + Digital Policy Office, DATA.GOV.HK)",
+  "regions": [
+   "Hong Kong"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free",
+  "auth_required": "No",
+  "docs_available": "Full - dataset pages on data.gov.hk (e.g. 'hk-csb-csb-gov-vacancies', 'hk-dpo-dpo_hp-list-of-job-vacancies-of-dpo') link directly to live JSON files and describe the fields",
+  "notes": "Verified two live, working JSON endpoints: the Civil Service Bureau's Online Government Vacancies Enquiry System feed (csb.gov.hk/datagovhk/gov-vacancies/gov-job-vacancies-en.json - fetched directly and confirmed valid JSON with jobid, jobname, deptnamejve, entrypay, duties, pubdate/enddate fields, ~20 current records) and the Digital Policy Office's own vacancies feed (digitalpolicy.gov.hk/open_data/vacancies/en/index.data.json). Both are published via Hong Kong's data.gov.hk open-data program: free, no auth, no registration. Scope is limited to Hong Kong government (civil service) vacancies, not the broader private-sector job market. | Access detail: Open - fully public JSON endpoints, no key or registration required",
+  "pagination": "Full static JSON file per department (no pagination needed given small volume)",
+  "pagination_type": "Full static JSON file per department (no pagination needed given small volume)",
+  "limitations": "No documented rate limit found; these are static-file-style JSON feeds refreshed on a schedule (CSB feed is described as updated hourly) rather than a queryable API with quotas",
+  "unique_job_id": "jobid (numeric, unique per record - values observed roughly 34217-49178 in the CSB feed)"
+ },
+ {
+  "name": "JSearch (RapidAPI, by OpenWeb Ninja)",
+  "regions": [
+   "Global"
+  ],
+  "type": "Data Aggregator / API Vendor",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Freemium: Basic $0 (~100-200 requests/mo, hard-capped); Pro $25/mo (~10,000 requests, +$0.003/extra); Ultra $75/mo (~50,000, +$0.002/extra); Mega $150/mo (~200,000, +$0.001/extra). Paid-tier quotas best-estimate (RapidAPI pricing tab is JS SPA)",
+  "auth_required": "Yes (X-RapidAPI-Key; OpenWeb Ninja portal uses x-api-key)",
+  "docs_available": "Yes",
+  "notes": "Flagship RapidAPI product of OpenWeb Ninja aggregating Google for Jobs, LinkedIn, Indeed, Glassdoor, ZipRecruiter; endpoints Search Jobs, Job Details, Estimated Salary. Distinct listing from the OpenWeb Ninja entry already in catalog. Verified on rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch, openwebninja.com/api/jsearch",
+  "pagination": "Yes",
+  "pagination_type": "page / num_pages",
+  "limitations": "~1,000 req/hour on free plan (RapidAPI rule); per-second RPS per tier not confirmed",
+  "unique_job_id": "Yes (job_id)"
+ },
+ {
+  "name": "Job Bank (ESDC) feed / Open Gov dataset",
+  "regions": [
+   "Canada"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (feed gated; dataset open)",
+  "auth_required": "Partner approval (feed); none (dataset)",
+  "docs_available": "Yes",
+  "notes": "Canada's national job board; live feed needs partner approval, open dataset refreshes monthly. See report Sec 16 (Canada).",
+  "pagination": "N/A - bulk file/CSV dataset (open dataset); live feed pagination unpublished",
+  "pagination_type": "Unknown (see existing Pagination column: N/A - bulk file/CSV dataset (open dataset); live feed pagination unpublished)",
+  "limitations": "Feed unknown; dataset refreshes monthly",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Job-Room Jobs API (SECO, Switzerland)",
+  "regions": [
+   "Switzerland"
+  ],
+  "type": "Government",
+  "access_model": "Partner-only",
+  "cost_details": "Free, but requires requesting access credentials from SECO eGovernment Services",
+  "auth_required": "Yes - credentials must be requested from jobroom-api@seco.admin.ch",
+  "docs_available": "Yes - published Jobs API docs at test-api.job-room.ch/api-docs and production at api.job-room.ch/jobAdvertisements/v1",
+  "notes": "Confirmed real: Job-Room is Switzerland's public employment service platform (run by SECO/arbeit.swiss). The Jobs API is primarily built for employers/ATS to submit ads (reporting-obligation compliance) rather than as a general-purpose read API for aggregators; read access for third parties is unconfirmed from available docs. | Access detail: Credentialed / partner (requires requesting access)",
+  "pagination": "Yes",
+  "pagination_type": "Page-based (page and size query params; size default 25)",
+  "limitations": "Unknown numeric limits; ads under the reporting-obligation rule are restricted from public display for 5 business days",
+  "unique_job_id": "id (UUID assigned on creation); also stellennummerEgov (unique within Job-Room) and stellennummerAvam (assigned after PES approval)"
+ },
+ {
+  "name": "JobsPikr",
+  "regions": [
+   "India"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Paid",
+  "cost_details": "Paid (custom pricing)",
+  "auth_required": "Yes (key)",
+  "docs_available": "Yes",
+  "notes": "Commercial aggregator incl. Naukri/Monster feeds. See report Sec 16.6 (India, deeper research).",
+  "pagination": "Cursor-based: size param (10-100/request, default 100) + cursor param; response returns next_cursor to pass into the next request; continue until response returns status: no_data",
+  "pagination_type": "N/A",
+  "limitations": "Unknown (custom pricing, not published)",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Jobspresso",
+  "regions": [
+   "Remote/Global"
+  ],
+  "type": "Public",
+  "access_model": "Paid",
+  "cost_details": "RSS free. Curated job posting is paid.",
+  "auth_required": "No",
+  "docs_available": "Limited (RSS URL; no formal API docs)",
+  "notes": "WordPress WP Job Manager RSS pattern. verified on https://jobspresso.co/feed/?post_type=job_listing | Access detail: Free public RSS feed (WP Job Manager) at https://jobspresso.co/feed/?post_type=job_listing. No documented JSON API.",
+  "pagination": "No (RSS latest items)",
+  "pagination_type": "None",
+  "limitations": "No documented rate limits; curated (lower volume). RSS returns recent items only.",
+  "unique_job_id": "RSS guid / job_listing URL"
+ },
+ {
+  "name": "Mantiks",
+  "regions": [
+   "Global"
+  ],
+  "type": "Data Aggregator / API Vendor",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Basic EUR99/mo (500 credits, ~EUR0.198/credit), +EUR34/mo per extra user; Starter EUR190/mo (1,000 credits, ~EUR0.190/credit), +EUR68/mo per extra user; Custom/Enterprise. 7-day free trial, 50 free credits; 1 credit per company/account found (browsing unlimited)",
+  "auth_required": "Yes (REST at api.mantiks.io)",
+  "docs_available": "Yes",
+  "notes": "Worldwide postings across multiple boards, 20+ data points, plus LinkedIn job/company/hiring-contact enrichment. Verified on mantiks.io/pricing, mantiks.io/job-postings-api, mantiks-api.readme.io/reference",
+  "pagination": "None - async export model: create a search export (Run Search Export), poll for completion, then GET /exports/{id}/leads returns the full array of result rows in a single response (no page/limit params)",
+  "pagination_type": "None (full result array returned per completed export)",
+  "limitations": "Rate limits not documented; annual commitment",
+  "unique_job_id": "Yes ({id} path param, GET /jobs/{id})"
+ },
+ {
+  "name": "Merge.dev",
+  "regions": [
+   "Global"
+  ],
+  "type": "ATS Unified API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Launch plan free for first 3 production Linked Accounts; $650/mo for up to 10 Linked Accounts; $65 per additional account beyond 10; Professional and Enterprise contract-based",
+  "auth_required": "Yes (Bearer API key + per-account X-Account-Token)",
+  "docs_available": "Yes",
+  "notes": "Unified ATS API (candidates, jobs, applications) across many ATS systems; cost scales with customer connections not job volume. Verified on merge.dev/pricing/unified, docs.merge.dev/merge-unified/ats/overview",
+  "pagination": "Yes",
+  "pagination_type": "Cursor",
+  "limitations": "100/min (Launch), 400/min (Pro), 600/min (Enterprise) per Linked Account",
+  "unique_job_id": "Yes (Merge normalized id per record)"
+ },
+ {
+  "name": "MyCareersFuture",
+  "regions": [
+   "Singapore/SEA"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (no auth)",
+  "auth_required": "No",
+  "docs_available": "Community-documented",
+  "notes": "Singapore government job portal; no-auth public endpoint. Report's #1-ranked Singapore/SEA opportunity. See report Sec 16 (Singapore/SEA).",
+  "pagination": "100/page",
+  "pagination_type": "Unknown (see existing Pagination column: 100/page)",
+  "limitations": "Unknown/none published; 100/page",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "NAV Arbeidsplassen Job Vacancy Feed (Norway)",
+  "regions": [
+   "Norway"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free; a public token is available for experimentation, a private token requires registering as a consumer",
+  "auth_required": "Yes - all requests need HTTP bearer authorization; public/shared token for testing, private token after registration",
+  "docs_available": "Yes - Swagger docs at github.com/navikt/pam-public-feed",
+  "notes": "Confirmed real: NAV's Job Vacancy Feed covers vacancies registered directly at NAV or sourced from third-party ATS systems, but explicitly excludes Finn.no listings (Norway's largest general classifieds/jobs site). Terms of use at arbeidsplassen.nav.no/vilkar-api. | Access detail: Partially open (public experimentation token; registration required for production access)",
+  "pagination": "Yes (feed-based per Swagger docs)",
+  "pagination_type": "Feed-based (per Swagger docs)",
+  "limitations": "Unknown numeric limits; requires registration as a consumer for a private token per data.nav.no terms",
+  "unique_job_id": "uuid field (used to detect new vs already-seen ads, per NAV feed docs)"
+ },
+ {
+  "name": "National Career Service (NCS)",
+  "regions": [
+   "India"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (open dataset)",
+  "auth_required": "None (dataset)",
+  "docs_available": "Yes",
+  "notes": "India's National Career Service; periodic open dataset via data.gov.in, not a live API. Authoritative but freshness-limited. See report Sec 10 (India subsection).",
+  "pagination": "N/A - periodic bulk dataset",
+  "pagination_type": "Unknown (see existing Pagination column: N/A - periodic bulk dataset)",
+  "limitations": "N/A - periodic bulk dataset",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "NoDesk",
+  "regions": [
+   "Remote/Global"
+  ],
+  "type": "Public",
+  "access_model": "Paid",
+  "cost_details": "RSS free. Job posting on the board is paid.",
+  "auth_required": "No",
+  "docs_available": "Limited (RSS URL published; no formal API docs)",
+  "notes": "Curated remote-work directory + job board, updated daily. verified on https://nodesk.co/remote-jobs/ (RSS at /remote-jobs/index.xml) | Access detail: Free public RSS feed at https://nodesk.co/remote-jobs/index.xml. No documented JSON API.",
+  "pagination": "No (RSS latest items)",
+  "pagination_type": "None",
+  "limitations": "No documented rate limits; RSS returns recent items only.",
+  "unique_job_id": "RSS guid / job URL"
+ },
+ {
+  "name": "OpenWeb Ninja",
+  "regions": [
+   "India"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free tier / Paid (metered, existing key)",
+  "auth_required": "Yes (API key, already held)",
+  "docs_available": "Yes",
+  "notes": "Already-integrated JSearch/OpenWeb Ninja could add an India-scoped query using its existing key/quota - no new integration required. See report Sec 10 (India subsection, Strategy). Access model corrected to Free tier + Paid (metered): the provider publishes a genuine free monthly quota (200 requests/mo) before metered paid usage. See report Sec 4/9.",
+  "pagination": "cursor (cursor echoed back)",
+  "pagination_type": "cursor",
+  "limitations": "200 req/mo (JSearch)",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Oxylabs",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Web Scraper API monthly tiers: Micro $49/mo (from $0.50/1k results, ~98K results), Starter $99/mo (from $0.45/1k, 220K), Business $999/mo (from $0.30/1k, 3.33M), Custom+ (from $0.25/1k); JS-rendered targets $1.35/1k on Micro",
+  "auth_required": "Yes (API key)",
+  "docs_available": "Yes",
+  "notes": "Dedicated Google Jobs and Indeed (by-URL) scraper endpoints; no LinkedIn/Glassdoor jobs product. Verified on oxylabs.io/products/scraper-api/web/pricing and developers.oxylabs.io",
+  "pagination": "Unknown",
+  "pagination_type": "Unknown",
+  "limitations": "50 req/s (Micro/Starter), 100 req/s (Business/Custom+); scraping-based, observe target ToS",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Pangian",
+  "regions": [
+   "Remote/Global"
+  ],
+  "type": "Public",
+  "access_model": "Paid",
+  "cost_details": "RSS free. Job posting on the board is paid; also runs a remote-work community.",
+  "auth_required": "No",
+  "docs_available": "Limited (RSS URL; no formal API docs)",
+  "notes": "WordPress WP Job Manager RSS pattern. verified on https://pangian.com/feed/?post_type=job_listing (via community resource lists) | Access detail: Free public RSS feed (WP Job Manager) at https://pangian.com/feed/?post_type=job_listing. No documented JSON API.",
+  "pagination": "No (RSS latest items)",
+  "pagination_type": "None",
+  "limitations": "No documented rate limits; RSS returns recent items only.",
+  "unique_job_id": "RSS guid / job_listing URL"
+ },
+ {
+  "name": "People Data Labs",
+  "regions": [
+   "Global"
+  ],
+  "type": "Data Aggregator / API Vendor",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free tier + Pro (~$98/mo person, ~$100/mo company per search snippets, not page-verified) + Enterprise custom; 1 credit per successful record; Enterprise routing above 100k credits",
+  "auth_required": "Yes (API key)",
+  "docs_available": "Yes",
+  "notes": "Dedicated Job Posting Search API (/v5/job_posting/search), Beta, refreshed daily; fields include title class/role/seniority, PDL Company ID, location, salary, skills, remote flag. Dollar prices are search-snippet, not page-verified. Verified on docs.peopledatalabs.com/docs/job-posting-data-overview, /docs/usage-limits",
+  "pagination": "Yes",
+  "pagination_type": "Search-based (scroll/from)",
+  "limitations": "Fixed-window per-endpoint rate limits (exact RPM/RPS gated, 403); 1MB response cap; ~50 records/request recommended; credit headers x-call-credits-spent, x-totallimit-remaining",
+  "unique_job_id": "Yes (PDL persistent job posting ID)"
+ },
+ {
+  "name": "Piloterr",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free trial 500 credits (no card); Premium $49/mo (18K credits, 7 req/s, $2.72/1k standard); Premium+ $99/mo (40K, 10 req/s); Startup $249/mo (110K, 15 req/s). Scraper APIs from $1.88/1k, headless from $3.76/1k, Web Unblocker from $5.64/1k; Indeed Job Info API 2 credits/request; job-posting datasets priced separately (~$3,000/mo, search-reported)",
+  "auth_required": "Yes (API key via app.piloterr.com)",
+  "docs_available": "Yes",
+  "notes": "Extensive job endpoints: Indeed Job Info, Glassdoor Job Info, LinkedIn Job Search, LinkedIn Job Suggest, plus a Job Posting Dataset. Verified on piloterr.com/pricing, piloterr.com/library/indeed-job-info",
+  "pagination": "page-based: page query parameter, up to 25 job listings per page (LinkedIn Job Search endpoint; Indeed Job Search and other endpoints have their own per-endpoint pagination)",
+  "pagination_type": "page",
+  "limitations": "7 / 10 / 15 req/s by plan; scraping-based",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "regions": [
+   "Mexico"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (open government data)",
+  "auth_required": "No - datos.gob.mx CKAN API is publicly accessible without authentication (verified via direct call to /api/3/action/package_show, HTTP 200, dataset flagged private:false)",
+  "docs_available": "Partial",
+  "notes": "Portal del Empleo (empleo.gob.mx) is run by the Secretaria del Trabajo y Prevision Social (STPS) via the Servicio Nacional de Empleo. Its underlying dataset 'Bolsa de Empleo del Servicio Nacional de Empleo' and the related 'Servicios de vinculacion laboral' dataset are published on Mexico's national open-data platform (datos.gob.mx), which is CKAN-based and generally exposes a REST/CKAN Action API for its datasets, but a live, current-vacancy-specific API endpoint for the job board itself was not directly confirmed.",
+  "pagination": "Unknown",
+  "pagination_type": "Unknown",
+  "limitations": "Unknown",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "PredictLeads",
+  "regions": [
+   "Global"
+  ],
+  "type": "Data Aggregator / API Vendor",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "100 credits/month free; Tier 1 (101-5k) $0.04/credit, $40/mo min; Tier 2 (5k-10k) $0.02/credit; Tier 3 (10k-100k) $0.01/credit; Tier 4 (100k-500k) $0.004/credit; Tier 5 (500k+) $0.002/credit. 1 request = 1 credit (up to 1,000 records); no rollover; Enterprise custom flat-file (S3/GCS/SFTP, data from 2015)",
+  "auth_required": "Yes (OAuth2 + HTTP header)",
+  "docs_available": "Yes",
+  "notes": "Job Openings Dataset sourced from company career pages, 2.7M companies. Verified on predictleads.com/pricing, docs.predictleads.com/guide/job_openings_dataset/introduction",
+  "pagination": "Yes",
+  "pagination_type": "Page param",
+  "limitations": "Rate limits documented but exact numbers gated; credits do not roll over",
+  "unique_job_id": "Yes (job-opening ID; retrieve single opening by ID)"
+ },
+ {
+  "name": "Recruitee (Tellent) ATS API (Netherlands)",
+  "regions": [
+   "Netherlands"
+  ],
+  "type": "ATS",
+  "access_model": "Free",
+  "cost_details": "Included with Recruitee (Tellent) accounts; personal API tokens generated in-app",
+  "auth_required": "Yes - Bearer token (Settings > Apps and plugins > Personal API tokens)",
+  "docs_available": "Yes - apidocs.recruitee.com, covering Careers Site API, ATS API, Guides, and Partner API",
+  "notes": "Confirmed real: Recruitee (rebranded Tellent) is a Netherlands-founded ATS/HR-tech company with public, well-documented REST APIs (Careers Site API for public job listings, ATS API for internal recruiting data). Unlike a national job board, there is no single global feed - job data must be pulled per customer account/domain.",
+  "pagination": "Yes (per API docs)",
+  "pagination_type": "Unknown - likely offset or cursor-based per API docs",
+  "limitations": "Unknown numeric limits; requires per-company/per-account authentication rather than one global feed",
+  "unique_job_id": "Job offer ID (per Careers Site/ATS API schema)"
+ },
+ {
+  "name": "Remote First Jobs (Dynamite Jobs)",
+  "regions": [
+   "Remote/Global"
+  ],
+  "type": "Public",
+  "access_model": "Paid",
+  "cost_details": "RSS free. Employer job posting is paid.",
+  "auth_required": "No",
+  "docs_available": "Limited (RSS page published)",
+  "notes": "Dynamite Jobs (launched 2017) publishes RSS via RemoteFirstJobs. verified on https://remotefirstjobs.com/rss and https://dynamitejobs.com/ | Access detail: Free public RSS feeds at https://remotefirstjobs.com/rss (category feeds available). Dynamite Jobs is the associated curated remote-first board (remote-first employers, 100% WFH).",
+  "pagination": "No (RSS latest items)",
+  "pagination_type": "None",
+  "limitations": "No documented rate limits; RSS returns recent items only.",
+  "unique_job_id": "RSS guid / job URL"
+ },
+ {
+  "name": "RemoteJobs.org",
+  "regions": [
+   "United States"
+  ],
+  "type": "Public",
+  "access_model": "Free",
+  "cost_details": "Free (no key, no signup)",
+  "auth_required": "No",
+  "docs_available": "Yes",
+  "notes": "Free, no-key remote jobs API; overlaps existing RemoteOK/Himalayas remote feeds. Low priority per report. See report Sec 5 (US).",
+  "pagination": "Offset/limit: limit param (min 1, max 50, default 20) + offset param (default 0, jobs to skip)",
+  "pagination_type": "N/A",
+  "limitations": "No signup/API key required; 'reasonable use' policy with no hard rate cap stated; max 50 jobs/request; contact provider (ryan@remotejobs.org) for higher volume",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Remotive Remote Jobs API",
+  "regions": [
+   "Remote/Global"
+  ],
+  "type": "Public",
+  "access_model": "Free",
+  "cost_details": "Free (attribution required). Job posting on the board itself is a separate paid product.",
+  "auth_required": "No",
+  "docs_available": "Yes (github.com/remotive-com/remote-jobs-api; support.remotive.com)",
+  "notes": "Each job: id, url, title, company_name, company_logo_url, category, job_type (full_time/contract/part_time/freelance/internship), publication_date, candidate_required_location, salary, description. verified on https://github.com/remotive-com/remote-jobs-api and https://support.remotive.com/en/article/list-remote-jobs-public-api-105pww2/ | Access detail: Free public JSON REST API: GET https://remotive.com/api/remote-jobs. Optional query params: category, company_name, search, limit. No key required.",
+  "pagination": "No offset/cursor pagination; optional limit param caps results",
+  "pagination_type": "None (single response; limit only)",
+  "limitations": "Requests over ~2x/minute are blocked; recommended max ~4 calls/day. Listings delayed 24h from board publication. Must link back and credit Remotive; reposting to third-party boards (Jooble, Neuvoo, Google Jobs) prohibited.",
+  "unique_job_id": "id (integer, unique per listing)"
+ },
+ {
+  "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+  "regions": [
+   "Brazil"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (open government data initiative)",
+  "auth_required": "Yes - dados.gov.br CKAN API requires authentication (direct call to /api/3/action/package_show for this dataset returned HTTP 401 without credentials)",
+  "docs_available": "Partial",
+  "notes": "Listed on Brazil's official open data portal (dados.gov.br/dataset/sine-aberto) as 'Sistema Nacional de Emprego - Sine Aberto', described as sharing SINE worker-registration and vacancy data via files and an API from the (former) Ministerio da Economia / now Ministerio do Trabalho e Emprego. The dataset landing page itself returned an access error on direct fetch, so exact endpoint format/auth could not be confirmed.",
+  "pagination": "N/A - data-sharing suspended since 3 Oct 2022 under Resolucao CODEFAT No. 956/2022 (suspending prior Resolutions 826/2019 and 844/2019) pending LGPD (Lei 13.709/2018) compliance updates; no active API to paginate",
+  "pagination_type": "N/A - service suspended (see Pagination note)",
+  "limitations": "N/A - data-sharing suspended since 3 Oct 2022 under Resolucao CODEFAT No. 956/2022, pending LGPD compliance updates; no active service to rate-limit",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "ScraperAPI",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free 1,000 credits/mo (5 concurrent); Hobby $49/mo (100K credits); Startup $149/mo (1M); Business $299/mo (3M); Enterprise custom. Credit cost: standard page 1, Amazon 5, Google 25, LinkedIn 30; +10 JS render, +10 premium proxies; no rollover",
+  "auth_required": "Yes (API key)",
+  "docs_available": "Yes",
+  "notes": "Generic scraping proxy; no dedicated jobs endpoint but LinkedIn billed at 30 credits/req. Usable to scrape job boards. Verified on scraperapi.com/pricing and docs.scraperapi.com",
+  "pagination": "Unknown",
+  "pagination_type": "Unknown",
+  "limitations": "Concurrency-based (5 free, higher on paid); no per-second cap documented; no purpose-built jobs product",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Scrapingdog",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free 200 credits/mo (concurrency 1); Lite $40/mo (200K, c5); Standard $90/mo (1M, c50); Pro $200/mo (3M, c100); Premium $350/mo (6M, c150); Business $500/mo (9M, c200), scaling to $30,000/mo. Credit cost: rotating proxy 1, JS 5, premium 10, LinkedIn Post API 25, LinkedIn Profile 50; failed requests auto-refunded",
+  "auth_required": "Yes (API key)",
+  "docs_available": "Yes",
+  "notes": "Has LinkedIn Post/Profile APIs but no verified dedicated LinkedIn Jobs or Indeed jobs product; usable for scraping job sites. Verified on scrapingdog.com/pricing",
+  "pagination": "page-based: page parameter (default 1) on the Jobs Search Results (LinkedIn) endpoint; separate Google Jobs API and Indeed Scraper API products each have their own endpoint-specific pagination",
+  "pagination_type": "page",
+  "limitations": "Concurrency-based per plan; no per-second cap; no verified purpose-built jobs product",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "SerpApi",
+  "regions": [
+   "India"
+  ],
+  "type": "Commercial Aggregator",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Free tier / Paid (metered, existing key)",
+  "auth_required": "Yes (API key, already held)",
+  "docs_available": "Yes",
+  "notes": "Already-integrated SerpApi could add an India-scoped query using its existing key/quota. See report Sec 10 (India subsection, Strategy). Access model corrected to Free tier + Paid (metered): the provider publishes a genuine free monthly quota (250 searches/mo) before metered paid usage. See report Sec 4/9.",
+  "pagination": "next_page_token, <=10 jobs/page",
+  "pagination_type": "next_page_token",
+  "limitations": "250 searches/mo",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Taiwan Ministry of Labor Open API / 台灣就業通 Job Vacancy Web Service",
+  "regions": [
+   "Taiwan"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free",
+  "auth_required": "Unknown for the OAS-based apiservice.mol.gov.tw interface; the documented free.taiwanjobs.gov.tw example endpoint appears to require no key",
+  "docs_available": "Full - Ministry of Labor OAS documentation (apiservice.mol.gov.tw/OdService/openapi/OAS.html, OAS JSON spec) plus a legacy XML interface PDF and a live example endpoint",
+  "notes": "Verified via Taiwan's government open-data portal (data.gov.tw dataset 44062, '台灣就業通網站職缺清單') and the Ministry of Labor's own OAS-documented open API portal. A working example call is published (free.taiwanjobs.gov.tw/webservice_taipei/Webservice.ashx with jobno/zipno/count params), returning up to 1,000 job records per request with no apparent registration requirement, plus a newer formal OAS API at apiservice.mol.gov.tw. This is a real, government-run, currently accessible job vacancy API. | Access detail: Open - free public web service, no registration required for the legacy free.taiwanjobs.gov.tw endpoint; a newer OAS-documented API exists at apiservice.mol.gov.tw",
+  "pagination": "Offset/count-based (up to 1,000 records per call, repeat with parameters)",
+  "pagination_type": "Offset/count-based (up to 1,000 records per call, repeat with parameters)",
+  "limitations": "Legacy endpoint returns up to 1,000 records per call and takes zip-code/job-code/count parameters; full rate-limit policy for the newer OAS API not confirmed",
+  "unique_job_id": "職缺編號 (job vacancy number) - unique identifier per posting"
+ },
+ {
+  "name": "Talroo",
+  "regions": [
+   "United States"
+  ],
+  "type": "Job Distribution Network",
+  "access_model": "Paid",
+  "cost_details": "Pay-for-performance: cost-per-click or cost-per-application; employers post free and pay only on click/completed application, setting their bid with a prediction engine. Industry-benchmark campaigns ~$150-$600/job/month; month-to-month, 30-day billing.",
+  "auth_required": "Yes (advertiser or publisher API key)",
+  "docs_available": "Yes (developer docs at docs.talroo.com — Search API, XML feed, Ad Platform API)",
+  "notes": "Formerly Jobs2Careers. Dual model: employer CPC/CPA distribution AND a publisher Search API/XML feed for partner job boards (note: not onboarding new XML feeds currently). Pricing and API verified on https://www.talroo.com/pro/ and https://docs.talroo.com/api/search and https://docs.talroo.com/docs/resources/talroo-xml-feed | Access detail: Paid (pay-for-performance CPC/CPA) + publisher Search API",
+  "pagination": "Yes (Search API)",
+  "pagination_type": "Unknown",
+  "limitations": "Distributes employer jobs on CPC/CPA (write-side). Separately offers a publisher Search API + XML feed so partner job boards can pull/display Talroo jobs — but Talroo is not currently onboarding new XML feeds.",
+  "unique_job_id": "Yes (job IDs in XML feed / API)"
+ },
+ {
+  "name": "Techmap.io",
+  "regions": [
+   "Global"
+  ],
+  "type": "Data Aggregator / API Vendor",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Job Data API EUR0.002 per job record (metered via RapidAPI); datafeeds from EUR333/month per country; AWS Data Exchange EUR4,800/year per country; Luxembourg datafeed free via AWS DX; RapidAPI free tier ~250 jobs/month",
+  "auth_required": "Yes (API key via RapidAPI)",
+  "docs_available": "Yes",
+  "notes": "Crawls 1,800+ sources; JSON-LD postings; formats JSON/CSV/RSS/XML/Parquet; also jobdatafeeds.com. Verified on techmap.io/pricing, techmap.io/faq, api.techmap.io",
+  "pagination": "Yes",
+  "pagination_type": "page (default) or cursor (opt-in, mutually exclusive with page-based)",
+  "limitations": "Metered by request count; rate limits not disclosed; API exposes last ~3 months",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Trade Me Jobs",
+  "regions": [
+   "New Zealand"
+  ],
+  "type": "Commercial Job Board",
+  "access_model": "Free",
+  "cost_details": "Free to register and use per Trade Me API Terms & Conditions; no published paid tier",
+  "auth_required": "Yes (OAuth 1.0a, Consumer Key/Secret; HMAC-SHA1 or PLAINTEXT over HTTPS)",
+  "docs_available": "Yes (developer.trademe.co.nz)",
+  "notes": "Confirmed genuine public read/search API - GET https://api.trademe.co.nz/v1/Search/Jobs.{format} (XML or JSON) with filters for category, location, salary, and position type. Unlike most candidates researched for this pass, this is an actual job-search endpoint, not just a posting API. | Access detail: Free self-service developer registration",
+  "pagination": "Yes - page and rows query parameters (page-number based)",
+  "pagination_type": "Page-number based (page, rows)",
+  "limitations": "Rate limited (specific thresholds not published); Search/Jobs endpoint returns max 25 rows/page unauthenticated, up to 500 rows/page authenticated",
+  "unique_job_id": "Trade Me Listing ID (provider-issued)"
+ },
+ {
+  "name": "Unified.to",
+  "regions": [
+   "Global"
+  ],
+  "type": "ATS Unified API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Usage-based: Grow $750/mo for 750,000 API calls, $1.00 per additional 1,000 calls; Scale $3,000/mo for 6M calls; free start available. Each pagination page counts as a call (tier dollars from a third-party 2026 breakdown; usage-based model corroborated on unified.to)",
+  "auth_required": "Yes (OAuth per integration; connection_id in calls)",
+  "docs_available": "Yes",
+  "notes": "Unified API with dedicated ATS API (9 objects incl. Jobs, Candidates, Applications, Interviews, Scorecards) across 85+ ATS integrations (Greenhouse, Lever, Workday, iCIMS, Ashby). Verified on docs.unified.to/ats/overview, unified.to/pricing",
+  "pagination": "Yes",
+  "pagination_type": "limit/offset",
+  "limitations": "Rate limits not documented on pages viewed",
+  "unique_job_id": "Yes (normalized record id)"
+ },
+ {
+  "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+  "regions": [
+   "Belgium"
+  ],
+  "type": "Government",
+  "access_model": "Partner-only",
+  "cost_details": "Free, but requires an application form and an exploratory onboarding meeting with VDAB before access is granted",
+  "auth_required": "Yes - access requires registering on the API Developer Portal (developer.vdab.be) and completing an onboarding process",
+  "docs_available": "Yes - developer.vdab.be/openservices portal and VDAB Extranet API Center of Excellence documentation for both the Vacature Posting API (publish) and Vacature API (retrieve)",
+  "notes": "Confirmed real: VDAB (Flanders' public employment service) operates both a Vacature Posting API (for employers/ATS to submit ads) and a Vacature (retrieval) API for consuming vacancy data, documented on their developer portal. A related free/open Competent API exists for occupation/competency taxonomy data, but the vacancy dataset itself is aggregated/credentialed rather than fully open. Belgium's other regional PES bodies (Actiris for Brussels, Forem for Wallonia) were not independently verified for API access in this pass. | Access detail: Credentialed / partner (application + onboarding required via developer.vdab.be)",
+  "pagination": "Unknown",
+  "pagination_type": "Unknown",
+  "limitations": "Unknown numeric limits; vacatures must meet VDAB quality guidelines to be published via the posting API",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "We Work Remotely (RSS feeds)",
+  "regions": [
+   "Remote/Global"
+  ],
+  "type": "Public",
+  "access_model": "Paid",
+  "cost_details": "RSS feeds free. Posting jobs on the board is paid (flat per-post fee).",
+  "auth_required": "No (RSS)",
+  "docs_available": "Yes (weworkremotely.com/remote-job-rss-feed listing feed URLs)",
+  "notes": "Major curated remote board. Public RSS is the sanctioned programmatic access; full API only via partnership. verified on https://weworkremotely.com/remote-job-rss-feed | Access detail: Free public RSS/XML feeds. Main feed https://weworkremotely.com/remote-jobs.rss plus per-category feeds (programming, front-end, back-end, full-stack, design, customer support, sales & marketing, management & finance). Partner posting API by request (hello@weworkremotely.com).",
+  "pagination": "No (RSS returns latest N items)",
+  "pagination_type": "None (feed of recent items)",
+  "limitations": "No documented rate limits; RSS returns recent items only (not full historical archive). No JSON API publicly documented.",
+  "unique_job_id": "RSS guid / job listing URL"
+ },
+ {
+  "name": "Work24 (formerly Worknet/워크넷) Job Listings Open API - Korea Employment Information Service",
+  "regions": [
+   "South Korea"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (\"비용부과유무: 무료\" per data.go.kr listing)",
+  "auth_required": "Yes - authentication key (인증키) required as a request parameter",
+  "docs_available": "Full - published on data.go.kr (공공데이터포털) with parameter reference (region, job category, salary, education, experience, employment type, etc.)",
+  "notes": "Verified live on data.go.kr: '한국고용정보원_워크넷 채용정보' open API, operated by the Korea Employment Information Service under the Ministry of Employment and Labor. Free, key-based, XML/JSON responses, real-time updates. Important caveat: the stated license appears limited to non-commercial use with attribution and no modification - this should be re-confirmed with the agency before any commercial ingestion. | Access detail: Open - free registration on data.go.kr (공공데이터포털) to obtain an authentication key",
+  "pagination": "Keyword/parameter-filtered pull, page-based",
+  "pagination_type": "Keyword/parameter-filtered pull, page-based",
+  "limitations": "Traffic ceiling not fixed - portal states allowed traffic varies by the issuing agency's policy; license restricts use to non-commercial purposes with attribution and prohibits modification of the data",
+  "unique_job_id": "구인인증번호 (wantedAuthNo) - recruitment/job-posting authentication number returned per posting"
+ },
+ {
+  "name": "Workday",
+  "regions": [
+   "India"
+  ],
+  "type": "ATS",
+  "access_model": "Enterprise",
+  "cost_details": "Per-tenant career-site JSON (CxS); cost not published",
+  "auth_required": "None, but per-tenant endpoint",
+  "docs_available": "Partial — Workday does publish official API documentation, but the documentation entry point (community.workday.com/api) redirects to a Workday Community page that returned HTTP 401 Unauthorized when accessed without an authenticated Workday Community/customer login. No official Workday page could be found that documents the public per-tenant career-site JSON (CXS) endpoint referenced in this row's notes — that interface is not part of Workday's publicly documented API surface.",
+  "notes": "Per-tenant career-site JSON endpoints used by many large Indian enterprises; high enterprise-India value but meaningful per-tenant integration effort - the notable gap in this project's ATS coverage. See report Sec 16.3 (India).",
+  "pagination": "Page/Count via Response_Filter on Get_Job_Requisitions: Count (min 1, max 999, default 100), Page (default 1; Page param requires also setting As_Of_Entry_Date for a consistent result set across paged requests); response returns Total_Results/Total_Pages/Page_Results",
+  "pagination_type": "N/A",
+  "limitations": "Unknown",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Workforce Australia",
+  "regions": [
+   "Australia"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (access model unclear)",
+  "auth_required": "Yes - Digital Identity (myGovID). Employers/systems connecting to Workforce Australia for Business must reach at least a 'Standard' identity strength on their Digital Identity and link it to their organisation's ABN via Relationship Authorisation Manager (RAM).",
+  "docs_available": "Partial",
+  "notes": "Workforce Australia (workforceaustralia.gov.au, operated by the Department of Employment and Workplace Relations) is the Australian Government's national employment service, having replaced jobactive in July 2022. A 'Connect your system' business portal exists for employers/providers to post and manage job ads, and third-party ATS integrations (e.g. Manatal) link to it, but no public consumer-facing read/search API for retrieving job listings was discoverable. | Access detail: Free (read/search access model unclear)",
+  "pagination": "N/A - API is write/management only (create/update/manage employer job ads and their status via OAuth2 RESTful API through the API Developer Portal); no public job-listings read/search endpoint to paginate",
+  "pagination_type": "N/A",
+  "limitations": "Unknown",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Working Nomads",
+  "regions": [
+   "LATAM"
+  ],
+  "type": "Public",
+  "access_model": "Free",
+  "cost_details": "Free",
+  "auth_required": "Varies",
+  "docs_available": "No",
+  "notes": "Remote-LATAM job board; free API/RSS, low volume. See report Sec 10.7 (LATAM).",
+  "pagination": "Varies (RSS/free API)",
+  "pagination_type": "Unknown (see existing Pagination column: Varies (RSS/free API))",
+  "limitations": "Varies (RSS/free API)",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "Zyte (formerly Scrapinghub)",
+  "regions": [
+   "Global"
+  ],
+  "type": "Web Scraping API",
+  "access_model": "Free tier + Paid (metered)",
+  "cost_details": "Usage-based Zyte API; base request cost varies by target/features (exact per-1k not published); automatic extraction $0.0004-$0.0016 per data type (job-listing schema), screenshots $0.002, custom attributes $0.001; free credit $5 first month (Standard), $200 (Enterprise); commitment tiers 25-52% discount",
+  "auth_required": "Yes (API key)",
+  "docs_available": "Yes",
+  "notes": "AutoExtract supports a built-in job-listing schema (no parser needed); no named LinkedIn/Indeed product. Exact per-1k base rate not verifiable on official pages. Verified on docs.zyte.com/zyte-api/pricing.html, zyte.com/pricing",
+  "pagination": "Unknown",
+  "pagination_type": "Unknown",
+  "limitations": "Governed by spending limits rather than fixed req/s; scraping-based",
+  "unique_job_id": "Unknown"
+ },
+ {
+  "name": "data.gov.in OGD platform",
+  "regions": [
+   "India"
+  ],
+  "type": "Government",
+  "access_model": "Free",
+  "cost_details": "Free (API key for some resources)",
+  "auth_required": "Free API key",
+  "docs_available": "Yes",
+  "notes": "India's Open Government Data platform; some individual resources expose REST APIs. Distinct from the NCS-specific dataset. See report Sec 16.1 (India).",
+  "pagination": "Per-resource (varies)",
+  "pagination_type": "Unknown (see existing Pagination column: Per-resource (varies))",
+  "limitations": "Modest; per-resource limits",
+  "unique_job_id": "Unknown"
+ }
+]

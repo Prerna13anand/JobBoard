@@ -4,7 +4,7 @@
 
 This project aggregates job postings from multiple public job APIs into a single, normalized dataset and presents them through a fast, searchable frontend. A modular Python pipeline fetches jobs from each source, maps them onto one common schema, deduplicates and validates the result, and writes it to `jobs.json`. A plain HTML/CSS/JavaScript frontend loads that dataset and lets users search, filter, and sort the listings entirely client-side.
 
-The project now aggregates jobs from every implemented provider - 22 sources in total, spanning no-auth public APIs, API-key-based job search APIs, and ATS (applicant tracking system) job board integrations - through the same modular pipeline and the same common schema. The latest full run produced 155,697 unique, normalized jobs in `jobs.json`.
+The project now aggregates jobs from every implemented provider - 23 sources in total, spanning no-auth public APIs, API-key-based job search APIs, and ATS (applicant tracking system) job board integrations - through the same modular pipeline and the same common schema. The latest full run produced 155,697 unique, normalized jobs in `jobs.json`.
 
 ## Features
 
@@ -36,6 +36,7 @@ No authentication required.
 - [The Muse](https://www.themuse.com/api/public/jobs)
 - [Bundesagentur für Arbeit](https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs) (German Federal Employment Agency)
 - [Remotive](https://remotive.com/api-jobs) (remote-only job board)
+- [Arbetsformedlingen JobSearch API](https://jobsearch.api.jobtechdev.se/) (Swedish Public Employment Service)
 
 ### API Key Providers
 
@@ -80,6 +81,7 @@ JobBoard/
 │   ├── themuse.py             # Phase 1
 │   ├── bundesagentur.py       # Phase 1
 │   ├── remotive.py            # Phase 1
+│   ├── arbetsformedlingen.py  # Phase 1
 │   ├── jooble.py              # Phase 2
 │   ├── usajobs.py             # Phase 2
 │   ├── adzuna.py              # Phase 2
@@ -210,4 +212,4 @@ Every provider - Phase 1, Phase 2, and Phase 3 alike - was also tested in isolat
 
 ## Project Status
 
-All provider integrations are complete: Phase 1 (no-auth providers), Phase 2 (API-key providers), and Phase 3 (ATS providers - Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Teamtailor), for 22 sources total, alongside Frontend Milestones 2–5.
+All provider integrations are complete: Phase 1 (no-auth providers), Phase 2 (API-key providers), and Phase 3 (ATS providers - Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Teamtailor), for 23 sources total, alongside Frontend Milestones 2–5.
