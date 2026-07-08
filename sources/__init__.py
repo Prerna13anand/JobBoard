@@ -28,6 +28,7 @@ from .lever import LeverSource
 from .openwebninja import OpenWebNinjaSource
 from .reed import ReedSource
 from .remoteok import RemoteOKSource
+from .remotejobs_org import RemoteJobsOrgSource
 from .remotive import RemotiveSource
 from .serpapi import SerpApiSource
 from .smartrecruiters import SmartRecruitersSource
@@ -48,6 +49,7 @@ SOURCES = [
     BundesagenturSource(),
     RemotiveSource(),
     ArbetsformedlingenSource(),
+    RemoteJobsOrgSource(),
     JoobleSource(),
     USAJobsSource(),
     AdzunaSource(),
