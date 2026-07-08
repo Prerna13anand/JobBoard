@@ -1,0 +1,487 @@
+{
+  "updated": [
+    {
+      "row": 105,
+      "name": "CareerOneStop / NLx \"List Jobs V2\"",
+      "col": "Pagination",
+      "new_value": "Offset-style path parameters: {startRecord}/{pageSize} (e.g. /v2/jobsearch/{userId}/{keyword}/{location}/{radius}/{sortColumns}/{sortOrder}/{startRecord}/{pageSize}/{days}); all parameters required on every request",
+      "sources": ["https://www.careeronestop.org/Developers/WebAPI/Jobs/list-jobs-v2.aspx"]
+    },
+    {
+      "row": 106,
+      "name": "Fantastic Jobs / Active Jobs DB",
+      "col": "Pagination",
+      "new_value": "Offset/limit: limit param (1-1,000 per request, default 100) + offset param; increase offset by limit each call until a response returns fewer rows than limit",
+      "sources": ["https://rapidapi.com/fantastic-jobs-fantastic-jobs-default/api/active-jobs-db", "https://fantastic.jobs/api"]
+    },
+    {
+      "row": 121,
+      "name": "Fantastic Jobs / Active Jobs DB",
+      "col": "Pagination",
+      "new_value": "Offset/limit: limit param (1-1,000 per request, default 100) + offset param; increase offset by limit each call until a response returns fewer rows than limit",
+      "sources": ["https://rapidapi.com/fantastic-jobs-fantastic-jobs-default/api/active-jobs-db", "https://fantastic.jobs/api"]
+    },
+    {
+      "row": 107,
+      "name": "Coresignal",
+      "col": "Pagination",
+      "new_value": "Cursor-based: after parameter (numeric ID cursor, or score+timestamp+ID cursor when sorting by score) plus items_per_page (max 1,000/page); response includes x-next-page-after, x-total-pages, x-total-results headers",
+      "sources": ["https://docs.coresignal.com/jobs-api/multi-source-jobs-api/elasticsearch-dsl/pagination"]
+    },
+    {
+      "row": 122,
+      "name": "Coresignal",
+      "col": "Pagination",
+      "new_value": "Cursor-based: after parameter (numeric ID cursor, or score+timestamp+ID cursor when sorting by score) plus items_per_page (max 1,000/page); response includes x-next-page-after, x-total-pages, x-total-results headers",
+      "sources": ["https://docs.coresignal.com/jobs-api/multi-source-jobs-api/elasticsearch-dsl/pagination"]
+    },
+    {
+      "row": 112,
+      "name": "France Travail (ex-Pole emploi)",
+      "col": "Pagination",
+      "new_value": "Offset-style via range parameter (e.g. range=0-149, default 0-149); max 150 results/request, max range endpoint index 1149 (up to 1150 total results per query); rate-limited to 3 req/sec; larger result sets require narrowing with minCreationDate/maxCreationDate",
+      "sources": ["https://github.com/etiennekintzler/api-offres-emploi", "https://www.data.gouv.fr/dataservices/api-offres-demploi"]
+    },
+    {
+      "row": 123,
+      "name": "JobsPikr",
+      "col": "Pagination",
+      "new_value": "Cursor-based: size param (10-100/request, default 100) + cursor param; response returns next_cursor to pass into the next request; continue until response returns status: no_data",
+      "sources": ["https://jsapi.apiary.io/apis/jobspikr/introduction/concepts.html", "https://www.jobspikr.com/jobspikr-api/"]
+    },
+    {
+      "row": 134,
+      "name": "Get on Board",
+      "col": "Pagination",
+      "new_value": "page/per_page query params; page default 1, per_page default and max 100",
+      "sources": ["https://api-doc.getonbrd.com/?version=latest", "https://www.getonbrd.com/user-manual/get-on-board-s-api"]
+    },
+    {
+      "row": 141,
+      "name": "Lightcast Jobs Canada",
+      "col": "Pagination",
+      "new_value": "Offset/limit-style (limit param, max 1,000/page; page param also supported per API changelog); OAuth bearer token required (1-hour validity)",
+      "sources": ["https://docs.lightcast.dev/apis/job-postings", "https://docs.lightcast.dev/data-sets/canada-job-postings"]
+    },
+    {
+      "row": 141,
+      "name": "Lightcast Jobs Canada",
+      "col": "Limitations / Rate Limits",
+      "new_value": "Default 10 requests/sec per client; adjustable via auth claims (e.g. postings:us:rate-limit:100/1, or unlimited on enterprise contracts); OAuth bearer tokens required, valid 1 hour",
+      "sources": ["https://docs.lightcast.dev/apis/job-postings"]
+    },
+    {
+      "row": 155,
+      "name": "RemoteJobs.org",
+      "col": "Pagination",
+      "new_value": "Offset/limit: limit param (min 1, max 50, default 20) + offset param (default 0, jobs to skip)",
+      "sources": ["https://remotejobs.org/api-access"]
+    },
+    {
+      "row": 155,
+      "name": "RemoteJobs.org",
+      "col": "Limitations / Rate Limits",
+      "new_value": "No signup/API key required; 'reasonable use' policy with no hard rate cap stated; max 50 jobs/request; contact provider (ryan@remotejobs.org) for higher volume",
+      "sources": ["https://remotejobs.org/api-access"]
+    },
+    {
+      "row": 156,
+      "name": "Workday",
+      "col": "Pagination",
+      "new_value": "Page/Count via Response_Filter on Get_Job_Requisitions: Count (min 1, max 999, default 100), Page (default 1; Page param requires also setting As_Of_Entry_Date for a consistent result set across paged requests); response returns Total_Results/Total_Pages/Page_Results",
+      "sources": ["https://community.workday.com/sites/default/files/file-hosting/productionapi/Recruiting/v19/Get_Job_Requisitions.html"]
+    },
+    {
+      "row": 200,
+      "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+      "col": "Pagination",
+      "new_value": "N/A - data-sharing suspended since 3 Oct 2022 under Resolucao CODEFAT No. 956/2022 (suspending prior Resolutions 826/2019 and 844/2019) pending LGPD (Lei 13.709/2018) compliance updates; no active API to paginate",
+      "sources": ["https://www.legisweb.com.br/legislacao/?id=436589", "https://dados.gov.br/dataset/sine-aberto"]
+    },
+    {
+      "row": 200,
+      "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+      "col": "Pagination Type",
+      "new_value": "N/A - service suspended (see Pagination note)",
+      "sources": ["https://www.legisweb.com.br/legislacao/?id=436589"]
+    },
+    {
+      "row": 200,
+      "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+      "col": "API Limits",
+      "new_value": "N/A - service suspended (see Pagination note)",
+      "sources": ["https://www.legisweb.com.br/legislacao/?id=436589"]
+    },
+    {
+      "row": 200,
+      "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+      "col": "Limitations / Rate Limits",
+      "new_value": "N/A - data-sharing suspended since 3 Oct 2022 under Resolucao CODEFAT No. 956/2022, pending LGPD compliance updates; no active service to rate-limit",
+      "sources": ["https://www.legisweb.com.br/legislacao/?id=436589"]
+    },
+    {
+      "row": 192,
+      "name": "Jobs.cz",
+      "col": "Pagination",
+      "new_value": "N/A - write-only XML feed import for employers (postings pushed to LMC's g2.lmc.cz/import/... endpoint via Teamio/LMC integration); no public job-listings read/search API to paginate",
+      "sources": ["https://www.teamio.com/en/what-it-can-do/automatic-import-of-vacancies/"]
+    },
+    {
+      "row": 193,
+      "name": "Profesia",
+      "col": "Pagination",
+      "new_value": "N/A - write/import API for employers to submit job listings to Profesia.sk (token-based bulk feed import); no public job-listings read/search API to paginate",
+      "sources": ["https://intercom.help/profesia-1e3213bf0a3a/sk/articles/8974680-profesia-api"]
+    },
+    {
+      "row": 220,
+      "name": "VietnamWorks Open API",
+      "col": "Pagination",
+      "new_value": "N/A - OAuth2 JSON API (api.vietnamworks.com/api/rest/v1) only supports Post Job and Get Application (from an employer's own postings) flows; not a job-listings search/read API, so no aggregatable pagination applies",
+      "sources": ["https://developers.vietnamworks.com/", "https://github.com/chrisshayan/vietnamworks/blob/master/employer-api-docs/README.md"]
+    },
+    {
+      "row": 220,
+      "name": "VietnamWorks Open API",
+      "col": "Pagination Type",
+      "new_value": "N/A (see Pagination note)",
+      "sources": ["https://developers.vietnamworks.com/"]
+    },
+    {
+      "row": 186,
+      "name": "ZipRecruiter API",
+      "col": "Pagination",
+      "new_value": "N/A - Partner Job API is a single-endpoint write API (api.ziprecruiter.com/partner/v0/job) for creating/updating/closing job listings on ZipRecruiter's network; not a paginated read/search endpoint",
+      "sources": ["https://www.ziprecruiter.com/partner/documentation/job-api/"]
+    },
+    {
+      "row": 360,
+      "name": "Apideck",
+      "col": "Pagination",
+      "new_value": "Cursor-based: cursor param + limit (1-200, default 20); next/previous cursors returned in the response's meta.cursors property",
+      "sources": ["https://developers.apideck.com/apis/ats/reference/jobs"]
+    },
+    {
+      "row": 360,
+      "name": "Apideck",
+      "col": "Pagination Type",
+      "new_value": "cursor",
+      "sources": ["https://developers.apideck.com/apis/ats/reference/jobs"]
+    },
+    {
+      "row": 356,
+      "name": "Diffbot",
+      "col": "Pagination",
+      "new_value": "Offset/size via DQL Search API: from (offset, default 0) + size (default 50, max enforced so from+size <= 10,000 for facet queries; size=-1 returns all results)",
+      "sources": ["https://docs.diffbot.com/reference/dqlget"]
+    },
+    {
+      "row": 356,
+      "name": "Diffbot",
+      "col": "Pagination Type",
+      "new_value": "offset",
+      "sources": ["https://docs.diffbot.com/reference/dqlget"]
+    },
+    {
+      "row": 354,
+      "name": "Mantiks",
+      "col": "Pagination",
+      "new_value": "None - async export model: create a search export (Run Search Export), poll for completion, then GET /exports/{id}/leads returns the full array of result rows in a single response (no page/limit params)",
+      "sources": ["https://mantiks-api.readme.io/reference/exportleads.md", "https://mantiks-api.readme.io/reference/searchesrun"]
+    },
+    {
+      "row": 354,
+      "name": "Mantiks",
+      "col": "Pagination Type",
+      "new_value": "None (full result array returned per completed export)",
+      "sources": ["https://mantiks-api.readme.io/reference/exportleads.md"]
+    },
+    {
+      "row": 352,
+      "name": "Techmap.io",
+      "col": "Pagination Type",
+      "new_value": "page (default) or cursor (opt-in, mutually exclusive with page-based)",
+      "sources": ["https://api.techmap.io/jobs-api"]
+    },
+    {
+      "row": 343,
+      "name": "Bright Data",
+      "col": "Pagination",
+      "new_value": "Async snapshot model: trigger a collection/filter job, poll status, then GET /datasets/snapshots/{id}/download with batch_size (min 1,000 records/batch) + part (batch number, starting at 1) to page through large snapshot results",
+      "sources": ["https://docs.brightdata.com/api-reference/marketplace-dataset-api/download-the-file-by-snapshot_id.md"]
+    },
+    {
+      "row": 343,
+      "name": "Bright Data",
+      "col": "Pagination Type",
+      "new_value": "part/batch (offset-style batching of a pre-built snapshot)",
+      "sources": ["https://docs.brightdata.com/api-reference/marketplace-dataset-api/download-the-file-by-snapshot_id.md"]
+    },
+    {
+      "row": 348,
+      "name": "Scrapingdog",
+      "col": "Pagination",
+      "new_value": "page-based: page parameter (default 1) on the Jobs Search Results (LinkedIn) endpoint; separate Google Jobs API and Indeed Scraper API products each have their own endpoint-specific pagination",
+      "sources": ["https://www.scrapingdog.com/documentation/scrape-jobs-search-results/"]
+    },
+    {
+      "row": 348,
+      "name": "Scrapingdog",
+      "col": "Pagination Type",
+      "new_value": "page",
+      "sources": ["https://www.scrapingdog.com/documentation/scrape-jobs-search-results/"]
+    },
+    {
+      "row": 350,
+      "name": "Piloterr",
+      "col": "Pagination",
+      "new_value": "page-based: page query parameter, up to 25 job listings per page (LinkedIn Job Search endpoint; Indeed Job Search and other endpoints have their own per-endpoint pagination)",
+      "sources": ["https://docs.piloterr.com/linkedin-job-search"]
+    },
+    {
+      "row": 350,
+      "name": "Piloterr",
+      "col": "Pagination Type",
+      "new_value": "page",
+      "sources": ["https://docs.piloterr.com/linkedin-job-search"]
+    },
+    {
+      "row": 318,
+      "name": "4dayweek.io",
+      "col": "Pagination",
+      "new_value": "page/limit query params: v2 (recommended) - page (default 1) + limit (default 25, max 100); v1 (legacy) - page + limit only, same defaults; iterate ?page=1..N until has_more == false",
+      "sources": ["https://4dayweek.io/developers"]
+    },
+    {
+      "row": 318,
+      "name": "4dayweek.io",
+      "col": "Pagination Type",
+      "new_value": "page",
+      "sources": ["https://4dayweek.io/developers"]
+    },
+    {
+      "row": 318,
+      "name": "4dayweek.io",
+      "col": "API Limits",
+      "new_value": "Free, public, no-auth JSON API. 60 requests/minute per IP across /api/v1 and /api/v2 combined; over-limit returns HTTP 429 with Retry-After header; responses cached 60s at edge (Cache-Control: public, max-age=60); jobs refreshed a few times per day",
+      "sources": ["https://4dayweek.io/developers"]
+    },
+    {
+      "row": 247,
+      "name": "Workforce Australia",
+      "col": "Pagination",
+      "new_value": "N/A - API is write/management only (create/update/manage employer job ads and their status via OAuth2 RESTful API through the API Developer Portal); no public job-listings read/search endpoint to paginate",
+      "sources": ["https://www.workforceaustralia.gov.au/businesses/about/how-to/connect"]
+    },
+    {
+      "row": 280,
+      "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+      "col": "Pagination",
+      "new_value": "Not page/offset-based - full criteria pull via SOAP WebService (POST to /integration/services/oferta or /v2/oferta with a Wojewodztwo/region, Jednostka/office, or Wszystkie/all criterion), returned as a ZIP of JSON files split into batches of max 1,000 offers per file",
+      "sources": ["https://oferty.praca.gov.pl/portal/dla-integratorow (Instrukcja pobierania ofert pracy z systemu ePraca, 01.06.2025)"]
+    },
+    {
+      "row": 280,
+      "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+      "col": "Pagination Type",
+      "new_value": "Batch (max 1,000 records/file, criteria-scoped SOAP pull, not a live page/cursor)",
+      "sources": ["https://oferty.praca.gov.pl/portal/dla-integratorow (Instrukcja pobierania ofert pracy z systemu ePraca, 01.06.2025)"]
+    },
+    {
+      "row": 280,
+      "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+      "col": "API Limits",
+      "new_value": "Max 20 service calls per registered Partner per availability cycle during 17:00-07:00 (excess returns 'Przekroczono limit wywolan uslugi'); calls outside MRPiPS-defined access hours return 'Usluga niedostepna'; requires pre-registered Partner name for authorization",
+      "sources": ["https://oferty.praca.gov.pl/portal/dla-integratorow (Instrukcja pobierania ofert pracy z systemu ePraca, 01.06.2025)"]
+    },
+    {
+      "row": 280,
+      "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+      "col": "Limitations / Rate Limits",
+      "new_value": "20 calls/cycle limit during 17:00-07:00 access window; service unavailable outside defined hours; two service versions available (legacy /oferta and /v2/oferta with language selection: pl/ru/by/en/ua)",
+      "sources": ["https://oferty.praca.gov.pl/portal/dla-integratorow (Instrukcja pobierania ofert pracy z systemu ePraca, 01.06.2025)"]
+    }
+  ],
+  "left_unknown": [
+    {
+      "row": 110,
+      "name": "GOV.UK Find a Job (DWP)",
+      "col": "Pagination",
+      "reason": "Official read/search API confirmed to exist (api.gov.uk/dwp/find-a-job/, endpoint findajob.dwp.gov.uk/search) but its technical spec ('FJ - Search API' PDF) is hosted on DWP's internal wiki (wiki.office.uc.dwpcloud.uk) and not publicly accessible; no public pagination parameters found."
+    },
+    {
+      "row": 110,
+      "name": "GOV.UK Find a Job (DWP)",
+      "col": "Limitations / Rate Limits",
+      "reason": "Same as above - internal-only technical documentation, no public rate limit figures found."
+    },
+    {
+      "row": 134,
+      "name": "Get on Board",
+      "col": "Limitations / Rate Limits",
+      "reason": "No official rate-limit figures published; API docs (api-doc.getonbrd.com) note the API is in beta with no stated throttling policy."
+    },
+    {
+      "row": 156,
+      "name": "Workday",
+      "col": "Limitations / Rate Limits",
+      "reason": "Workday does not publish a single official cross-tenant rate limit; actual throttling is tenant/contract-specific and only disclosed to customers directly (per multiple third-party integration guides), so no official figure can be cited."
+    },
+    {
+      "row": 185,
+      "name": "Findwork.dev",
+      "col": "Pagination",
+      "reason": "Official developer docs page (findwork.dev/developers/) requires an authenticated account login; could not access technical pagination details without credentials."
+    },
+    {
+      "row": 185,
+      "name": "Findwork.dev",
+      "col": "Limitations / Rate Limits",
+      "reason": "Same as above - docs gated behind login."
+    },
+    {
+      "row": 186,
+      "name": "ZipRecruiter API",
+      "col": "Limitations / Rate Limits",
+      "reason": "No official rate-limit figures published for the Partner Job API; ZipRecruiter partner support/FAQ page did not render usable content."
+    },
+    {
+      "row": 192,
+      "name": "Jobs.cz",
+      "col": "Limitations / Rate Limits",
+      "reason": "No published numeric rate-limit figures found; only that Teamio/LMC implementation takes up to 24h and requires an LMC account manager."
+    },
+    {
+      "row": 193,
+      "name": "Profesia",
+      "col": "Limitations / Rate Limits",
+      "reason": "No published numeric rate-limit figures found for the employer import API."
+    },
+    {
+      "row": 201,
+      "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+      "col": "Pagination",
+      "reason": "No public developer API/documentation found for this government portal (searched gob.mx, empleo.gob.mx, datos.gob.mx); cannot confirm whether a programmatic API exists at all."
+    },
+    {
+      "row": 201,
+      "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+      "col": "Pagination Type",
+      "reason": "Same as above - no public API found."
+    },
+    {
+      "row": 201,
+      "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+      "col": "API Limits",
+      "reason": "Same as above - no public API found."
+    },
+    {
+      "row": 201,
+      "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+      "col": "Limitations / Rate Limits",
+      "reason": "Same as above - no public API found."
+    },
+    {
+      "row": 220,
+      "name": "VietnamWorks Open API",
+      "col": "API Limits",
+      "reason": "No published numeric rate-limit figures found; access requires sales contact and consumer key, with a sandbox available for testing."
+    },
+    {
+      "row": 247,
+      "name": "Workforce Australia",
+      "col": "API Limits",
+      "reason": "Technical documentation is gated behind the API Developer Portal, which requires registration and an Australian Government Digital ID (myID); no public rate-limit figures found."
+    },
+    {
+      "row": 247,
+      "name": "Workforce Australia",
+      "col": "Limitations / Rate Limits",
+      "reason": "Same as above - technical docs gated behind Developer Portal registration + Digital ID."
+    },
+    {
+      "row": 271,
+      "name": "Job-Room Jobs API (SECO, Switzerland)",
+      "col": "API Limits",
+      "reason": "No public developer documentation found for job-room.ch's API; the arbeit.swiss/job-room.ch site exposes no visible developer portal, and web/GitHub searches turned up no public technical reference."
+    },
+    {
+      "row": 285,
+      "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+      "col": "Pagination",
+      "reason": "A developer portal exists (developer.vdab.be) but returns 403 Forbidden without authentication/registration; no public pagination documentation accessible."
+    },
+    {
+      "row": 285,
+      "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+      "col": "Pagination Type",
+      "reason": "Same as above - developer portal is access-gated."
+    },
+    {
+      "row": 285,
+      "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+      "col": "API Limits",
+      "reason": "Same as above - developer portal is access-gated."
+    },
+    {
+      "row": 336,
+      "name": "Talroo",
+      "col": "Pagination Type",
+      "reason": "Talroo's Developer Tools page confirms a Search API, Classification API, and Job Status API exist, but technical specs (\"View technical specs\") are gated behind a partner account; no public pagination parameters found."
+    },
+    {
+      "row": 336,
+      "name": "Talroo",
+      "col": "API Limits",
+      "reason": "Same as above - technical specs gated behind partner account."
+    },
+    {
+      "row": 344,
+      "name": "Oxylabs",
+      "col": "Pagination",
+      "reason": "Oxylabs offers a general-purpose Web Scraper API/SERP API; no dedicated job-postings scraper product or endpoint was found (unlike Bright Data, Scrapingdog, or Piloterr), so no job-specific pagination mechanism to document."
+    },
+    {
+      "row": 344,
+      "name": "Oxylabs",
+      "col": "Pagination Type",
+      "reason": "Same as above - no dedicated jobs vertical found."
+    },
+    {
+      "row": 345,
+      "name": "Zyte (formerly Scrapinghub)",
+      "col": "Pagination",
+      "reason": "Zyte markets a 'Job Posting' managed data feed / Job Scraper API, but it is a custom, sales-quoted service (\"Let's talk\") rather than a self-serve product with public technical/pagination documentation."
+    },
+    {
+      "row": 345,
+      "name": "Zyte (formerly Scrapinghub)",
+      "col": "Pagination Type",
+      "reason": "Same as above - managed/custom service, no public API docs."
+    },
+    {
+      "row": 351,
+      "name": "Nimble (Nimbleway)",
+      "col": "Pagination",
+      "reason": "No dedicated job-postings product or public pagination documentation found on docs.nimbleway.com in this check; Nimble is a general-purpose web-unblocking/scraping infrastructure provider."
+    },
+    {
+      "row": 351,
+      "name": "Nimble (Nimbleway)",
+      "col": "Pagination Type",
+      "reason": "Same as above."
+    },
+    {
+      "row": 362,
+      "name": "Workato",
+      "col": "Pagination",
+      "reason": "Workato is a general iPaaS/automation platform, not a job-listings source; no dedicated pagination reference page found for its own REST API (docs.workato.com/workato-api/pagination.html 404s) in the time available."
+    },
+    {
+      "row": 362,
+      "name": "Workato",
+      "col": "Pagination Type",
+      "reason": "Same as above."
+    }
+  ]
+}

@@ -47,3 +47,7 @@ OPENWEBNINJA_API_KEY = os.getenv("OPENWEBNINJA_API_KEY")
 
 # CareerJet - https://www.careerjet.com/partners/api/
 CAREERJET_API_KEY = os.getenv("CAREERJET_API_KEY")
+
+# CareerOneStop / NLx - https://www.careeronestop.org/Developers/WebAPI/web-api.aspx
+CAREERONESTOP_USER_ID = os.getenv("CAREERONESTOP_USER_ID")
+CAREERONESTOP_API_TOKEN = os.getenv("CAREERONESTOP_API_TOKEN")

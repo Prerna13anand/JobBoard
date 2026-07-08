@@ -1,0 +1,221 @@
+{
+ "applied": [
+  {
+   "row": 105,
+   "col": "Pagination",
+   "new_value": "Offset-style path parameters: {startRecord}/{pageSize} (e.g. /v2/jobsearch/{userId}/{keyword}/{location}/{radius}/{sortColumns}/{sortOrder}/{startRecord}/{pageSize}/{days}); all parameters required on every request"
+  },
+  {
+   "row": 106,
+   "col": "Pagination",
+   "new_value": "Offset/limit: limit param (1-1,000 per request, default 100) + offset param; increase offset by limit each call until a response returns fewer rows than limit"
+  },
+  {
+   "row": 121,
+   "col": "Pagination",
+   "new_value": "Offset/limit: limit param (1-1,000 per request, default 100) + offset param; increase offset by limit each call until a response returns fewer rows than limit"
+  },
+  {
+   "row": 107,
+   "col": "Pagination",
+   "new_value": "Cursor-based: after parameter (numeric ID cursor, or score+timestamp+ID cursor when sorting by score) plus items_per_page (max 1,000/page); response includes x-next-page-after, x-total-pages, x-total-results headers"
+  },
+  {
+   "row": 122,
+   "col": "Pagination",
+   "new_value": "Cursor-based: after parameter (numeric ID cursor, or score+timestamp+ID cursor when sorting by score) plus items_per_page (max 1,000/page); response includes x-next-page-after, x-total-pages, x-total-results headers"
+  },
+  {
+   "row": 112,
+   "col": "Pagination",
+   "new_value": "Offset-style via range parameter (e.g. range=0-149, default 0-149); max 150 results/request, max range endpoint index 1149 (up to 1150 total results per query); rate-limited to 3 req/sec; larger result sets require narrowing with minCreationDate/maxCreationDate"
+  },
+  {
+   "row": 123,
+   "col": "Pagination",
+   "new_value": "Cursor-based: size param (10-100/request, default 100) + cursor param; response returns next_cursor to pass into the next request; continue until response returns status: no_data"
+  },
+  {
+   "row": 134,
+   "col": "Pagination",
+   "new_value": "page/per_page query params; page default 1, per_page default and max 100"
+  },
+  {
+   "row": 141,
+   "col": "Pagination",
+   "new_value": "Offset/limit-style (limit param, max 1,000/page; page param also supported per API changelog); OAuth bearer token required (1-hour validity)"
+  },
+  {
+   "row": 141,
+   "col": "Limitations / Rate Limits",
+   "new_value": "Default 10 requests/sec per client; adjustable via auth claims (e.g. postings:us:rate-limit:100/1, or unlimited on enterprise contracts); OAuth bearer tokens required, valid 1 hour"
+  },
+  {
+   "row": 155,
+   "col": "Pagination",
+   "new_value": "Offset/limit: limit param (min 1, max 50, default 20) + offset param (default 0, jobs to skip)"
+  },
+  {
+   "row": 155,
+   "col": "Limitations / Rate Limits",
+   "new_value": "No signup/API key required; 'reasonable use' policy with no hard rate cap stated; max 50 jobs/request; contact provider (ryan@remotejobs.org) for higher volume"
+  },
+  {
+   "row": 156,
+   "col": "Pagination",
+   "new_value": "Page/Count via Response_Filter on Get_Job_Requisitions: Count (min 1, max 999, default 100), Page (default 1; Page param requires also setting As_Of_Entry_Date for a consistent result set across paged requests); response returns Total_Results/Total_Pages/Page_Results"
+  },
+  {
+   "row": 200,
+   "col": "Pagination",
+   "new_value": "N/A - data-sharing suspended since 3 Oct 2022 under Resolucao CODEFAT No. 956/2022 (suspending prior Resolutions 826/2019 and 844/2019) pending LGPD (Lei 13.709/2018) compliance updates; no active API to paginate"
+  },
+  {
+   "row": 200,
+   "col": "Pagination Type",
+   "new_value": "N/A - service suspended (see Pagination note)"
+  },
+  {
+   "row": 200,
+   "col": "API Limits",
+   "new_value": "N/A - service suspended (see Pagination note)"
+  },
+  {
+   "row": 200,
+   "col": "Limitations / Rate Limits",
+   "new_value": "N/A - data-sharing suspended since 3 Oct 2022 under Resolucao CODEFAT No. 956/2022, pending LGPD compliance updates; no active service to rate-limit"
+  },
+  {
+   "row": 192,
+   "col": "Pagination",
+   "new_value": "N/A - write-only XML feed import for employers (postings pushed to LMC's g2.lmc.cz/import/... endpoint via Teamio/LMC integration); no public job-listings read/search API to paginate"
+  },
+  {
+   "row": 193,
+   "col": "Pagination",
+   "new_value": "N/A - write/import API for employers to submit job listings to Profesia.sk (token-based bulk feed import); no public job-listings read/search API to paginate"
+  },
+  {
+   "row": 220,
+   "col": "Pagination",
+   "new_value": "N/A - OAuth2 JSON API (api.vietnamworks.com/api/rest/v1) only supports Post Job and Get Application (from an employer's own postings) flows; not a job-listings search/read API, so no aggregatable pagination applies"
+  },
+  {
+   "row": 220,
+   "col": "Pagination Type",
+   "new_value": "N/A (see Pagination note)"
+  },
+  {
+   "row": 186,
+   "col": "Pagination",
+   "new_value": "N/A - Partner Job API is a single-endpoint write API (api.ziprecruiter.com/partner/v0/job) for creating/updating/closing job listings on ZipRecruiter's network; not a paginated read/search endpoint"
+  },
+  {
+   "row": 360,
+   "col": "Pagination",
+   "new_value": "Cursor-based: cursor param + limit (1-200, default 20); next/previous cursors returned in the response's meta.cursors property"
+  },
+  {
+   "row": 360,
+   "col": "Pagination Type",
+   "new_value": "cursor"
+  },
+  {
+   "row": 356,
+   "col": "Pagination",
+   "new_value": "Offset/size via DQL Search API: from (offset, default 0) + size (default 50, max enforced so from+size <= 10,000 for facet queries; size=-1 returns all results)"
+  },
+  {
+   "row": 356,
+   "col": "Pagination Type",
+   "new_value": "offset"
+  },
+  {
+   "row": 354,
+   "col": "Pagination",
+   "new_value": "None - async export model: create a search export (Run Search Export), poll for completion, then GET /exports/{id}/leads returns the full array of result rows in a single response (no page/limit params)"
+  },
+  {
+   "row": 354,
+   "col": "Pagination Type",
+   "new_value": "None (full result array returned per completed export)"
+  },
+  {
+   "row": 352,
+   "col": "Pagination Type",
+   "new_value": "page (default) or cursor (opt-in, mutually exclusive with page-based)"
+  },
+  {
+   "row": 343,
+   "col": "Pagination",
+   "new_value": "Async snapshot model: trigger a collection/filter job, poll status, then GET /datasets/snapshots/{id}/download with batch_size (min 1,000 records/batch) + part (batch number, starting at 1) to page through large snapshot results"
+  },
+  {
+   "row": 343,
+   "col": "Pagination Type",
+   "new_value": "part/batch (offset-style batching of a pre-built snapshot)"
+  },
+  {
+   "row": 348,
+   "col": "Pagination",
+   "new_value": "page-based: page parameter (default 1) on the Jobs Search Results (LinkedIn) endpoint; separate Google Jobs API and Indeed Scraper API products each have their own endpoint-specific pagination"
+  },
+  {
+   "row": 348,
+   "col": "Pagination Type",
+   "new_value": "page"
+  },
+  {
+   "row": 350,
+   "col": "Pagination",
+   "new_value": "page-based: page query parameter, up to 25 job listings per page (LinkedIn Job Search endpoint; Indeed Job Search and other endpoints have their own per-endpoint pagination)"
+  },
+  {
+   "row": 350,
+   "col": "Pagination Type",
+   "new_value": "page"
+  },
+  {
+   "row": 318,
+   "col": "Pagination",
+   "new_value": "page/limit query params: v2 (recommended) - page (default 1) + limit (default 25, max 100); v1 (legacy) - page + limit only, same defaults; iterate ?page=1..N until has_more == false"
+  },
+  {
+   "row": 318,
+   "col": "Pagination Type",
+   "new_value": "page"
+  },
+  {
+   "row": 318,
+   "col": "API Limits",
+   "new_value": "Free, public, no-auth JSON API. 60 requests/minute per IP across /api/v1 and /api/v2 combined; over-limit returns HTTP 429 with Retry-After header; responses cached 60s at edge (Cache-Control: public, max-age=60); jobs refreshed a few times per day"
+  },
+  {
+   "row": 247,
+   "col": "Pagination",
+   "new_value": "N/A - API is write/management only (create/update/manage employer job ads and their status via OAuth2 RESTful API through the API Developer Portal); no public job-listings read/search endpoint to paginate"
+  },
+  {
+   "row": 280,
+   "col": "Pagination",
+   "new_value": "Not page/offset-based - full criteria pull via SOAP WebService (POST to /integration/services/oferta or /v2/oferta with a Wojewodztwo/region, Jednostka/office, or Wszystkie/all criterion), returned as a ZIP of JSON files split into batches of max 1,000 offers per file"
+  },
+  {
+   "row": 280,
+   "col": "Pagination Type",
+   "new_value": "Batch (max 1,000 records/file, criteria-scoped SOAP pull, not a live page/cursor)"
+  },
+  {
+   "row": 280,
+   "col": "API Limits",
+   "new_value": "Max 20 service calls per registered Partner per availability cycle during 17:00-07:00 (excess returns 'Przekroczono limit wywolan uslugi'); calls outside MRPiPS-defined access hours return 'Usluga niedostepna'; requires pre-registered Partner name for authorization"
+  },
+  {
+   "row": 280,
+   "col": "Limitations / Rate Limits",
+   "new_value": "20 calls/cycle limit during 17:00-07:00 access window; service unavailable outside defined hours; two service versions available (legacy /oferta and /v2/oferta with language selection: pl/ru/by/en/ua)"
+  }
+ ],
+ "skipped_not_unknown": [],
+ "skipped_no_col": []
+}

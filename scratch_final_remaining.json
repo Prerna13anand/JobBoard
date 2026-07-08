@@ -1,0 +1,206 @@
+[
+ {
+  "row": 110,
+  "name": "GOV.UK Find a Job (DWP)",
+  "region": "United Kingdom",
+  "col": "Pagination"
+ },
+ {
+  "row": 110,
+  "name": "GOV.UK Find a Job (DWP)",
+  "region": "United Kingdom",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 134,
+  "name": "Get on Board",
+  "region": "LATAM",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 156,
+  "name": "Workday",
+  "region": "India",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 185,
+  "name": "Findwork.dev",
+  "region": "United States",
+  "col": "Pagination"
+ },
+ {
+  "row": 185,
+  "name": "Findwork.dev",
+  "region": "United States",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 186,
+  "name": "ZipRecruiter API",
+  "region": "United States",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 192,
+  "name": "Jobs.cz",
+  "region": "Europe (Other)",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 193,
+  "name": "Profesia",
+  "region": "Europe (Other)",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "col": "Pagination"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "col": "API Limits"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 220,
+  "name": "VietnamWorks Open API",
+  "region": "Vietnam",
+  "col": "API Limits"
+ },
+ {
+  "row": 247,
+  "name": "Workforce Australia",
+  "region": "Australia",
+  "col": "API Limits"
+ },
+ {
+  "row": 247,
+  "name": "Workforce Australia",
+  "region": "Australia",
+  "col": "Limitations / Rate Limits"
+ },
+ {
+  "row": 271,
+  "name": "Job-Room Jobs API (SECO, Switzerland)",
+  "region": "Switzerland",
+  "col": "API Limits"
+ },
+ {
+  "row": 285,
+  "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+  "region": "Belgium",
+  "col": "Pagination"
+ },
+ {
+  "row": 285,
+  "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+  "region": "Belgium",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 285,
+  "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+  "region": "Belgium",
+  "col": "API Limits"
+ },
+ {
+  "row": 336,
+  "name": "Talroo",
+  "region": "United States",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 336,
+  "name": "Talroo",
+  "region": "United States",
+  "col": "API Limits"
+ },
+ {
+  "row": 344,
+  "name": "Oxylabs",
+  "region": "Global",
+  "col": "Pagination"
+ },
+ {
+  "row": 344,
+  "name": "Oxylabs",
+  "region": "Global",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 345,
+  "name": "Zyte (formerly Scrapinghub)",
+  "region": "Global",
+  "col": "Pagination"
+ },
+ {
+  "row": 345,
+  "name": "Zyte (formerly Scrapinghub)",
+  "region": "Global",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 346,
+  "name": "ScraperAPI",
+  "region": "Global",
+  "col": "Pagination"
+ },
+ {
+  "row": 346,
+  "name": "ScraperAPI",
+  "region": "Global",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 349,
+  "name": "HasData",
+  "region": "Global",
+  "col": "Pagination"
+ },
+ {
+  "row": 349,
+  "name": "HasData",
+  "region": "Global",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 351,
+  "name": "Nimble (Nimbleway)",
+  "region": "Global",
+  "col": "Pagination"
+ },
+ {
+  "row": 351,
+  "name": "Nimble (Nimbleway)",
+  "region": "Global",
+  "col": "Pagination Type"
+ },
+ {
+  "row": 362,
+  "name": "Workato",
+  "region": "Global",
+  "col": "Pagination"
+ },
+ {
+  "row": 362,
+  "name": "Workato",
+  "region": "Global",
+  "col": "Pagination Type"
+ }
+]

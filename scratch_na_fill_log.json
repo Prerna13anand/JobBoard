@@ -1,0 +1,1486 @@
+[
+ {
+  "row": 157,
+  "name": "CEIPAL",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 181,
+  "name": "Rojgar Sangam (UP)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 182,
+  "name": "MahaJobs",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 183,
+  "name": "MP Rojgar",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 184,
+  "name": "Telangana T-Jobs",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 197,
+  "name": "Gupy Public API",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 197,
+  "name": "Gupy Public API",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 198,
+  "name": "Vagas for Business API (Vagas.com.br)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 198,
+  "name": "Vagas for Business API (Vagas.com.br)",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 198,
+  "name": "Vagas for Business API (Vagas.com.br)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 198,
+  "name": "Vagas for Business API (Vagas.com.br)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 198,
+  "name": "Vagas for Business API (Vagas.com.br)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 198,
+  "name": "Vagas for Business API (Vagas.com.br)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 199,
+  "name": "Catho Developer API",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 199,
+  "name": "Catho Developer API",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 199,
+  "name": "Catho Developer API",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 199,
+  "name": "Catho Developer API",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 199,
+  "name": "Catho Developer API",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 199,
+  "name": "Catho Developer API",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 202,
+  "name": "Bolsa Nacional de Empleo (BNE / SENCE, Chile)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 203,
+  "name": "Portal Empleo Argentina (Ministerio de Capital Humano / ex-Trabajo)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 204,
+  "name": "ZonaJobs",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 205,
+  "name": "Agencia Publica de Empleo SENA (APE)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 205,
+  "name": "Agencia Publica de Empleo SENA (APE)",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 205,
+  "name": "Agencia Publica de Empleo SENA (APE)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 205,
+  "name": "Agencia Publica de Empleo SENA (APE)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 205,
+  "name": "Agencia Publica de Empleo SENA (APE)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 205,
+  "name": "Agencia Publica de Empleo SENA (APE)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 206,
+  "name": "Rozee.pk",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 207,
+  "name": "Mustakbil.com",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 208,
+  "name": "National Job Portal (NJP) - Pakistan",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 208,
+  "name": "National Job Portal (NJP) - Pakistan",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 209,
+  "name": "NAVTTC National Employment Exchange Tool (NEXT / jobs.gov.pk)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 209,
+  "name": "NAVTTC National Employment Exchange Tool (NEXT / jobs.gov.pk)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 210,
+  "name": "Bdjobs.com",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 210,
+  "name": "Bdjobs.com",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 211,
+  "name": "National Job Portal - Bangladesh (jobs.gov.bd)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 211,
+  "name": "National Job Portal - Bangladesh (jobs.gov.bd)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 212,
+  "name": "BMET / Ami Probashi (Bangladesh Overseas Employment)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 212,
+  "name": "BMET / Ami Probashi (Bangladesh Overseas Employment)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 213,
+  "name": "topjobs.lk",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 213,
+  "name": "topjobs.lk",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 214,
+  "name": "XpressJobs (xpress.jobs)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 214,
+  "name": "XpressJobs (xpress.jobs)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 215,
+  "name": "Public Service Commission of Sri Lanka (psc.gov.lk)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 215,
+  "name": "Public Service Commission of Sri Lanka (psc.gov.lk)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 216,
+  "name": "Kemnaker Karirhub (SIAPkerja)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 216,
+  "name": "Kemnaker Karirhub (SIAPkerja)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 216,
+  "name": "Kemnaker Karirhub (SIAPkerja)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 216,
+  "name": "Kemnaker Karirhub (SIAPkerja)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 217,
+  "name": "Karir.com",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 217,
+  "name": "Karir.com",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 217,
+  "name": "Karir.com",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 217,
+  "name": "Karir.com",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 217,
+  "name": "Karir.com",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 218,
+  "name": "PhilJobNet (DOLE Bureau of Local Employment)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 218,
+  "name": "PhilJobNet (DOLE Bureau of Local Employment)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 218,
+  "name": "PhilJobNet (DOLE Bureau of Local Employment)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 218,
+  "name": "PhilJobNet (DOLE Bureau of Local Employment)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 218,
+  "name": "PhilJobNet (DOLE Bureau of Local Employment)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 219,
+  "name": "Bossjob",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 219,
+  "name": "Bossjob",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 219,
+  "name": "Bossjob",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 219,
+  "name": "Bossjob",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 219,
+  "name": "Bossjob",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 221,
+  "name": "TopCV",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 221,
+  "name": "TopCV",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 221,
+  "name": "TopCV",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 221,
+  "name": "TopCV",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 221,
+  "name": "TopCV",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 222,
+  "name": "CareerLink Vietnam",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 222,
+  "name": "CareerLink Vietnam",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 222,
+  "name": "CareerLink Vietnam",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 222,
+  "name": "CareerLink Vietnam",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 222,
+  "name": "CareerLink Vietnam",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 223,
+  "name": "JobThai",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 223,
+  "name": "JobThai",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 223,
+  "name": "JobThai",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 223,
+  "name": "JobThai",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 223,
+  "name": "JobThai",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 224,
+  "name": "Thailand Department of Employment - Smart Job Center (\u0e44\u0e17\u0e22\u0e21\u0e35\u0e07\u0e32\u0e19\u0e17\u0e33)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 224,
+  "name": "Thailand Department of Employment - Smart Job Center (\u0e44\u0e17\u0e22\u0e21\u0e35\u0e07\u0e32\u0e19\u0e17\u0e33)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 224,
+  "name": "Thailand Department of Employment - Smart Job Center (\u0e44\u0e17\u0e22\u0e21\u0e35\u0e07\u0e32\u0e19\u0e17\u0e33)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 224,
+  "name": "Thailand Department of Employment - Smart Job Center (\u0e44\u0e17\u0e22\u0e21\u0e35\u0e07\u0e32\u0e19\u0e17\u0e33)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 224,
+  "name": "Thailand Department of Employment - Smart Job Center (\u0e44\u0e17\u0e22\u0e21\u0e35\u0e07\u0e32\u0e19\u0e17\u0e33)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 225,
+  "name": "Bayt.com",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 226,
+  "name": "GulfTalent",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 227,
+  "name": "Naukrigulf",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 228,
+  "name": "MOHRE UAE Federal Careers / iRecruitment Portal",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 228,
+  "name": "MOHRE UAE Federal Careers / iRecruitment Portal",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 228,
+  "name": "MOHRE UAE Federal Careers / iRecruitment Portal",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 229,
+  "name": "Jadarat (Saudi National Employment Portal / HRDF)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 229,
+  "name": "Jadarat (Saudi National Employment Portal / HRDF)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 229,
+  "name": "Jadarat (Saudi National Employment Portal / HRDF)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 230,
+  "name": "AllJobs.co.il",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 231,
+  "name": "Drushim",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 231,
+  "name": "Drushim",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 231,
+  "name": "Drushim",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 232,
+  "name": "Israeli Employment Service (Sherut HaTaasuka / taasuka.gov.il)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 232,
+  "name": "Israeli Employment Service (Sherut HaTaasuka / taasuka.gov.il)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 232,
+  "name": "Israeli Employment Service (Sherut HaTaasuka / taasuka.gov.il)",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 233,
+  "name": "Pnet",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 234,
+  "name": "Careers24",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 235,
+  "name": "Employment Services of South Africa (ESSA) - Dept. of Employment and Labour",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 235,
+  "name": "Employment Services of South Africa (ESSA) - Dept. of Employment and Labour",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 235,
+  "name": "Employment Services of South Africa (ESSA) - Dept. of Employment and Labour",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 236,
+  "name": "Jobberman",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 236,
+  "name": "Jobberman",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 236,
+  "name": "Jobberman",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 237,
+  "name": "MyJobMag",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 238,
+  "name": "National Directorate of Employment (NDE) Nigeria",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 238,
+  "name": "National Directorate of Employment (NDE) Nigeria",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 238,
+  "name": "National Directorate of Employment (NDE) Nigeria",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 239,
+  "name": "BrighterMonday",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 239,
+  "name": "BrighterMonday",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 239,
+  "name": "BrighterMonday",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 240,
+  "name": "NEAIMS - National Employment Authority Kenya",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 240,
+  "name": "NEAIMS - National Employment Authority Kenya",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 240,
+  "name": "NEAIMS - National Employment Authority Kenya",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 241,
+  "name": "WUZZUF",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 242,
+  "name": "Forasna",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 243,
+  "name": "Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 243,
+  "name": "Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 243,
+  "name": "Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 244,
+  "name": "SEEK (SEEK.com.au / SEEK.co.nz)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (Partner Posting API Only)"
+ },
+ {
+  "row": 244,
+  "name": "SEEK (SEEK.com.au / SEEK.co.nz)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (Partner Posting API Only)"
+ },
+ {
+  "row": 244,
+  "name": "SEEK (SEEK.com.au / SEEK.co.nz)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (Partner Posting API Only)"
+ },
+ {
+  "row": 245,
+  "name": "SEEK (SEEK.com.au / SEEK.co.nz)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (Partner Posting API Only)"
+ },
+ {
+  "row": 245,
+  "name": "SEEK (SEEK.com.au / SEEK.co.nz)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (Partner Posting API Only)"
+ },
+ {
+  "row": 245,
+  "name": "SEEK (SEEK.com.au / SEEK.co.nz)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (Partner Posting API Only)"
+ },
+ {
+  "row": 251,
+  "name": "CareerOne (Australia)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (Partner Posting API Only)"
+ },
+ {
+  "row": 303,
+  "name": "Monster",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 303,
+  "name": "Monster",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 303,
+  "name": "Monster",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 303,
+  "name": "Monster",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 303,
+  "name": "Monster",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 304,
+  "name": "CareerBuilder",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 304,
+  "name": "CareerBuilder",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 304,
+  "name": "CareerBuilder",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 305,
+  "name": "Glassdoor Jobs API",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 305,
+  "name": "Glassdoor Jobs API",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 305,
+  "name": "Glassdoor Jobs API",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 305,
+  "name": "Glassdoor Jobs API",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 305,
+  "name": "Glassdoor Jobs API",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 306,
+  "name": "Snagajob",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 306,
+  "name": "Snagajob",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 306,
+  "name": "Snagajob",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 306,
+  "name": "Snagajob",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 307,
+  "name": "Nexxt (formerly Beyond.com)",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 307,
+  "name": "Nexxt (formerly Beyond.com)",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 307,
+  "name": "Nexxt (formerly Beyond.com)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 307,
+  "name": "Nexxt (formerly Beyond.com)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 308,
+  "name": "Jobcase Platform API",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 308,
+  "name": "Jobcase Platform API",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 308,
+  "name": "Jobcase Platform API",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 308,
+  "name": "Jobcase Platform API",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 308,
+  "name": "Jobcase Platform API",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 309,
+  "name": "Triplebyte",
+  "col": "Pagination",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 309,
+  "name": "Triplebyte",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 309,
+  "name": "Triplebyte",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 309,
+  "name": "Triplebyte",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 309,
+  "name": "Triplebyte",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 311,
+  "name": "Work at a Startup (Y Combinator)",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 311,
+  "name": "Work at a Startup (Y Combinator)",
+  "col": "Incremental Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 311,
+  "name": "Work at a Startup (Y Combinator)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public API"
+ },
+ {
+  "row": 322,
+  "name": "Appcast",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 322,
+  "name": "Appcast",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 323,
+  "name": "PandoLogic (pandoIQ) / Veritone Hire",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 323,
+  "name": "PandoLogic (pandoIQ) / Veritone Hire",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 324,
+  "name": "Joveo",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 324,
+  "name": "Joveo",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 325,
+  "name": "Recruitics",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 325,
+  "name": "Recruitics",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 326,
+  "name": "Broadbean (Veritone Hire)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "Enterprise Only (write-side posting API; no public read API)"
+ },
+ {
+  "row": 326,
+  "name": "Broadbean (Veritone Hire)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "Enterprise Only (write-side posting API; no public read API)"
+ },
+ {
+  "row": 327,
+  "name": "eQuest",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / posting-delivery only)"
+ },
+ {
+  "row": 327,
+  "name": "eQuest",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / posting-delivery only)"
+ },
+ {
+  "row": 328,
+  "name": "Radancy",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "Enterprise Only (no public read API)"
+ },
+ {
+  "row": 328,
+  "name": "Radancy",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "Enterprise Only (no public read API)"
+ },
+ {
+  "row": 329,
+  "name": "Jobg8",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-based marketplace)"
+ },
+ {
+  "row": 329,
+  "name": "Jobg8",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-based marketplace)"
+ },
+ {
+  "row": 330,
+  "name": "JoinVision (JobCloud HR Tech)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 330,
+  "name": "JoinVision (JobCloud HR Tech)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest only)"
+ },
+ {
+  "row": 331,
+  "name": "WhatJobs",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-ingest)"
+ },
+ {
+  "row": 331,
+  "name": "WhatJobs",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-ingest)"
+ },
+ {
+  "row": 331,
+  "name": "WhatJobs",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-ingest)"
+ },
+ {
+  "row": 332,
+  "name": "Trovit (LIFULL Connect / Adzuna)",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 332,
+  "name": "Trovit (LIFULL Connect / Adzuna)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 332,
+  "name": "Trovit (LIFULL Connect / Adzuna)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 333,
+  "name": "Mitula (LIFULL Connect / Adzuna)",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 333,
+  "name": "Mitula (LIFULL Connect / Adzuna)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 333,
+  "name": "Mitula (LIFULL Connect / Adzuna)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 334,
+  "name": "JobisJob (LIFULL Connect)",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 334,
+  "name": "JobisJob (LIFULL Connect)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 335,
+  "name": "Lensa",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 335,
+  "name": "Lensa",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 335,
+  "name": "Lensa",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 335,
+  "name": "Lensa",
+  "col": "Additional Supported Regions",
+  "old": "Unknown",
+  "status": "No Public Read API (aggregator; CPC feed-in)"
+ },
+ {
+  "row": 337,
+  "name": "Jobcase (MaxRecruit)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 337,
+  "name": "Jobcase (MaxRecruit)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 337,
+  "name": "Jobcase (MaxRecruit)",
+  "col": "Additional Supported Regions",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 338,
+  "name": "Upward.net (a Jobcase company)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 338,
+  "name": "Upward.net (a Jobcase company)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 338,
+  "name": "Upward.net (a Jobcase company)",
+  "col": "Additional Supported Regions",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 339,
+  "name": "ZipAlerts (ZipRecruiter TrafficBoost)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (email PPC distribution)"
+ },
+ {
+  "row": 339,
+  "name": "ZipAlerts (ZipRecruiter TrafficBoost)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (email PPC distribution)"
+ },
+ {
+  "row": 339,
+  "name": "ZipAlerts (ZipRecruiter TrafficBoost)",
+  "col": "Additional Supported Regions",
+  "old": "Unknown",
+  "status": "No Public Read API (email PPC distribution)"
+ },
+ {
+  "row": 340,
+  "name": "SmartDreamers",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 340,
+  "name": "SmartDreamers",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 341,
+  "name": "CareerBuilder / Monster (Talent Network distribution)",
+  "col": "API Limits",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 341,
+  "name": "CareerBuilder / Monster (Talent Network distribution)",
+  "col": "Date-based Sync",
+  "old": "Unknown",
+  "status": "No Public Read API (feed-ingest / distribution only)"
+ },
+ {
+  "row": 342,
+  "name": "Google for Jobs",
+  "col": "Pagination Type",
+  "old": "Unknown",
+  "status": "No Public Read API (schema.org crawl-based aggregator)"
+ }
+]

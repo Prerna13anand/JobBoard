@@ -1,0 +1,618 @@
+[
+ {
+  "row": 105,
+  "name": "CareerOneStop / NLx \"List Jobs V2\"",
+  "region": "United States",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 106,
+  "name": "Fantastic Jobs / Active Jobs DB",
+  "region": "United States",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 107,
+  "name": "Coresignal",
+  "region": "United States",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 110,
+  "name": "GOV.UK Find a Job (DWP)",
+  "region": "United Kingdom",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 110,
+  "name": "GOV.UK Find a Job (DWP)",
+  "region": "United Kingdom",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 112,
+  "name": "France Travail (ex-Pole emploi)",
+  "region": "Europe (Other)",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 121,
+  "name": "Fantastic Jobs / Active Jobs DB",
+  "region": "India",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 122,
+  "name": "Coresignal",
+  "region": "India",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 123,
+  "name": "JobsPikr",
+  "region": "India",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 134,
+  "name": "Get on Board",
+  "region": "LATAM",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 134,
+  "name": "Get on Board",
+  "region": "LATAM",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 141,
+  "name": "Lightcast Jobs Canada",
+  "region": "Canada",
+  "status": "Not Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 141,
+  "name": "Lightcast Jobs Canada",
+  "region": "Canada",
+  "status": "Not Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 155,
+  "name": "RemoteJobs.org",
+  "region": "United States",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 155,
+  "name": "RemoteJobs.org",
+  "region": "United States",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 156,
+  "name": "Workday",
+  "region": "India",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 156,
+  "name": "Workday",
+  "region": "India",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 185,
+  "name": "Findwork.dev",
+  "region": "United States",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 185,
+  "name": "Findwork.dev",
+  "region": "United States",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 186,
+  "name": "ZipRecruiter API",
+  "region": "United States",
+  "status": "Enterprise Only",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 186,
+  "name": "ZipRecruiter API",
+  "region": "United States",
+  "status": "Enterprise Only",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 192,
+  "name": "Jobs.cz",
+  "region": "Europe (Other)",
+  "status": "Enterprise Only",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 192,
+  "name": "Jobs.cz",
+  "region": "Europe (Other)",
+  "status": "Enterprise Only",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 193,
+  "name": "Profesia",
+  "region": "Europe (Other)",
+  "status": "Enterprise Only",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 193,
+  "name": "Profesia",
+  "region": "Europe (Other)",
+  "status": "Enterprise Only",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 200,
+  "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+  "region": "Brazil",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 200,
+  "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+  "region": "Brazil",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 200,
+  "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+  "region": "Brazil",
+  "status": "Recommended",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 200,
+  "name": "SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)",
+  "region": "Brazil",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "status": "Recommended",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 201,
+  "name": "Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)",
+  "region": "Mexico",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 220,
+  "name": "VietnamWorks Open API",
+  "region": "Vietnam",
+  "status": "Restricted - Partner Access Required",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 220,
+  "name": "VietnamWorks Open API",
+  "region": "Vietnam",
+  "status": "Restricted - Partner Access Required",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 220,
+  "name": "VietnamWorks Open API",
+  "region": "Vietnam",
+  "status": "Restricted - Partner Access Required",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 247,
+  "name": "Workforce Australia",
+  "region": "Australia",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 247,
+  "name": "Workforce Australia",
+  "region": "Australia",
+  "status": "Recommended",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 247,
+  "name": "Workforce Australia",
+  "region": "Australia",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 271,
+  "name": "Job-Room Jobs API (SECO, Switzerland)",
+  "region": "Switzerland",
+  "status": "Recommended",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 280,
+  "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+  "region": "Poland",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 280,
+  "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+  "region": "Poland",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 280,
+  "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+  "region": "Poland",
+  "status": "Recommended",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 280,
+  "name": "CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)",
+  "region": "Poland",
+  "status": "Recommended",
+  "col": "Limitations / Rate Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 285,
+  "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+  "region": "Belgium",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 285,
+  "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+  "region": "Belgium",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 285,
+  "name": "VDAB Vacature API (Belgium - Flanders public employment service)",
+  "region": "Belgium",
+  "status": "Recommended",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 318,
+  "name": "4dayweek.io",
+  "region": "Remote/Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 318,
+  "name": "4dayweek.io",
+  "region": "Remote/Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 318,
+  "name": "4dayweek.io",
+  "region": "Remote/Global",
+  "status": "Recommended",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 336,
+  "name": "Talroo",
+  "region": "United States",
+  "status": "Recommended (has publisher Search API; also CPC/CPA feed-ingest)",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 336,
+  "name": "Talroo",
+  "region": "United States",
+  "status": "Recommended (has publisher Search API; also CPC/CPA feed-ingest)",
+  "col": "API Limits",
+  "old": "Unknown"
+ },
+ {
+  "row": 343,
+  "name": "Bright Data",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 343,
+  "name": "Bright Data",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 344,
+  "name": "Oxylabs",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 344,
+  "name": "Oxylabs",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 345,
+  "name": "Zyte (formerly Scrapinghub)",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 345,
+  "name": "Zyte (formerly Scrapinghub)",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 346,
+  "name": "ScraperAPI",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 346,
+  "name": "ScraperAPI",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 348,
+  "name": "Scrapingdog",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 348,
+  "name": "Scrapingdog",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 349,
+  "name": "HasData",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 349,
+  "name": "HasData",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 350,
+  "name": "Piloterr",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 350,
+  "name": "Piloterr",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 351,
+  "name": "Nimble (Nimbleway)",
+  "region": "Global",
+  "status": "Not Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 351,
+  "name": "Nimble (Nimbleway)",
+  "region": "Global",
+  "status": "Not Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 352,
+  "name": "Techmap.io",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 354,
+  "name": "Mantiks",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 354,
+  "name": "Mantiks",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 356,
+  "name": "Diffbot",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 356,
+  "name": "Diffbot",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 360,
+  "name": "Apideck",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 360,
+  "name": "Apideck",
+  "region": "Global",
+  "status": "Recommended",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ },
+ {
+  "row": 362,
+  "name": "Workato",
+  "region": "Global",
+  "status": "Enterprise Only",
+  "col": "Pagination",
+  "old": "Unknown"
+ },
+ {
+  "row": 362,
+  "name": "Workato",
+  "region": "Global",
+  "status": "Enterprise Only",
+  "col": "Pagination Type",
+  "old": "Unknown"
+ }
+]

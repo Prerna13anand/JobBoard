@@ -1,0 +1,1988 @@
+{
+ "updated": [
+  {
+   "row": 105,
+   "name": "CareerOneStop / NLx \"List Jobs V2\"",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (public labor exchange aggregating state job banks and private employer postings via the National Labor Exchange)",
+   "sources": [
+    "https://www.careeronestop.org/Developers/WebAPI/Jobs/list-jobs-v2.aspx",
+    "https://www.careeronestop.org/Developers/WebAPI/web-api.aspx"
+   ]
+  },
+  {
+   "row": 106,
+   "name": "Fantastic Jobs / Active Jobs DB",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (aggregates career-site and ATS job postings across all sectors)",
+   "sources": [
+    "https://fantastic.jobs/api",
+    "https://fantastic.jobs/job-board"
+   ]
+  },
+  {
+   "row": 121,
+   "name": "Fantastic Jobs / Active Jobs DB",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (aggregates career-site and ATS job postings across all sectors)",
+   "sources": [
+    "https://fantastic.jobs/api",
+    "https://fantastic.jobs/job-board"
+   ]
+  },
+  {
+   "row": 107,
+   "name": "Coresignal",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (broad multi-source job postings and professional data used for HR tech, sales intelligence, and market research)",
+   "sources": [
+    "https://coresignal.com/alternative-data/job-postings-data/",
+    "https://coresignal.com/solutions/jobs-data-api/"
+   ]
+  },
+  {
+   "row": 122,
+   "name": "Coresignal",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (broad multi-source job postings and professional data used for HR tech, sales intelligence, and market research)",
+   "sources": [
+    "https://coresignal.com/alternative-data/job-postings-data/",
+    "https://coresignal.com/solutions/jobs-data-api/"
+   ]
+  },
+  {
+   "row": 108,
+   "name": "Job Bank (ESDC) feed / Open Gov dataset",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (national job board covering all occupations under Canada's National Occupational Classification)",
+   "sources": [
+    "https://www.jobbank.gc.ca/home",
+    "https://www.jobbank.gc.ca/browsejobs"
+   ]
+  },
+  {
+   "row": 109,
+   "name": "Adzuna",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (horizontal job search aggregator spanning all employment categories)",
+   "sources": [
+    "https://developer.adzuna.com/docs/categories",
+    "https://www.adzuna.com/about-us.html"
+   ]
+  },
+  {
+   "row": 114,
+   "name": "Adzuna",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (horizontal job search aggregator spanning all employment categories)",
+   "sources": [
+    "https://developer.adzuna.com/docs/categories",
+    "https://www.adzuna.com/about-us.html"
+   ]
+  },
+  {
+   "row": 133,
+   "name": "Adzuna",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (horizontal job search aggregator spanning all employment categories)",
+   "sources": [
+    "https://developer.adzuna.com/docs/categories",
+    "https://www.adzuna.com/about-us.html"
+   ]
+  },
+  {
+   "row": 135,
+   "name": "Adzuna",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (horizontal job search aggregator spanning all employment categories)",
+   "sources": [
+    "https://developer.adzuna.com/docs/categories",
+    "https://www.adzuna.com/about-us.html"
+   ]
+  },
+  {
+   "row": 110,
+   "name": "GOV.UK Find a Job (DWP)",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (UK government job service covering all sectors and skill levels)",
+   "sources": [
+    "https://www.gov.uk/find-a-job",
+    "https://findajob.dwp.gov.uk/search"
+   ]
+  },
+  {
+   "row": 111,
+   "name": "Careerjet",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (job search engine aggregating listings across all industries and career levels)",
+   "sources": [
+    "https://www.careerjet.com/about-us"
+   ]
+  },
+  {
+   "row": 112,
+   "name": "France Travail (ex-Pole emploi)",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (French national public employment service covering all business sectors)",
+   "sources": [
+    "https://francetravail.io/produits-partages/documentation",
+    "https://www.data.gouv.fr/dataservices/api-offres-demploi"
+   ]
+  },
+  {
+   "row": 113,
+   "name": "EURES",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (pan-EU job mobility portal spanning all sectors and occupations)",
+   "sources": [
+    "https://eures.europa.eu/index_en",
+    "https://eures.europa.eu/living-and-working/job-vacancies-insights_en"
+   ]
+  },
+  {
+   "row": 115,
+   "name": "National Career Service (NCS)",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (Government of India career/employment portal covering 52 sectors)",
+   "sources": [
+    "https://www.ncs.gov.in/",
+    "https://dge.gov.in/dge/ncs"
+   ]
+  },
+  {
+   "row": 116,
+   "name": "Naukri",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (India's largest horizontal job portal spanning sales, IT, finance, engineering, and more)",
+   "sources": [
+    "https://www.naukri.com/jobs-by-category",
+    "https://www.naukri.com/industry-type-jobs"
+   ]
+  },
+  {
+   "row": 117,
+   "name": "Foundit (Monster India)",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (broad job portal spanning IT, finance, sales, HR, marketing, and more)",
+   "sources": [
+    "https://www.foundit.in/",
+    "https://www.foundit.in/info/about-us"
+   ]
+  },
+  {
+   "row": 118,
+   "name": "Apna",
+   "col": "Primary Industry/Category",
+   "new_value": "Blue-collar/grey-collar and vocational jobs (delivery, security, domestic work, telecalling/BPO, skilled trades)",
+   "sources": [
+    "https://apna.co/"
+   ]
+  },
+  {
+   "row": 119,
+   "name": "LinkedIn Jobs",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (professional network job platform spanning 20 root industries / 434 sub-industries)",
+   "sources": [
+    "https://www.linkedin.com/jobs"
+   ]
+  },
+  {
+   "row": 120,
+   "name": "Indeed India",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (horizontal job search engine spanning all sectors)",
+   "sources": [
+    "https://www.indeed.com/career-advice/finding-a-job/types-of-industry"
+   ]
+  },
+  {
+   "row": 123,
+   "name": "JobsPikr",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (job-data aggregator/scraper covering multiple job boards and industries)",
+   "sources": [
+    "https://www.jobspikr.com/",
+    "https://www.jobspikr.com/jobspikr-api/"
+   ]
+  },
+  {
+   "row": 124,
+   "name": "OpenWeb Ninja",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (aggregates Google for Jobs and open-web listings across all publishers/sectors)",
+   "sources": [
+    "https://www.openwebninja.com/api/jsearch"
+   ]
+  },
+  {
+   "row": 125,
+   "name": "SerpApi",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (scrapes Google Jobs search results across all job categories)",
+   "sources": [
+    "https://serpapi.com/google-jobs-api"
+   ]
+  },
+  {
+   "row": 126,
+   "name": "Zoho Recruit",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (ATS/recruitment CRM for staffing agencies and corporate HR teams of any size or industry)",
+   "sources": [
+    "https://www.zoho.com/recruit/"
+   ]
+  },
+  {
+   "row": 127,
+   "name": "Freshteam",
+   "col": "Primary Industry/Category",
+   "new_value": "General/all-industries (ATS/HR platform used across 21+ industries incl. education, manufacturing, professional services, nonprofits)",
+   "sources": [
+    "https://support.freshteam.com/support/solutions",
+    "https://www.freshworks.com/assets/resources/freshteam/What_is_an_ATS-Freshteam.pdf"
+   ]
+  },
+  {
+   "row": 128,
+   "name": "Darwinbox",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (enterprise HRMS/ATS software vendor; client base spans retail, aviation/FMCG (Adani), F&B (Starbucks), conglomerates (Mahindra), tech (Swiggy, Tokopedia) with no single-sector focus)",
+   "sources": [
+    "https://darwinbox.com/en-us"
+   ]
+  },
+  {
+   "row": 129,
+   "name": "Keka",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (HR & payroll software marketed to IT/services, manufacturing, education, financial services, retail, automotive and other sectors)",
+   "sources": [
+    "https://www.keka.com/"
+   ]
+  },
+  {
+   "row": 130,
+   "name": "GreytHR",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (cloud HRMS/payroll serving IT/SaaS, manufacturing, healthcare, banking, hospitality, education, retail per greythr.com)",
+   "sources": [
+    "https://www.greythr.com/"
+   ]
+  },
+  {
+   "row": 131,
+   "name": "MyCareersFuture",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (Singapore government career portal covering all sectors, incl. logistics, healthcare, tourism/hospitality, green infrastructure)",
+   "sources": [
+    "https://www.mycareersfuture.gov.sg/",
+    "https://www.tech.gov.sg/products-and-services/for-citizens/employment/mycareersfuture/"
+   ]
+  },
+  {
+   "row": 132,
+   "name": "JobStreet / JobsDB (SEEK group)",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (broad consumer employment marketplace across APAC; official merger press release describes it as a general employment marketplace, not niche)",
+   "sources": [
+    "https://th.jobsdb.com/about/news/article/seek-jobstreet-jobsdb-unify"
+   ]
+  },
+  {
+   "row": 134,
+   "name": "Get on Board",
+   "col": "Primary Industry/Category",
+   "new_value": "Technology/Startups (curated tech & startup jobs across Latin America: programming, data science, UX/design, DevOps/SysAdmin, mobile, ML/AI, product, tech sales/marketing)",
+   "sources": [
+    "https://www.getonbrd.com/"
+   ]
+  },
+  {
+   "row": 136,
+   "name": "Eluta",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (official job search engine of the Canada's Top 100 Employers project; indexes direct-employer jobs across all sectors, no niche)",
+   "sources": [
+    "https://www.eluta.ca/"
+   ]
+  },
+  {
+   "row": 139,
+   "name": "Talent.com",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "40 million+ jobs (global figure stated on talent.com homepage)",
+   "sources": [
+    "https://in.talent.com/"
+   ]
+  },
+  {
+   "row": 139,
+   "name": "Talent.com",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (broad global job search aggregator; no sector specialization stated)",
+   "sources": [
+    "https://in.talent.com/"
+   ]
+  },
+  {
+   "row": 141,
+   "name": "Lightcast Jobs Canada",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (labor market intelligence platform; job postings scraped from 220,000+ sites worldwide and classified across all NAICS industries, not a niche vertical)",
+   "sources": [
+    "https://lightcast.io/",
+    "https://kb.lightcast.io/en/articles/6957498-lightcast-data-basic-overview",
+    "https://www.prnewswire.com/news-releases/lightcast-extends-global-data-footprint-by-300-delivering-the-industrys-largest-global-labor-market-coverage-302708689.html"
+   ]
+  },
+  {
+   "row": 144,
+   "name": "Jobsite",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "280,000+ live job adverts (per jobsite.co.uk About Us page)",
+   "sources": [
+    "https://www.jobsite.co.uk/about/about-us"
+   ]
+  },
+  {
+   "row": 144,
+   "name": "Jobsite",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (\"find any type of job, in any industry\" per jobsite.co.uk)",
+   "sources": [
+    "https://www.jobsite.co.uk/about/about-us"
+   ]
+  },
+  {
+   "row": 144,
+   "name": "Jobsite",
+   "col": "Estimated Jobs (this region)",
+   "new_value": "280,000+ (UK-only platform, per jobsite.co.uk)",
+   "sources": [
+    "https://www.jobsite.co.uk/about/about-us"
+   ]
+  },
+  {
+   "row": 145,
+   "name": "CWJobs",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "12,000+ jobs (per cwjobs.co.uk About Us page)",
+   "sources": [
+    "https://www.cwjobs.co.uk/about/about-us"
+   ]
+  },
+  {
+   "row": 145,
+   "name": "CWJobs",
+   "col": "Primary Industry/Category",
+   "new_value": "Technology/IT (specialist tech and IT recruitment board, per cwjobs.co.uk)",
+   "sources": [
+    "https://www.cwjobs.co.uk/about/about-us"
+   ]
+  },
+  {
+   "row": 145,
+   "name": "CWJobs",
+   "col": "Estimated Jobs (this region)",
+   "new_value": "12,000+ (UK-only platform, per cwjobs.co.uk)",
+   "sources": [
+    "https://www.cwjobs.co.uk/about/about-us"
+   ]
+  },
+  {
+   "row": 148,
+   "name": "Jobrapido",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (broad job search aggregator matching jobseekers across traditional job boards and employer sites; no niche stated)",
+   "sources": [
+    "https://corporate.jobrapido.com/about-us/"
+   ]
+  },
+  {
+   "row": 149,
+   "name": "Welcome to the Jungle",
+   "col": "Primary Industry/Category",
+   "new_value": "General/All-industries (multi-sector recruitment/media platform; no niche industry stated on official About Us page)",
+   "sources": [
+    "https://solutions.welcometothejungle.com/en/about-us"
+   ]
+  },
+  {
+   "row": 150,
+   "name": "Computrabajo",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries (horizontal LATAM job board)",
+   "sources": [
+    "https://www.computrabajo.com/"
+   ]
+  },
+  {
+   "row": 152,
+   "name": "OCC Mundial",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "137,925 active vacancies (\"vacantes activas en occ.com.mx\", as of Oct 18, 2024); lifetime total of 17.5+ million vacancies published over 27 years",
+   "sources": [
+    "https://occ-marketing.s3.amazonaws.com/tl-pdf/TL225.pdf"
+   ]
+  },
+  {
+   "row": 152,
+   "name": "OCC Mundial",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries (horizontal Mexico job board; report highlights growth in social sciences/humanities, sports-health-beauty, and communication/creativity categories)",
+   "sources": [
+    "https://occ-marketing.s3.amazonaws.com/tl-pdf/TL225.pdf"
+   ]
+  },
+  {
+   "row": 152,
+   "name": "OCC Mundial",
+   "col": "Estimated Jobs (this region)",
+   "new_value": 137925,
+   "sources": [
+    "https://occ-marketing.s3.amazonaws.com/tl-pdf/TL225.pdf"
+   ]
+  },
+  {
+   "row": 155,
+   "name": "RemoteJobs.org",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "800+ jobs (API pagination sample shows total: 808)",
+   "sources": [
+    "https://remotejobs.org/api-access"
+   ]
+  },
+  {
+   "row": 155,
+   "name": "RemoteJobs.org",
+   "col": "Primary Industry/Category",
+   "new_value": "General / multi-industry remote jobs (categories include programming, design, marketing, sales, writing, data science, devops, product, customer support, finance, HR, legal)",
+   "sources": [
+    "https://remotejobs.org/api-access"
+   ]
+  },
+  {
+   "row": 155,
+   "name": "RemoteJobs.org",
+   "col": "Estimated Jobs (this region)",
+   "new_value": 800,
+   "sources": [
+    "https://remotejobs.org/api-access"
+   ]
+  },
+  {
+   "row": 156,
+   "name": "Workday",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries enterprise HCM software (used across IT services, GCCs, banking, manufacturing, healthcare, finance)",
+   "sources": [
+    "https://www.workday.com/en-in/products/human-capital-management/overview.html"
+   ]
+  },
+  {
+   "row": 157,
+   "name": "CEIPAL",
+   "col": "Primary Industry/Category",
+   "new_value": "Staffing & recruiting industry (general/IT/healthcare staffing verticals)",
+   "sources": [
+    "https://www.ceipal.com/company",
+    "https://www.ceipal.com/staffing-agency-solutions/staffing-organizations"
+   ]
+  },
+  {
+   "row": 158,
+   "name": "Recruit CRM",
+   "col": "Primary Industry/Category",
+   "new_value": "Recruitment & staffing agencies (general, global, including executive search)",
+   "sources": [
+    "https://recruitcrm.io/"
+   ]
+  },
+  {
+   "row": 159,
+   "name": "BambooHR",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries SMB and mid-market HR software",
+   "sources": [
+    "https://www.bamboohr.com/hr-solutions/small-businesses",
+    "https://www.bamboohr.com/hr-solutions/medium-sized-businesses"
+   ]
+  },
+  {
+   "row": 160,
+   "name": "Shine",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries consumer job board (IT, marketing, finance, medical, blue-collar, government, etc.)",
+   "sources": [
+    "https://www.shine.com/"
+   ]
+  },
+  {
+   "row": 162,
+   "name": "WorkIndia",
+   "col": "Primary Industry/Category",
+   "new_value": "Blue-collar / grey-collar jobs",
+   "sources": [
+    "https://www.workindia.in/about/"
+   ]
+  },
+  {
+   "row": 163,
+   "name": "Cutshort",
+   "col": "Primary Industry/Category",
+   "new_value": "Technology / startup jobs",
+   "sources": [
+    "https://cutshort.io/"
+   ]
+  },
+  {
+   "row": 164,
+   "name": "Instahyre",
+   "col": "Primary Industry/Category",
+   "new_value": "Technology / tech professional jobs (startups and MNCs)",
+   "sources": [
+    "https://www.instahyre.com/search-jobs/"
+   ]
+  },
+  {
+   "row": 165,
+   "name": "Hirist",
+   "col": "Primary Industry/Category",
+   "new_value": "Technology / IT jobs (India's IT-only job portal)",
+   "sources": [
+    "https://www.hirist.tech/aboutus"
+   ]
+  },
+  {
+   "row": 166,
+   "name": "iimjobs",
+   "col": "Primary Industry/Category",
+   "new_value": "Management / MBA jobs (banking & finance, consulting, sales & marketing, HR, IT, operations)",
+   "sources": [
+    "https://www.iimjobs.com/aboutus"
+   ]
+  },
+  {
+   "row": 167,
+   "name": "Freshersworld",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries entry-level and fresher jobs (engineering, IT, government, banking, teaching, defence, etc.)",
+   "sources": [
+    "https://www.freshersworld.com/",
+    "https://corp.freshersworld.com/"
+   ]
+  },
+  {
+   "row": 168,
+   "name": "Internshala",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries internships and entry-level jobs (200+ profiles/domains)",
+   "sources": [
+    "https://internshala.com/"
+   ]
+  },
+  {
+   "row": 169,
+   "name": "Unstop",
+   "col": "Primary Industry/Category",
+   "new_value": "Education / early-career talent engagement (students, freshers, 0-5 yrs professionals; competitions, hackathons, internships, jobs)",
+   "sources": [
+    "https://unstop.com/"
+   ]
+  },
+  {
+   "row": 170,
+   "name": "Wellfound",
+   "col": "Primary Industry/Category",
+   "new_value": "Tech/startup jobs (general startup ecosystem)",
+   "sources": [
+    "https://wellfound.com/",
+    "https://wellfound.com/jobs"
+   ]
+  },
+  {
+   "row": 171,
+   "name": "Hasjob",
+   "col": "Primary Industry/Category",
+   "new_value": "Tech/startup jobs (India)",
+   "sources": [
+    "https://hasjob.co/"
+   ]
+  },
+  {
+   "row": 172,
+   "name": "HackerEarth Jobs",
+   "col": "Primary Industry/Category",
+   "new_value": "Tech/developer jobs (software engineering)",
+   "sources": [
+    "https://www.hackerearth.com/",
+    "https://www.hackerearth.com/recruit/"
+   ]
+  },
+  {
+   "row": 173,
+   "name": "Superset",
+   "col": "Primary Industry/Category",
+   "new_value": "General/campus recruitment (all industries, entry-level/fresher hiring across 400+ colleges)",
+   "sources": [
+    "https://joinsuperset.com/",
+    "https://joinsuperset.com/employer.html"
+   ]
+  },
+  {
+   "row": 174,
+   "name": "TeamLease",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "23,082+ active job vacancies (live count on official site)",
+   "sources": [
+    "https://www.teamlease.com/"
+   ]
+  },
+  {
+   "row": 174,
+   "name": "TeamLease",
+   "col": "Primary Industry/Category",
+   "new_value": "General staffing, blue-collar and multi-industry workforce solutions",
+   "sources": [
+    "https://www.teamlease.com/"
+   ]
+  },
+  {
+   "row": 174,
+   "name": "TeamLease",
+   "col": "Estimated Jobs (this region)",
+   "new_value": 23082,
+   "sources": [
+    "https://www.teamlease.com/"
+   ]
+  },
+  {
+   "row": 175,
+   "name": "Quess Corp",
+   "col": "Primary Industry/Category",
+   "new_value": "General staffing, multi-industry workforce/asset management and IT services",
+   "sources": [
+    "https://www.quesscorp.com/careers/"
+   ]
+  },
+  {
+   "row": 176,
+   "name": "Randstad India",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "1,394 jobs (live count on official site)",
+   "sources": [
+    "https://www.randstad.in/jobs/"
+   ]
+  },
+  {
+   "row": 176,
+   "name": "Randstad India",
+   "col": "Primary Industry/Category",
+   "new_value": "General staffing, multi-industry recruitment",
+   "sources": [
+    "https://www.randstad.in/jobs/"
+   ]
+  },
+  {
+   "row": 176,
+   "name": "Randstad India",
+   "col": "Estimated Jobs (this region)",
+   "new_value": 1394,
+   "sources": [
+    "https://www.randstad.in/jobs/"
+   ]
+  },
+  {
+   "row": 177,
+   "name": "Adecco India",
+   "col": "Primary Industry/Category",
+   "new_value": "General staffing, multi-industry recruitment",
+   "sources": [
+    "https://www.adecco.com/en-in",
+    "https://www.adecco.com/en-in/job-seeker"
+   ]
+  },
+  {
+   "row": 178,
+   "name": "ManpowerGroup India",
+   "col": "Primary Industry/Category",
+   "new_value": "General staffing across IT and Non-IT sectors (workforce management)",
+   "sources": [
+    "https://www.manpowergroup.co.in/job-opportunities.html"
+   ]
+  },
+  {
+   "row": 179,
+   "name": "Kelly Services India",
+   "col": "Primary Industry/Category",
+   "new_value": "General staffing, multi-industry (accounting/finance, engineering, manufacturing, technology, etc.)",
+   "sources": [
+    "https://www.kellyservices.com/about-kelly/",
+    "https://www.kellyocg.com/en-in/"
+   ]
+  },
+  {
+   "row": 180,
+   "name": "data.gov.in OGD platform",
+   "col": "Primary Industry/Category",
+   "new_value": "Government/general (open datasets spanning 33 sectors, not jobs-specific)",
+   "sources": [
+    "https://www.data.gov.in/about",
+    "https://www.data.gov.in/sector"
+   ]
+  },
+  {
+   "row": 181,
+   "name": "Rojgar Sangam (UP)",
+   "col": "Primary Industry/Category",
+   "new_value": "Government/general employment exchange (private, government, and outsourced jobs across all sectors)",
+   "sources": [
+    "https://rojgaarsangam.up.gov.in/"
+   ]
+  },
+  {
+   "row": 182,
+   "name": "MahaJobs",
+   "col": "Primary Industry/Category",
+   "new_value": "Government/general, multi-sector (skilled/semi-skilled/unskilled labor across engineering, logistics, textiles, manufacturing, pharma, etc.)",
+   "sources": [
+    "https://mahajobs.maharashtra.gov.in/"
+   ]
+  },
+  {
+   "row": 183,
+   "name": "MP Rojgar",
+   "col": "Primary Industry/Category",
+   "new_value": "Government/general employment exchange (all sectors, statewide job-seeker registry)",
+   "sources": [
+    "https://mprojgar.gov.in/about"
+   ]
+  },
+  {
+   "row": 184,
+   "name": "Telangana T-Jobs",
+   "col": "Primary Industry/Category",
+   "new_value": "Government/general employment exchange (all sectors)",
+   "sources": [
+    "https://employment.telangana.gov.in/"
+   ]
+  },
+  {
+   "row": 187,
+   "name": "Ladders",
+   "col": "Primary Industry/Category",
+   "new_value": "Professional/executive jobs (senior roles, $100K+ salary skew, general industries)",
+   "sources": [
+    "https://www.theladders.com/"
+   ]
+  },
+  {
+   "row": 188,
+   "name": "Dice",
+   "col": "Primary Industry/Category",
+   "new_value": "Tech/IT (information technology and engineering professionals)",
+   "sources": [
+    "https://www.dice.com/"
+   ]
+  },
+  {
+   "row": 189,
+   "name": "Built In",
+   "col": "Primary Industry/Category",
+   "new_value": "Tech/startup jobs",
+   "sources": [
+    "https://builtin.com/",
+    "https://builtin.com/jobs"
+   ]
+  },
+  {
+   "row": 190,
+   "name": "NHS Jobs",
+   "col": "Primary Industry/Category",
+   "new_value": "Healthcare (NHS / public health service)",
+   "sources": [
+    "https://www.jobs.nhs.uk/",
+    "https://www.healthcareers.nhs.uk/"
+   ]
+  },
+  {
+   "row": 191,
+   "name": "Civil Service Jobs",
+   "col": "Primary Industry/Category",
+   "new_value": "Government / Public Sector (general, cross-department civil service roles)",
+   "sources": [
+    "https://www.civil-service-careers.gov.uk/about-us/",
+    "https://www.gov.uk/government/organisations/civil-service"
+   ]
+  },
+  {
+   "row": 192,
+   "name": "Jobs.cz",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries (Czech Republic; skews toward specialist and university-educated professional roles)",
+   "sources": [
+    "https://www.jobs.cz/"
+   ]
+  },
+  {
+   "row": 193,
+   "name": "Profesia",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries (Slovakia's largest general job portal)",
+   "sources": [
+    "https://www.profesia.sk/en/"
+   ]
+  },
+  {
+   "row": 194,
+   "name": "Elempleo",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries (broad multi-sector Colombian job board)",
+   "sources": [
+    "https://www.elempleo.com/co/ofertas-empleo/"
+   ]
+  },
+  {
+   "row": 195,
+   "name": "Working Nomads",
+   "col": "Primary Industry/Category",
+   "new_value": "General / all-industries remote jobs (broad categories: dev, design, marketing, sales, customer support, admin, etc., with a knowledge-work/tech skew)",
+   "sources": [
+    "https://www.workingnomads.com/jobs"
+   ]
+  },
+  {
+   "row": 196,
+   "name": "Careers@Gov",
+   "col": "Primary Industry/Category",
+   "new_value": "Government / Public Sector (Singapore Public Service - all Ministries and Statutory Boards)",
+   "sources": [
+    "https://www.careers.gov.sg/who-we-are/the-singapore-public-service/",
+    "https://www.careers.gov.sg/"
+   ]
+  },
+  {
+   "row": 197,
+   "name": "Gupy Public API",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "~90,000 job vacancies published monthly on the Gupy R&S platform (official figure)",
+   "sources": [
+    "https://www.gupy.io/imprensa"
+   ]
+  },
+  {
+   "row": 207,
+   "name": "Mustakbil.com",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "150K jobs successfully posted (cumulative figure since 2004, per official site stats banner)",
+   "sources": [
+    "https://www.mustakbil.com/"
+   ]
+  },
+  {
+   "row": 251,
+   "name": "CareerOne (Australia)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "100,000+ (live jobs)",
+   "sources": [
+    "https://www.careerone.com.au/jobs/in-australia"
+   ]
+  },
+  {
+   "row": 251,
+   "name": "CareerOne (Australia)",
+   "col": "Estimated Jobs (this region)",
+   "new_value": 100000,
+   "sources": [
+    "https://www.careerone.com.au/jobs/in-australia"
+   ]
+  },
+  {
+   "row": 260,
+   "name": "JobKorea",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "~209,637 (live listings)",
+   "sources": [
+    "https://www.jobkorea.co.kr/recruit/joblist"
+   ]
+  },
+  {
+   "row": 262,
+   "name": "104 Job Bank (104\u4eba\u529b\u9280\u884c)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "~1.1 million (110\u842c, Feb 2026)",
+   "sources": [
+    "https://blog.104.com.tw/104data-change-job-2026/"
+   ]
+  },
+  {
+   "row": 265,
+   "name": "JobsDB Hong Kong (SEEK Group) / CTgoodjobs",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "~32,700 (JobsDB HK) / ~32,000 (CTgoodjobs)",
+   "sources": [
+    "https://hk.jobsdb.com/jobs",
+    "https://jobs.ctgoodjobs.hk/zh/jobs"
+   ]
+  },
+  {
+   "row": 270,
+   "name": "Jobindex (Denmark)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "33,600 jobs (live) / 30,000+ job ads",
+   "sources": [
+    "https://www.jobindex.dk/cms/omjobindex/index.shtml?lang=en"
+   ]
+  },
+  {
+   "row": 272,
+   "name": "jobs.ch (Switzerland)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "45,825 jobs (live)",
+   "sources": [
+    "https://www.jobs.ch/en/vacancies/"
+   ]
+  },
+  {
+   "row": 274,
+   "name": "karriere.at (Austria)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "13,400+ jobs (live)",
+   "sources": [
+    "https://www.karriere.at/jobs"
+   ]
+  },
+  {
+   "row": 278,
+   "name": "InfoJobs (Spain)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "68,383 ofertas (live count, Spain, as of July 2026)",
+   "sources": [
+    "https://www.infojobs.net/ofertas-trabajo/espana"
+   ]
+  },
+  {
+   "row": 281,
+   "name": "Pracuj.pl (Poland)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "762,827 job offers published in 2025",
+   "sources": [
+    "https://media.pracuj.pl/443001-raport-rynek-pracy-specjalistow-w-2025-roku-kolejny-wzrost-liczby-aplikacji-i-klientow-pracujpl"
+   ]
+  },
+  {
+   "row": 283,
+   "name": "JobsIreland.ie (Ireland public employment service)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "4,806 vacancies (live count)",
+   "sources": [
+    "https://jobsireland.ie/en-US/browse-jobs"
+   ]
+  },
+  {
+   "row": 284,
+   "name": "IEFPOnline / netEmprego (Portugal public employment service)",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "5,913 ofertas de emprego (live count)",
+   "sources": [
+    "https://iefponline.iefp.pt/IEFP/pesquisas/search.do?cat=ofertaEmprego"
+   ]
+  },
+  {
+   "row": 320,
+   "name": "JustRemote",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "2,000+ hidden remote jobs",
+   "sources": [
+    "https://justremote.co/"
+   ]
+  },
+  {
+   "row": 343,
+   "name": "Bright Data",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "116.8M+ records (general Jobs dataset); LinkedIn Jobs dataset specifically 62.4M+",
+   "sources": [
+    "https://brightdata.com/products/datasets/jobs",
+    "https://brightdata.com/products/datasets/linkedin/jobs"
+   ]
+  },
+  {
+   "row": 343,
+   "name": "Bright Data",
+   "col": "Estimated Jobs (this region)",
+   "new_value": "116.8M+",
+   "sources": [
+    "https://brightdata.com/products/datasets/jobs",
+    "https://brightdata.com/products/datasets/linkedin/jobs"
+   ]
+  },
+  {
+   "row": 352,
+   "name": "Techmap.io",
+   "col": "Total Estimated Jobs Available",
+   "new_value": "292M+ available jobs",
+   "sources": [
+    "https://techmap.io/"
+   ]
+  },
+  {
+   "row": 352,
+   "name": "Techmap.io",
+   "col": "Estimated Jobs (this region)",
+   "new_value": "292M+",
+   "sources": [
+    "https://techmap.io/"
+   ]
+  },
+  {
+   "row": 353,
+   "name": "PredictLeads",
+   "col": "Estimated Jobs (this region)",
+   "new_value": "9.8M+ active jobs (270M+ historical records since 2016)",
+   "sources": [
+    "https://predictleads.com/job_listings"
+   ]
+  }
+ ],
+ "skipped_excluded": [
+  {
+   "row": 138,
+   "name": "Jobillico",
+   "col": "Total Estimated Jobs Available",
+   "candidate_value": "100,000+ job offers (per jobillico.com homepage copy)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 138,
+   "name": "Jobillico",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General/All-industries (\"the most extensive job network\" in Quebec/Canada, no niche sector focus)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 138,
+   "name": "Jobillico",
+   "col": "Estimated Jobs (this region)",
+   "candidate_value": "100,000+ (Quebec/Canada, per jobillico.com homepage copy)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 141,
+   "name": "Lightcast Jobs Canada",
+   "col": "Total Estimated Jobs Available",
+   "candidate_value": "3+ billion job postings (cumulative global dataset, not a live/current count) per lightcast.io",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 142,
+   "name": "TotalJobs",
+   "col": "Total Estimated Jobs Available",
+   "candidate_value": "280,000+ live job adverts (per totaljobs.com, as quoted in its own about-us/media copy)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 142,
+   "name": "TotalJobs",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General/All-industries (\"any type of job, in any industry\" per totaljobs.com)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 142,
+   "name": "TotalJobs",
+   "col": "Estimated Jobs (this region)",
+   "candidate_value": "280,000+ (UK-only platform, per totaljobs.com)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 143,
+   "name": "CV-Library",
+   "col": "Total Estimated Jobs Available",
+   "candidate_value": "200,000+ jobs posted across all sectors (per cv-library.co.uk)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 143,
+   "name": "CV-Library",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General/All-industries (jobs \"across 100 industries\"/\"all industries nationwide\" per cv-library.co.uk)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 143,
+   "name": "CV-Library",
+   "col": "Estimated Jobs (this region)",
+   "candidate_value": "150,000+ live vacancies (UK-only platform, per cv-library.co.uk; live counter fluctuates)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 151,
+   "name": "Bumeran",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General / all-industries (horizontal LATAM job board)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 153,
+   "name": "Kalibrr",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General / white-collar professional jobs across Southeast Asia",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 154,
+   "name": "Glints",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General / all-industries professional career platform across Southeast Asia",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 161,
+   "name": "TimesJobs",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General / all-industries career portal (Times Group)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 185,
+   "name": "Findwork.dev",
+   "col": "Primary Industry/Category",
+   "candidate_value": "Tech (software/developer remote jobs)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 186,
+   "name": "ZipRecruiter API",
+   "col": "Primary Industry/Category",
+   "candidate_value": "General/all industries (broad horizontal job board with industry filters)",
+   "reason": "insufficient/unofficial sourcing"
+  },
+  {
+   "row": 286,
+   "name": "HelloWork ATS Partner API (France)",
+   "col": "Total Estimated Jobs Available",
+   "candidate_value": "895,494 offres d'emploi (unconfirmed on re-check, needs human verification)",
+   "reason": "insufficient/unofficial sourcing"
+  }
+ ],
+ "skipped_notunknown": [],
+ "still_unknown": [
+  {
+   "row": 136,
+   "name": "Eluta",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 136,
+   "name": "Eluta",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 137,
+   "name": "Workopolis",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 137,
+   "name": "Workopolis",
+   "col": "Primary Industry/Category"
+  },
+  {
+   "row": 137,
+   "name": "Workopolis",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 139,
+   "name": "Talent.com",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 140,
+   "name": "WowJobs",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 140,
+   "name": "WowJobs",
+   "col": "Primary Industry/Category"
+  },
+  {
+   "row": 140,
+   "name": "WowJobs",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 141,
+   "name": "Lightcast Jobs Canada",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 146,
+   "name": "StepStone",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 146,
+   "name": "StepStone",
+   "col": "Primary Industry/Category"
+  },
+  {
+   "row": 146,
+   "name": "StepStone",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 147,
+   "name": "Xing Jobs",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 147,
+   "name": "Xing Jobs",
+   "col": "Primary Industry/Category"
+  },
+  {
+   "row": 147,
+   "name": "Xing Jobs",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 148,
+   "name": "Jobrapido",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 148,
+   "name": "Jobrapido",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 149,
+   "name": "Welcome to the Jungle",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 149,
+   "name": "Welcome to the Jungle",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 150,
+   "name": "Computrabajo",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 150,
+   "name": "Computrabajo",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 151,
+   "name": "Bumeran",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 151,
+   "name": "Bumeran",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 153,
+   "name": "Kalibrr",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 153,
+   "name": "Kalibrr",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 154,
+   "name": "Glints",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 154,
+   "name": "Glints",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 175,
+   "name": "Quess Corp",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 175,
+   "name": "Quess Corp",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 177,
+   "name": "Adecco India",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 177,
+   "name": "Adecco India",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 178,
+   "name": "ManpowerGroup India",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 178,
+   "name": "ManpowerGroup India",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 179,
+   "name": "Kelly Services India",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 179,
+   "name": "Kelly Services India",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 198,
+   "name": "Vagas for Business API (Vagas.com.br)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 198,
+   "name": "Vagas for Business API (Vagas.com.br)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 204,
+   "name": "ZonaJobs",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 204,
+   "name": "ZonaJobs",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 211,
+   "name": "National Job Portal - Bangladesh (jobs.gov.bd)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 211,
+   "name": "National Job Portal - Bangladesh (jobs.gov.bd)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 214,
+   "name": "XpressJobs (xpress.jobs)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 215,
+   "name": "Public Service Commission of Sri Lanka (psc.gov.lk)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 217,
+   "name": "Karir.com",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 217,
+   "name": "Karir.com",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 219,
+   "name": "Bossjob",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 219,
+   "name": "Bossjob",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 222,
+   "name": "CareerLink Vietnam",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 228,
+   "name": "MOHRE UAE Federal Careers / iRecruitment Portal",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 235,
+   "name": "Employment Services of South Africa (ESSA) - Dept. of Employment and Labour",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 235,
+   "name": "Employment Services of South Africa (ESSA) - Dept. of Employment and Labour",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 238,
+   "name": "National Directorate of Employment (NDE) Nigeria",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 240,
+   "name": "NEAIMS - National Employment Authority Kenya",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 240,
+   "name": "NEAIMS - National Employment Authority Kenya",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 242,
+   "name": "Forasna",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 243,
+   "name": "Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 243,
+   "name": "Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 250,
+   "name": "Work and Income / Find a Job (MSD, New Zealand)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 250,
+   "name": "Work and Income / Find a Job (MSD, New Zealand)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 252,
+   "name": "China MOHRSS National Public Employment Service Platform",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 253,
+   "name": "51job (\u524d\u7a0b\u65e0\u5fe7 / Qiancheng Wuyou)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 254,
+   "name": "BOSS Zhipin (Kanzhun Limited, NASDAQ: BZ)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 257,
+   "name": "Rikunabi / Mynavi (Recruit Co. / Mynavi Corporation)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 263,
+   "name": "1111 Job Bank (1111\u4eba\u529b\u9280\u884c)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 266,
+   "name": "Hong Kong Labour Department Interactive Employment Service (iES, jobs.gov.hk)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 269,
+   "name": "Jobnet.dk (Denmark public employment portal)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 273,
+   "name": "AMS eJob-Room (Austria public employment service)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 277,
+   "name": "SEPE Open Data Portal (Spain public employment service)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 277,
+   "name": "SEPE Open Data Portal (Spain public employment service)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 279,
+   "name": "Cliclavoro / Ministero del Lavoro Open Data (Italy)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 282,
+   "name": "Job Market Finland / Tyomarkkinatori (TE-palvelut, Finland)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 287,
+   "name": "APEC (Association Pour l'Emploi des Cadres, France)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 303,
+   "name": "Monster",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 303,
+   "name": "Monster",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 304,
+   "name": "CareerBuilder",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 304,
+   "name": "CareerBuilder",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 305,
+   "name": "Glassdoor Jobs API",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 305,
+   "name": "Glassdoor Jobs API",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 306,
+   "name": "Snagajob",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 306,
+   "name": "Snagajob",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 307,
+   "name": "Nexxt (formerly Beyond.com)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 307,
+   "name": "Nexxt (formerly Beyond.com)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 308,
+   "name": "Jobcase Platform API",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 308,
+   "name": "Jobcase Platform API",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 309,
+   "name": "Triplebyte",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 309,
+   "name": "Triplebyte",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 311,
+   "name": "Work at a Startup (Y Combinator)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 319,
+   "name": "Remote.co",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 321,
+   "name": "Outsourcely",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 322,
+   "name": "Appcast",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 322,
+   "name": "Appcast",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 323,
+   "name": "PandoLogic (pandoIQ) / Veritone Hire",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 323,
+   "name": "PandoLogic (pandoIQ) / Veritone Hire",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 324,
+   "name": "Joveo",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 324,
+   "name": "Joveo",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 325,
+   "name": "Recruitics",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 325,
+   "name": "Recruitics",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 326,
+   "name": "Broadbean (Veritone Hire)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 326,
+   "name": "Broadbean (Veritone Hire)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 327,
+   "name": "eQuest",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 327,
+   "name": "eQuest",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 328,
+   "name": "Radancy",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 328,
+   "name": "Radancy",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 329,
+   "name": "Jobg8",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 329,
+   "name": "Jobg8",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 330,
+   "name": "JoinVision (JobCloud HR Tech)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 330,
+   "name": "JoinVision (JobCloud HR Tech)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 331,
+   "name": "WhatJobs",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 331,
+   "name": "WhatJobs",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 332,
+   "name": "Trovit (LIFULL Connect / Adzuna)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 332,
+   "name": "Trovit (LIFULL Connect / Adzuna)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 333,
+   "name": "Mitula (LIFULL Connect / Adzuna)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 333,
+   "name": "Mitula (LIFULL Connect / Adzuna)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 334,
+   "name": "JobisJob (LIFULL Connect)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 335,
+   "name": "Lensa",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 335,
+   "name": "Lensa",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 336,
+   "name": "Talroo",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 337,
+   "name": "Jobcase (MaxRecruit)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 337,
+   "name": "Jobcase (MaxRecruit)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 338,
+   "name": "Upward.net (a Jobcase company)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 338,
+   "name": "Upward.net (a Jobcase company)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 339,
+   "name": "ZipAlerts (ZipRecruiter TrafficBoost)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 339,
+   "name": "ZipAlerts (ZipRecruiter TrafficBoost)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 340,
+   "name": "SmartDreamers",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 340,
+   "name": "SmartDreamers",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 341,
+   "name": "CareerBuilder / Monster (Talent Network distribution)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 341,
+   "name": "CareerBuilder / Monster (Talent Network distribution)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 342,
+   "name": "Google for Jobs",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 344,
+   "name": "Oxylabs",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 344,
+   "name": "Oxylabs",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 345,
+   "name": "Zyte (formerly Scrapinghub)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 345,
+   "name": "Zyte (formerly Scrapinghub)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 346,
+   "name": "ScraperAPI",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 346,
+   "name": "ScraperAPI",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 347,
+   "name": "Apify",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 347,
+   "name": "Apify",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 348,
+   "name": "Scrapingdog",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 348,
+   "name": "Scrapingdog",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 349,
+   "name": "HasData",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 349,
+   "name": "HasData",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 350,
+   "name": "Piloterr",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 350,
+   "name": "Piloterr",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 351,
+   "name": "Nimble (Nimbleway)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 351,
+   "name": "Nimble (Nimbleway)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 354,
+   "name": "Mantiks",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 354,
+   "name": "Mantiks",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 355,
+   "name": "People Data Labs",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 355,
+   "name": "People Data Labs",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 356,
+   "name": "Diffbot",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 356,
+   "name": "Diffbot",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 357,
+   "name": "Merge.dev",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 357,
+   "name": "Merge.dev",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 358,
+   "name": "Kombo.dev",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 358,
+   "name": "Kombo.dev",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 359,
+   "name": "Unified.to",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 359,
+   "name": "Unified.to",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 360,
+   "name": "Apideck",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 360,
+   "name": "Apideck",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 361,
+   "name": "JSearch (RapidAPI, by OpenWeb Ninja)",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 361,
+   "name": "JSearch (RapidAPI, by OpenWeb Ninja)",
+   "col": "Estimated Jobs (this region)"
+  },
+  {
+   "row": 362,
+   "name": "Workato",
+   "col": "Total Estimated Jobs Available"
+  },
+  {
+   "row": 362,
+   "name": "Workato",
+   "col": "Estimated Jobs (this region)"
+  }
+ ]
+}

@@ -18,6 +18,7 @@ from .arbeitnow import ArbeitnowSource
 from .ashby import AshbySource
 from .bundesagentur import BundesagenturSource
 from .careerjet import CareerJetSource
+from .careeronestop import CareerOneStopSource
 from .greenhouse import GreenhouseSource
 from .himalayas import HimalayasSource
 from .jobicy import JobicySource
@@ -26,6 +27,7 @@ from .lever import LeverSource
 from .openwebninja import OpenWebNinjaSource
 from .reed import ReedSource
 from .remoteok import RemoteOKSource
+from .remotive import RemotiveSource
 from .serpapi import SerpApiSource
 from .smartrecruiters import SmartRecruitersSource
 from .teamtailor import TeamtailorSource
@@ -43,6 +45,7 @@ SOURCES = [
     JobicySource(),
     TheMuseSource(),
     BundesagenturSource(),
+    RemotiveSource(),
     JoobleSource(),
     USAJobsSource(),
     AdzunaSource(),
@@ -50,6 +53,7 @@ SOURCES = [
     SerpApiSource(),
     OpenWebNinjaSource(),
     CareerJetSource(),
+    CareerOneStopSource(),
     TheirStackSource(),
     GreenhouseSource(),
     LeverSource(),

@@ -1,0 +1,272 @@
+[
+ [
+  "API/ATS Name",
+  "API Catalog",
+  "Name of the provider. Repeats across rows for multi-region providers."
+ ],
+ [
+  "Region",
+  "API Catalog",
+  "The specific region this row describes. One row per (API, Region) pair; regions with ~0% share are omitted."
+ ],
+ [
+  "Type",
+  "API Catalog",
+  "Structural category: Public, Government, Commercial Aggregator, or ATS."
+ ],
+ [
+  "Access Model",
+  "API Catalog",
+  "Pricing tier: Free, Free tier + Paid (metered), Paid, or Enterprise."
+ ],
+ [
+  "Cost Details",
+  "API Catalog",
+  "Specific pricing detail where known."
+ ],
+ [
+  "Auth Required",
+  "API Catalog",
+  "Whether authentication is required and the method (API key, OAuth2, HTTP Basic, Bearer token, none)."
+ ],
+ [
+  "Primary Industry/Category",
+  "API Catalog",
+  "Dominant job category/industry skew for this provider (a skew signal, not a strict taxonomy)."
+ ],
+ [
+  "Remote %",
+  "Integration Detail",
+  "Share of this provider's jobs marked remote (dataset-wide figure)."
+ ],
+ [
+  "Freshness (<=30d %)",
+  "Integration Detail",
+  "Share of this provider's jobs posted within 30 days of the 2026-07-03 collection date."
+ ],
+ [
+  "Estimated Jobs (this region)",
+  "API Catalog",
+  "Total provider jobs x this region's share of that provider's jobs. Directional, not exact, except for single-region providers (USAJOBS, Bundesagentur, Reed) where it is the verified total."
+ ],
+ [
+  "% of Provider's Total Jobs",
+  "Integration Detail",
+  "Row-normalized share this region represents of the provider's own job volume."
+ ],
+ [
+  "Limitations / Rate Limits",
+  "API Catalog",
+  "Pagination caps, result-window ceilings, or query quotas."
+ ],
+ [
+  "Docs Available",
+  "API Catalog",
+  "Whether the provider publishes usable API documentation."
+ ],
+ [
+  "Notes",
+  "API Catalog",
+  "Caveats \u2014 e.g. where figures are combined/estimated rather than independently measured."
+ ],
+ [
+  "Status",
+  "API Catalog",
+  "Whether this (API, Region) row is Integrated (live in jobs.py today), Recommended (researched, not yet integrated, report recommends adding), Not Recommended (researched and the report explicitly advises against pursuing it - e.g. scraping-only with a stated legal/maintenance caution), No Public API (no official or workable public endpoint exists at all), or Enterprise Only (an API exists but only via a paid/partner/per-tenant enterprise agreement, not a public aggregatable feed)."
+ ],
+ [
+  "Total Estimated Jobs Available",
+  "API Catalog",
+  "Provider-level (repeated per region row): the platform/API's total documented job volume or index size, where the report states one (e.g. Himalayas '90,000+ reported'). 'N/A - grows via company-slug curation' for the six ATS providers, which have no fixed external index. 'Unknown' where no total-size figure is published."
+ ],
+ [
+  "Current Jobs Collected",
+  "Integration Detail",
+  "Provider-level (repeated per region row): the actual verified total this project has collected (matches Report Sec 24 Part 1 for integrated providers). 0 for Recommended/Not Recommended/No Public API/Enterprise Only providers, since nothing has been integrated. 'Unknown' for SerpApi/OpenWeb Ninja/Careerjet individually, since their true per-provider split is not separable from the combined 1,125-job total."
+ ],
+ [
+  "Estimated Practical Maximum",
+  "Integration Detail",
+  "Provider-level: the realistic collectible ceiling using only capabilities the provider's own API already exposes (Report Sec 13/17). Populated for the 20 integrated providers; 'Unknown' for everything not yet integrated, since a practical maximum requires hands-on API testing this project hasn't done."
+ ],
+ [
+  "Pagination",
+  "API Catalog",
+  "Provider-level: the specific pagination mechanism (e.g. 'offset/limit, 100/page', 'None - single-shot per company'), split out from Limitations/Rate Limits for clarity. 'Unknown' or 'N/A' where not documented or not applicable (e.g. no public API)."
+ ],
+ [
+  "Expansion Potential",
+  "Integration Detail",
+  "Provider-level: the concrete lever and estimated additional-jobs range for integrated providers (Report Sec 17), or the recommendation/effort assessment for non-integrated ones. 'Not applicable' where the report found no viable path (no public API, per-tenant only, etc.)."
+ ],
+ [
+  "Current Regions",
+  "API Catalog",
+  "Populated for the 20 integrated providers only. Every region this provider's rows appear under in this workbook, with its % share of the provider's total jobs, derived directly from this sheet's own Region / % of Provider's Total Jobs columns."
+ ],
+ [
+  "Additional Supported Regions",
+  "API Catalog",
+  "Populated for the 20 integrated providers only. Regions/countries the provider's API demonstrably supports (per its own docs/params, confirmed against sources/*.py) but that this project does not currently query. N/A where the provider has no region/country query parameter at all (the six ATS providers, USAJOBS, Bundesagentur, Reed)."
+ ],
+ [
+  "Coverage Gap",
+  "Integration Detail",
+  "Populated for the 20 integrated providers only, per (provider, region) row. Describes whether that specific region is a strength, a minor/thin presence, or a significant gap for this provider, based on its share of the provider's own job volume, and whether the coverage is deliberate (an anchor/query target) or incidental (spillover)."
+ ],
+ [
+  "Expansion Strategy",
+  "Integration Detail",
+  "Populated for the 20 integrated providers only. Provider-level narrative on how to collect more jobs using the provider's own already-exposed API capabilities (Report Sec 13/17) - complements the shorter Expansion Potential column with the concrete steps."
+ ],
+ [
+  "Estimated Additional Jobs",
+  "Integration Detail",
+  "Populated for the 20 integrated providers only. The numeric additional-jobs range extracted from Expansion Potential (Report Sec 13/17), isolated into its own column for sorting/filtering. Budget-dependent for metered sources gated by monthly quota."
+ ],
+ [
+  "Engineering Effort",
+  "Integration Detail",
+  "Populated for the 20 integrated providers only. Low/Medium/High/N-A classification of the effort to implement the corresponding Code Changes Required, per Report Sec 13/17's Difficulty column."
+ ],
+ [
+  "Priority",
+  "Integration Detail",
+  "Populated for the 20 integrated providers only. Priority 1/2/3 ranking based on expected job-coverage increase, engineering effort, and long-term maintenance effort (see management summary)."
+ ],
+ [
+  "Code Changes Required",
+  "Integration Detail",
+  "Populated for the 20 integrated providers only. The specific, file-level code change needed in this project's sources/*.py to realize the Expansion Strategy, confirmed against the actual current implementation (not assumed)."
+ ],
+ [
+  "Pagination Type",
+  "API Catalog",
+  "Short categorical label for the pagination mechanism (page, offset, cursor, next_page_token, continuation_token, or None), confirmed against sources/*.py for integrated providers. N/A for providers with no public API."
+ ],
+ [
+  "Current Fetch Strategy",
+  "Integration Detail",
+  "What the current implementation literally does today: endpoint, loop/termination logic, and any hard-coded cap, confirmed against sources/*.py. N/A for non-integrated providers without a public API."
+ ],
+ [
+  "Fetch Completeness",
+  "Integration Detail",
+  "All / a deliberate subset / a subset due to a hard API ceiling - which available jobs the current implementation actually retrieves, and why (pagination code limitation vs. self-imposed cap vs. true API result-window ceiling)."
+ ],
+ [
+  "API Limits",
+  "API Catalog",
+  "Consolidated request/rate/result/pagination limits and daily/monthly quotas for this provider, drawn from source-code comments, research/api_analysis.md, and reports/final_project_report.pdf."
+ ],
+ [
+  "Optimal Fetch Strategy",
+  "Integration Detail",
+  "The concrete engineering recommendation to maximize useful job collection without unnecessary duplicate calls - e.g. read to exhaustion, partition by region/keyword/category/date, switch endpoints, or raise a self-imposed cap."
+ ],
+ [
+  "Recommended Cron Frequency",
+  "Integration Detail",
+  "Suggested run cadence (hourly / every 6 hours / daily / weekly), reasoned from board volatility, freshness needs, and rate/quota constraints."
+ ],
+ [
+  "API Calls Per Run",
+  "Integration Detail",
+  "Approximate number of HTTP requests one full run of this source makes today (and how that would scale under the Optimal Fetch Strategy, where applicable)."
+ ],
+ [
+  "Incremental Sync",
+  "API Catalog",
+  "Whether the provider's API supports fetching only new/changed jobs since a previous run (via a date filter or equivalent), and whether this project's current implementation uses it."
+ ],
+ [
+  "Date-based Sync",
+  "API Catalog",
+  "Whether a specific request-side date/posted-since query parameter exists on this API, its name, and whether the current implementation uses it (a factual subset of the broader Incremental Sync judgment)."
+ ],
+ [
+  "Expected Gain After Optimization",
+  "Integration Detail",
+  "Additional jobs obtainable specifically from a pagination/fetch-strategy fix (not from company-slug expansion, which is a separate lever already captured in the regional-expansion audit's Estimated Additional Jobs column). Unknown/N/A where no evidence supports an estimate."
+ ],
+ [
+  "Complete Retrieval Achievable",
+  "Integration Detail",
+  "Yes / Partially / No - whether this provider's current (or, for non-integrated providers, best-documented) API design can technically reach full/near-full retrieval of its available jobs, independent of whether this project has built or fully exploited that capability yet."
+ ],
+ [
+  "Runs Required for Complete Retrieval",
+  "Integration Detail",
+  "How many pipeline executions and/or partitioned queries are needed to approach complete retrieval - e.g. '1 run' (already exhaustive per run), 'Depends on partition count' (needs multiple region/keyword/category queries), 'Depends on pagination' (needs more/deeper paginated calls, possibly across runs), or 'Impossible due to API limits' (blocked regardless of run count)."
+ ],
+ [
+  "Current Bottleneck",
+  "Integration Detail",
+  "The single primary factor currently preventing more complete retrieval: Pagination, Hard API result window, Rate limits, Billing restriction, Company list, Hardcoded country, Missing incremental sync, No public API, Enterprise authentication, or None."
+ ],
+ [
+  "Unique Job Identifier",
+  "API Catalog",
+  "The strongest true identifier this provider's API actually exposes for a job (a provider-issued ID, reference number, or canonical URL), confirmed against sources/*.py. 'Unknown' for non-integrated providers."
+ ],
+ [
+  "Best Deduplication Key",
+  "Integration Detail",
+  "The specific field(s) recommended as the primary matching key for this provider, accounting for whether its captured URL is canonical/stable or a third-party redirect/tracking wrapper."
+ ],
+ [
+  "Cross-API Deduplication",
+  "Integration Detail",
+  "How to detect the same job re-listed by a different provider for this source specifically - which other providers it's confirmed (report Part 6) or plausibly overlaps with, and the blocking/matching approach to use."
+ ],
+ [
+  "Cross-Run Deduplication",
+  "Integration Detail",
+  "How reliably this provider's identifier/URL can be used to recognize 'the same job seen in a previous sync run' - i.e. whether it's safe as a primary key for upsert/skip logic across runs."
+ ],
+ [
+  "Matching Confidence",
+  "Integration Detail",
+  "Low/Medium/High - how confidently duplicates involving this provider can be identified given its exposed identifiers and URL stability."
+ ],
+ [
+  "Duplicate Risk",
+  "Integration Detail",
+  "Low/Medium/High/Unknown/None - the provider's measured or inferred exposure to cross-provider duplication, grounded in report Part 6's shared-company/duplicate-risk-job figures where available."
+ ],
+ [
+  "False Positive Risk",
+  "Integration Detail",
+  "Low/Medium/High - the risk that a naive matching rule would incorrectly merge genuinely distinct postings from this provider (e.g. the same title at different locations, per Part 0's Domino's/BoxLunch multi-location finding)."
+ ],
+ [
+  "Database Strategy",
+  "Integration Detail",
+  "Recommended index/key design for this provider's rows in a persistent job store - primary unique index plus any composite fallback index needed for cross-provider matching."
+ ],
+ [
+  "Update Strategy",
+  "Integration Detail",
+  "Which date/version signal (if any) this provider exposes for detecting that an already-stored job has changed, and how to handle upsert-vs-skip on re-fetch."
+ ],
+ [
+  "Missing Job Detection",
+  "Integration Detail",
+  "Confidence level and reasoning for whether a previously-seen job's absence from the current run's fetch can be trusted as a 'this job closed' signal for this provider, given its pagination completeness (see the Pagination audit)."
+ ],
+ [
+  "Recommended Deduplication Method",
+  "Integration Detail",
+  "The one-line prescribed matching method for this provider, expressed in terms of the Priority 1-6 hierarchy (Apply/Canonical URL, External Job ID, Provider Job ID, Canonical URL, Company+Title+Location, Description hash)."
+ ],
+ [
+  "Estimated Duplicate Exposure",
+  "Integration Detail",
+  "Very Low / Low / Medium / High classification of how likely this provider's jobs are to be duplicates of jobs already collected from another provider, based on provider type, current implementation, documented behavior, and report Part 6's overlap analysis. Followed by a brief justification citing documented counts/percentages where available; qualitative reasoning only where exact numbers aren't verifiable (never fabricated)."
+ ],
+ [
+  "Preferred Canonical Source",
+  "Integration Detail",
+  "For providers with plausible or confirmed overlap, which source should be treated as authoritative when the same job is detected from more than one provider (e.g. prefer an employer ATS over a commercial aggregator). 'Standalone Source' where no other provider plausibly overlaps; 'Not Applicable' where the question doesn't arise (no job feed, per-tenant-only access, or zero jobs currently collected)."
+ ]
+]
