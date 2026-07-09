@@ -1,0 +1,27 @@
+{
+  "count": 2000,
+  "sample_first": {
+    "title": "Varuhuschef till Rusta Vetlanda",
+    "company": "Retail Recruitment Sverige AB",
+    "location": "SE",
+    "url": "https://europa.eu/eures/portal/jv-se/jv-details/NjE5NzU5NCAxMjE?lang=en",
+    "tags": [
+      "fulltime",
+      "directhire"
+    ],
+    "remote": false,
+    "posted": "2026-07-09"
+  },
+  "sample_with_company": {
+    "title": "Varuhuschef till Rusta Vetlanda",
+    "company": "Retail Recruitment Sverige AB",
+    "location": "SE",
+    "url": "https://europa.eu/eures/portal/jv-se/jv-details/NjE5NzU5NCAxMjE?lang=en",
+    "tags": [
+      "fulltime",
+      "directhire"
+    ],
+    "remote": false,
+    "posted": "2026-07-09"
+  }
+}

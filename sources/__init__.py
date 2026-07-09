@@ -20,6 +20,9 @@ from .ashby import AshbySource
 from .bundesagentur import BundesagenturSource
 from .careerjet import CareerJetSource
 from .careeronestop import CareerOneStopSource
+from .eures import EuresSource
+from .findwork import FindworkSource
+from .francetravail import FranceTravailSource
 from .greenhouse import GreenhouseSource
 from .himalayas import HimalayasSource
 from .hk_gov_vacancies import HKGovVacanciesSource
@@ -60,6 +63,7 @@ SOURCES = [
     TaiwanMOLSource(),
     NAVNorwaySource(),
     WeWorkRemotelySource(),
+    EuresSource(),
     JoobleSource(),
     USAJobsSource(),
     AdzunaSource(),
@@ -68,6 +72,8 @@ SOURCES = [
     OpenWebNinjaSource(),
     CareerJetSource(),
     CareerOneStopSource(),
+    FindworkSource(),
+    FranceTravailSource(),
     TheirStackSource(),
     GreenhouseSource(),
     LeverSource(),

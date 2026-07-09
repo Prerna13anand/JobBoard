@@ -4,7 +4,7 @@
 
 This project aggregates job postings from multiple public job APIs into a single, normalized dataset and presents them through a fast, searchable frontend. A modular Python pipeline fetches jobs from each source, maps them onto one common schema, deduplicates and validates the result, and writes it to `jobs.json`. A plain HTML/CSS/JavaScript frontend loads that dataset and lets users search, filter, and sort the listings entirely client-side.
 
-The project now aggregates jobs from every implemented provider - 29 sources in total, spanning no-auth public APIs, API-key-based job search APIs, and ATS (applicant tracking system) job board integrations - through the same modular pipeline and the same common schema. The latest full run produced 155,697 unique, normalized jobs in `jobs.json`.
+The project now aggregates jobs from every implemented provider - 32 sources in total, spanning no-auth public APIs, API-key-based job search APIs, and ATS (applicant tracking system) job board integrations - through the same modular pipeline and the same common schema. The latest full run produced 155,697 unique, normalized jobs in `jobs.json`.
 
 ## Features
 
@@ -43,6 +43,7 @@ No authentication required.
 - [Taiwan Ministry of Labor Open Job API](https://free.taiwanjobs.gov.tw/) (data.gov.tw dataset 44062)
 - [NAV Arbeidsplassen Job Vacancy Feed](https://navikt.github.io/pam-stilling-feed/) (Norwegian Labour and Welfare Administration - uses a public bearer token, auto-fetched at runtime with no configuration needed; see note below)
 - [We Work Remotely](https://weworkremotely.com/remote-jobs.rss) (remote-only job board, RSS feed)
+- [EURES](https://eures.europa.eu/) (European Job Mobility Portal, EU/EEA-wide)
 
 Note on NAV Arbeidsplassen: unlike every other provider in this section, its API does require an `Authorization: Bearer` token on every request - but the token itself needs no registration or `.env` entry, since it's fetched fresh at runtime from NAV's own public, no-signup token endpoint.
 
@@ -58,6 +59,8 @@ Require credentials configured via `.env` (see [Environment Variables](#environm
 - [OpenWeb Ninja](https://www.openwebninja.com/api/jsearch) (JSearch)
 - [CareerJet](https://www.careerjet.com/partners/api/)
 - [CareerOneStop / NLx](https://www.careeronestop.org/Developers/WebAPI/web-api.aspx) (U.S. DOL, National Labor Exchange)
+- [Findwork.dev](https://findwork.dev/developers/) (US/remote tech job board)
+- [France Travail](https://francetravail.io/produits-partages/catalogue/offres-emploi) (French national employment service - OAuth2)
 - [TheirStack](https://theirstack.com/en/docs/api-reference/jobs/search_jobs_v1)
 
 ### ATS Providers
@@ -96,6 +99,7 @@ JobBoard/
 │   ├── taiwan_mol.py          # Phase 1
 │   ├── nav_norway.py          # Phase 1
 │   ├── weworkremotely.py      # Phase 1
+│   ├── eures.py               # Phase 1
 │   ├── jooble.py              # Phase 2
 │   ├── usajobs.py             # Phase 2
 │   ├── adzuna.py              # Phase 2
@@ -104,6 +108,8 @@ JobBoard/
 │   ├── openwebninja.py        # Phase 2
 │   ├── careerjet.py           # Phase 2
 │   ├── careeronestop.py       # Phase 2
+│   ├── findwork.py            # Phase 2
+│   ├── francetravail.py       # Phase 2
 │   ├── theirstack.py          # Phase 2
 │   ├── greenhouse.py          # Phase 3 (ATS)
 │   ├── lever.py               # Phase 3 (ATS)
@@ -164,6 +170,9 @@ Then edit `.env` with your values. See [Environment Variables](#environment-vari
 | `CAREERJET_API_KEY` | CareerJet |
 | `CAREERONESTOP_USER_ID` | CareerOneStop / NLx |
 | `CAREERONESTOP_API_TOKEN` | CareerOneStop / NLx |
+| `FINDWORK_API_KEY` | Findwork.dev |
+| `FRANCETRAVAIL_CLIENT_ID` | France Travail |
+| `FRANCETRAVAIL_CLIENT_SECRET` | France Travail |
 
 ## Running the Backend
 
@@ -226,4 +235,4 @@ Every provider - Phase 1, Phase 2, and Phase 3 alike - was also tested in isolat
 
 ## Project Status
 
-All provider integrations are complete: Phase 1 (no-auth providers), Phase 2 (API-key providers), and Phase 3 (ATS providers - Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Teamtailor), for 29 sources total, alongside Frontend Milestones 2–5.
+All provider integrations are complete: Phase 1 (no-auth providers), Phase 2 (API-key providers), and Phase 3 (ATS providers - Greenhouse, Lever, Ashby, SmartRecruiters, Workable, Teamtailor), for 32 sources total, alongside Frontend Milestones 2–5.

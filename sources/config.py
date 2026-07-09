@@ -51,3 +51,10 @@ CAREERJET_API_KEY = os.getenv("CAREERJET_API_KEY")
 # CareerOneStop / NLx - https://www.careeronestop.org/Developers/WebAPI/web-api.aspx
 CAREERONESTOP_USER_ID = os.getenv("CAREERONESTOP_USER_ID")
 CAREERONESTOP_API_TOKEN = os.getenv("CAREERONESTOP_API_TOKEN")
+
+# Findwork.dev - https://findwork.dev/developers/
+FINDWORK_API_KEY = os.getenv("FINDWORK_API_KEY")
+
+# France Travail - https://francetravail.io/produits-partages/catalogue/offres-emploi
+FRANCETRAVAIL_CLIENT_ID = os.getenv("FRANCETRAVAIL_CLIENT_ID")
+FRANCETRAVAIL_CLIENT_SECRET = os.getenv("FRANCETRAVAIL_CLIENT_SECRET")
