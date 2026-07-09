@@ -27,10 +27,14 @@ from .greenhouse import GreenhouseSource
 from .himalayas import HimalayasSource
 from .hk_gov_vacancies import HKGovVacanciesSource
 from .jobicy import JobicySource
+from .jobspresso import JobspressoSource
 from .jooble import JoobleSource
 from .lever import LeverSource
+from .mustakbil import MustakbilSource
 from .mycareersfuture import MyCareersFutureSource
+from .myjobmag import MyJobMagSource
 from .nav_norway import NAVNorwaySource
+from .nodesk import NoDeskSource
 from .openwebninja import OpenWebNinjaSource
 from .reed import ReedSource
 from .remoteok import RemoteOKSource
@@ -63,6 +67,10 @@ SOURCES = [
     TaiwanMOLSource(),
     NAVNorwaySource(),
     WeWorkRemotelySource(),
+    JobspressoSource(),
+    NoDeskSource(),
+    MyJobMagSource(),
+    MustakbilSource(),
     EuresSource(),
     JoobleSource(),
     USAJobsSource(),
