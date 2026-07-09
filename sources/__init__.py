@@ -27,6 +27,7 @@ from .jobicy import JobicySource
 from .jooble import JoobleSource
 from .lever import LeverSource
 from .mycareersfuture import MyCareersFutureSource
+from .nav_norway import NAVNorwaySource
 from .openwebninja import OpenWebNinjaSource
 from .reed import ReedSource
 from .remoteok import RemoteOKSource
@@ -39,6 +40,7 @@ from .teamtailor import TeamtailorSource
 from .theirstack import TheirStackSource
 from .themuse import TheMuseSource
 from .usajobs import USAJobsSource
+from .weworkremotely import WeWorkRemotelySource
 from .workable import WorkableSource
 
 # All active job sources. jobs.py loops over this list to build the full
@@ -56,6 +58,8 @@ SOURCES = [
     MyCareersFutureSource(),
     HKGovVacanciesSource(),
     TaiwanMOLSource(),
+    NAVNorwaySource(),
+    WeWorkRemotelySource(),
     JoobleSource(),
     USAJobsSource(),
     AdzunaSource(),

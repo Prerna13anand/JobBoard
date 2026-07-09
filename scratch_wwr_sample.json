@@ -1,0 +1,42 @@
+{
+  "count": 100,
+  "sample": {
+    "title": "Travel Coordinator",
+    "company": "Cranky Concierge",
+    "location": "Anywhere in the World",
+    "url": "https://weworkremotely.com/remote-jobs/cranky-concierge-travel-coordinator",
+    "tags": [
+      "Customer Support",
+      "Admin",
+      "Communication Skills",
+      "Customer Service",
+      "Full-Time"
+    ],
+    "remote": true,
+    "posted": "2026-07-08"
+  },
+  "sample2": {
+    "title": "Senior React Full-stack Developer",
+    "company": "Lemon.io",
+    "location": "Anywhere in the World",
+    "url": "https://weworkremotely.com/remote-jobs/lemon-io-senior-react-full-stack-developer-5",
+    "tags": [
+      "AWS",
+      "GoLang",
+      "Node.js",
+      "React",
+      "Ruby",
+      "Ruby on Rails",
+      "Engineer",
+      "Developer",
+      "Full Stack Dev",
+      "Full Time",
+      "English",
+      "TypeScript",
+      "Full-Stack Programming",
+      "Full-Time"
+    ],
+    "remote": true,
+    "posted": "2026-07-08"
+  }
+}
