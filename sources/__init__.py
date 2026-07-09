@@ -36,6 +36,7 @@ from .myjobmag import MyJobMagSource
 from .nav_norway import NAVNorwaySource
 from .nodesk import NoDeskSource
 from .openwebninja import OpenWebNinjaSource
+from .recruitee import RecruiteeSource
 from .reed import ReedSource
 from .remoteok import RemoteOKSource
 from .remotejobs_org import RemoteJobsOrgSource
@@ -49,6 +50,7 @@ from .themuse import TheMuseSource
 from .usajobs import USAJobsSource
 from .weworkremotely import WeWorkRemotelySource
 from .workable import WorkableSource
+from .workday import WorkdaySource
 
 # All active job sources. jobs.py loops over this list to build the full
 # aggregated job listing.
@@ -89,4 +91,6 @@ SOURCES = [
     SmartRecruitersSource(),
     WorkableSource(),
     TeamtailorSource(),
+    RecruiteeSource(),
+    WorkdaySource(),
 ]
