@@ -22,9 +22,11 @@ from .careerjet import CareerJetSource
 from .careeronestop import CareerOneStopSource
 from .greenhouse import GreenhouseSource
 from .himalayas import HimalayasSource
+from .hk_gov_vacancies import HKGovVacanciesSource
 from .jobicy import JobicySource
 from .jooble import JoobleSource
 from .lever import LeverSource
+from .mycareersfuture import MyCareersFutureSource
 from .openwebninja import OpenWebNinjaSource
 from .reed import ReedSource
 from .remoteok import RemoteOKSource
@@ -32,6 +34,7 @@ from .remotejobs_org import RemoteJobsOrgSource
 from .remotive import RemotiveSource
 from .serpapi import SerpApiSource
 from .smartrecruiters import SmartRecruitersSource
+from .taiwan_mol import TaiwanMOLSource
 from .teamtailor import TeamtailorSource
 from .theirstack import TheirStackSource
 from .themuse import TheMuseSource
@@ -50,6 +53,9 @@ SOURCES = [
     RemotiveSource(),
     ArbetsformedlingenSource(),
     RemoteJobsOrgSource(),
+    MyCareersFutureSource(),
+    HKGovVacanciesSource(),
+    TaiwanMOLSource(),
     JoobleSource(),
     USAJobsSource(),
     AdzunaSource(),

@@ -1,0 +1,28 @@
+{
+  "count": 2000,
+  "sample": {
+    "title": "AB03 - Preschool English Language Assistant Teacher (L1/L2 Certified)",
+    "company": "THE SUPREME HR ADVISORY PTE. LTD.",
+    "location": "Islandwide",
+    "url": "https://www.mycareersfuture.gov.sg/job/education-training/ab03-preschool-english-language-assistant-teacher-supreme-hr-advisory-018f8b2beae645c723f0e2e8e1a5eb6c",
+    "tags": [
+      "Education and Training",
+      "Permanent",
+      "Full Time"
+    ],
+    "remote": false,
+    "posted": "2026-07-08"
+  },
+  "sample2": {
+    "title": "#Hiring- Golang Developer",
+    "company": "ITCAN PTE. LIMITED",
+    "location": "Central",
+    "url": "https://www.mycareersfuture.gov.sg/job/information-technology/hiring-golang-developer-itcan-0002d6e300a67475b8b4be8b94db6189",
+    "tags": [
+      "Information Technology",
+      "Full Time"
+    ],
+    "remote": false,
+    "posted": "2026-07-07"
+  }
+}
