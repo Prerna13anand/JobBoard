@@ -21,6 +21,7 @@ from .bundesagentur import BundesagenturSource
 from .careerjet import CareerJetSource
 from .careeronestop import CareerOneStopSource
 from .eures import EuresSource
+from .fantasticjobs import FantasticJobsSource
 from .findwork import FindworkSource
 from .francetravail import FranceTravailSource
 from .greenhouse import GreenhouseSource
@@ -34,6 +35,7 @@ from .mustakbil import MustakbilSource
 from .mycareersfuture import MyCareersFutureSource
 from .myjobmag import MyJobMagSource
 from .nav_norway import NAVNorwaySource
+from .nhsjobs import NHSJobsSource
 from .nodesk import NoDeskSource
 from .openwebninja import OpenWebNinjaSource
 from .recruitee import RecruiteeSource
@@ -47,6 +49,7 @@ from .taiwan_mol import TaiwanMOLSource
 from .teamtailor import TeamtailorSource
 from .theirstack import TheirStackSource
 from .themuse import TheMuseSource
+from .trademe import TradeMeSource
 from .usajobs import USAJobsSource
 from .weworkremotely import WeWorkRemotelySource
 from .workable import WorkableSource
@@ -93,4 +96,7 @@ SOURCES = [
     TeamtailorSource(),
     RecruiteeSource(),
     WorkdaySource(),
+    TradeMeSource(),
+    FantasticJobsSource(),
+    NHSJobsSource(),
 ]

@@ -58,3 +58,10 @@ FINDWORK_API_KEY = os.getenv("FINDWORK_API_KEY")
 # France Travail - https://francetravail.io/produits-partages/catalogue/offres-emploi
 FRANCETRAVAIL_CLIENT_ID = os.getenv("FRANCETRAVAIL_CLIENT_ID")
 FRANCETRAVAIL_CLIENT_SECRET = os.getenv("FRANCETRAVAIL_CLIENT_SECRET")
+
+# Trade Me Jobs - https://developer.trademe.co.nz/
+TRADEME_CONSUMER_KEY = os.getenv("TRADEME_CONSUMER_KEY")
+TRADEME_CONSUMER_SECRET = os.getenv("TRADEME_CONSUMER_SECRET")
+
+# Fantastic.jobs - https://developer.fantastic.jobs/
+FANTASTICJOBS_API_KEY = os.getenv("FANTASTICJOBS_API_KEY")
