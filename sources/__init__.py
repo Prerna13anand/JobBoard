@@ -23,8 +23,12 @@ from .careeronestop import CareerOneStopSource
 from .eures import EuresSource
 from .fantasticjobs import FantasticJobsSource
 from .findwork import FindworkSource
+from .fourdayweek import FourDayWeekSource
 from .francetravail import FranceTravailSource
+from .freshersworld import FreshersworldSource
+from .getonboard import GetOnBoardSource
 from .greenhouse import GreenhouseSource
+from .hasjob import HasjobSource
 from .himalayas import HimalayasSource
 from .hk_gov_vacancies import HKGovVacanciesSource
 from .jobicy import JobicySource
@@ -54,6 +58,7 @@ from .usajobs import USAJobsSource
 from .weworkremotely import WeWorkRemotelySource
 from .workable import WorkableSource
 from .workday import WorkdaySource
+from .workingnomads import WorkingNomadsSource
 
 # All active job sources. jobs.py loops over this list to build the full
 # aggregated job listing.
@@ -99,4 +104,9 @@ SOURCES = [
     TradeMeSource(),
     FantasticJobsSource(),
     NHSJobsSource(),
+    FourDayWeekSource(),
+    GetOnBoardSource(),
+    WorkingNomadsSource(),
+    HasjobSource(),
+    FreshersworldSource(),
 ]
