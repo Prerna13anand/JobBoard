@@ -24,26 +24,37 @@
 -- last_seen (and any changed fields) on existing rows via ON CONFLICT rather
 -- than inserting duplicates.
 CREATE TABLE IF NOT EXISTS jobs (
-    id           BIGSERIAL PRIMARY KEY,
-    provider     TEXT NOT NULL,
-    title        TEXT NOT NULL,
-    company      TEXT NOT NULL DEFAULT '',
-    location     TEXT NOT NULL DEFAULT '',
-    country      TEXT,
-    url          TEXT NOT NULL DEFAULT '',
-    remote       BOOLEAN NOT NULL DEFAULT FALSE,
-    posted_date  DATE,
-    tags         TEXT[] NOT NULL DEFAULT '{}',
-    dedup_key    TEXT NOT NULL UNIQUE,
-    first_seen   TIMESTAMPTZ NOT NULL DEFAULT now(),
-    last_seen    TIMESTAMPTZ NOT NULL DEFAULT now(),
-    created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
+    id                BIGSERIAL PRIMARY KEY,
+    provider          TEXT NOT NULL,
+    title             TEXT NOT NULL,
+    company           TEXT NOT NULL DEFAULT '',
+    location          TEXT NOT NULL DEFAULT '',
+    country           TEXT,
+    work_arrangement  TEXT,
+    url               TEXT NOT NULL DEFAULT '',
+    remote            BOOLEAN NOT NULL DEFAULT FALSE,
+    posted_date       DATE,
+    tags              TEXT[] NOT NULL DEFAULT '{}',
+    dedup_key         TEXT NOT NULL UNIQUE,
+    first_seen        TIMESTAMPTZ NOT NULL DEFAULT now(),
+    last_seen         TIMESTAMPTZ NOT NULL DEFAULT now(),
+    created_at        TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- Added after the table already existed in deployed databases - ADD COLUMN
+-- IF NOT EXISTS makes this safe to apply alongside the CREATE TABLE above
+-- regardless of whether this is a fresh database or an existing one.
+-- work_arrangement is a normalized 'remote' / 'hybrid' / 'onsite' tag
+-- derived from location text by normalize_countries.py, independent of
+-- country (e.g. "Remote - US" is both work_arrangement='remote' and
+-- country='United States') - see MIGRATION.md.
+ALTER TABLE jobs ADD COLUMN IF NOT EXISTS work_arrangement TEXT;
 
 CREATE INDEX IF NOT EXISTS idx_jobs_provider ON jobs (provider);
 CREATE INDEX IF NOT EXISTS idx_jobs_country ON jobs (country);
 CREATE INDEX IF NOT EXISTS idx_jobs_remote ON jobs (remote);
 CREATE INDEX IF NOT EXISTS idx_jobs_first_seen ON jobs (first_seen);
+CREATE INDEX IF NOT EXISTS idx_jobs_work_arrangement ON jobs (work_arrangement);
 
 -- One row per provider per jobs.py invocation ("run"). All providers fetched
 -- in the same invocation share the same run_time (set once at the start of

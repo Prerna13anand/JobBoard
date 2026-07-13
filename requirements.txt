@@ -2,3 +2,6 @@ requests
 python-dotenv
 requests-oauthlib
 psycopg2-binary
+pycountry
+country_converter
+geonamescache
