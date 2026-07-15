@@ -56,7 +56,7 @@ This is a condensed version of `Final_Project_Report_v2.md`, written for a singl
 | 41 of 46 providers contributing live data | Partially Completed | 5 non-contributing for external reasons (billing, missing credentials, one zero-result run) — Section 3 |
 | Employment-type capture | Partially Completed | Present for 24 of 46 providers; absent for the rest |
 | Country resolution long tail | Partially Completed | Multi-country case solved; ~1,565 distinct unresolved single-place values remain |
-| Credentialed-provider setup | Partially Completed | 2 of 12 credentialed providers (Trade Me, CareerOneStop) lack credentials in this environment |
+| Credentialed-provider setup | Partially Completed | 2 of 12 credentialed providers lack credentials in this environment — Trade Me pending its approval process; CareerOneStop's registration is geographically restricted (geo-blocked) from this environment |
 | 6 real, accessible candidate providers (Saramin, VDAB, CBOP, Work24, GOV.UK Find a Job, Job-Room Switzerland) | Partially Completed | Registration/verification step outstanding, not rejected |
 | Standardized job-category taxonomy | Not Started | No cross-provider taxonomy exists in the data (Section 5, item 11) |
 | Salary / visa-sponsorship capture | Not Started | No schema field; no provider exposes it in a usable form |
@@ -87,7 +87,7 @@ This is a condensed version of `Final_Project_Report_v2.md`, written for a singl
 |---|---|
 | TheirStack | Account's billing plan does not include Jobs API access (HTTP 402) |
 | Trade Me Jobs | Built, but no production credentials configured; also requires Trade Me's approval process |
-| CareerOneStop | Built, but no credentials configured (`CAREERONESTOP_USER_ID`/`API_TOKEN`) |
+| CareerOneStop | Built, but access/registration was geographically restricted (geo-blocked) from this environment, preventing successful API registration and testing — so `CAREERONESTOP_USER_ID`/`API_TOKEN` could not be obtained |
 | Fantastic.jobs | Credentialed, but returned 0 jobs in the latest run — most plausibly a trial-window/account-tier issue, not confirmed |
 | Arbeitnow | Free, no-auth API that previously worked (931 jobs in earlier testing); returned 0 jobs in the latest run — cause not confirmed |
 
@@ -112,6 +112,8 @@ Top 3 providers supply 57.4% of all 184,506 stored jobs — volume is concentrat
 
 
 ## 4. Complete Provider Research (268 Providers)
+
+Tables 4.1 and 4.2 below satisfy the internship requirement to document the number of jobs available or retrieved for each API, alongside every provider's pricing, reference, and implementation status.
 
 Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268 rows), split into **Implemented (46)** and **Not Implemented (222)**. Pricing model and payment terms are this project's own verified classification of each provider's published terms — where nothing could be confirmed, the cell reads "Not publicly available." Reference is a documented URL/domain found in this project's research notes.
 
@@ -169,7 +171,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NHS Jobs</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobs.nhs.uk/api/v1/search_xml">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://www.nhsbsa.nhs.uk/about-nhs-jobs/nhs-jobs-integration-and-benefits">Official Documentation (No Pricing Page)</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">10,843 stored<br>(13,011 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Undocumented endpoint; could change without notice.<br>&bull; <strong>Expansion:</strong> Monitor for endpoint changes; no code change needed.</td>
@@ -187,7 +189,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bundesagentur für Arbeit</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth-style public key</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/bundesAPI/jobsuche-api">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://www.arbeitsagentur.de/jobsuche">Free Public API</a> (undocumented; no official arbeitsagentur.de API docs exist)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">9,896 stored<br>(10,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 10,000-result API ceiling (page x size).<br>&bull; <strong>Expansion:</strong> Partition query by location/keyword params.</td>
@@ -223,7 +225,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workable</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://apply.workable.com">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://help.workable.com/hc/en-us/articles/115012801727-How-to-embed-jobs-on-your-website-job-widget">Official Documentation (No Pricing Page)</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">4,137 stored<br>(7,627 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 89 curated companies; public widget API only, not full ATS.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
@@ -232,7 +234,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workday</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No fixed docs URL (keyless, per-tenant endpoint)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://www.workday.com">Free Public API</a> (no fixed docs URL; keyless, per-tenant endpoint)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,997 stored<br>(2,998 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 200 jobs/tenant; large tenants under-sampled.<br>&bull; <strong>Expansion:</strong> Raise per-tenant page cap; add more tenants.</td>
@@ -241,7 +243,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Himalayas</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://himalayas.app/jobs/api">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://himalayas.app/docs/remote-jobs-api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,253 stored<br>(3,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 3,000 of 90,000+; fixed page size (limit ignored).<br>&bull; <strong>Expansion:</strong> Raise page cap; use richer <code>/jobs/api/search</code> endpoint.</td>
@@ -259,7 +261,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Adzuna</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.adzuna.com/docs/search">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.adzuna.com/docs/search">Official Documentation (No Pricing Page)</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,000 stored<br>(2,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 2,000/run; single-country (<code>us</code>) only.<br>&bull; <strong>Expansion:</strong> Raise page cap; query additional Adzuna country indexes.</td>
@@ -286,7 +288,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">EURES</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://europa.eu/eures">Free Public API</a> (undocumented)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://eures.europa.eu">Free Public API</a> (undocumented)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,681 stored<br>(2,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard ~10,000-result ceiling; self-capped at 2,000/run.<br>&bull; <strong>Expansion:</strong> Raise page cap toward the ~10,000 ceiling.</td>
@@ -295,7 +297,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">RemoteJobs.org</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotejobs.org">Free Public API</a> (docs link 404s)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotejobs.org/api-access">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,500 stored<br>(1,500 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Real rate limiting observed (HTTP 429 ~page 23).<br>&bull; <strong>Expansion:</strong> None beyond current handling; partial results already preserved.</td>
@@ -313,7 +315,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jooble</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jooble.org/api">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jooble.org/api/about">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,137 stored<br>(1,137 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Usable window ~1,100-1,200 jobs vs. much larger reported totals; no in-loop retry.<br>&bull; <strong>Expansion:</strong> Add in-loop error handling.</td>
@@ -331,7 +333,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Taiwan Ministry of Labor</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth open data</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://free.taiwanjobs.gov.tw">Free Public API</a> (data.gov.tw #44062)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://data.gov.tw/en/datasets/44062">Free Public API</a> (data.gov.tw #44062)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,000 stored<br>(1,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 1,000-record cap; no working offset/page param found.<br>&bull; <strong>Expansion:</strong> None found; no further page accessible.</td>
@@ -385,7 +387,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MyJobMag</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://myjobmag.com/feeds">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://www.myjobmag.com/feeds/">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100 stored<br>(100 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination (robots.txt blocks query strings); fixed 100 items.<br>&bull; <strong>Expansion:</strong> Add other MyJobMag country feeds (Ghana/Kenya/SA/UK).</td>
@@ -421,7 +423,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SerpApi (Google Jobs)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://serpapi.com/google-jobs-api">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://serpapi.com/pricing">Pricing Page</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">50 stored<br>(50 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Metered API; self-capped at 50 jobs/run to conserve quota.<br>&bull; <strong>Expansion:</strong> Raise page cap if a larger quota is approved.</td>
@@ -439,7 +441,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Working Nomads</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workingnomads.com/jobs">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://www.workingnomads.com/api/exposed_jobs/">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">33 stored<br>(33 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; fixed ~36-job snapshot; no RSS alternative found.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -448,7 +450,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Remotive</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotive.com/api-jobs">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotive.com/remote-jobs/api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">30 stored<br>(30 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; filter params confirmed non-functional.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -502,7 +504,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">HK Gov Vacancies</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth open data</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://csb.gov.hk/datagovhk/gov-vacancies">Free Public API</a> (data.gov.hk)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://data.gov.hk/en-data/dataset/hk-csb-csb-gov-vacancies">Free Public API</a> (data.gov.hk)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1 stored<br>(58 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Needs review</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Static dataset; no per-posting URL (collapses on dedup).<br>&bull; <strong>Expansion:</strong> Use a non-URL dedup key to reduce duplicate collapse.</td>
@@ -511,7 +513,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TheirStack</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Per-credit metered (1 credit/job)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://theirstack.com">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://theirstack.com/en/pricing">Pricing Page</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Blocked — billing</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Bills per job returned; blocked by account billing (HTTP 402).<br>&bull; <strong>Expansion:</strong> Resolve billing; then raise job cap and add retry helper.</td>
@@ -520,7 +522,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Trade Me Jobs</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free (registered app)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.trademe.co.nz">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.trademe.co.nz/api-reference/search-methods/jobs-search">Official Documentation (No Pricing Page)</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Built, uncredentialed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Built from API spec only, unexercised live; missing credentials (0 jobs).<br>&bull; <strong>Expansion:</strong> Provision consumer key/secret; complete production approval.</td>
@@ -532,13 +534,13 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careeronestop.org/Developers/WebAPI/web-api.aspx">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Built, uncredentialed</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard ~750-result ceiling; missing credentials (0 jobs).<br>&bull; <strong>Expansion:</strong> Provision user ID/API token (free registration).</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard ~750-result ceiling; access/registration was geographically restricted (geo-blocked) from this environment, preventing successful API registration and testing (0 jobs).<br>&bull; <strong>Expansion:</strong> Retry registration from an unrestricted network/region to obtain a user ID/API token.</td>
 </tr>
 <tr style="border-bottom:0.75px solid #ccc;">
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Fantastic.jobs</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free trial → paid metered (~$1/1,000 jobs)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, after trial ends</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.fantastic.jobs">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://fantastic.jobs/api">Pricing Page</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Credentialed, 0 result</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Credentialed but 0 jobs; cause not confirmed.<br>&bull; <strong>Expansion:</strong> Verify account/trial status; add <code>/v1/active-jb</code> sibling endpoint.</td>
@@ -2512,7 +2514,27 @@ Refresh frequency and expired-job detection are **not verified during this proje
 
 Highest duplicate rates: MyCareersFuture (99.0%, `limit` param silently ignored by the provider), HK Gov Vacancies (98.3%, every job shares one generic portal URL), NAV Arbeidsplassen (56.8%, a change-feed rather than a current-postings search), Workable (45.8%, the same job posted to multiple cities, correctly collapsed).
 
+**How deduplication actually works.** `dedupe_jobs()` (`jobs.py`) and `dedup_key_for()` (`database.py`, enforced via `ON CONFLICT (dedup_key)`) collapse jobs whose **URL string matches exactly** (or, when a provider has no URL, a hash of its identifying fields). This is why "cross-provider duplicate URLs remaining" is 0: that figure measures literal URL collisions, not whether the same real-world job posting appears under two different URLs from two different providers. The true overlap rate between architecturally distinct providers has not been measured in this project, and no percentage is estimated here — doing so would require fuzzy matching on (title, company, location) across providers, which has not been built.
+
+**Where duplicate/overlapping jobs are likely to occur, and why:**
+
+- **Single-tenant company ATS boards (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Teamtailor, Recruitee, Workable)** — each is queried per-company against a curated slug list (Section 4.1), so a job appears once, under that company's own ATS-hosted URL. Overlap *among these providers* is structurally unlikely in this project, since no company slug is deliberately queried against two different ATS platforms at once. The risk instead comes from the next category: if the same employer's postings are also picked up by a general aggregator, the aggregator's copy carries a different URL (its own listing page or tracking redirect), so today's exact-URL dedup would not catch the overlap. (Two other well-known ATS platforms not implemented here — BambooHR, researched in Section 4.2 as enterprise/sales-gated, and Jobvite, not part of this project's 268-provider catalog — would carry the identical structural risk if added.)
+- **Aggregators that re-publish employer-direct postings (Adzuna, Reed, Jooble)** — these are commercial aggregators that crawl or license listings from many original sources, which can include employers whose ATS boards (Greenhouse, Lever, Workday, etc.) this project already queries directly. A job posted by a Greenhouse-hosted employer could plausibly also surface through Adzuna, Reed, or Jooble's feed under a different URL, invisible to exact-URL dedup.
+- **Government/labour-exchange boards (USAJOBS, Bundesagentur für Arbeit, NAV Arbeidsplassen, EURES, France Travail)** — some of these mirror each other by design (EURES federates postings from national labour exchanges, including Bundesagentur and NAV Arbeidsplassen), so the same vacancy can legitimately appear on more than one government board, each with its own URL. USAJOBS is architecturally separate (US federal listings only) and not expected to overlap with the European boards.
+- **Why deduplication is required.** Uncaught duplicates would inflate stored job counts, skew per-provider volume comparisons (Section 3.3), and double-count a company's hiring activity in any downstream analytics.
+- **How the current implementation handles it.** Exact-URL (or identifying-field-hash) matching at insert time, both within a single run (`dedupe_jobs`) and across runs/providers via `dedup_key`. This correctly and completely handles same-URL duplicates (confirmed: 0 remaining) and same-job-different-city listings within one provider (e.g., Workable's 45.8% above). It does **not** catch the same job posted under different URLs by two different providers — that requires fuzzy/semantic matching on (title, company, location), which is not implemented and is listed as future work (Section 6).
+
+Exact overlap percentages between specific provider pairs (e.g., what share of Adzuna's UK jobs also appear via Reed) were not calculated in this project and are not estimated here, since the current dedup logic has no way to measure them.
+
 ### 15. Rate limits
+
+**What these metrics mean.** Providers describe their limits in different units; all of the following appear across this project's research notes and implementation:
+
+- **Requests per second (QPS)** — the maximum call rate at any instant; exceeding it triggers immediate throttling (typically HTTP 429).
+- **Requests per minute / hour** — a rolling or fixed window cap, most relevant to pacing a single fetch loop against one provider.
+- **Requests per day / month** — a longer-cycle quota, usually tied to a free tier or metered billing plan (e.g., SerpApi/OpenWebNinja's 200 requests/month below).
+- **Unlimited** — no documented ceiling for the endpoint used, though undocumented soft limits can still surface in practice (e.g., Reed's ~9,900-record ceiling below, discovered by testing rather than published in any doc).
+- **Burst limits** (where applicable) — a short-window allowance above the steady-state rate (e.g., "X req/s, burst to Y") that lets a client briefly exceed the normal ceiling before throttling engages; not separately documented by any of the 46 implemented providers in this project.
 
 | Limit type | Examples |
 |---|---|
@@ -2537,7 +2559,18 @@ The examples above are the limits discovered and documented during implementatio
 | Ashby | 70.3 | High |
 | Workable | 51.8 | High |
 
-Full duration/reliability figures for all 46 providers exist in the underlying `provider_runs` table; only the ten highest-volume providers are shown here for brevity.
+Full duration/reliability figures for all 46 providers exist in the underlying `provider_runs` table; only the ten highest-volume providers are shown here for brevity. The observations below are based on this project's implementation behaviour (source code plus the one completed backfill run), not formal or repeated benchmarking — no provider was load-tested or measured across multiple runs.
+
+**What drives duration.** All 46 sources run **sequentially, not in parallel** — `collect_all_jobs()` (`jobs.py`) loops over `SOURCES` one at a time, so today's total run time is the sum of every provider's individual duration, and any one slow or retrying provider delays the whole run rather than overlapping with the others. This is the single biggest lever for a production cron schedule: parallelizing independent providers (they share no state besides the final combined job list) would let total wall-clock time approach the slowest single provider instead of the sum of all 46.
+
+- **Fast providers** — sources with a single request or a small, fixed number of pages return in well under a minute (e.g. NAV Arbeidsplassen, USAJOBS, Reed, and Workable above, all under ~60s).
+- **Slow providers** — Lever is the slowest observed run (870.1s) despite only 17,980 jobs stored, because it paginates per-company across its curated company list; SmartRecruiters (385.7s) is slower in absolute terms but fetches the most jobs of any provider (65k+), so its per-job cost is actually low.
+- **Providers requiring retries** — 36 of 46 providers call the shared `request_with_retry()` helper (`sources/utils.py`), which retries connection errors, timeouts, and HTTP 429/500/502/503/504 with exponential backoff (2s, 4s, 8s across up to 3 attempts); a few others (e.g. Bundesagentur für Arbeit) implement their own retry logic rather than the shared helper. A provider that trips this path runs measurably slower purely from backoff sleep time.
+- **Providers affected by rate limits** — RemoteJobs.org and Findwork.dev both hit real, observed HTTP 429 responses during implementation (Section 4.1 notes), confirming the retry path is exercised in practice and not just defensive code. See Section 15 for the other documented ceilings (result-window caps, monthly quotas, per-job billing) that affect specific providers' fetch loops.
+- **Providers requiring authentication** — 15 of 46 providers require some credential (API key, OAuth, or HTTP Basic; Section 17). These carry a failure mode the other 31 don't: if a key expires, rotates, or hits a quota, that provider's run can fail independently of network conditions, as already observed for CareerOneStop, Trade Me, and TheirStack (Section 3.2).
+- **Sequential execution (current state)** — one provider at a time, in the fixed order of `sources/__init__.py`'s `SOURCES` list; no concurrency between providers today.
+- **Parallel execution (recommended change)** — running independent providers concurrently (e.g., a worker pool keyed by provider) is the most direct way to shorten a production run; each provider's own internal pagination should stay sequential, since none of these APIs were built for concurrent pagination against the same key/session.
+- **Expected impact on production scheduling** — because this project reflects one manual run, not a recurring schedule (Section 2), no production interval has been established yet. Given sequential execution and the durations observed (up to 870.1s for the slowest single provider), a naive sequential cron job across all 46 providers should be expected to take on the order of tens of minutes end-to-end; the exact figure depends on which providers are retrying or rate-limited at run time, which varies run to run. Parallelizing providers, and isolating credentialed/rate-limited providers from the no-auth majority (so one slow retry doesn't block unrelated fast providers), are the two changes most likely to shorten and stabilize a production schedule.
 
 ### 17. Authentication
 
@@ -2596,7 +2629,7 @@ Summarized here; full detail in Section 6. Before production reliance: close the
 
 **Remaining work, in priority order:**
 
-1. Provision missing credentials (Trade Me, CareerOneStop), resolve TheirStack's billing block, verify Fantastic.jobs' trial/account status, and re-run Arbeitnow to confirm its 0-job result was transient.
+1. Provision missing credentials (Trade Me), retry CareerOneStop's registration from a network/region that is not geo-blocked, resolve TheirStack's billing block, verify Fantastic.jobs' trial/account status, and re-run Arbeitnow to confirm its 0-job result was transient.
 2. Pursue the two highest-value deferred candidate providers — Saramin and VDAB — both real APIs blocked only by a registration/onboarding step.
 3. Add provider-run health alerting before scheduling recurring syncs, so a source silently dropping to 0 doesn't go unnoticed.
 4. Move country/work-arrangement normalization inline into the ingestion path, replacing the current manual migration script.
@@ -2608,4 +2641,4 @@ Summarized here; full detail in Section 6. Before production reliance: close the
 
 ---
 
-*Job Aggregation Platform — Final Project Report · Data snapshot 2026-07-10 · Report date July 15, 2026 · Condensed from `Final_Project_Report_v2.md` for a single 15–20 minute engineering-manager review. No technical finding was removed; long narrative sections were replaced with tables, and repeated explanations were cut. The Implemented Providers table (Section 4.1) was independently re-verified against `sources/*.py` on 2026-07-15, adding per-provider implementation limitations and expansion opportunities. Source of truth: PostgreSQL (`jobs`, `provider_runs`), this repository's source code, and `job_api.xlsx` (API Catalog, Sheet1 sheets). Where a fact could not be verified, this report states "Not publicly available" or "Not verified during this project" rather than estimating.*
+*Job Aggregation Platform — Final Project Report · Data snapshot 2026-07-10 · Report date July 15, 2026 · Condensed from `Final_Project_Report_v2.md` for a single 15–20 minute engineering-manager review. No technical finding was removed; long narrative sections were replaced with tables, and repeated explanations were cut. The Implemented Providers table (Section 4.1) was independently re-verified against `sources/*.py` on 2026-07-15, adding per-provider implementation limitations and expansion opportunities; all 46 providers' Official Reference links were additionally re-checked live against each provider's own domain on 2026-07-15, replacing any dead link, redirected domain, or non-official (e.g. third-party GitHub wrapper) reference with the correct official URL. Source of truth: PostgreSQL (`jobs`, `provider_runs`), this repository's source code, and `job_api.xlsx` (API Catalog, Sheet1 sheets). Where a fact could not be verified, this report states "Not publicly available" or "Not verified during this project" rather than estimating.*
