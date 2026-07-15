@@ -118,54 +118,442 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 
 ### 4.1 Implemented Providers (46)
 
-| Provider | Pricing Model | Payment After Free Tier | Official Reference | Jobs Retrieved (Current Implementation) | Status | Current Limitation / Notes | Expansion Opportunity |
-|---|---|---|---|---|---|---|---|
-| SmartRecruiters | No-auth public API | No | developers.smartrecruiters.com/docs/posting-api | 65,392 stored (65,394 fetched) — Reflects the 100 curated companies only, not a global index. | Live | None significant. Real offset/limit pagination (100/page), no discovered result-window ceiling; per-company and per-page failures are caught and logged without stopping the run. | Add more verified company slugs (100 curated today) — the documented, no-code-change mechanism for growing this source. |
-| Greenhouse | No-auth public API | No | developers.greenhouse.io/job-board.html | 22,715 stored (22,715 fetched) — Reflects the 276 curated companies only, not a global index. | Live | No significant implementation limitation identified. Each company returns its full board in one call (no pagination exists on this API); per-company failures are caught and logged. | Add more verified company slugs (276 curated today) — the documented, no-code-change mechanism for growing this source. |
-| Lever | No-auth public API | No | github.com/lever/postings-api | 17,980 stored (17,980 fetched) — Reflects the 162 curated companies only, not a global index. | Live | No significant implementation limitation identified. Real skip/limit pagination is implemented, though every curated company currently returns its full list in one page. | Add more verified company slugs (162 curated today) — the documented, no-code-change mechanism for growing this source. |
-| NHS Jobs | No-auth public feed | No | jobs.nhs.uk/api/v1/search_xml | 10,843 stored (13,011 fetched) — Reflects a full walk of the live feed to exhaustion, not a self-imposed cap. | Live | Undocumented endpoint (no official API contract); could change or break without notice. MAX_PAGES=200 is a generous safety net, not a real ceiling — live data was observed to run out around page 130-150. | No additional expansion opportunity identified for volume — the implementation already pages until the feed itself returns empty. Monitor for endpoint changes given the lack of an official contract. |
-| USAJOBS | Free registration | No | developer.usajobs.gov | 10,000 stored (10,000 fetched) — Capped at exactly 10,000 by the API's own result window, not a configured limit in this project's code. | Live | Hard 10,000-result API ceiling (`SearchResultCountAll`), confirmed by the API itself, not self-imposed. Uses plain `requests` calls with no retry helper and no in-loop error handling — a failed page raises and discards all pages already fetched in that run. | Partition the single broad query into multiple queries by `JobCategoryCode`/`LocationName` (both real, documented USAJOBS parameters not currently used) to open several independent 10,000-result windows. Add the project's shared `request_with_retry` helper and in-loop error handling, matching the pattern already used elsewhere (e.g. `findwork.py`, `francetravail.py`). |
-| Bundesagentur für Arbeit | No-auth-style public key | No | github.com/bundesAPI/jobsuche-api | 9,896 stored (10,000 fetched) — Capped at exactly 10,000 by the API's own result window; the module's own 3-attempt retry loop is already implemented. | Live | Hard 10,000-result API ceiling (`page * size <= 10000`), confirmed by the API itself, not self-imposed. | Partition the query using the API's own `wo`/`umkreis` (location) or `was` (keyword) parameters — both accepted by the API but not currently sent — to open independent 10,000-result windows per partition. |
-| Reed | Free registration | No | reed.co.uk/developers/jobseeker | 8,994 stored (9,000 fetched) — Self-capped at 9,000 (90 pages x 100/page), intentionally below the ~9,900-9,920 API boundary. | Live | Hard result-window boundary around 9,900-9,920 (HTTP 500 beyond it), confirmed live; current code stops at 9,000 with margin. Uses plain `requests` (not the shared `request_with_retry` helper), though a failed page is caught and the run stops cleanly, keeping jobs already fetched. | Raise `MAX_PAGES` from 90 toward the ~99 pages the discovered boundary allows for modest additional yield. Adopt the shared `request_with_retry` helper for transient-failure retries, matching most other sources. |
-| NAV Arbeidsplassen | No-auth-style public token | No | navikt.github.io/pam-stilling-feed | 5,394 stored (12,478 fetched) — Reflects only entries flagged ACTIVE from a 30-day lookback window, capped at 20 pages (1,000 items/page) — not the full historical feed. | Live | Structurally a chronological change-feed (every edit/create/expiry), not a current-postings search — most entries are historical/inactive and filtered out, which is why the duplicate rate against this source is high downstream. | Increase `LOOKBACK_DAYS` (currently 30) or `MAX_PAGES` (currently 20) to walk further back and capture a longer window of active postings. |
-| Ashby | No-auth public API | No | developers.ashbyhq.com/docs/public-job-posting-api | 5,252 stored (5,252 fetched) — Reflects the 102 curated companies only, not a global index. | Live | No significant implementation limitation identified beyond the curated company list (102 boards); each company returns its full board in one call. | Add more verified company boards (102 curated today). Enable the documented `includeCompensation=true` query parameter to add salary data, which the API supports but this project deliberately does not request. |
-| Workable | No-auth public API | No | apply.workable.com (public widget surface) | 4,137 stored (7,627 fetched) — Reflects the 89 curated companies only, not a global index. | Live | No significant implementation limitation identified beyond the curated company list (89 accounts); each company returns its full board in one call. Uses the public no-auth widget API only, not the authenticated full ATS surface. | Add more verified company account slugs (89 curated today) — the documented, no-code-change mechanism for growing this source. |
-| Workday | No-auth public API | No | (keyless endpoint, templated per tenant — no fixed docs URL found) | 2,997 stored (2,998 fetched) — Self-capped at 200 jobs per tenant (10 pages x 20/page) regardless of how many a tenant actually has. | Live | Self-imposed cap of 10 pages (200 jobs) per tenant, even though several curated tenants report far larger totals (e.g. PwC 4,340; Target 2,000) — those tenants are under-sampled by design. | Raise `MAX_PAGES_PER_COMPANY` (currently 10) to pull deeper into large tenants; the API's own 20-per-page cap and offset pagination already support this without further code changes. Add more curated tenants (20 today). |
-| Himalayas | No-auth public API | No | himalayas.app/jobs/api | 2,253 stored (3,000 fetched) — Self-capped at 3,000 of a reported 90,000+ total; fixed at 20 jobs/page regardless of the `limit` requested. | Live | Self-imposed cap of 150 pages (3,000 jobs) against a reported 90,000+ total; the API also ignores the requested `limit` and always returns a fixed 20/page. | Raise `MAX_PAGES` for a deeper pull (bounded by per-page request cost since page size can't be increased). A richer `/jobs/api/search` endpoint with keyword/country/seniority/company filters exists and is not currently used. |
-| Arbetsförmedlingen | No-auth public API | No | jobsearch.api.jobtechdev.se | 2,096 stored (2,100 fetched) — Capped at ~2,100 by the API's own confirmed offset ceiling, not a configured limit in this project's code. | Live | Hard offset ceiling at 2,000 (HTTP 400 beyond it), confirmed by the API itself, not self-imposed — reaches roughly 2,100 of ~40,000 total postings. Uses the shared retry helper but has no in-loop try/except, so a persistent failure after retries would discard pages already fetched in that run. | No additional expansion opportunity identified for depth — the 2,100-record window is a confirmed, hard API ceiling and no alternate filter parameter for partitioning around it was found in this implementation. Adding in-loop error handling (matching `findwork.py`) would preserve partial results on a late-page failure. |
-| Adzuna | Free tier + paid metered | Yes, beyond free tier/quota | developer.adzuna.com/docs/search | 2,000 stored (2,000 fetched) — Self-capped at 2,000 (40 pages x 50/page) against an index the module's docstring describes as running into the millions. | Live | No pagination ceiling was found in testing (checked to page 5000); the true limiting factor is the self-imposed 40-page cap. Uses the shared retry helper but has no in-loop try/except, so a persistent failure after retries would discard pages already fetched. | Raise `MAX_PAGES` (currently 40, 2,000 jobs) — the API itself supports far deeper paging. Query additional Adzuna country indexes beyond the current `us`-only configuration (the same `app_id`/`app_key` already cover other countries per the module's own docstring). |
-| The Muse | No-auth public tier | No | themuse.com/developers/api/v2 | 2,000 stored (2,000 fetched) — Capped at exactly 2,000 (100 pages x 20/page) by the API's own unauthenticated-tier ceiling. | Live | Hard ceiling enforced by the API itself: page >= 100 returns HTTP 400 for unauthenticated requests (confirmed), capping this source at 2,000 jobs regardless of the 400,000+ total reported. | No additional expansion opportunity identified without an API key — the 100-page ceiling is enforced by the provider for unauthenticated access. An API key (not currently used) is documented to raise this limit. |
-| CareerJet | Free registration | No | careerjet.com/partners/api | 1,996 stored (2,000 fetched) — Self-capped at 2,000 (100 pages x 20/page fixed by the API) against a reported 320,000+ total. | Live | No pagination ceiling was found in testing (checked to page 100); the true limiting factor is the self-imposed 100-page cap. Uses the shared retry helper but has no in-loop try/except, so a persistent failure after retries would discard pages already fetched. | Raise `MAX_PAGES` (currently 100, 2,000 jobs) against the ~320,000+ total matches the module's docstring reports. |
-| EURES | No-auth public feed | No | europa.eu/eures (no official public docs) | 1,681 stored (2,000 fetched) — Self-capped at 2,000 (40 pages x 50/page) against a reported ~2.19 million total and a confirmed ~10,000-record API ceiling. | Live | Hard Elasticsearch-style result-window ceiling around 10,000 records (page > ~200 fails), confirmed by the API itself; current code self-caps well below that at 40 pages (2,000 jobs) against a ~2.19 million total. | Raise `MAX_PAGES` (currently 40) toward the confirmed ~200-page/10,000-record ceiling for meaningfully more volume without any code redesign. |
-| RemoteJobs.org | No-auth public API | No | remotejobs.org (in-response docs link 404s) | 1,500 stored (1,500 fetched) — Reflects a full walk of the API's `has_more` flag, not a self-imposed cap; may end early on a rate-limit response (HTTP 429 observed around page 23 in testing). | Live | Real rate limiting was observed live (HTTP 429 around page 23 of a full fetch). The loop already stops cleanly on either the API's own `has_more` flag or a failed page, preserving jobs already collected. | No additional expansion opportunity identified beyond what's already implemented — the API's own `has_more` flag, not a configured cap, is the natural stopping point, and rate-limit handling already preserves partial results. |
-| France Travail | Free self-service | No | francetravail.io/produits-partages/catalogue/offres-emploi | 1,146 stored (1,150 fetched) — Self-capped at a range end of 1,150 (about 8 pages x 150/page), a previously-documented boundary rather than one re-confirmed in this specific module. | Live | Self-imposed range ceiling at 1,150 (about 8 pages of 150), based on a previously-observed pagination boundary noted in prior research rather than a boundary re-confirmed directly in this module's own testing. | Confirm the true pagination ceiling directly (the current 1,150 limit is inherited from prior research, not independently re-verified here) and raise `MAX_RANGE_END` if a larger window is confirmed available. |
-| Jooble | Free registration | No | jooble.org/api | 1,137 stored (1,137 fetched) — Reflects a wildcard query's real usable window (~page 12 before pages come back empty), far smaller than the API's own reported total match count. | Live | The wildcard query's actual usable result window (~1,100-1,200 jobs) is far smaller than the hundreds of thousands of total matches the API reports for a broad query. Uses the shared retry helper but has no in-loop try/except, so a persistent failure after retries would discard pages already fetched. | No additional expansion opportunity identified for volume under a single wildcard query — the usable window is a property of the API's own relevance ranking, not a configured cap. Adding in-loop error handling (matching `findwork.py`) would preserve partial results on a late-page failure. |
-| Get on Board | No-auth public tier | No | getonbrd.com/api-doc.html | 1,011 stored (1,261 fetched) — Reflects a full walk of both the remote and non-remote job listings to each filter's own reported `total_pages`, not a self-imposed cap. | Live | No significant implementation limitation identified — the free "Public API" search endpoint is fully paginated with `meta.total_pages` as a natural stopping point; a separate paid "Private API" tier exists and is deliberately not used. | No additional expansion opportunity identified — both `remote=true` and `remote=false` filters are already queried to cover the entire board, and pagination already runs to each filter's own `total_pages`. |
-| Taiwan Ministry of Labor | No-auth open data | No | free.taiwanjobs.gov.tw (data.gov.tw dataset 44062) | 1,000 stored (1,000 fetched) — Capped at exactly 1,000 by the API's own confirmed ceiling on `count`, with no confirmed way to page beyond it. | Live | Hard `count` ceiling at 1,000, confirmed live (requesting more still returns exactly 1,000); no working offset/page/skip/start parameter was found despite several being tried. | No additional expansion opportunity identified — no parameter for reaching beyond the first 1,000 records was found in testing, so there is no further page to request with this endpoint. |
-| Findwork.dev | Free registration | No | findwork.dev/developers | 1,000 stored (1,000 fetched) — Self-capped at a `MAX_PAGES` safety net of 50 (against a live total of roughly 3,200 jobs); may end earlier on a rate-limit response (HTTP 429 observed around page 11 in testing). | Live | Real rate limiting was observed live (HTTP 429 around page 11 of a full fetch, confirmed via `X-Ratelimit-*` response headers) despite the shared retry helper's built-in backoff. The loop already catches this and preserves jobs collected so far. | No additional expansion opportunity identified beyond what's already implemented — pagination already follows the API's own `next` link to exhaustion or until rate-limited, and partial results are already preserved on failure. |
-| Mustakbil.com | No-auth public feed | No | rss.mustakbil.com/jobs-rss | 500 stored (500 fetched) — Reflects the feed's fixed 500-item response; no larger fetch was found to be possible. | Live | No pagination exists on this feed — `?page=`/`?p=`/`?start=` were all tested live and return an identical response, so the fixed 500-item feed is the largest single fetch available. | No additional expansion opportunity identified — no working pagination parameter was found for this feed in testing. |
-| Teamtailor | No-auth public feed | No | docs.teamtailor.com | 494 stored (494 fetched) — Reflects the 25 curated companies only, not a global index. | Live | No significant implementation limitation identified beyond the curated company list (25 subdomains); each company's feed returns its full published job list in one call. Uses the documented public RSS feed rather than the credentialed Web API, which a third-party aggregator cannot use. | Add more verified company subdomains (25 curated today) — the documented, no-code-change mechanism for growing this source. |
-| Recruitee (Tellent) | No-auth public API | No | docs.recruitee.com/reference/intro-to-careers-site-api | 394 stored (394 fetched) — Reflects the 21 curated companies only, not a global index. | Live | No significant implementation limitation identified beyond the curated company list (21 subdomains); each company returns its full offers list in one call, with no pagination metadata in the payload at all. | Add more verified company subdomains (21 curated today) — the documented, no-code-change mechanism for growing this source. |
-| RemoteOK | No-auth public API | No | remoteok.com/api | 100 stored (100 fetched) — Reflects the API's fixed ~100-job snapshot; no larger fetch was found to be possible. | Live | No pagination exists on this API — a `page` parameter is accepted but silently ignored, so the ~100-job response is the largest single fetch available. | No additional expansion opportunity identified — no working pagination parameter was found for this API. |
-| MyJobMag | No-auth public feed | No | myjobmag.com/feeds | 100 stored (100 fetched) — Reflects the feed's fixed 100-item response; no larger fetch was found to be possible. | Live | No pagination exists on this feed — `robots.txt` disallows query-string URLs site-wide, and no page/limit parameter is documented for any of MyJobMag's five feeds. | No additional expansion opportunity identified within this feed. MyJobMag documents four other feed variants (a summarized feed, two aggregate variants, and country-specific feeds for Ghana/Kenya/South Africa/UK) not currently integrated, which could be added as additional sources following the same pattern. |
-| Jobicy | No-auth public API | No | jobi.cy/apidocs | 100 stored (100 fetched) — Reflects the API's fixed 100-job cap on `count`; no larger fetch was found to be possible. | Live | No pagination exists on this API — no page/offset parameter is accepted (one returns HTTP 400), and `count` is hard-capped at 100 regardless of what's requested. | No additional expansion opportunity identified — the API itself provides no way to request more than 100 jobs per call. |
-| We Work Remotely | No-auth public feed | No | weworkremotely.com/remote-jobs.rss | 99 stored (100 fetched) — Reflects the feed's fixed ~100-item response; no larger fetch was found to be possible. | Live | No pagination exists on this feed — RSS has no offset/page mechanism, so the fixed ~100-item feed is the largest single fetch available. | No additional expansion opportunity identified within the combined feed. We Work Remotely also publishes separate per-category feeds (programming, design, etc.), which could be added as additional fetches for broader coverage. |
-| 4dayweek.io | No-auth public feed | No | 4dayweek.io/feed | 50 stored (50 fetched) — Reflects the feed's fixed 50-item response; no larger fetch was found to be possible. | Live | No pagination exists on this feed — `?page=`/`?limit=` are silently ignored, so the fixed 50-item feed is the largest single fetch available. A richer internal `/api/jobs` endpoint exists with location/work-arrangement data but is disallowed by `robots.txt` and deliberately not used. | No additional expansion opportunity identified — the richer `/api/jobs` endpoint is explicitly disallowed by the site's own `robots.txt` and was deliberately not used for that reason. |
-| SerpApi (Google Jobs) | Free tier + paid metered | Yes, beyond free tier/quota | serpapi.com/google-jobs-api | 50 stored (50 fetched) — Self-capped at 50 jobs/run (5 pages) specifically to conserve the free plan's 250-searches/month billable quota. | Live | Metered, billable API (free plan: 250 searches/month); `MAX_PAGES` is deliberately kept small (5 pages, 50 jobs/run) to conserve quota, not because of a technical ceiling. Uses the shared retry helper but has no in-loop try/except, so a persistent failure after retries would discard pages already fetched. | Raise `MAX_PAGES` if a larger monthly quota is approved — each additional page is a billable search, so this is a cost decision, not a code change. |
-| OpenWebNinja (JSearch) | Free tier + paid metered | Yes, beyond free tier/quota | openwebninja.com/api/jsearch | 49 stored (49 fetched) — Self-capped at 5 pages/run specifically to conserve the free plan's 200-requests/month billable quota. | Live | Metered, billable API (free plan: 200 requests/month); `MAX_PAGES` is deliberately kept small (5 pages) to conserve quota, not because of a technical ceiling. Uses the shared retry helper but has no in-loop try/except, so a persistent failure after retries would discard pages already fetched. | Raise `MAX_PAGES` if a larger monthly quota is approved — each additional page is a billable request, so this is a cost decision, not a code change. |
-| Working Nomads | No-auth public API | No | workingnomads.com/jobs | 33 stored (33 fetched) — Reflects the API's fixed ~36-job snapshot; no larger fetch was found to be possible. | Live | No pagination exists on this API — `page`/`limit`/`category`/`tag` were all tested live and silently ignored, so the fixed ~36-job response is the largest single fetch available. No RSS/feed alternative was found either. | No additional expansion opportunity identified — no working pagination parameter or alternate feed was found for this API. |
-| Remotive | No-auth public API | No | remotive.com/api-jobs | 30 stored (30 fetched) — Reflects the API's complete current listing in one call; no larger fetch is possible since the documented filter params were confirmed not to work. | Live | No pagination exists on this API — `category`/`search`/`limit` query params were tested live and found to have no effect (identical results regardless of value); already a single full fetch. | No additional expansion opportunity identified — filtering isn't reliable per the module's own live testing, and the API already returns its complete current listing in one call. |
-| Freshersworld | No-auth public feed | No | freshersworld.com/feed | 30 stored (30 fetched) — Reflects the feed's rolling ~30-item window; no larger fetch was found to be possible. | Live | No pagination exists on this feed — `?page=` and other query params were tested live (twice, moments apart) and shown to have no effect; the feed is a live rolling window of the newest 30 postings. | No additional expansion opportunity identified — no working pagination parameter was found for this feed. |
-| Jobspresso | No-auth public feed | No | jobspresso.co/jobs/feed | 20 stored (20 fetched) — Reflects only the feed's default newest-20 response; deeper pagination is technically possible but deliberately not used (robots.txt). | Live | Real pagination (`?paged=N`) was confirmed to work live (at least 50 pages deep), but `robots.txt` disallows all query-string URLs site-wide, so it is deliberately not used out of respect for that policy. | No additional expansion opportunity identified — the working, deeper pagination is intentionally not used because the site's own `robots.txt` disallows it. |
-| MyCareersFuture | No-auth public API | No | api.mycareersfuture.gov.sg (no public docs found) | 20 stored (2,000 fetched) — Self-capped at 2,000 (100 pages x 20/page fixed by the API) against a reported ~71,500 total; the high in-run duplicate count reflects the fixed 20-per-page response. | Needs review | The documented `limit` field is silently ignored (every response returns exactly 20 results regardless of what's requested); `MAX_PAGES=100` is a self-imposed cap, since no natural page ceiling was found in testing (page 3575 of ~71,500 total still returned data). | Raise `MAX_PAGES` (currently 100, 2,000 jobs at 20/page) — no hard API ceiling was found, so more of the ~71,500-job total is reachable, at the cost of more requests against a foreign government service. |
-| NoDesk | No-auth public feed | No | nodesk.co/remote-jobs | 10 stored (10 fetched) — Reflects the feed's fixed 10-item response; no larger fetch was found to be possible. | Live | No pagination exists on this feed — `?page=`/`?paged=` return HTTP 200 but are silently ignored (byte-for-byte identical response), consistent with a statically pre-rendered file with only 10 items. | No additional expansion opportunity identified — no working pagination parameter was found for this feed. |
-| Hasjob | No-auth public feed | No | hasjob.co/feed | 6 stored (6 fetched) — Reflects every currently-active listing on the feed; no larger fetch was found to be possible. | Live | No pagination exists on this feed — `?page=`/`?start=` were tested live and return an identical response, so the current full active-listing set is the largest single fetch available. | No additional expansion opportunity identified — no working pagination parameter was found for this feed, and volume is inherently small (a community board). |
-| HK Gov Vacancies | No-auth open data | No | csb.gov.hk/datagovhk/gov-vacancies (data.gov.hk) | 1 stored (58 fetched) — Reflects the complete current dataset (already a full fetch, not a capped sample); the low stored count is a downstream deduplication effect, not a fetch limitation. | Needs review | Static, pre-generated dataset refreshed on a schedule, not a queryable API — there is nothing to paginate (already a full fetch). The feed carries no per-posting URL, so every job points to the same generic search-portal entry point. | No additional expansion opportunity identified for volume — this is already a full fetch of the entire published dataset. A different deduplication key (not URL-based) would be needed to stop the near-total in-run duplicate collapse this causes downstream. |
-| TheirStack | Per-credit metered (1 credit/job) | Yes | theirstack.com | 0 stored (0 fetched) — Self-capped at 50 jobs/run by design (credit cost scales with jobs returned, not requests); currently 0 regardless of the cap because every request returns HTTP 402. | Blocked — billing | Bills 1 API credit per job returned (not per request), so `MAX_JOBS` is deliberately kept small (50/run) to control cost. Currently blocked entirely by the account's billing plan (HTTP 402 on every request). Uses plain `requests` with no retry helper and no in-loop error handling. | Resolve the account's billing/plan restriction first — no code change increases yield while every request returns HTTP 402. Once unblocked, raise `MAX_JOBS` (currently 50) as a cost decision, and add the shared `request_with_retry` helper for transient-failure resilience. |
-| Trade Me Jobs | Free (registered app) | No | developer.trademe.co.nz | 0 stored (0 fetched) — Currently 0 — the source raises before any request is made because its required credentials are not configured in this environment. | Built, uncredentialed | Built directly from the official API reference with no live credentials available to exercise it end-to-end while writing this module — field names are as documented, not confirmed against a real response. Currently 0 jobs because `TRADEME_CONSUMER_KEY`/`SECRET` are not configured in this environment. | Provision `TRADEME_CONSUMER_KEY`/`TRADEME_CONSUMER_SECRET` and complete Trade Me's production application approval process to activate this source; no code change is needed once credentialed. |
-| CareerOneStop | Free registration | No | careeronestop.org/Developers/WebAPI/web-api.aspx | 0 stored (0 fetched) — Currently 0 — the source raises before any request is made because its required credentials are not configured in this environment; once credentialed, capped at ~750 results by the API's own startRow ceiling. | Built, uncredentialed | Hard API-enforced ceiling: `pageSize` maxes at 250 and `startRow` accepts only up to 500, so a single query can reach at most ~750 results regardless of true match count. Currently 0 jobs because `CAREERONESTOP_USER_ID`/`API_TOKEN` are not configured. Uses the shared retry helper but has no in-loop try/except, so a persistent failure after retries would discard pages already fetched. | Provision `CAREERONESTOP_USER_ID`/`CAREERONESTOP_API_TOKEN` (free registration) to activate this source; no code change is needed once credentialed. The ~750-result ceiling is API-enforced and not addressable by this project's code. |
-| Fantastic.jobs | Free trial → paid metered (~$1/1,000 jobs) | Yes, after trial ends | developer.fantastic.jobs | 0 stored (0 fetched) — Currently 0 despite a configured key — cause not confirmed from implementation alone; when active, self-capped at 20,000 jobs/run (20 pages x 1,000/page) against a reported 3M+ jobs/month feed. | Credentialed, 0 result | Credentialed and configured, but returned 0 jobs in the latest run — most plausibly a trial-window or account-tier issue; not confirmed from available logs. `MAX_PAGES=20` (20,000 jobs) is a self-imposed cap against a feed reporting 3M+ jobs/month. | Verify the account/trial status directly with the provider. A sibling endpoint (`/v1/active-jb`, covering job-board-sourced listings) exists and is not integrated, a documented natural follow-up using the same pattern. |
-| Arbeitnow | No-auth public API | No | arbeitnow.com/api/job-board-api | 0 stored (0 fetched) — Currently 0 in the latest run; `MAX_PAGES=200` (20,000 jobs) is a generous safety cap well beyond the ~930 jobs seen in earlier testing, not a real ceiling. | 0 in latest run | No hard API ceiling found — pagination follows `links.next` until exhaustion. Uses plain `requests` with no retry helper and no in-loop error handling, so a failed page partway through would raise and discard pages already fetched. Returned 0 jobs in the latest run despite being a working, previously-verified free API (931 jobs in earlier testing); cause not confirmed from available logs. | Add the shared `request_with_retry` helper and in-loop error handling (matching `findwork.py`) to preserve partial results on a late-page failure. Investigate the 0-job run to rule out a transient issue. |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:8pt; line-height:1.35;">
+<colgroup>
+<col style="width:11%;">
+<col style="width:10%;">
+<col style="width:9%;">
+<col style="width:11%;">
+<col style="width:11%;">
+<col style="width:8%;">
+<col style="width:40%;">
+</colgroup>
+<thead><tr>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Provider</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Pricing Model</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Payment After<br>Free Tier</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Official<br>Reference</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Jobs Retrieved<br>(Current Impl.)</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Status</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Implementation Notes</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SmartRecruiters</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.smartrecruiters.com/docs/posting-api">developers.smartrecruiters.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">65,392 stored<br>(65,394 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 100 curated companies only, not a global index.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Greenhouse</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.greenhouse.io/job-board.html">developers.greenhouse.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">22,715 stored<br>(22,715 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 276 curated companies; single-shot fetch per company.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Lever</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/lever/postings-api">github.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">17,980 stored<br>(17,980 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 162 curated companies; single-shot fetch per company.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NHS Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobs.nhs.uk/api/v1/search_xml">jobs.nhs.uk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">10,843 stored<br>(13,011 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Undocumented endpoint; could change without notice.<br>&bull; <strong>Expansion:</strong> Monitor for endpoint changes; no code change needed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">USAJOBS</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.usajobs.gov">developer.usajobs.gov</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">10,000 stored<br>(10,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 10,000-result API ceiling; no retry/error handling in fetch loop.<br>&bull; <strong>Expansion:</strong> Partition by JobCategoryCode/LocationName; add shared retry helper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bundesagentur für Arbeit</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth-style public key</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/bundesAPI/jobsuche-api">github.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">9,896 stored<br>(10,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 10,000-result API ceiling (page x size).<br>&bull; <strong>Expansion:</strong> Partition query by location/keyword params.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Reed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://reed.co.uk/developers/jobseeker">reed.co.uk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">8,994 stored<br>(9,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> ~9,900 result-window boundary (HTTP 500 beyond); no shared retry helper.<br>&bull; <strong>Expansion:</strong> Raise page cap toward boundary; add shared retry helper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NAV Arbeidsplassen</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth-style public token</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://navikt.github.io/pam-stilling-feed">navikt.github.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">5,394 stored<br>(12,478 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Change-feed, not a current-postings search; drives high dup rate.<br>&bull; <strong>Expansion:</strong> Increase lookback window or page cap.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Ashby</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.ashbyhq.com/docs/public-job-posting-api">developers.ashbyhq.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">5,252 stored<br>(5,252 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 102 curated companies only.<br>&bull; <strong>Expansion:</strong> Add slugs; enable <code>includeCompensation=true</code> for salary data.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workable</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://apply.workable.com">apply.workable.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">4,137 stored<br>(7,627 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 89 curated companies; public widget API only, not full ATS.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workday</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No fixed docs URL (keyless, per-tenant endpoint)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,997 stored<br>(2,998 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 200 jobs/tenant; large tenants under-sampled.<br>&bull; <strong>Expansion:</strong> Raise per-tenant page cap; add more tenants.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Himalayas</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://himalayas.app/jobs/api">himalayas.app</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,253 stored<br>(3,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 3,000 of 90,000+; fixed page size (limit ignored).<br>&bull; <strong>Expansion:</strong> Raise page cap; use richer <code>/jobs/api/search</code> endpoint.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Arbetsförmedlingen</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobsearch.api.jobtechdev.se">jobsearch.api.jobtechdev.se</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,096 stored<br>(2,100 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard offset ≤2,000 ceiling (~2,100 of 40,000 reachable).<br>&bull; <strong>Expansion:</strong> None found; add in-loop error handling for resilience.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Adzuna</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.adzuna.com/docs/search">developer.adzuna.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,000 stored<br>(2,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 2,000/run; single-country (<code>us</code>) only.<br>&bull; <strong>Expansion:</strong> Raise page cap; query additional Adzuna country indexes.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">The Muse</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://themuse.com/developers/api/v2">themuse.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,000 stored<br>(2,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 100-page ceiling (HTTP 400) without an API key.<br>&bull; <strong>Expansion:</strong> Add an API key to raise the ceiling.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerJet</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careerjet.com/partners/api">careerjet.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,996 stored<br>(2,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 2,000/run (no ceiling found in testing).<br>&bull; <strong>Expansion:</strong> Raise page cap.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">EURES</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://europa.eu/eures">europa.eu/eures</a> (undocumented)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,681 stored<br>(2,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard ~10,000-result ceiling; self-capped at 2,000/run.<br>&bull; <strong>Expansion:</strong> Raise page cap toward the ~10,000 ceiling.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">RemoteJobs.org</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotejobs.org">remotejobs.org</a> (docs link 404s)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,500 stored<br>(1,500 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Real rate limiting observed (HTTP 429 ~page 23).<br>&bull; <strong>Expansion:</strong> None beyond current handling; partial results already preserved.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">France Travail</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free self-service</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://francetravail.io/produits-partages/catalogue/offres-emploi">francetravail.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,146 stored<br>(1,150 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped range ceiling (1,150), inherited from prior research.<br>&bull; <strong>Expansion:</strong> Re-confirm true ceiling; raise if larger window confirmed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jooble</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jooble.org/api">jooble.org</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,137 stored<br>(1,137 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Usable window ~1,100-1,200 jobs vs. much larger reported totals; no in-loop retry.<br>&bull; <strong>Expansion:</strong> Add in-loop error handling.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Get on Board</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://getonbrd.com/api-doc.html">getonbrd.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,011 stored<br>(1,261 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> None significant; paid Private API tier unused by design.<br>&bull; <strong>Expansion:</strong> None identified; already fetches to each filter's total_pages.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Taiwan Ministry of Labor</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth open data</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://free.taiwanjobs.gov.tw">taiwanjobs.gov.tw</a> (data.gov.tw #44062)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,000 stored<br>(1,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 1,000-record cap; no working offset/page param found.<br>&bull; <strong>Expansion:</strong> None found; no further page accessible.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Findwork.dev</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://findwork.dev/developers">findwork.dev</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,000 stored<br>(1,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Real rate limiting observed (HTTP 429 ~page 11).<br>&bull; <strong>Expansion:</strong> None beyond current handling; partial results already preserved.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Mustakbil.com</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://rss.mustakbil.com/jobs-rss">rss.mustakbil.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">500 stored<br>(500 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination exists; fixed 500-item feed.<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Teamtailor</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://docs.teamtailor.com">docs.teamtailor.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">494 stored<br>(494 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 25 curated companies; public RSS only, not credentialed Web API.<br>&bull; <strong>Expansion:</strong> Add more verified subdomains.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Recruitee (Tellent)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://docs.recruitee.com/reference/intro-to-careers-site-api">docs.recruitee.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">394 stored<br>(394 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 21 curated companies; no pagination metadata in payload.<br>&bull; <strong>Expansion:</strong> Add more verified subdomains.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">RemoteOK</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remoteok.com/api">remoteok.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100 stored<br>(100 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination exists; fixed ~100-job snapshot.<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MyJobMag</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://myjobmag.com/feeds">myjobmag.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100 stored<br>(100 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination (robots.txt blocks query strings); fixed 100 items.<br>&bull; <strong>Expansion:</strong> Add other MyJobMag country feeds (Ghana/Kenya/SA/UK).</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobicy</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobi.cy/apidocs">jobi.cy</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100 stored<br>(100 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; hard 100-job cap on <code>count</code>.<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">We Work Remotely</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://weworkremotely.com/remote-jobs.rss">weworkremotely.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">99 stored<br>(100 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; fixed ~100-item feed.<br>&bull; <strong>Expansion:</strong> Add per-category feeds for broader coverage.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">4dayweek.io</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://4dayweek.io/feed">4dayweek.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">50 stored<br>(50 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; richer <code>/api/jobs</code> endpoint blocked by robots.txt.<br>&bull; <strong>Expansion:</strong> None; richer endpoint deliberately excluded.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SerpApi (Google Jobs)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://serpapi.com/google-jobs-api">serpapi.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">50 stored<br>(50 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Metered API; self-capped at 50 jobs/run to conserve quota.<br>&bull; <strong>Expansion:</strong> Raise page cap if a larger quota is approved.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">OpenWebNinja (JSearch)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://openwebninja.com/api/jsearch">openwebninja.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">49 stored<br>(49 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Metered API; self-capped at 5 pages to conserve quota.<br>&bull; <strong>Expansion:</strong> Raise page cap if a larger quota is approved.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Working Nomads</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workingnomads.com/jobs">workingnomads.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">33 stored<br>(33 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; fixed ~36-job snapshot; no RSS alternative found.<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Remotive</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotive.com/api-jobs">remotive.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">30 stored<br>(30 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; filter params confirmed non-functional.<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Freshersworld</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://freshersworld.com/feed">freshersworld.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">30 stored<br>(30 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; rolling ~30-item window.<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobspresso</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobspresso.co/jobs/feed">jobspresso.co</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">20 stored<br>(20 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Deeper pagination exists but blocked by robots.txt.<br>&bull; <strong>Expansion:</strong> None; deeper pagination deliberately unused.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MyCareersFuture</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://api.mycareersfuture.gov.sg">mycareersfuture.gov.sg</a> (undocumented)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">20 stored<br>(2,000 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Needs review</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> <code>limit</code> param ignored (fixed 20/page); self-capped at 2,000/run.<br>&bull; <strong>Expansion:</strong> Raise page cap; no hard API ceiling found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NoDesk</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://nodesk.co/remote-jobs">nodesk.co</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">10 stored<br>(10 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; fixed 10-item feed.<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Hasjob</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://hasjob.co/feed">hasjob.co</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">6 stored<br>(6 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; inherently small volume (community board).<br>&bull; <strong>Expansion:</strong> None found.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">HK Gov Vacancies</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth open data</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://csb.gov.hk/datagovhk/gov-vacancies">csb.gov.hk</a> (data.gov.hk)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1 stored<br>(58 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Needs review</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Static dataset; no per-posting URL (collapses on dedup).<br>&bull; <strong>Expansion:</strong> Use a non-URL dedup key to reduce duplicate collapse.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TheirStack</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Per-credit metered (1 credit/job)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://theirstack.com">theirstack.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Blocked — billing</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Bills per job returned; blocked by account billing (HTTP 402).<br>&bull; <strong>Expansion:</strong> Resolve billing; then raise job cap and add retry helper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Trade Me Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free (registered app)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.trademe.co.nz">developer.trademe.co.nz</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Built, uncredentialed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Built from API spec only, unexercised live; missing credentials (0 jobs).<br>&bull; <strong>Expansion:</strong> Provision consumer key/secret; complete production approval.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerOneStop</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careeronestop.org/Developers/WebAPI/web-api.aspx">careeronestop.org</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Built, uncredentialed</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard ~750-result ceiling; missing credentials (0 jobs).<br>&bull; <strong>Expansion:</strong> Provision user ID/API token (free registration).</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Fantastic.jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free trial → paid metered (~$1/1,000 jobs)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, after trial ends</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.fantastic.jobs">developer.fantastic.jobs</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Credentialed, 0 result</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Credentialed but 0 jobs; cause not confirmed.<br>&bull; <strong>Expansion:</strong> Verify account/trial status; add <code>/v1/active-jb</code> sibling endpoint.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Arbeitnow</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://arbeitnow.com/api/job-board-api">arbeitnow.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 in latest run</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 0 jobs in latest run (cause unconfirmed); no retry/error handling.<br>&bull; <strong>Expansion:</strong> Add retry/error handling; investigate 0-job run.</td>
+</tr>
+</tbody>
+</table>
 
 ### 4.2 Not Implemented Providers (222)
 
