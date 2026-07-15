@@ -20,6 +20,40 @@ This is a revision of `FINAL_PROJECT_REPORT.md`. That document is preserved unch
 
 ---
 
+## Executive Summary
+
+**Objective.** Build a single, de-duplicated, queryable dataset of job postings sourced from as many legitimately accessible providers as practical — government labour agencies, ATS platforms, commercial job-search APIs, and RSS feeds — normalized into one schema with reliable country and remote/hybrid/on-site classification, backed by a real database rather than a flat file.
+
+**Provider research lifecycle.** This project began with a market survey of **268** job-related APIs and platforms, narrowed to an **86**-provider shortlist for close, provider-by-provider audit, of which **46** were built and **41** are contributing live data today. The remaining 222 researched providers are preserved with a specific, evidenced reason each — "not implemented" does not mean "not investigated." Section 3 traces the full lifecycle; Section 8 and Appendix D categorize every rejection; Section 9 lists the providers still worth a second look.
+
+**Major achievements**
+- 46 provider integrations behind one shared interface, absorbing more than double the project's original provider count without structural rework.
+- 184,506 unique jobs persisted in PostgreSQL with real deduplication (0 remaining cross-provider duplicate URLs) and full per-provider run history.
+- Offline country and work-arrangement normalization requiring no paid geocoding service.
+- A complete, evidence-based provider research trail spanning 268 candidates, reusable by future engineers deciding what to build next.
+
+**Main technical challenges**
+- Undocumented, reverse-engineered endpoints (5 of 46 live providers) with no official API contract to rely on.
+- Hard, undocumented result-window ceilings (USAJOBS/Bundesagentur at 10,000 records; Reed at ~9,900) discovered only through live testing, not documentation.
+- Reconciling 46 structurally different pagination, authentication, and schema shapes into one common model.
+- No standardized job-category taxonomy exists across providers — confirmed by direct code inspection of all 46 modules, not assumed.
+
+**Key engineering decisions**
+- A shared `BaseJobSource` interface, so adding a new provider never requires changing `jobs.py`.
+- Conservative normalization: force location fields to `NULL` on ambiguous multi-country/region text rather than guess.
+- Per-source fault isolation, so one broken provider can never halt a full run.
+- Deliberate exclusion of redundant, paid middleware (ATS-unification APIs, generic scraping infrastructure) already covered by free, direct integrations.
+
+**Current implementation status.** 46 of 268 researched providers are implemented; 41 of 46 are contributing live data; the other 5 are fully built but non-contributing for external, individually diagnosed reasons — a billing restriction, missing credentials, or one transient zero-result run (Section 15).
+
+**Production readiness.** The platform reflects a single, complete backfill run, not yet a recurring schedule. It is ready for operational hardening — not further architecture — before being relied on for ongoing production reporting.
+
+**Final recommendations.** Close the 5-provider contribution gap; pursue the two highest-value deferred providers (Saramin, VDAB — Section 9); add provider-run health alerting; move normalization inline; and put the pipeline on a recurring schedule. Full prioritized detail in Sections 19 and 21.
+
+*This summary is intended to be readable in 2–3 minutes. Section 1 and the sections that follow provide the full supporting detail and evidence.*
+
+---
+
 ## Contents
 
 1. [Executive Summary](#1-executive-summary)
@@ -50,18 +84,19 @@ This is a revision of `FINAL_PROJECT_REPORT.md`. That document is preserved unch
 26. [Appendix A — Complete Provider Research Catalog (268 providers)](#appendix-a--complete-provider-research-catalog-268-providers)
 27. [Appendix B — Shortlist Audit (Sheet1, 86 providers)](#appendix-b--shortlist-audit-sheet1-86-providers)
 28. [Appendix C — Capacity & Expansion Planning Notes](#appendix-c--capacity--expansion-planning-notes)
+29. [Appendix D — Rejected Providers by Category](#appendix-d--rejected-providers-by-category)
 
 ---
 
 ## 1. Executive Summary
 
-The Job Aggregation Platform did not start from 46 providers. It started from a market survey of **268 distinct job-related APIs, ATS platforms, job boards, and data vendors** — recorded in this project's `job_api.xlsx` workbook (`API Catalog` sheet) — evaluated against a consistent set of criteria: public API availability, documentation quality, authentication model, pricing/free-tier terms, enterprise/partner gating, geographic and regulatory restrictions, data quality, posting freshness, pagination behavior, search/filter capability, ongoing maintenance risk, and implementation effort. That survey was narrowed to an **86-provider shortlist** (`Sheet1`) selected for closer, provider-by-provider audit. Of that broader research universe, **46 providers were built** against a shared source interface, and **41 are actively contributing live data** in the current PostgreSQL snapshot. The remaining 222 researched-but-unbuilt providers are not an afterthought to this project — they are its evidence trail, and Sections 3, 8, 9, and Appendices A–B preserve the reasoning behind every one of them: why it was rejected, whether it could become viable later, and what specifically would have to change.
+*A one-page version of this summary, covering objective, lifecycle, achievements, challenges, decisions, status, readiness, and recommendations, appears at the front of this document. This section adds the narrative detail behind it: why the research lifecycle matters and what it changes about how the implementation should be read.*
 
-This report exists to answer two questions together, where the prior version answered only the second: **why** each technical and sourcing decision was made, and **what** was ultimately built. The research shows the lifecycle was not linear guesswork — six providers that this project's own research catalog had marked "needs live verification" (Get on Board, Working Nomads, Freshersworld, Hasjob, and others) were subsequently confirmed live and implemented; one provider (NHS Jobs) was marked as having no viable public API through its official channel, and engineering found and integrated a separate, undocumented public feed instead; and several providers correctly identified as blocked by enterprise pricing, citizen-ID gating, or the complete absence of a public API were deliberately left out rather than worked around with scraping or unauthorized access. That discipline — building only what a legitimate, sustainable integration path supports — is a main finding of this report, not an incidental detail.
+The Job Aggregation Platform did not start from 46 providers — it started from a 268-provider market survey, evaluated against a consistent set of criteria (public API availability, documentation quality, auth model, pricing, geographic/regulatory restrictions, data quality, freshness, pagination, filtering, maintenance risk, and implementation effort — Section 4), narrowed to an 86-provider shortlist, and built out to 46 working integrations. The 222 researched-but-unbuilt providers are not an afterthought: Sections 3, 8, 9, and Appendices A, B, and D preserve why each was rejected, whether it could become viable later, and what would have to change.
 
-On the implementation side, the objective was to build a durable, extensible data layer for job listings that could answer questions no single provider can answer alone. This required three things: (1) a source architecture that could absorb dozens of structurally different APIs without repeated rework, (2) a persistence layer with real deduplication and run-history tracking rather than a flat file, and (3) an offline enrichment layer that could resolve free-text location strings into clean country and work-arrangement fields without depending on any paid geocoding service. All three objectives were met. **46 provider modules** are implemented against a shared `BaseJobSource` interface; **184,506 unique job records** are stored in PostgreSQL with URL/hash-based deduplication, per-provider run history, and full country/work-arrangement normalization already applied. Of the 46 providers, **41 are actively contributing live data**; the remaining five are fully built but currently blocked by an external billing restriction, missing credentials, or a transient zero-result run — each diagnosed precisely in [Section 15](#15-implemented-vs-pending).
+This report answers two questions together, where the prior version answered only the second: **why** each sourcing decision was made, and **what** was ultimately built. The evidence shows the lifecycle was not linear guesswork. Six providers marked "needs live verification" in research were subsequently confirmed live and implemented (Get on Board, Working Nomads, Freshersworld, Hasjob, and others). NHS Jobs was marked as having no viable public API through its *official* channel — engineering then found and integrated a separate, undocumented public feed instead, without bypassing anything that actually required authorization. And providers correctly identified as blocked by enterprise pricing, citizen-ID gating, or a genuinely absent public API were left out rather than worked around with scraping or unauthorized access. That discipline — building only what a legitimate, sustainable integration path supports — is a main finding of this report, detailed in Section 3.4.
 
-The platform is in a stable, well-instrumented state and ready for the operational hardening (scheduled syncs, inline normalization, credential provisioning, and the specific next-candidate providers identified in Section 9) detailed in [Section 19](#19-future-improvements).
+On implementation: 46 provider modules run against a shared `BaseJobSource` interface; 184,506 unique jobs are stored in PostgreSQL with real deduplication, per-provider run history, and country/work-arrangement normalization that leaves ambiguous fields blank rather than guessing. 41 of 46 providers are live; the other five are fully built but non-contributing for individually diagnosed external reasons (Section 15). The platform is ready for the operational hardening — scheduled syncs, inline normalization, credential provisioning, and the specific next-candidate providers in Section 9 — detailed in Section 19.
 
 ---
 
@@ -286,301 +321,79 @@ All 46 integrated providers — the survivors of the research lifecycle in Secti
 
 ## 8. Provider Research Knowledge Base
 
-This section is the reusable part of this report: **every one of the 214 catalog providers that were not implemented, grouped by the specific reason they were not**, so a future engineer can decide in seconds whether a given rejection still holds or is worth re-checking. (214 = 215 `blocked` entries in the 268-row catalog, minus NHS Jobs, which the catalog classified `blocked` for its *official* channel before engineering found a separate working feed — see Section 3.4.) Rejection criteria and selection criteria are two sides of the same methodology in Section 4; this section is organized by rejection reason, Appendix A is organized by research-stage status, and Section 9 isolates the subset genuinely worth revisiting.
+This section is the reusable part of this report: **every one of the 214 catalog providers that were not implemented, grouped by the specific reason they were not**, so a future engineer can decide in seconds whether a given rejection still holds or is worth re-checking. (214 = 215 `blocked` entries in the 268-row catalog, minus NHS Jobs, which the catalog classified `blocked` for its *official* channel before engineering found a separate working feed — see Section 3.4.) Section 4 gives the criteria; this section groups the outcomes; [Appendix D](#appendix-d--rejected-providers-by-category) lists all 214 in full. Section 9 isolates the smaller subset genuinely worth revisiting.
 
-### 8.1 No Public API (127 providers)
+### 8.1 Rejection categories at a glance
 
-By far the largest rejection category. These providers' web/mobile presence is real and often large-scale, but no developer documentation, API endpoint, or third-party read access exists at all — the only way to see their data is to browse the site as a jobseeker or register as an employer to post. This is the hard floor referenced in Section 4: no amount of pricing tolerance or engineering effort overcomes a genuinely nonexistent read API. It spans nearly every region in the catalog — India (Naukri, Shine, Internshala, TimesJobs, and 20+ others), the Gulf (Bayt.com, GulfTalent, Naukrigulf), East Asia (51job, BOSS Zhipin, JobKorea, Rikunabi/Mynavi), Europe (StepStone, CV-Library, CWJobs, InfoJobs, Pracuj.pl), and government portals that only support citizen/employer browser login rather than a data feed (Civil Service Jobs UK, Job Market Finland, JobsIreland.ie, Cliclavoro Italy). None of these were rejected on data-quality or geographic grounds — they were rejected because there is nothing for a third-party pipeline to call.
+| Category | Count | Typical example | Full list |
+|---|---:|---|---|
+| No Public API | 126 | Naukri, Bayt.com, 51job, StepStone, Civil Service Jobs (UK) | Appendix D.1 |
+| Employer-Side Distribution / Write-Only Networks | 25 | Appcast, Broadbean, SEEK, Google for Jobs | Appendix D.2 |
+| Labor-Market-Intelligence / Research SaaS | 14 | Lightcast, TalentNeuron, LinkUp, Indeed Hiring Lab | Appendix D.3 |
+| Enterprise-Only / Sales-Gated | 15 | BambooHR, LinkedIn Jobs, ZipRecruiter API, Coresignal | Appendix D.4 |
+| Paid-Only, Excluded for Scope Not Price | 20 | Apify, Bright Data, Merge.dev, JSearch | Appendix D.5 |
+| Authentication-Restricted (citizen-ID / licensed-business) | 5 | Israeli Employment Service, Jadarat, Hello Work Japan | Appendix D.6 |
+| Static Dataset, Not a Live API | 4 | UWV Netherlands, SEPE Spain, data.gov.in | Appendix D.7 |
+| Commercial-Partnership Gated | 2 | Job Bank Canada, Kemnaker Karirhub (Indonesia) | Appendix D.8 |
+| Deprecated / Suspended / Technically Inaccessible | 3 | SINE Aberto (Brazil, suspended), Pangian (shut down), Remote First Jobs (Cloudflare-walled) | Appendix D.9 |
+| **Total rejected (blocked)** | **214** | | |
 
-| Provider | Type | Region | Reason |
-|---|---|---|---|
-| 104 Job Bank (104人力銀行) | Commercial Job Board | Taiwan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| 1111 Job Bank (1111人力銀行) | Commercial Job Board | Taiwan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| 51job (前程无忧 / Qiancheng Wuyou) | Commercial Job Board | China | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| AMS eJob-Room (Austria public employment service) | Government | Austria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| APEC (Association Pour l'Emploi des Cadres, France) | Government-affiliated / Non-profit Job Board | France | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| APS Jobs (Australian Public Service careers) | Government | Australia | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Adecco India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| AllJobs.co.il | Commercial Job Board | Israel | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Apna | Commercial Aggregator | India | No public API for third-party aggregators. |
-| BMET / Ami Probashi (Bangladesh Overseas Employment) | Government | Bangladesh | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| BOSS Zhipin (Kanzhun Limited, NASDAQ: BZ) | Commercial Job Board | China | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bayt.com | Commercial Job Board | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bdjobs.com | Commercial Job Board | Bangladesh | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bolsa Nacional de Empleo (BNE / SENCE, Chile) | Government | Chile | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bossjob | Commercial Job Board | Philippines | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| BrighterMonday | Commercial Job Board | Kenya | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Built In | Commercial Aggregator | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bumeran | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CEIPAL | ATS | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CV-Library | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CWJobs | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CareerBuilder | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CareerLink Vietnam | Commercial Job Board | Vietnam | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Careers24 | Commercial Job Board | South Africa | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Careers@Gov | Government | Singapore/SEA | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Catho Developer API | Commercial Job Board | Brazil | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| China MOHRSS National Public Employment Service Platform (全国公共招聘服务平台) | Government | China | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Civil Service Jobs | Government | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Cliclavoro / Ministero del Lavoro Open Data (Italy) | Government | Italy | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Computrabajo | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Cutshort | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Dice | Commercial Aggregator | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Drushim | Commercial Job Board | Israel | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal | Government | Egypt | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Elempleo | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Eluta | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Employment Services of South Africa (ESSA) — Dept. of Employment and Labour | Government | South Africa | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Forasna | Commercial Job Board | Egypt | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Foundit (Monster India) | Commercial Aggregator | India | No public API for third-party aggregators. |
-| Glassdoor Jobs API | Commercial Job Board | Global | Historically offered `partner_id`/`partner_key` access; now enterprise-only — no self-serve path remains. |
-| Glints | Commercial Aggregator | Singapore/SEA | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| GreytHR | ATS | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| GulfTalent | Commercial Job Board | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Gupy Public API | ATS | Brazil | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| HackerEarth Jobs | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| HelloWork ATS Partner API (France) | Commercial Job Board | France | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Hired.com (LHH Recruitment Solutions) | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Hirist | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Hong Kong Labour Department Interactive Employment Service (iES, jobs.gov.hk) | Government | Hong Kong | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| IEFPOnline / netEmprego (Portugal public employment service) | Government | Portugal | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| InfoJobs (Spain) | Commercial Job Board | Spain | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Instahyre | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Internshala | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Job Market Finland / Työmarkkinatori (TE-palvelut, Finland) | Government | Finland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobKorea | Commercial Job Board | South Korea | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobThai | Commercial Job Board | Thailand | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobberman | Commercial Job Board | Nigeria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobcase Platform API | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobillico | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobindex (Denmark) | Commercial Job Board | Denmark | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobnet.dk (Denmark public employment portal) | Government | Denmark | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobrapido | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobsDB Hong Kong (SEEK Group) / CTgoodjobs | Commercial Job Board | Hong Kong | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobsIreland.ie (Ireland public employment service) | Government | Ireland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobsite | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jora (Australia) | Job Aggregator | Australia | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JustRemote | Commercial Job Board | Remote/Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Kalibrr | Commercial Aggregator | Singapore/SEA | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Karir.com | Commercial Job Board | Indonesia | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Keka | ATS | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Kelly Services India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Kemnaker Karirhub (SIAPkerja) | Government | Indonesia | Access is restricted to job portals with a formal MoU with Kemnaker; no publicly documented API key/OAuth mechanism exists for outside developers. |
-| Ladders | Commercial Aggregator | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| MOHRE UAE Federal Careers / iRecruitment Portal | Government | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| MP Rojgar | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| MahaJobs | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| ManpowerGroup India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Monster | Commercial Job Board | Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| NAVTTC National Employment Exchange Tool (NEXT / jobs.gov.pk) | Government | Pakistan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| NEAIMS — National Employment Authority Kenya | Government | Kenya | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| National Directorate of Employment (NDE) Nigeria | Government | Nigeria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| National Job Portal (NJP) — Pakistan | Government | Pakistan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| National Job Portal — Bangladesh (jobs.gov.bd) | Government | Bangladesh | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Naukri | Commercial Aggregator | India | No public API; any access is undocumented/grey-area and India-IP-restricted. |
-| Naukrigulf | Commercial Job Board | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Nexxt (formerly Beyond.com) | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| OCC Mundial | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Outsourcely | Commercial Job Board | Remote/Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| PhilJobNet (DOLE Bureau of Local Employment) | Government | Philippines | Public browsing needs no login, but no public API or developer documentation exists for pulling listings programmatically. |
-| Pnet | Commercial Job Board | South Africa | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Portal Empleo Argentina (Ministerio de Capital Humano / ex-Trabajo) | Government | Argentina | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Pracuj.pl (Poland) | Commercial Job Board | Poland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Public Service Commission of Sri Lanka (psc.gov.lk) | Government | Sri Lanka | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Quess Corp | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Randstad India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Remote.co | Commercial Job Board | Remote/Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Rikunabi / Mynavi (Recruit Co. / Mynavi Corporation) | Commercial Job Board | Japan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Rojgar Sangam (UP) | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Rozee.pk | Commercial Job Board | Pakistan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Shine | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Snagajob | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| StepStone | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Talent.com | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| TeamLease | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Telangana T-Jobs | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Thailand Department of Employment — Smart Job Center (ไทยมีงานทำ) | Government | Thailand | No public API or developer documentation of any kind was found — a web/mobile-app-only platform with no discoverable integration surface. |
-| TimesJobs | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| TopCV | Commercial Job Board | Vietnam | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| TotalJobs | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Triplebyte | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Unstop | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Vagas for Business API (Vagas.com.br) | ATS / Job Board | Brazil | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| WUZZUF | Commercial Job Board | Egypt | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Welcome to the Jungle | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Wellfound | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Work and Income / Find a Job (MSD, New Zealand) | Government | New Zealand | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Work at a Startup (Y Combinator) | Commercial Job Board | Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| WorkIndia | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Workopolis | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| WowJobs | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Xing Jobs | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| XpressJobs (xpress.jobs) | Commercial Job Board | Sri Lanka | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| ZonaJobs | Commercial Job Board | Argentina | An SEO/landing page suggesting an API exists was confirmed to be for employers *posting* jobs, not a read API — see Section 9 for the fuller writeup. |
-| iimjobs | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| jobs.ch (Switzerland) | Commercial Job Board | Switzerland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| karriere.at (Austria) | Commercial Job Board | Austria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| topjobs.lk | Commercial Job Board | Sri Lanka | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+Each category is expanded below with its defining logic and a handful of representative rows; the complete provider-by-provider list — all 214, with region and full reasoning quoted from this project's own research — is in **Appendix D**.
 
-### 8.2 Employer-Side Distribution / Write-Only Networks — Wrong Data-Flow Direction (25 providers)
+### 8.2 No Public API (126 providers) — the hard floor
 
-These providers have real, sometimes well-documented APIs — the reason they were rejected is structural, not access-related: they are built for **employers and job boards to push postings out** (CPC job-distribution networks, meta-search advertiser platforms, or write/management-only feeds), not for an aggregator to pull postings in. Building against one of these would mean becoming a client that *pays to advertise*, not a source that *reads* — the opposite relationship this project needs.
+By far the largest category. These providers have a real, often large-scale web/mobile presence, but no developer documentation, API endpoint, or third-party read access exists at all — the only way to see their data is to browse as a jobseeker or register as an employer to post. No amount of pricing tolerance or engineering effort overcomes a genuinely nonexistent read API. It spans nearly every region: India (Naukri, Shine, Internshala, TimesJobs, and 20+ others), the Gulf (Bayt.com, GulfTalent, Naukrigulf), East Asia (51job, BOSS Zhipin, JobKorea), Europe (StepStone, CV-Library, InfoJobs, Pracuj.pl), and government portals with citizen/employer login only (Civil Service Jobs UK, Job Market Finland, Cliclavoro Italy). None were rejected on data-quality or geographic grounds — there is simply nothing for a third-party pipeline to call. Full list: **Appendix D.1**.
 
-| Provider | Type | Region | Reason |
-|---|---|---|---|
-| Appcast | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Broadbean (Veritone Hire) | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| CareerBuilder / Monster (Talent Network distribution) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| CareerOne (Australia) | Commercial Job Board | Australia | Feed-ingest / posting-distribution network only — no public read endpoint for pulling job data as a consumer. |
-| Google for Jobs | Meta-search Aggregator | Global | Advertiser/organic-crawl indexing surface for employer sites — no public read API for third-party aggregators. |
-| Indeed PLUS Job Distribution API (Recruit Holdings, Japan) | Aggregator/Partner Network | Japan | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Jobcase (MaxRecruit) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Jobg8 | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| JobisJob (LIFULL Connect) | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| JoinVision (JobCloud HR Tech) | Job Distribution Network | Austria / DACH | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Joveo | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Lensa | Meta-search Aggregator | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Mitula (LIFULL Connect / Adzuna) | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| PandoLogic (pandoIQ) / Veritone Hire | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Radancy | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Recruitics | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| SEEK (SEEK.com.au / SEEK.co.nz) | Commercial Job Board | Australia; New Zealand | Feed-ingest / posting-distribution network only — no public read endpoint for pulling job data as a consumer. |
-| SmartDreamers | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Talroo | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Trovit (LIFULL Connect / Adzuna) | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Upward.net (a Jobcase company) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| WhatJobs | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| Workforce Australia | Government | Australia | The public API is write/management-only (employers create and manage job ads via OAuth2) — no public job-listings read/search endpoint exists to pull postings from. |
-| ZipAlerts (ZipRecruiter TrafficBoost) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
-| eQuest | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+### 8.3 Employer-Side Distribution / Write-Only Networks (25 providers) — wrong data-flow direction
 
-### 8.3 Labor-Market-Intelligence / Research SaaS (14 providers)
+These providers have real, sometimes well-documented APIs — the rejection is structural, not access-related. They exist for **employers and job boards to push postings out** (CPC job-distribution networks, meta-search advertiser platforms, or write/management-only feeds), not for an aggregator to pull postings in. Representative examples: Appcast, Broadbean, Joveo, and Radancy (advertiser-side CPC networks); Google for Jobs, JobisJob, and Trovit (meta-search/advertiser platforms); SEEK, CareerOne, and Workforce Australia (feed-ingest or write-only management APIs with no read endpoint). Full list: **Appendix D.2**.
 
-A distinct category from a job-postings feed: these products sell aggregate hiring-trend analytics, research indices, or enterprise talent-intelligence dashboards, sold via a sales contract rather than a self-serve API key. Even where they technically ingest job postings internally, that is not the product being sold to a third party.
+### 8.4 Labor-Market-Intelligence / Research SaaS (14 providers)
+
+A distinct category from a job-postings feed: these products sell aggregate hiring-trend analytics, research indices, or enterprise talent-intelligence dashboards via sales contract, not a self-serve job feed. Examples: Lightcast, TalentNeuron (Gartner), LinkUp, Revelio Labs, Textkernel, and Indeed Hiring Lab (Indeed's own research arm, publishing aggregate CSVs, not individual job records). Full list: **Appendix D.3**.
+
+### 8.5 Enterprise-Only / Sales-Gated Providers (15 providers)
+
+Real APIs exist, but the only documented path to access is a sales conversation or partner program — no published self-serve pricing or signup flow. Examples: BambooHR, Darwinbox, Freshteam, Recruit CRM, Superset, Zoho Recruit (enterprise ATS platforms); LinkedIn Jobs, Indeed India, JobStreet/JobsDB, VietnamWorks (enterprise partner-program-only aggregators); Coresignal, Lightcast Jobs Canada, ZipRecruiter API (enterprise data/API vendors sold via sales contact). Full list: **Appendix D.4**.
+
+### 8.6 Paid-Only, Excluded for Scope Not Price (20 providers)
+
+Three sub-groups share the same self-serve metered/paid pricing shape this project already accepts elsewhere (Adzuna, SerpApi, OpenWebNinja, Fantastic Jobs, TheirStack) — they were excluded for *what they are*, not because a paid tier exists:
+
+- **Generic web-scraping infrastructure vendors (10)** — Apify, Bright Data, Diffbot, HasData, Nimble, Oxylabs, Piloterr, ScraperAPI, Scrapingdog, Zyte. Not job-specific; using one means building and maintaining a custom per-site scraper, which is a project in itself.
+- **B2B data-aggregation / enrichment vendors (5)** — JSearch (a paid RapidAPI repackaging of OpenWeb Ninja, already integrated natively), Mantiks, People Data Labs, PredictLeads, Techmap.io. Paid, and redundant with sources already held for free.
+- **ATS Unified-API middleware (5)** — Apideck, Kombo.dev, Merge.dev, Unified.to, Workato. Paid re-wrappers of ATS platforms (Greenhouse, Lever, Workday) this project already integrates directly for free.
+
+Full list: **Appendix D.5**.
+
+### 8.7 Authentication-Restricted Providers (5 providers)
+
+Distinct from "no public API": a real, sometimes fully documented API exists, but access is restricted to a specific class of credentialed user this project does not qualify as — a national citizen ID (Israeli Employment Service, Jadarat Saudi Arabia, Agencia SENA Colombia), or a licensed professional business (Hello Work Japan — restricted to licensed placement businesses, local governments, or training institutions). Google Cloud Talent Solution is included here for a related but distinct reason: it is not a third-party feed at all, but infrastructure for searching *your own* postings. Full list: **Appendix D.6**.
+
+### 8.8 Static Dataset, Not a Live API (4 providers)
+
+Real, often free and government-authoritative data — published as a periodic bulk file or aggregate statistics table, not a queryable, per-job live search endpoint. National Career Service India and data.gov.in expose periodic dataset dumps rather than live postings; SEPE Spain and UWV Netherlands publish only aggregate statistical files with no per-job identifier at all. Full list: **Appendix D.7**.
+
+### 8.9 Commercial-Partnership Gated (2 providers)
 
 | Provider | Region | Reason |
 |---|---|---|
-| Aura (by Aura Intelligence) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract — not a self-serve job-postings feed. |
-| Claro Analytics (WilsonHCG) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Datapeople (by Payscale) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Draup | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Greenwich.HR (WageScape) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Horsefly Analytics | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Indeed Hiring Lab | Global | Indeed's economic-research arm publishes aggregate labor-market indices/trend CSVs (mirrored on FRED), not individual job records — a research/statistics product, not a live listings feed. |
-| JobsEQ (Chmura Economics & Analytics) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Lightcast (formerly Emsi Burning Glass) Job Postings API | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| LinkUp | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Revelio Labs | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| TalentNeuron (Gartner) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| Textkernel Jobfeed / Market IQ | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
-| The Burning Glass Institute | Global | A nonprofit labor-market research institute (spun out of Burning Glass Technologies, now Lightcast) — publishes research reports and indices, not a job-postings API. |
-
-### 8.4 Enterprise-Only / Sales-Gated Providers (15 providers)
-
-Real APIs exist, but the *only* documented path to access is a sales conversation or partner program — no published self-serve pricing or signup flow. This is distinct from "paid" in the sense that a paid, metered self-serve tier (like the ones this project already uses for Adzuna, SerpApi, and Fantastic Jobs) is workable; sales-gated access with no published terms is not something a project without a procurement process can commit to.
-
-| Provider | Region | Reason |
-|---|---|---|
-| BambooHR | Remote/Global | Enterprise-only pricing/access — gated behind a sales or partner-approval process, no self-serve developer path. |
-| Coresignal | India; United States | Enterprise-tier data vendor sold via sales contact, not a published self-serve price. |
-| Darwinbox | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-| Freshteam | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-| Indeed India | India | Enterprise partner-only access; not available to a generic aggregator. |
-| Jobs.cz | Europe (Other) | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-| JobStreet / JobsDB (SEEK group) | Singapore/SEA | SEEK-group flagship boards for SEA; enterprise partner-only access, no self-serve path (the source catalog explicitly marks this "Not Recommended"). |
-| Lightcast Jobs Canada | Canada | Paid labor-market-intelligence product sold through a sales process, not a self-serve developer signup; the source catalog itself marks this "Not Recommended." |
-| LinkedIn Jobs | India | Enterprise partner program only — no self-serve developer signup for job search/aggregation. |
-| Profesia | Europe (Other) | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-| Recruit CRM | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-| Superset | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-| VietnamWorks Open API | Vietnam | Partner Access Required — gated to approved commercial partners, not open developer registration. |
-| ZipRecruiter API | United States | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-| Zoho Recruit | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
-
-### 8.5 Paid-Only Providers Excluded for Scope, Not Price (20 providers)
-
-Three sub-groups all share the same self-serve, metered/paid pricing shape this project already accepts elsewhere (Adzuna, SerpApi, OpenWebNinja, Fantastic Jobs, TheirStack) — they were excluded because of *what they are*, not because a paid tier exists at all.
-
-**Generic web-scraping infrastructure vendors (10)** — not job-specific; using one means building and maintaining a custom per-site scraper, which is a project in itself, not one more provider:
-
-| Provider | Reason |
-|---|---|
-| Apify | Generic web-scraping infrastructure vendor — API key/Bearer token, metered. |
-| Bright Data | Generic web-scraping infrastructure vendor — API key/Bearer token, metered. |
-| Diffbot | Generic web-scraping infrastructure vendor — API key, metered. |
-| HasData | Generic web-scraping infrastructure vendor — `x-api-key` header, metered. |
-| Nimble (Nimbleway) | Generic web-scraping infrastructure vendor — API key/Bearer token, metered. |
-| Oxylabs | Generic web-scraping infrastructure vendor — API key, metered. |
-| Piloterr | Generic web-scraping infrastructure vendor — API key, metered. |
-| ScraperAPI | Generic web-scraping infrastructure vendor — API key, metered. |
-| Scrapingdog | Generic web-scraping infrastructure vendor — API key, metered. |
-| Zyte (formerly Scrapinghub) | Generic web-scraping infrastructure vendor — API key, metered. |
-
-**B2B data-aggregation / enrichment vendors (5)** — paid, and overlap with data this project already collects directly for free:
-
-| Provider | Reason |
-|---|---|
-| JSearch (RapidAPI, by OpenWeb Ninja) | A RapidAPI repackaging of the same OpenWeb Ninja data this project already integrates directly — paying for the wrapper of a source already held natively would be pure redundancy. |
-| Mantiks | Generic B2B data-aggregation vendor, not a dedicated job board — paid, overlaps with sources already integrated. |
-| People Data Labs | Generic B2B data-aggregation vendor — paid, overlaps with sources already integrated. |
-| PredictLeads | Generic B2B data-aggregation vendor — paid, overlaps with sources already integrated. |
-| Techmap.io | Generic B2B data-aggregation vendor (via RapidAPI) — paid, overlaps with sources already integrated. |
-
-**ATS Unified-API middleware (5)** — paid re-wrappers of ATS platforms this project already integrates directly for free:
-
-| Provider | Reason |
-|---|---|
-| Apideck | Re-wraps Greenhouse, Lever, Workday (all already integrated directly for free). Redundant and enterprise-priced. |
-| Kombo.dev | Same redundancy — re-wraps ATSs already integrated directly. |
-| Merge.dev | Same redundancy — re-wraps ATSs already integrated directly. |
-| Unified.to | Same redundancy — re-wraps ATSs already integrated directly. |
-| Workato | Same redundancy — re-wraps ATSs already integrated directly. |
-
-### 8.6 Authentication-Restricted Providers (5 providers)
-
-Distinct from "no public API": these have a real, sometimes fully documented API, but access is restricted to a specific class of credentialed user this project does not qualify as — a national citizen ID, a licensed professional business, or (in Section 9) a formal partner/approval program still worth pursuing.
-
-| Provider | Region | Restriction | Reason |
-|---|---|---|---|
-| Hello Work Job Information API (ハローワーク求人情報提供サービス, MHLW) | Japan | Licensed-business gated | Japan's real, fully-documented national job API — registration is restricted to licensed private job-placement businesses, local governments, or training institutions. A generic aggregator does not qualify. |
-| Israeli Employment Service (Sherut HaTaasuka / taasuka.gov.il) | Israel | Citizen-ID gated | Requires an Israeli citizen with a Teudat Zehut (national ID) to register online and then appear in person within 14 days — a citizen-services portal, not a public data API. |
-| Jadarat (Saudi National Employment Portal / HRDF) | Saudi Arabia | Citizen-ID gated | Requires a Saudi-national citizen account (18+, degree requirements for government roles) — not available to a third-party aggregator at all. |
-| Agencia Publica de Empleo SENA (APE) | Colombia | Citizen-ID gated | Registered user login (document ID + password) required to search/view individual vacancies; Colombia's open-data (Socrata) API only exposes aggregate registration statistics, not live listings. |
-| Google Cloud Talent Solution (Job Search API) | Global | Not a third-party feed at all | A hosted ML matching/search engine populated with the customer's *own* job postings — not a source of aggregated third-party listings. Enterprise infrastructure product, not a job feed. |
-
-### 8.7 Static Dataset, Not a Live API (5 providers)
-
-These providers publish real, often free and government-authoritative data — but as a periodic bulk file or aggregate statistics table, not a queryable, per-job live search endpoint. Integrating one would mean ingesting a dataset dump on an unpredictable refresh cycle rather than a live feed, and in three cases (UWV, SEPE, data.gov.in) there is no stable per-job identifier to key off of at all.
-
-| Provider | Region | Reason |
-|---|---|---|
-| National Career Service (NCS) | India | Exposes a periodic bulk open-government dataset (data.gov.in), not a live per-job search API — stale snapshots, not real-time postings. |
-| data.gov.in OGD platform | India | General-purpose Indian open-government-data portal spanning 33 sectors; not jobs-specific, and individual resources are static per-resource datasets. |
-| SEPE Open Data Portal (Spain public employment service) | Spain | Only publishes static statistical/administrative open-data files — no confirmed live REST API for current vacancies; a known third-party scraper for it is deprecated. |
-| UWV Open Match Data (Netherlands) | Netherlands | Publishes aggregate labor-market statistics datasets, not individual live job postings — no per-job identifier exists in the data at all. |
-| Pangian | Remote/Global | Confirmed live: `pangian.com` 301-redirects to a static shutdown notice on GitHub Pages; every other candidate path 404s. Discontinued, not credential-gated (Section 8.9). |
-
-### 8.8 Commercial-Partnership-Gated Providers (2 providers, one revisited in Section 9)
-
-| Provider | Region | Reason |
-|---|---|---|
-| Job Bank (ESDC) feed / Open Gov dataset | Canada | The live feed requires ESDC partner approval; the fallback open dataset is a monthly CSV dump missing employer/company names and per-job apply URLs — the two fields this project's schema requires. Doesn't fit even with credentials, so this is not carried into Section 9's revisit list. |
+| Job Bank (ESDC) feed / Open Gov dataset | Canada | The live feed requires ESDC partner approval; the fallback open dataset is a monthly CSV dump missing employer/company names and per-job apply URLs — fields this project's schema requires. Doesn't fit even with credentials. |
 | Kemnaker Karirhub (SIAPkerja) | Indonesia | Access restricted to job portals with a formal MoU with the Indonesian Ministry of Manpower; no publicly documented API key/OAuth path exists for outside developers. |
 
-### 8.9 Deprecated / Suspended / Technically Inaccessible Providers (3 providers)
+### 8.10 Deprecated / Suspended / Technically Inaccessible (3 providers)
 
 | Provider | Region | Status | Reason |
 |---|---|---|---|
-| SINE Aberto (Sistema Nacional de Emprego / Ministério do Trabalho e Emprego) | Brazil | Suspended | Brazil suspended this data-sharing service in October 2022 (CODEFAT Resolution 956/2022) pending LGPD privacy-law compliance updates — no active API to integrate against right now. |
-| Pangian | Remote/Global | Discontinued | `pangian.com` redirects to a static shutdown notice; the service is discontinued/paused indefinitely. |
+| SINE Aberto (Sistema Nacional de Emprego) | Brazil | Suspended | Brazil suspended this data-sharing service in October 2022 (CODEFAT Resolution 956/2022) pending LGPD privacy-law compliance updates — no active API to integrate against right now. |
+| Pangian | Remote/Global | Discontinued | Confirmed live: `pangian.com` 301-redirects to a static shutdown notice on GitHub Pages; every other candidate path 404s. Discontinued, not credential-gated. |
 | Remote First Jobs (Dynamite Jobs) | Remote/Global | Technically blocked | Confirmed live: an active Cloudflare managed JS challenge on every path tested, including `robots.txt` itself (HTTP 403, "Just a moment..."). Not a credentials gate — a plain HTTP client cannot pass it, and this project's architecture has no headless-browser/JS-execution layer to attempt one. |
 
-### 8.10 Region-Restricted Access Models
+### 8.11 Region-Restricted Access Models
 
-"Region restricted" in this catalog takes two distinct forms, both already covered above and worth naming explicitly per the task brief: (1) **citizen/national-only access** — Israeli Employment Service, Jadarat (Saudi Arabia), and Agencia SENA (Colombia) restrict the *login*, not just the data, to nationals of one country (Section 8.6); and (2) **deliberately single-region-by-design APIs that are otherwise real and workable** — VDAB (Flanders only, not all of Belgium) and Work24 (South Korea only), both carried forward as genuine future candidates in Section 9 rather than rejected outright, because a narrow region is a scope decision, not an access failure. This project's own implemented roster has the same pattern in the other direction (Section 16): several implemented providers are deliberately single-country (Taiwan MOL, MyCareersFuture, HK Gov Vacancies) precisely because that narrow scope was the tradeoff for a free, workable, no-partnership-required API.
+"Region restricted" takes two distinct forms in this catalog: (1) **citizen/national-only access**, where the *login* — not just the data — is restricted to nationals of one country (Section 8.7's Israeli Employment Service, Jadarat, and Agencia SENA); and (2) **deliberately single-region-by-design APIs that are otherwise real and workable**, such as VDAB (Flanders only, not all of Belgium) and Work24 (South Korea only) — both carried forward as genuine future candidates in Section 9 rather than rejected outright, because a narrow region is a scope decision, not an access failure. The implemented roster has the same pattern in reverse (Section 16): Taiwan MOL, MyCareersFuture, and HK Gov Vacancies are deliberately single-country, precisely because that narrow scope was the tradeoff for a free, workable, no-partnership-required API.
 
 ---
-
 ## 9. Future Candidate & Deferred Providers
 
 Unlike Section 8's rejections, the providers below have a **genuine, confirmed, or plausible access path** that simply was not completed in this project's timeframe — a registration step, an approval meeting, or a live-verification check still outstanding. These are the providers worth revisiting first, in priority order, before returning to the 214 in Section 8.
@@ -1789,6 +1602,309 @@ The expansion strategies recorded in `Integration Detail` for still-relevant, hi
 
 ---
 
-*Job Aggregation Platform — Final Project Report v2 · Data snapshot 2026-07-10 · Original report generated 2026-07-13 · This revision (v2) generated 2026-07-15, adding the complete provider research lifecycle (268-provider catalog, 86-provider shortlist, evaluation methodology, decision matrix, and full rejection/deferral knowledge base) alongside the previously-reported implementation detail.*
+ · Data snapshot 2026-07-10 · Original report generated 2026-07-13 · This revision (v2) generated 2026-07-15, adding the complete provider research lifecycle (268-provider catalog, 86-provider shortlist, evaluation methodology, decision matrix, and full rejection/deferral knowledge base) alongside the previously-reported implementation detail.*
+
+*Source of truth: PostgreSQL (`jobs`, `provider_runs`), this repository's own source code, and `job_api.xlsx` (API Catalog, Sheet1, Integration Detail, Schema Definitions sheets) — no figure in this report is estimated or assumed. Where evidence was not available or a research artifact was found to be a stale snapshot, this report states that explicitly rather than inferring a result.*
+## Appendix D — Rejected Providers by Category
+
+Complete, unabridged lists behind the Section 8 summary — all 214 non-implemented `blocked` catalog providers, one row each, no provider repeated across categories. Region and reasoning are quoted directly from this project's research catalog.
+
+### D.1 No Public API (126 providers)
+
+By far the largest rejection category. These providers' web/mobile presence is real and often large-scale, but no developer documentation, API endpoint, or third-party read access exists at all — the only way to see their data is to browse the site as a jobseeker or register as an employer to post. This is the hard floor referenced in Section 4: no amount of pricing tolerance or engineering effort overcomes a genuinely nonexistent read API. It spans nearly every region in the catalog — India (Naukri, Shine, Internshala, TimesJobs, and 20+ others), the Gulf (Bayt.com, GulfTalent, Naukrigulf), East Asia (51job, BOSS Zhipin, JobKorea, Rikunabi/Mynavi), Europe (StepStone, CV-Library, CWJobs, InfoJobs, Pracuj.pl), and government portals that only support citizen/employer browser login rather than a data feed (Civil Service Jobs UK, Job Market Finland, JobsIreland.ie, Cliclavoro Italy). None of these were rejected on data-quality or geographic grounds — they were rejected because there is nothing for a third-party pipeline to call.
+
+| Provider | Type | Region | Reason |
+|---|---|---|---|
+| 104 Job Bank (104人力銀行) | Commercial Job Board | Taiwan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| 1111 Job Bank (1111人力銀行) | Commercial Job Board | Taiwan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| 51job (前程无忧 / Qiancheng Wuyou) | Commercial Job Board | China | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| AMS eJob-Room (Austria public employment service) | Government | Austria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| APEC (Association Pour l'Emploi des Cadres, France) | Government-affiliated / Non-profit Job Board | France | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| APS Jobs (Australian Public Service careers) | Government | Australia | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Adecco India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| AllJobs.co.il | Commercial Job Board | Israel | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Apna | Commercial Aggregator | India | No public API for third-party aggregators. |
+| BMET / Ami Probashi (Bangladesh Overseas Employment) | Government | Bangladesh | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| BOSS Zhipin (Kanzhun Limited, NASDAQ: BZ) | Commercial Job Board | China | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Bayt.com | Commercial Job Board | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Bdjobs.com | Commercial Job Board | Bangladesh | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Bolsa Nacional de Empleo (BNE / SENCE, Chile) | Government | Chile | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Bossjob | Commercial Job Board | Philippines | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| BrighterMonday | Commercial Job Board | Kenya | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Built In | Commercial Aggregator | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Bumeran | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| CEIPAL | ATS | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| CV-Library | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| CWJobs | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| CareerBuilder | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| CareerLink Vietnam | Commercial Job Board | Vietnam | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Careers24 | Commercial Job Board | South Africa | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Careers@Gov | Government | Singapore/SEA | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Catho Developer API | Commercial Job Board | Brazil | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| China MOHRSS National Public Employment Service Platform (全国公共招聘服务平台) | Government | China | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Civil Service Jobs | Government | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Cliclavoro / Ministero del Lavoro Open Data (Italy) | Government | Italy | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Computrabajo | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Cutshort | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Dice | Commercial Aggregator | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Drushim | Commercial Job Board | Israel | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal | Government | Egypt | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Elempleo | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Eluta | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Employment Services of South Africa (ESSA) — Dept. of Employment and Labour | Government | South Africa | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Forasna | Commercial Job Board | Egypt | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Foundit (Monster India) | Commercial Aggregator | India | No public API for third-party aggregators. |
+| Glassdoor Jobs API | Commercial Job Board | Global | Historically offered `partner_id`/`partner_key` access; now enterprise-only — no self-serve path remains. |
+| Glints | Commercial Aggregator | Singapore/SEA | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| GreytHR | ATS | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| GulfTalent | Commercial Job Board | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Gupy Public API | ATS | Brazil | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| HackerEarth Jobs | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| HelloWork ATS Partner API (France) | Commercial Job Board | France | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Hired.com (LHH Recruitment Solutions) | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Hirist | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Hong Kong Labour Department Interactive Employment Service (iES, jobs.gov.hk) | Government | Hong Kong | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| IEFPOnline / netEmprego (Portugal public employment service) | Government | Portugal | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| InfoJobs (Spain) | Commercial Job Board | Spain | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Instahyre | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Internshala | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Job Market Finland / Työmarkkinatori (TE-palvelut, Finland) | Government | Finland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| JobKorea | Commercial Job Board | South Korea | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| JobThai | Commercial Job Board | Thailand | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jobberman | Commercial Job Board | Nigeria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jobcase Platform API | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jobillico | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jobindex (Denmark) | Commercial Job Board | Denmark | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jobnet.dk (Denmark public employment portal) | Government | Denmark | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jobrapido | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| JobsDB Hong Kong (SEEK Group) / CTgoodjobs | Commercial Job Board | Hong Kong | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| JobsIreland.ie (Ireland public employment service) | Government | Ireland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jobsite | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Jora (Australia) | Job Aggregator | Australia | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| JustRemote | Commercial Job Board | Remote/Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Kalibrr | Commercial Aggregator | Singapore/SEA | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Karir.com | Commercial Job Board | Indonesia | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Keka | ATS | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Kelly Services India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Ladders | Commercial Aggregator | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| MOHRE UAE Federal Careers / iRecruitment Portal | Government | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| MP Rojgar | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| MahaJobs | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| ManpowerGroup India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Monster | Commercial Job Board | Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| NAVTTC National Employment Exchange Tool (NEXT / jobs.gov.pk) | Government | Pakistan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| NEAIMS — National Employment Authority Kenya | Government | Kenya | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| National Directorate of Employment (NDE) Nigeria | Government | Nigeria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| National Job Portal (NJP) — Pakistan | Government | Pakistan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| National Job Portal — Bangladesh (jobs.gov.bd) | Government | Bangladesh | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Naukri | Commercial Aggregator | India | No public API; any access is undocumented/grey-area and India-IP-restricted. |
+| Naukrigulf | Commercial Job Board | United Arab Emirates | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Nexxt (formerly Beyond.com) | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| OCC Mundial | Commercial Aggregator | LATAM | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Outsourcely | Commercial Job Board | Remote/Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| PhilJobNet (DOLE Bureau of Local Employment) | Government | Philippines | Public browsing needs no login, but no public API or developer documentation exists for pulling listings programmatically. |
+| Pnet | Commercial Job Board | South Africa | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Portal Empleo Argentina (Ministerio de Capital Humano / ex-Trabajo) | Government | Argentina | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Pracuj.pl (Poland) | Commercial Job Board | Poland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Public Service Commission of Sri Lanka (psc.gov.lk) | Government | Sri Lanka | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Quess Corp | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Randstad India | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Remote.co | Commercial Job Board | Remote/Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Rikunabi / Mynavi (Recruit Co. / Mynavi Corporation) | Commercial Job Board | Japan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Rojgar Sangam (UP) | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Rozee.pk | Commercial Job Board | Pakistan | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Shine | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Snagajob | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| StepStone | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Talent.com | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| TeamLease | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Telangana T-Jobs | Government | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Thailand Department of Employment — Smart Job Center (ไทยมีงานทำ) | Government | Thailand | No public API or developer documentation of any kind was found — a web/mobile-app-only platform with no discoverable integration surface. |
+| TimesJobs | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| TopCV | Commercial Job Board | Vietnam | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| TotalJobs | Commercial Aggregator | United Kingdom | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Triplebyte | Commercial Job Board | United States | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Unstop | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Vagas for Business API (Vagas.com.br) | ATS / Job Board | Brazil | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| WUZZUF | Commercial Job Board | Egypt | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Welcome to the Jungle | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Wellfound | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Work and Income / Find a Job (MSD, New Zealand) | Government | New Zealand | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Work at a Startup (Y Combinator) | Commercial Job Board | Global | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| WorkIndia | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Workopolis | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| WowJobs | Commercial Aggregator | Canada | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| Xing Jobs | Commercial Aggregator | Europe (Other) | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| XpressJobs (xpress.jobs) | Commercial Job Board | Sri Lanka | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| ZonaJobs | Commercial Job Board | Argentina | An SEO/landing page suggesting an API exists was confirmed to be for employers *posting* jobs, not a read API — see Section 9 for the fuller writeup. |
+| iimjobs | Commercial Aggregator | India | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| jobs.ch (Switzerland) | Commercial Job Board | Switzerland | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| karriere.at (Austria) | Commercial Job Board | Austria | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+| topjobs.lk | Commercial Job Board | Sri Lanka | No public API — the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
+
+
+### D.2 Employer-Side Distribution / Write-Only Networks — Wrong Data-Flow Direction (25 providers)
+
+These providers have real, sometimes well-documented APIs — the reason they were rejected is structural, not access-related: they are built for **employers and job boards to push postings out** (CPC job-distribution networks, meta-search advertiser platforms, or write/management-only feeds), not for an aggregator to pull postings in. Building against one of these would mean becoming a client that *pays to advertise*, not a source that *reads* — the opposite relationship this project needs.
+
+| Provider | Type | Region | Reason |
+|---|---|---|---|
+| Appcast | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
+| Broadbean (Veritone Hire) | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| CareerBuilder / Monster (Talent Network distribution) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| CareerOne (Australia) | Commercial Job Board | Australia | Feed-ingest / posting-distribution network only — no public read endpoint for pulling job data as a consumer. |
+| Google for Jobs | Meta-search Aggregator | Global | Advertiser/organic-crawl indexing surface for employer sites — no public read API for third-party aggregators. |
+| Indeed PLUS Job Distribution API (Recruit Holdings, Japan) | Aggregator/Partner Network | Japan | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Jobcase (MaxRecruit) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Jobg8 | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| JobisJob (LIFULL Connect) | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| JoinVision (JobCloud HR Tech) | Job Distribution Network | Austria / DACH | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Joveo | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Lensa | Meta-search Aggregator | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Mitula (LIFULL Connect / Adzuna) | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| PandoLogic (pandoIQ) / Veritone Hire | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Radancy | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Recruitics | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| SEEK (SEEK.com.au / SEEK.co.nz) | Commercial Job Board | Australia; New Zealand | Feed-ingest / posting-distribution network only — no public read endpoint for pulling job data as a consumer. |
+| SmartDreamers | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Talroo | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Trovit (LIFULL Connect / Adzuna) | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Upward.net (a Jobcase company) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| WhatJobs | Meta-search Aggregator | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| Workforce Australia | Government | Australia | The public API is write/management-only (employers create and manage job ads via OAuth2) — no public job-listings read/search endpoint exists to pull postings from. |
+| ZipAlerts (ZipRecruiter TrafficBoost) | Job Distribution Network | United States | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+| eQuest | Job Distribution Network | Global | Advertiser-side job-distribution/CPC network — built for employers to push postings out. No public read API. |
+
+
+### D.3 Labor-Market-Intelligence / Research SaaS (14 providers)
+
+A distinct category from a job-postings feed: these products sell aggregate hiring-trend analytics, research indices, or enterprise talent-intelligence dashboards, sold via a sales contract rather than a self-serve API key. Even where they technically ingest job postings internally, that is not the product being sold to a third party.
+
+| Provider | Region | Reason |
+|---|---|---|
+| Aura (by Aura Intelligence) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract — not a self-serve job-postings feed. |
+| Claro Analytics (WilsonHCG) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Datapeople (by Payscale) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Draup | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Greenwich.HR (WageScape) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Horsefly Analytics | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Indeed Hiring Lab | Global | Indeed's economic-research arm publishes aggregate labor-market indices/trend CSVs (mirrored on FRED), not individual job records — a research/statistics product, not a live listings feed. |
+| JobsEQ (Chmura Economics & Analytics) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Lightcast (formerly Emsi Burning Glass) Job Postings API | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| LinkUp | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Revelio Labs | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| TalentNeuron (Gartner) | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| Textkernel Jobfeed / Market IQ | Global | Enterprise labor-market-intelligence SaaS sold via sales contract. |
+| The Burning Glass Institute | Global | A nonprofit labor-market research institute (spun out of Burning Glass Technologies, now Lightcast) — publishes research reports and indices, not a job-postings API. |
+
+
+### D.4 Enterprise-Only / Sales-Gated Providers (15 providers)
+
+Real APIs exist, but the *only* documented path to access is a sales conversation or partner program — no published self-serve pricing or signup flow. This is distinct from "paid" in the sense that a paid, metered self-serve tier (like the ones this project already uses for Adzuna, SerpApi, and Fantastic Jobs) is workable; sales-gated access with no published terms is not something a project without a procurement process can commit to.
+
+| Provider | Region | Reason |
+|---|---|---|
+| BambooHR | Remote/Global | Enterprise-only pricing/access — gated behind a sales or partner-approval process, no self-serve developer path. |
+| Coresignal | India; United States | Enterprise-tier data vendor sold via sales contact, not a published self-serve price. |
+| Darwinbox | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+| Freshteam | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+| Indeed India | India | Enterprise partner-only access; not available to a generic aggregator. |
+| Jobs.cz | Europe (Other) | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+| JobStreet / JobsDB (SEEK group) | Singapore/SEA | SEEK-group flagship boards for SEA; enterprise partner-only access, no self-serve path (the source catalog explicitly marks this "Not Recommended"). |
+| Lightcast Jobs Canada | Canada | Paid labor-market-intelligence product sold through a sales process, not a self-serve developer signup; the source catalog itself marks this "Not Recommended." |
+| LinkedIn Jobs | India | Enterprise partner program only — no self-serve developer signup for job search/aggregation. |
+| Profesia | Europe (Other) | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+| Recruit CRM | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+| Superset | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+| VietnamWorks Open API | Vietnam | Partner Access Required — gated to approved commercial partners, not open developer registration. |
+| ZipRecruiter API | United States | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+| Zoho Recruit | India | Enterprise-only pricing/access — gated behind a sales or partner-approval process. |
+
+
+### D.5 Paid-Only Providers Excluded for Scope, Not Price (20 providers)
+
+Three sub-groups all share the same self-serve, metered/paid pricing shape this project already accepts elsewhere (Adzuna, SerpApi, OpenWebNinja, Fantastic Jobs, TheirStack) — they were excluded because of *what they are*, not because a paid tier exists at all.
+
+**Generic web-scraping infrastructure vendors (10)** — not job-specific; using one means building and maintaining a custom per-site scraper, which is a project in itself, not one more provider:
+
+| Provider | Reason |
+|---|---|
+| Apify | Generic web-scraping infrastructure vendor — API key/Bearer token, metered. |
+| Bright Data | Generic web-scraping infrastructure vendor — API key/Bearer token, metered. |
+| Diffbot | Generic web-scraping infrastructure vendor — API key, metered. |
+| HasData | Generic web-scraping infrastructure vendor — `x-api-key` header, metered. |
+| Nimble (Nimbleway) | Generic web-scraping infrastructure vendor — API key/Bearer token, metered. |
+| Oxylabs | Generic web-scraping infrastructure vendor — API key, metered. |
+| Piloterr | Generic web-scraping infrastructure vendor — API key, metered. |
+| ScraperAPI | Generic web-scraping infrastructure vendor — API key, metered. |
+| Scrapingdog | Generic web-scraping infrastructure vendor — API key, metered. |
+| Zyte (formerly Scrapinghub) | Generic web-scraping infrastructure vendor — API key, metered. |
+
+**B2B data-aggregation / enrichment vendors (5)** — paid, and overlap with data this project already collects directly for free:
+
+| Provider | Reason |
+|---|---|
+| JSearch (RapidAPI, by OpenWeb Ninja) | A RapidAPI repackaging of the same OpenWeb Ninja data this project already integrates directly — paying for the wrapper of a source already held natively would be pure redundancy. |
+| Mantiks | Generic B2B data-aggregation vendor, not a dedicated job board — paid, overlaps with sources already integrated. |
+| People Data Labs | Generic B2B data-aggregation vendor — paid, overlaps with sources already integrated. |
+| PredictLeads | Generic B2B data-aggregation vendor — paid, overlaps with sources already integrated. |
+| Techmap.io | Generic B2B data-aggregation vendor (via RapidAPI) — paid, overlaps with sources already integrated. |
+
+**ATS Unified-API middleware (5)** — paid re-wrappers of ATS platforms this project already integrates directly for free:
+
+| Provider | Reason |
+|---|---|
+| Apideck | Re-wraps Greenhouse, Lever, Workday (all already integrated directly for free). Redundant and enterprise-priced. |
+| Kombo.dev | Same redundancy — re-wraps ATSs already integrated directly. |
+| Merge.dev | Same redundancy — re-wraps ATSs already integrated directly. |
+| Unified.to | Same redundancy — re-wraps ATSs already integrated directly. |
+| Workato | Same redundancy — re-wraps ATSs already integrated directly. |
+
+
+### D.6 Authentication-Restricted Providers (5 providers)
+
+Distinct from "no public API": these have a real, sometimes fully documented API, but access is restricted to a specific class of credentialed user this project does not qualify as — a national citizen ID, a licensed professional business, or (in Section 9) a formal partner/approval program still worth pursuing.
+
+| Provider | Region | Restriction | Reason |
+|---|---|---|---|
+| Hello Work Job Information API (ハローワーク求人情報提供サービス, MHLW) | Japan | Licensed-business gated | Japan's real, fully-documented national job API — registration is restricted to licensed private job-placement businesses, local governments, or training institutions. A generic aggregator does not qualify. |
+| Israeli Employment Service (Sherut HaTaasuka / taasuka.gov.il) | Israel | Citizen-ID gated | Requires an Israeli citizen with a Teudat Zehut (national ID) to register online and then appear in person within 14 days — a citizen-services portal, not a public data API. |
+| Jadarat (Saudi National Employment Portal / HRDF) | Saudi Arabia | Citizen-ID gated | Requires a Saudi-national citizen account (18+, degree requirements for government roles) — not available to a third-party aggregator at all. |
+| Agencia Publica de Empleo SENA (APE) | Colombia | Citizen-ID gated | Registered user login (document ID + password) required to search/view individual vacancies; Colombia's open-data (Socrata) API only exposes aggregate registration statistics, not live listings. |
+| Google Cloud Talent Solution (Job Search API) | Global | Not a third-party feed at all | A hosted ML matching/search engine populated with the customer's *own* job postings — not a source of aggregated third-party listings. Enterprise infrastructure product, not a job feed. |
+
+
+### D.7 Static Dataset, Not a Live API (4 providers)
+
+These providers publish real, often free and government-authoritative data — but as a periodic bulk file or aggregate statistics table, not a queryable, per-job live search endpoint. Integrating one would mean ingesting a dataset dump on an unpredictable refresh cycle rather than a live feed, and in three cases (UWV, SEPE, data.gov.in) there is no stable per-job identifier to key off of at all.
+
+| Provider | Region | Reason |
+|---|---|---|
+| National Career Service (NCS) | India | Exposes a periodic bulk open-government dataset (data.gov.in), not a live per-job search API — stale snapshots, not real-time postings. |
+| data.gov.in OGD platform | India | General-purpose Indian open-government-data portal spanning 33 sectors; not jobs-specific, and individual resources are static per-resource datasets. |
+| SEPE Open Data Portal (Spain public employment service) | Spain | Only publishes static statistical/administrative open-data files — no confirmed live REST API for current vacancies; a known third-party scraper for it is deprecated. |
+| UWV Open Match Data (Netherlands) | Netherlands | Publishes aggregate labor-market statistics datasets, not individual live job postings — no per-job identifier exists in the data at all. |
+
+
+### D.8 Commercial-Partnership-Gated Providers (2 providers, one revisited in Section 9)
+
+| Provider | Region | Reason |
+|---|---|---|
+| Job Bank (ESDC) feed / Open Gov dataset | Canada | The live feed requires ESDC partner approval; the fallback open dataset is a monthly CSV dump missing employer/company names and per-job apply URLs — the two fields this project's schema requires. Doesn't fit even with credentials, so this is not carried into Section 9's revisit list. |
+| Kemnaker Karirhub (SIAPkerja) | Indonesia | Access restricted to job portals with a formal MoU with the Indonesian Ministry of Manpower; no publicly documented API key/OAuth path exists for outside developers. |
+
+
+### D.9 Deprecated / Suspended / Technically Inaccessible Providers (3 providers)
+
+| Provider | Region | Status | Reason |
+|---|---|---|---|
+| SINE Aberto (Sistema Nacional de Emprego / Ministério do Trabalho e Emprego) | Brazil | Suspended | Brazil suspended this data-sharing service in October 2022 (CODEFAT Resolution 956/2022) pending LGPD privacy-law compliance updates — no active API to integrate against right now. |
+| Pangian | Remote/Global | Discontinued | `pangian.com` redirects to a static shutdown notice; the service is discontinued/paused indefinitely. |
+| Remote First Jobs (Dynamite Jobs) | Remote/Global | Technically blocked | Confirmed live: an active Cloudflare managed JS challenge on every path tested, including `robots.txt` itself (HTTP 403, "Just a moment..."). Not a credentials gate — a plain HTTP client cannot pass it, and this project's architecture has no headless-browser/JS-execution layer to attempt one. |
+
+
+---
+
+*Job Aggregation Platform — Final Project Report v2 · Data snapshot 2026-07-10 · Original report generated 2026-07-13 · This revision (v2) generated 2026-07-15, adding the complete provider research lifecycle (268-provider catalog, 86-provider shortlist, evaluation methodology, decision matrix, and full rejection/deferral knowledge base) alongside the previously-reported implementation detail. Polished for final submission on 2026-07-15: added the front-matter Executive Summary, condensed Section 8 into summary tables with the full detail moved to Appendix D, and completed a final numeric consistency pass.*
 
 *Source of truth: PostgreSQL (`jobs`, `provider_runs`), this repository's own source code, and `job_api.xlsx` (API Catalog, Sheet1, Integration Detail, Schema Definitions sheets) — no figure in this report is estimated or assumed. Where evidence was not available or a research artifact was found to be a stale snapshot, this report states that explicitly rather than inferring a result.*
