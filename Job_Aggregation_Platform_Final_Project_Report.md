@@ -123,10 +123,10 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <col style="width:11%;">
 <col style="width:10%;">
 <col style="width:9%;">
-<col style="width:11%;">
+<col style="width:13%;">
 <col style="width:11%;">
 <col style="width:8%;">
-<col style="width:40%;">
+<col style="width:38%;">
 </colgroup>
 <thead><tr>
 <th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Provider</th>
@@ -142,7 +142,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SmartRecruiters</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.smartrecruiters.com/docs/posting-api">developers.smartrecruiters.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.smartrecruiters.com/docs/posting-api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">65,392 stored<br>(65,394 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 100 curated companies only, not a global index.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
@@ -151,7 +151,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Greenhouse</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.greenhouse.io/job-board.html">developers.greenhouse.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.greenhouse.io/job-board.html">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">22,715 stored<br>(22,715 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 276 curated companies; single-shot fetch per company.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
@@ -160,7 +160,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Lever</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/lever/postings-api">github.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/lever/postings-api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">17,980 stored<br>(17,980 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 162 curated companies; single-shot fetch per company.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
@@ -169,7 +169,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NHS Jobs</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobs.nhs.uk/api/v1/search_xml">jobs.nhs.uk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobs.nhs.uk/api/v1/search_xml">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">10,843 stored<br>(13,011 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Undocumented endpoint; could change without notice.<br>&bull; <strong>Expansion:</strong> Monitor for endpoint changes; no code change needed.</td>
@@ -178,7 +178,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">USAJOBS</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.usajobs.gov">developer.usajobs.gov</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.usajobs.gov">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">10,000 stored<br>(10,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 10,000-result API ceiling; no retry/error handling in fetch loop.<br>&bull; <strong>Expansion:</strong> Partition by JobCategoryCode/LocationName; add shared retry helper.</td>
@@ -187,7 +187,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bundesagentur für Arbeit</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth-style public key</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/bundesAPI/jobsuche-api">github.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/bundesAPI/jobsuche-api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">9,896 stored<br>(10,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 10,000-result API ceiling (page x size).<br>&bull; <strong>Expansion:</strong> Partition query by location/keyword params.</td>
@@ -196,7 +196,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Reed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://reed.co.uk/developers/jobseeker">reed.co.uk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://reed.co.uk/developers/jobseeker">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">8,994 stored<br>(9,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> ~9,900 result-window boundary (HTTP 500 beyond); no shared retry helper.<br>&bull; <strong>Expansion:</strong> Raise page cap toward boundary; add shared retry helper.</td>
@@ -205,7 +205,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NAV Arbeidsplassen</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth-style public token</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://navikt.github.io/pam-stilling-feed">navikt.github.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://navikt.github.io/pam-stilling-feed">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">5,394 stored<br>(12,478 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Change-feed, not a current-postings search; drives high dup rate.<br>&bull; <strong>Expansion:</strong> Increase lookback window or page cap.</td>
@@ -214,7 +214,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Ashby</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.ashbyhq.com/docs/public-job-posting-api">developers.ashbyhq.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developers.ashbyhq.com/docs/public-job-posting-api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">5,252 stored<br>(5,252 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 102 curated companies only.<br>&bull; <strong>Expansion:</strong> Add slugs; enable <code>includeCompensation=true</code> for salary data.</td>
@@ -223,7 +223,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workable</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://apply.workable.com">apply.workable.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://apply.workable.com">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">4,137 stored<br>(7,627 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 89 curated companies; public widget API only, not full ATS.<br>&bull; <strong>Expansion:</strong> Add more verified company slugs.</td>
@@ -241,7 +241,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Himalayas</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://himalayas.app/jobs/api">himalayas.app</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://himalayas.app/jobs/api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,253 stored<br>(3,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 3,000 of 90,000+; fixed page size (limit ignored).<br>&bull; <strong>Expansion:</strong> Raise page cap; use richer <code>/jobs/api/search</code> endpoint.</td>
@@ -250,7 +250,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Arbetsförmedlingen</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobsearch.api.jobtechdev.se">jobsearch.api.jobtechdev.se</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobsearch.api.jobtechdev.se">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,096 stored<br>(2,100 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard offset ≤2,000 ceiling (~2,100 of 40,000 reachable).<br>&bull; <strong>Expansion:</strong> None found; add in-loop error handling for resilience.</td>
@@ -259,7 +259,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Adzuna</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.adzuna.com/docs/search">developer.adzuna.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.adzuna.com/docs/search">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,000 stored<br>(2,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 2,000/run; single-country (<code>us</code>) only.<br>&bull; <strong>Expansion:</strong> Raise page cap; query additional Adzuna country indexes.</td>
@@ -268,7 +268,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">The Muse</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public tier</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://themuse.com/developers/api/v2">themuse.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://themuse.com/developers/api/v2">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,000 stored<br>(2,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 100-page ceiling (HTTP 400) without an API key.<br>&bull; <strong>Expansion:</strong> Add an API key to raise the ceiling.</td>
@@ -277,7 +277,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerJet</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careerjet.com/partners/api">careerjet.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careerjet.com/partners/api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,996 stored<br>(2,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped at 2,000/run (no ceiling found in testing).<br>&bull; <strong>Expansion:</strong> Raise page cap.</td>
@@ -286,7 +286,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">EURES</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://europa.eu/eures">europa.eu/eures</a> (undocumented)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://europa.eu/eures">Free Public API</a> (undocumented)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,681 stored<br>(2,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard ~10,000-result ceiling; self-capped at 2,000/run.<br>&bull; <strong>Expansion:</strong> Raise page cap toward the ~10,000 ceiling.</td>
@@ -295,7 +295,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">RemoteJobs.org</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotejobs.org">remotejobs.org</a> (docs link 404s)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotejobs.org">Free Public API</a> (docs link 404s)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,500 stored<br>(1,500 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Real rate limiting observed (HTTP 429 ~page 23).<br>&bull; <strong>Expansion:</strong> None beyond current handling; partial results already preserved.</td>
@@ -304,7 +304,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">France Travail</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free self-service</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://francetravail.io/produits-partages/catalogue/offres-emploi">francetravail.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://francetravail.io/produits-partages/catalogue/offres-emploi">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,146 stored<br>(1,150 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Self-capped range ceiling (1,150), inherited from prior research.<br>&bull; <strong>Expansion:</strong> Re-confirm true ceiling; raise if larger window confirmed.</td>
@@ -313,7 +313,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jooble</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jooble.org/api">jooble.org</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jooble.org/api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,137 stored<br>(1,137 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Usable window ~1,100-1,200 jobs vs. much larger reported totals; no in-loop retry.<br>&bull; <strong>Expansion:</strong> Add in-loop error handling.</td>
@@ -322,7 +322,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Get on Board</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public tier</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://getonbrd.com/api-doc.html">getonbrd.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://getonbrd.com/api-doc.html">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,011 stored<br>(1,261 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> None significant; paid Private API tier unused by design.<br>&bull; <strong>Expansion:</strong> None identified; already fetches to each filter's total_pages.</td>
@@ -331,7 +331,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Taiwan Ministry of Labor</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth open data</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://free.taiwanjobs.gov.tw">taiwanjobs.gov.tw</a> (data.gov.tw #44062)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://free.taiwanjobs.gov.tw">Free Public API</a> (data.gov.tw #44062)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,000 stored<br>(1,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard 1,000-record cap; no working offset/page param found.<br>&bull; <strong>Expansion:</strong> None found; no further page accessible.</td>
@@ -340,7 +340,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Findwork.dev</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://findwork.dev/developers">findwork.dev</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://findwork.dev/developers">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,000 stored<br>(1,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Real rate limiting observed (HTTP 429 ~page 11).<br>&bull; <strong>Expansion:</strong> None beyond current handling; partial results already preserved.</td>
@@ -349,7 +349,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Mustakbil.com</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://rss.mustakbil.com/jobs-rss">rss.mustakbil.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://rss.mustakbil.com/jobs-rss">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">500 stored<br>(500 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination exists; fixed 500-item feed.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -358,7 +358,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Teamtailor</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://docs.teamtailor.com">docs.teamtailor.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://docs.teamtailor.com">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">494 stored<br>(494 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 25 curated companies; public RSS only, not credentialed Web API.<br>&bull; <strong>Expansion:</strong> Add more verified subdomains.</td>
@@ -367,7 +367,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Recruitee (Tellent)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://docs.recruitee.com/reference/intro-to-careers-site-api">docs.recruitee.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://docs.recruitee.com/reference/intro-to-careers-site-api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">394 stored<br>(394 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 21 curated companies; no pagination metadata in payload.<br>&bull; <strong>Expansion:</strong> Add more verified subdomains.</td>
@@ -376,7 +376,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">RemoteOK</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remoteok.com/api">remoteok.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remoteok.com/api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100 stored<br>(100 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination exists; fixed ~100-job snapshot.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -385,7 +385,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MyJobMag</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://myjobmag.com/feeds">myjobmag.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://myjobmag.com/feeds">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100 stored<br>(100 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination (robots.txt blocks query strings); fixed 100 items.<br>&bull; <strong>Expansion:</strong> Add other MyJobMag country feeds (Ghana/Kenya/SA/UK).</td>
@@ -394,7 +394,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobicy</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobi.cy/apidocs">jobi.cy</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobi.cy/apidocs">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100 stored<br>(100 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; hard 100-job cap on <code>count</code>.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -403,7 +403,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">We Work Remotely</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://weworkremotely.com/remote-jobs.rss">weworkremotely.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://weworkremotely.com/remote-jobs.rss">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">99 stored<br>(100 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; fixed ~100-item feed.<br>&bull; <strong>Expansion:</strong> Add per-category feeds for broader coverage.</td>
@@ -412,7 +412,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">4dayweek.io</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://4dayweek.io/feed">4dayweek.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://4dayweek.io/feed">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">50 stored<br>(50 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; richer <code>/api/jobs</code> endpoint blocked by robots.txt.<br>&bull; <strong>Expansion:</strong> None; richer endpoint deliberately excluded.</td>
@@ -421,7 +421,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SerpApi (Google Jobs)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://serpapi.com/google-jobs-api">serpapi.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://serpapi.com/google-jobs-api">Pricing Page</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">50 stored<br>(50 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Metered API; self-capped at 50 jobs/run to conserve quota.<br>&bull; <strong>Expansion:</strong> Raise page cap if a larger quota is approved.</td>
@@ -430,7 +430,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">OpenWebNinja (JSearch)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free tier + paid metered</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond free tier/quota</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://openwebninja.com/api/jsearch">openwebninja.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://openwebninja.com/api/jsearch">Pricing Page</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">49 stored<br>(49 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Metered API; self-capped at 5 pages to conserve quota.<br>&bull; <strong>Expansion:</strong> Raise page cap if a larger quota is approved.</td>
@@ -439,7 +439,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Working Nomads</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workingnomads.com/jobs">workingnomads.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workingnomads.com/jobs">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">33 stored<br>(33 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; fixed ~36-job snapshot; no RSS alternative found.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -448,7 +448,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Remotive</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotive.com/api-jobs">remotive.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotive.com/api-jobs">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">30 stored<br>(30 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; filter params confirmed non-functional.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -457,7 +457,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Freshersworld</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://freshersworld.com/feed">freshersworld.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://freshersworld.com/feed">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">30 stored<br>(30 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; rolling ~30-item window.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -466,7 +466,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobspresso</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobspresso.co/jobs/feed">jobspresso.co</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobspresso.co/jobs/feed">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">20 stored<br>(20 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Deeper pagination exists but blocked by robots.txt.<br>&bull; <strong>Expansion:</strong> None; deeper pagination deliberately unused.</td>
@@ -475,7 +475,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MyCareersFuture</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://api.mycareersfuture.gov.sg">mycareersfuture.gov.sg</a> (undocumented)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://api.mycareersfuture.gov.sg">Free Public API</a> (undocumented)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">20 stored<br>(2,000 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Needs review</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> <code>limit</code> param ignored (fixed 20/page); self-capped at 2,000/run.<br>&bull; <strong>Expansion:</strong> Raise page cap; no hard API ceiling found.</td>
@@ -484,7 +484,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NoDesk</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://nodesk.co/remote-jobs">nodesk.co</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://nodesk.co/remote-jobs">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">10 stored<br>(10 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; fixed 10-item feed.<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -493,7 +493,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Hasjob</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public feed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://hasjob.co/feed">hasjob.co</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://hasjob.co/feed">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">6 stored<br>(6 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> No pagination; inherently small volume (community board).<br>&bull; <strong>Expansion:</strong> None found.</td>
@@ -502,7 +502,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">HK Gov Vacancies</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth open data</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://csb.gov.hk/datagovhk/gov-vacancies">csb.gov.hk</a> (data.gov.hk)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://csb.gov.hk/datagovhk/gov-vacancies">Free Public API</a> (data.gov.hk)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1 stored<br>(58 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Needs review</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Static dataset; no per-posting URL (collapses on dedup).<br>&bull; <strong>Expansion:</strong> Use a non-URL dedup key to reduce duplicate collapse.</td>
@@ -511,7 +511,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TheirStack</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Per-credit metered (1 credit/job)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://theirstack.com">theirstack.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://theirstack.com">Pricing Page</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Blocked — billing</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Bills per job returned; blocked by account billing (HTTP 402).<br>&bull; <strong>Expansion:</strong> Resolve billing; then raise job cap and add retry helper.</td>
@@ -520,7 +520,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Trade Me Jobs</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free (registered app)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.trademe.co.nz">developer.trademe.co.nz</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.trademe.co.nz">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Built, uncredentialed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Built from API spec only, unexercised live; missing credentials (0 jobs).<br>&bull; <strong>Expansion:</strong> Provision consumer key/secret; complete production approval.</td>
@@ -529,7 +529,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerOneStop</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free registration</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careeronestop.org/Developers/WebAPI/web-api.aspx">careeronestop.org</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careeronestop.org/Developers/WebAPI/web-api.aspx">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Built, uncredentialed</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Hard ~750-result ceiling; missing credentials (0 jobs).<br>&bull; <strong>Expansion:</strong> Provision user ID/API token (free registration).</td>
@@ -538,7 +538,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Fantastic.jobs</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free trial → paid metered (~$1/1,000 jobs)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, after trial ends</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.fantastic.jobs">developer.fantastic.jobs</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://developer.fantastic.jobs">Pricing Page</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Credentialed, 0 result</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> Credentialed but 0 jobs; cause not confirmed.<br>&bull; <strong>Expansion:</strong> Verify account/trial status; add <code>/v1/active-jb</code> sibling endpoint.</td>
@@ -547,257 +547,1858 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Arbeitnow</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No-auth public API</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
-<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://arbeitnow.com/api/job-board-api">arbeitnow.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://arbeitnow.com/api/job-board-api">Free Public API</a></td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 stored<br>(0 fetched)</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0 in latest run</td>
 <td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">&bull; <strong>Limitation:</strong> 0 jobs in latest run (cause unconfirmed); no retry/error handling.<br>&bull; <strong>Expansion:</strong> Add retry/error handling; investigate 0-job run.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 
 ### 4.2 Not Implemented Providers (222)
 
 Grouped by research classification at the time of this project. **Registration/Approval Required** and **Needs Live Verification** providers have a real, plausible access path (Section 6, Recommendations); **Not Viable** providers were rejected on structural grounds (no public API, enterprise-only, wrong data-flow direction, deprecated, or a dataset rather than a live API).
 
-
 #### Registration/Approval Required (4)
 
-| Provider | Pricing Model | Payment After Free Tier | Official Reference | Approx. Jobs Available | Reason Not Implemented |
-|---|---|---|---|---|---|
-| CBOP - Centralna Baza Ofert Pracy (Poland public employment offices) | Free | No | praca.gov.pl | Potentially large - national public employment office coverage | Poland's national public-employment-office job database. Real SOAP web service returning batches of up to 1,000 live offers per file, but capped at 20 calls/cycle and only reachable during a 17:00-07:00 window -… |
-| Saramin Open API (사람인 오픈 API) | Not publicly available (partner-gated access; pricing undisclosed) | Not publicly available | saramin.co.kr | Unknown - Saramin is one of Korea's largest commercial job boards but no public… | One of Korea's largest commercial job boards. Real documented API, but gated behind an application/approval step, explicitly labeled beta with a 500-calls/day cap - usable, just slower to unlock and rate-constrained. |
-| VDAB Vacature API (Belgium - Flanders public employment service) | Free, but partner/approval access required (no self-serve signup) | No, once approved, but partner/approval access is itself the… | Not publicly available | Potentially large - Flanders regional coverage | Flanders' public employment service vacancy API - free but requires an application form and an exploratory onboarding meeting with VDAB before credentials are issued. Real read API, just a slower registration path than… |
-| Work24 (formerly Worknet/워크넷) Job Listings Open API - Korea Employment Information Service | Free | No | Not publicly available | Potentially large - South Korea's national public employment portal (renamed 고용24 in… | South Korea's national public job bank, verified live on data.go.kr with real-time XML/JSON updates and a free key. Caveat: license text restricts use to non-commercial, attributed, unmodified use - confirm terms with… |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:8pt; line-height:1.35;">
+<colgroup>
+<col style="width:15%;">
+<col style="width:13%;">
+<col style="width:11%;">
+<col style="width:12%;">
+<col style="width:11%;">
+<col style="width:38%;">
+</colgroup>
+<thead><tr>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Provider</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Pricing Model</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Payment After<br>Free Tier</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Official<br>Reference</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Approx. Jobs<br>Available</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Reason Not Implemented</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CBOP - Centralna Baza Ofert Pracy (Poland public employment offices)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://praca.gov.pl">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large - national public employment office coverage</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Poland's national public-employment-office job database. Real SOAP web service returning batches of up to 1,000 live offers per file, but capped at 20 calls/cycle and only reachable during a 17:00-07:00 window -…</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Saramin Open API (사람인 오픈 API)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (partner-gated access; pricing undisclosed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://saramin.co.kr">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Unknown - Saramin is one of Korea's largest commercial job boards but no public…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">One of Korea's largest commercial job boards. Real documented API, but gated behind an application/approval step, explicitly labeled beta with a 500-calls/day cap - usable, just slower to unlock and rate-constrained.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">VDAB Vacature API (Belgium - Flanders public employment service)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free, but partner/approval access required (no self-serve signup)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No, once approved, but partner/approval access is itself the…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large - Flanders regional coverage</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Flanders' public employment service vacancy API - free but requires an application form and an exploratory onboarding meeting with VDAB before credentials are issued. Real read API, just a slower registration path than…</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Work24 (formerly Worknet/워크넷) Job Listings Open API - Korea Employment Information Service</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large - South Korea's national public employment portal (renamed 고용24 in…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">South Korea's national public job bank, verified live on data.go.kr with real-time XML/JSON updates and a free key. Caveat: license text restricts use to non-commercial, attributed, unmodified use - confirm terms with…</td>
+</tr>
+</tbody></table>
 
 #### Needs Live Verification (4)
 
-| Provider | Pricing Model | Payment After Free Tier | Official Reference | Approx. Jobs Available | Reason Not Implemented |
-|---|---|---|---|---|---|
-| GOV.UK Find a Job (DWP) | Free | No | Not publicly available | Potentially large | UK's national government job service; no confirmed public read/search API for third parties was found - only an employer-side SFTP bulk-upload path for posting vacancies. Worth one more direct check with DWP given its… |
-| Job-Room Jobs API (SECO, Switzerland) | Free, but partner/approval access required (no self-serve signup) | No, once approved, but partner/approval access is itself the… | Not publicly available | Potentially large | Switzerland's biggest job platform, but the API is built primarily for employers/ATS submitting ads under a reporting-obligation rule - whether third-party aggregators can get read-only access is unconfirmed in the… |
-| JobsPikr | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | Not publicly available | Unknown (volume not published) | Commercial aggregator (incl. Naukri/Monster-sourced India feeds) with a real API and docs, but pricing is custom/quote-based rather than a published self-serve rate - confirm actual signup process and cost before… |
-| Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico) | Free | No | Not publicly available | Potentially large | Mexico's national employment service publishes datasets on the CKAN-based datos.gob.mx open-data platform, but a live, current-vacancy-specific API endpoint for the job board itself was not directly confirmed - may… |
+<table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:8pt; line-height:1.35;">
+<colgroup>
+<col style="width:15%;">
+<col style="width:13%;">
+<col style="width:11%;">
+<col style="width:12%;">
+<col style="width:11%;">
+<col style="width:38%;">
+</colgroup>
+<thead><tr>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Provider</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Pricing Model</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Payment After<br>Free Tier</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Official<br>Reference</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Approx. Jobs<br>Available</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Reason Not Implemented</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">GOV.UK Find a Job (DWP)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">UK's national government job service; no confirmed public read/search API for third parties was found - only an employer-side SFTP bulk-upload path for posting vacancies. Worth one more direct check with DWP given its…</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Job-Room Jobs API (SECO, Switzerland)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free, but partner/approval access required (no self-serve signup)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No, once approved, but partner/approval access is itself the…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Switzerland's biggest job platform, but the API is built primarily for employers/ATS submitting ads under a reporting-obligation rule - whether third-party aggregators can get read-only access is unconfirmed in the…</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobsPikr</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Unknown (volume not published)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Commercial aggregator (incl. Naukri/Monster-sourced India feeds) with a real API and docs, but pricing is custom/quote-based rather than a published self-serve rate - confirm actual signup process and cost before…</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Portal del Empleo / Servicio Nacional de Empleo (STPS Mexico)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Mexico's national employment service publishes datasets on the CKAN-based datos.gob.mx open-data platform, but a live, current-vacancy-specific API endpoint for the job board itself was not directly confirmed - may…</td>
+</tr>
+</tbody></table>
 
 #### Not Viable at Research Time (214)
 
-| Provider | Pricing Model | Payment After Free Tier | Official Reference | Approx. Jobs Available | Reason Not Implemented |
-|---|---|---|---|---|---|
-| 104 Job Bank (104人力銀行) | Not applicable, no public API | Not applicable, no public API | 104.com.tw | ~1.1 million (110萬, Feb 2026) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| 1111 Job Bank (1111人力銀行) | Not applicable, no public API | Not applicable, no public API | 1111.com.tw | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| 51job (前程无忧 / Qiancheng Wuyou) | Not applicable, no public API | Not applicable, no public API | 51job.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| AMS eJob-Room (Austria public employment service) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| APEC (Association Pour l'Emploi des Cadres, France) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| APS Jobs (Australian Public Service careers) | Not applicable, no public API | Not applicable, no public API | apsjobs.gov.au | Moderate | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Adecco India | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Agencia Publica de Empleo SENA (APE) | Not applicable, no public API | Not applicable, no public API | edu.co | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| AllJobs.co.il | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | AllJobs.co.il | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Apideck | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | apideck.com/pricing | Not publicly available | Paid middleware that re-wraps other ATSs (several of which - Greenhouse, Lever, Workday - we already integrate directly for free). Redundant and enterprise-priced. |
-| Apify | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | apify.com/pricing | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| Apna | Not applicable, no public API | Not applicable, no public API | Not publicly available | Large, blue-collar (board size; no public access) | No public API for third-party aggregators. |
-| Appcast | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | appcast.io/how-programmatic-recruitment-advertising-improves-cost-per-hire/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Aura (by Aura Intelligence) | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Proprietary workforce database spanning 20M+ companies (billions of data points;… | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| BMET / Ami Probashi (Bangladesh Overseas Employment) | Not applicable, no public API | Not applicable, no public API | amiprobashi.com | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| BOSS Zhipin (Kanzhun Limited, NASDAQ: BZ) | Not applicable, no public API | Not applicable, no public API | zhipin.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| BambooHR | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available (N/A - per-tenant only, no aggregate feed) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| Bayt.com | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | Bayt.com | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bdjobs.com | Not applicable, no public API | Not applicable, no public API | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bolsa Nacional de Empleo (BNE / SENCE, Chile) | Free | No | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bossjob | Free | No | bossjob.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bright Data | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | brightdata.com/products/web-scraper/jobs-scraper | 116.8M+ records (general Jobs dataset); LinkedIn Jobs dataset specifically 62.4M+ | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| BrighterMonday | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | brightermonday.co.ke | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Broadbean (Veritone Hire) | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | broadbean.com/product-suite/job-distribution-platform/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Built In | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (tech/startup; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Bumeran | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CEIPAL | Not publicly available | Not publicly available | ceipal.com/pricing | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CV-Library | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CWJobs | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | CWJobs.co.uk | 12,000+ jobs (per cwjobs.co.uk About Us page) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CareerBuilder | Not publicly available (partner-gated access; pricing undisclosed) | Not publicly available | careerbuilder.com/ | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CareerBuilder / Monster (Talent Network distribution) | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | careerbuilder.com/talent-network | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| CareerLink Vietnam | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| CareerOne (Australia) | Not publicly available (partner-gated access; pricing undisclosed) | Not publicly available | careerone.com.au | 100,000+ (live jobs) | Feed-ingest / posting-distribution network only - no public read endpoint for pulling job data as a consumer. |
-| Careers24 | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | careers24.com | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Careers@Gov | Not applicable, no public API | Not applicable, no public API | Not publicly available | Small (SG public sector; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Catho Developer API | Not publicly available (partner-gated access; pricing undisclosed) | Not publicly available | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| China MOHRSS National Public Employment Service Platform (全国公共招聘服务平台) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Civil Service Jobs | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Claro Analytics (WilsonHCG) | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | claroanalytics.com/ | Real-time job-postings and 500M+ global talent profiles | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| Cliclavoro / Ministero del Lavoro Open Data (Italy) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Computrabajo | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Coresignal | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | 399M+ multi-source records (incl. India) | Enterprise-tier data vendor sold via sales contact, not a published self-serve price - same bucket as the other enterprise data vendors below. |
-| Cutshort | Not applicable, no public API | Not applicable, no public API | Not publicly available | Small (tech; board size not public) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Darwinbox | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available (N/A - per-tenant only, no aggregate feed) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| Datapeople (by Payscale) | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | datapeople.io/ | Not publicly available (N/A (analyzes customer job postings, not a broad aggregation… | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| Dice | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (tech niche; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Diffbot | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | diffbot.com/pricing | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| Draup | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | draup.com/ | Global labor-market and job-postings data (aggregated multi-source) | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| Drushim | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | Drushim.co.il | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal | Not applicable, no public API | Not applicable, no public API | labour.gov.eg | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Elempleo | Not applicable, no public API | Not applicable, no public API | Not publicly available | Very large (CO; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Eluta | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Employment Services of South Africa (ESSA) - Dept. of Employment and Labour | Free | No | labour.gov.za | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Forasna | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | forasna.com/employer/pricing | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Foundit (Monster India) | Not applicable, no public API | Not applicable, no public API | Not publicly available | ~800k+ (board size; no public access) | No public API for third-party aggregators. |
-| Freshteam | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available (N/A - per-tenant only, no aggregate feed) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| Glassdoor Jobs API | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | glassdoor.com/developer/index.htm | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Glints | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Google Cloud Talent Solution (Job Search API) | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | google.com/talent-solution/pricing | Not publicly available (N/A (you populate it with your own jobs; not an aggregation… | This is a hosted ML matching/search engine you populate with your OWN job postings - it is not a source of aggregated third-party listings at all. Enterprise infrastructure product, not a job feed. |
-| Google for Jobs | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | schema.org | Unknown (indexes open web) | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Greenwich.HR (WageScape) | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | amazon.com/marketplace/pp/prodview-t5fvgfurgypxg | ~5M new US jobs/month; ~70% of all open US jobs; 1.5M+ hiring organizations | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| GreytHR | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available (N/A - HRMS/payroll only, no job feed) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| GulfTalent | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | gulftalent.com | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Gupy Public API | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | gupy.io | ~90,000 job vacancies published monthly on the Gupy R&S platform (official figure) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| HackerEarth Jobs | Not applicable, no public API | Not applicable, no public API | Not publicly available | Small (board size not public) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| HasData | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | hasdata.com/prices | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| Hello Work Job Information API (ハローワーク求人情報提供サービス, MHLW) | Free | No | Not publicly available | Potentially large - nationwide public employment service covering hundreds of thousands… | Japan's real, fully-documented national job API - but registration is restricted to licensed private job-placement businesses, local governments, or training institutions. A generic aggregator does not qualify for… |
-| HelloWork ATS Partner API (France) | Free, but partner/approval access required (no self-serve signup) | No, once approved, but partner/approval access is itself the… | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Hired.com (LHH Recruitment Solutions) | Not applicable, no public API | Not applicable, no public API | Hired.com | 0 | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Hirist | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (tech; board size not public) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Hong Kong Labour Department Interactive Employment Service (iES, jobs.gov.hk) | Not applicable, no public API | Not applicable, no public API | www.jobs.gov | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Horsefly Analytics | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | horseflyanalytics.com/ | 1 trillion+ data points; millions of job postings; supply/demand across 60+ countries | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| IEFPOnline / netEmprego (Portugal public employment service) | Not applicable, no public API | Not applicable, no public API | Not publicly available | 5,913 ofertas de emprego (live count) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Indeed Hiring Lab | Free | No | indeed.com | Not publicly available (N/A (publishes indices/aggregates, e.g. Job Postings Index, Wage… | Indeed's economic-research arm: publishes aggregate labor-market indices/trend CSVs (mirrored on FRED), not individual job records. Research/statistics product, not a live job listings feed. |
-| Indeed India | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Huge (not accessible - partner-only) | Enterprise partner-only access; not available to a generic aggregator. |
-| Indeed PLUS Job Distribution API (Recruit Holdings, Japan) | Not publicly available (partner-gated access; pricing undisclosed) | Not publicly available | Not publicly available | Potentially large - aggregates postings across Japan's major job boards distributed via… | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| InfoJobs (Spain) | Not applicable, no public API | Not applicable, no public API | Not publicly available | 68,383 ofertas (live count, Spain, as of July 2026) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Instahyre | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (tech; board size not public) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Internshala | Not applicable, no public API | Not applicable, no public API | Not publicly available | Large (intern/fresher; board size not public) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Israeli Employment Service (Sherut HaTaasuka / taasuka.gov.il) | Free | No | taasuka.gov.il | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JSearch (RapidAPI, by OpenWeb Ninja) | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch | Not publicly available | Generic B2B data-aggregation vendor, not a dedicated job board - paid, and overlaps with sources already integrated. |
-| Jadarat (Saudi National Employment Portal / HRDF) | Free | No | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Job Bank (ESDC) feed / Open Gov dataset | Free | No | Not publicly available | Very large (100,000+) | Canada's national job bank: the live feed requires ESDC partner approval, and the fallback open dataset is a monthly CSV dump missing employer/company names and per-job apply URLs - the two fields this project's schema… |
-| Job Market Finland / Tyomarkkinatori (TE-palvelut, Finland) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobKorea | Not applicable, no public API | Not applicable, no public API | Not publicly available | ~209,637 (live listings) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobStreet / JobsDB (SEEK group) | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Very large if accessible (not public) | SEEK-group flagship boards for SEA; enterprise partner-only access, no self-serve path (catalog explicitly marks 'Not Recommended'). |
-| JobThai | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | jobthai.com | ~121,000 active jobs (121,337 shown live on jobthai.com) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobberman | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | jobberman.com | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobcase (MaxRecruit) | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | jobcase.com/products/maxrecruit | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Jobcase Platform API | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | jobcase.com/ | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobg8 | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | jobg8.com/Faq.aspx?contentid=10874 | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Jobillico | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobindex (Denmark) | Not applicable, no public API | Not applicable, no public API | Not publicly available | 33,600 jobs (live) / 30,000+ job ads | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobisJob (LIFULL Connect) | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | jobboardfinder.com/jobboard-jobisjob-usa | ~9,000,000 (monthly, cross-country) | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Jobnet.dk (Denmark public employment portal) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobrapido | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | jobrapido.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobs.cz | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Medium (CZ/SK; not quantified) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| JobsDB Hong Kong (SEEK Group) / CTgoodjobs | Not applicable, no public API | Not applicable, no public API | hk.jobs | ~32,700 (JobsDB HK) / ~32,000 (CTgoodjobs) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JobsEQ (Chmura Economics & Analytics) | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | chmura.com/jobseq | Real-time job-posting dataset with international coverage | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| JobsIreland.ie (Ireland public employment service) | Not applicable, no public API | Not applicable, no public API | Not publicly available | 4,806 vacancies (live count) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Jobsite | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Jobsite.co.uk | 280,000+ live job adverts (per jobsite.co.uk About Us page) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| JoinVision (JobCloud HR Tech) | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | crunchbase.com/organization/joinvision | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Jora (Australia) | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | jora.com | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Joveo | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | joveo.com/programmatic-job-advertising-platform/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| JustRemote | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | justremote.co/remote-jobs | 2,000+ hidden remote jobs | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Kalibrr | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Karir.com | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Keka | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available (N/A - HRMS/payroll only, no job feed) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Kelly Services India | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Kemnaker Karirhub (SIAPkerja) | Free, but partner/approval access required (no self-serve signup) | No, once approved, but partner/approval access is itself the… | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Kombo.dev | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | kombo.dev/pricing | Not publicly available | Paid middleware that re-wraps other ATSs (several of which - Greenhouse, Lever, Workday - we already integrate directly for free). Redundant and enterprise-priced. |
-| Ladders | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (niche; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Lensa | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | lensa.com/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Lightcast (formerly Emsi Burning Glass) Job Postings API | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | lightcast.dev/apis/job-postings | Billions of postings aggregated from 160,000+ sources (18B+ labor-market data points) | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| Lightcast Jobs Canada | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | Not publicly available | Not publicly available | Paid labor-market-intelligence product sold through a sales process, not a self-serve developer signup; catalog itself marks 'Not Recommended'. |
-| LinkUp | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | linkup.com | Millions of postings indexed daily from 80,000+ employer websites | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| LinkedIn Jobs | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Huge (not accessible - partner-only) | Enterprise partner program only - no self-serve developer signup for job search/aggregation. |
-| MOHRE UAE Federal Careers / iRecruitment Portal | Not applicable, no public API | Not applicable, no public API | mohre.gov.ae | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| MP Rojgar | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (state-level; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| MahaJobs | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (state-level; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| ManpowerGroup India | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Mantiks | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | mantiks.io/pricing | Not publicly available | Generic B2B data-aggregation vendor, not a dedicated job board - paid, and overlaps with sources already integrated. |
-| Merge.dev | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | merge.dev/pricing/unified | Not publicly available | Paid middleware that re-wraps other ATSs (several of which - Greenhouse, Lever, Workday - we already integrate directly for free). Redundant and enterprise-priced. |
-| Mitula (LIFULL Connect / Adzuna) | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | lifullconnect.com/brands/mitula/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Monster | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | monster.com/solutions/talent-management/partner-with-monster/ | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| NAVTTC National Employment Exchange Tool (NEXT / jobs.gov.pk) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| NEAIMS - National Employment Authority Kenya | Free | No | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| National Career Service (NCS) | Free | No | data.gov.in | Large in aggregate | India's NCS exposes a periodic bulk open-government dataset (data.gov.in), not a live per-job search API - stale snapshots, not real-time postings. Doesn't fit a live-fetch architecture. |
-| National Directorate of Employment (NDE) Nigeria | Not applicable, no public API | Not applicable, no public API | nde.gov.ng | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| National Job Portal (NJP) - Pakistan | Not applicable, no public API | Not applicable, no public API | njp.gov.pk | Small-to-moderate | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| National Job Portal - Bangladesh (jobs.gov.bd) | Not applicable, no public API | Not applicable, no public API | jobs.gov.bd | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Naukri | Not applicable, no public API | Not applicable, no public API | Not publicly available | ~1M+ (board size; no public access) | No public API; any access is undocumented/grey-area and India-IP-restricted. |
-| Naukrigulf | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | naukrigulf.com | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Nexxt (formerly Beyond.com) | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | Beyond.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Nimble (Nimbleway) | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | nimbleway.com/pricing | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| OCC Mundial | Not applicable, no public API | Not applicable, no public API | Not publicly available | 137,925 active vacancies ("vacantes activas en occ.com.mx", as of Oct 18, 2024);… | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Outsourcely | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | outsourcely.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Oxylabs | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | oxylabs.io/products/scraper-api/web/pricing | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| PandoLogic (pandoIQ) / Veritone Hire | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | pandologic.com/solutions/programmatic-advertising-pandoiq/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Pangian | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | pangian.com/feed/?post_type=job_listing | Varies (curated remote listings) | pangian.com redirects (301) to a static 'Thank You for Being Part of Pangian' shutdown notice on GitHub Pages (pangianhq.github.io) - confirmed live. Every other path (/jobs/, /about/, /blog/, all RSS-candidate URLs)… |
-| People Data Labs | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | peopledatalabs.com/docs/job-posting-data-overview | Not publicly available | Generic B2B data-aggregation vendor, not a dedicated job board - paid, and overlaps with sources already integrated. |
-| PhilJobNet (DOLE Bureau of Local Employment) | Free | No | philjobnet.gov.ph | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Piloterr | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | piloterr.com/pricing | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| Pnet | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | pnet.co.za | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Portal Empleo Argentina (Ministerio de Capital Humano / ex-Trabajo) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Pracuj.pl (Poland) | Not applicable, no public API | Not applicable, no public API | Not publicly available | 762,827 job offers published in 2025 | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| PredictLeads | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | predictleads.com/pricing | 270M+ records since 2018; ~9.8M active jobs | Generic B2B data-aggregation vendor, not a dedicated job board - paid, and overlaps with sources already integrated. |
-| Profesia | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Medium (CZ/SK; not quantified) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| Public Service Commission of Sri Lanka (psc.gov.lk) | Not applicable, no public API | Not applicable, no public API | psc.gov.lk | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Quess Corp | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Radancy | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | radancy.com/en/programmatic-adtech/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Randstad India | Not applicable, no public API | Not applicable, no public API | Not publicly available | 1,394 jobs (live count on official site) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Recruit CRM | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available (N/A - per-tenant only, no aggregate feed) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| Recruitics | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | recruitics.com/programmatic-job-advertising | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Remote First Jobs (Dynamite Jobs) | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | remotefirstjobs.com/rss | Varies (curated remote-first listings) | remotefirstjobs.com is behind an active Cloudflare managed JS challenge on every path tested (including robots.txt itself) - confirmed live, HTTP 403 with a 'Just a moment...' interactive challenge page. Not a… |
-| Remote.co | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | remote.co/feed | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Revelio Labs | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | reveliolabs.com | 1.1B+ workforce profiles plus job postings, transitions, sentiment, layoffs | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| Rikunabi / Mynavi (Recruit Co. / Mynavi Corporation) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Rojgar Sangam (UP) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (state-level; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Rozee.pk | Not applicable, no public API | Not applicable, no public API | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| SEEK (SEEK.com.au / SEEK.co.nz) | Free, but partner/approval access required (no self-serve signup) | No, once approved, but partner/approval access is itself the… | SEEK.com.au | Potentially large | Feed-ingest / posting-distribution network only - no public read endpoint for pulling job data as a consumer. |
-| SEPE Open Data Portal (Spain public employment service) | Free | No | Not publicly available | Not publicly available | Spain's SEPE only publishes static statistical/administrative open-data files - no confirmed live REST API for current vacancies exists; a known third-party scraper for it is deprecated. |
-| SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego) | Free | No | dados.gov.br/dataset/sine-aberto | Potentially large | Brazil suspended this data-sharing service in October 2022 (CODEFAT Resolution 956/2022) pending LGPD privacy-law compliance updates - no active API to integrate against right now. |
-| ScraperAPI | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | scraperapi.com/pricing | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| Scrapingdog | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | scrapingdog.com/pricing | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| Shine | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (board size; no public access) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| SmartDreamers | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | smartdreamers.com/pricing | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Snagajob | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | snagajob.com/ | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| StepStone | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | stepstone.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Superset | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Medium (campus; per-institution, not aggregatable) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| Talent.com | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Talent.com | 40 million+ jobs (global figure stated on talent.com homepage) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| TalentNeuron (Gartner) | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | talentneuron.com/solutions/platform | Real-time labor data covering ~90% of world GDP; 40TB normalized data, 3B+ profiles,… | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| Talroo | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | talroo.com/pro/ | Millions (per Talroo publisher marketing) | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| TeamLease | Not applicable, no public API | Not applicable, no public API | Not publicly available | 23,082+ active job vacancies (live count on official site) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Techmap.io | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | jobdatafeeds.com | 292M+ available jobs | Generic B2B data-aggregation vendor, not a dedicated job board - paid, and overlaps with sources already integrated. |
-| Telangana T-Jobs | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (state-level; not quantified) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Textkernel Jobfeed / Market IQ | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | textkernel.com/products-solutions/labour-market-insights/market-iq/ | Large multi-country vacancy corpus (millions of postings, deduplicated/enriched) | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| Thailand Department of Employment - Smart Job Center (ไทยมีงานทำ) | Free | No | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| The Burning Glass Institute | Free | No | burningglassinstitute.org/ | Not publicly available (N/A (research using Lightcast and other data)) | Enterprise labor-market-intelligence SaaS sold via sales contract - not a self-serve job-postings feed. |
-| TimesJobs | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (board size; no public access) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| TopCV | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| TotalJobs | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Totaljobs.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Triplebyte | Free, but partner/approval access required (no self-serve signup) | No, once approved, but partner/approval access is itself the… | triplebyte.com/ | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Trovit (LIFULL Connect / Adzuna) | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | trovit.com/feed-in-jobs/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| UWV Open Match Data (Netherlands) | Free | No | Not publicly available | Not publicly available (N/A - aggregated statistics only, not individual postings) | UWV (Dutch public employment service) publishes aggregate labor-market statistics datasets, not individual live job postings - no per-job identifier exists in the data at all. |
-| Unified.to | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | Not publicly available | Not publicly available | Paid middleware that re-wraps other ATSs (several of which - Greenhouse, Lever, Workday - we already integrate directly for free). Redundant and enterprise-priced. |
-| Unstop | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (campus/intern; not a job-listing API) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Upward.net (a Jobcase company) | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | upward.net/employers | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Vagas for Business API (Vagas.com.br) | Not publicly available (partner-gated access; pricing undisclosed) | Not publicly available | Vagas.com | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| VietnamWorks Open API | Not publicly available (partner-gated access; pricing undisclosed) | Not publicly available | vietnamworks.com | Potentially large | Partner Access Required - gated to approved commercial partners, not open developer registration. |
-| WUZZUF | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | wuzzuf.net | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Welcome to the Jungle | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Wellfound | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (startup roles; board size not public) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| WhatJobs | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | whatjobs.com/job-aggregators | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| Work and Income / Find a Job (MSD, New Zealand) | Not applicable, no public API | Not applicable, no public API | workandincome.gov | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Work at a Startup (Y Combinator) | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | workatastartup.com | Unknown (thousands across 1,000+ YC companies) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| WorkIndia | Not applicable, no public API | Not applicable, no public API | Not publicly available | Large, blue-collar (board size; no public access) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Workato | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | workato.com/pricing | Not publicly available | Paid middleware that re-wraps other ATSs (several of which - Greenhouse, Lever, Workday - we already integrate directly for free). Redundant and enterprise-priced. |
-| Workforce Australia | Free | No | workforceaustralia.gov.au | Potentially large | The public API is write/management-only (employers create and manage job ads via OAuth2 through the Business portal) - no public job-listings read/search endpoint exists to pull postings from. |
-| Workopolis | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| WowJobs | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Xing Jobs | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| XpressJobs (xpress.jobs) | Not applicable, no public API | Not applicable, no public API | Not publicly available | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| ZipAlerts (ZipRecruiter TrafficBoost) | Not applicable to data access (fee is for employers posting jobs on this platform, not… | Not applicable to data access (see Pricing Model column) | zipalerts.com/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| ZipRecruiter API | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Large (not quantified) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| Zoho Recruit | Enterprise | Yes, enterprise/sales pricing, no self-serve free tier | Not publicly available | Not publicly available (N/A - per-tenant only, no aggregate feed) | Enterprise-only pricing/access - gated behind a sales or partner-approval process, no self-serve developer path. |
-| ZonaJobs | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | zonajobs.com.ar | Not publicly available | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| Zyte (formerly Scrapinghub) | Free Tier + Pay-as-you-go | Yes, beyond the free tier/quota | zyte.com/zyte-api/pricing.html | Not publicly available | Generic web-scraping infrastructure vendor, not a job-specific API - using it means building and maintaining a custom per-site scraper ourselves, which is a project in itself, not one more provider. |
-| data.gov.in OGD platform | Free | No | Not publicly available | Varies (per-resource) | General-purpose Indian open-government-data portal spanning 33 sectors; not jobs-specific, and individual resources are static per-resource datasets rather than a live job-postings feed. |
-| eQuest | Paid (metered/flat; see Cost Details column source for exact terms) | Yes, paid from the outset, no free tier documented | equest.com/ | Not publicly available | Advertiser-side job-distribution/CPC network - built for employers to push postings out, not for aggregators to pull postings in. No public read API. |
-| iimjobs | Not applicable, no public API | Not applicable, no public API | Not publicly available | Medium (management roles; board size not public) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| jobs.ch (Switzerland) | Not applicable, no public API | Not applicable, no public API | Not publicly available | 45,825 jobs (live) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| karriere.at (Austria) | Not applicable, no public API | Not applicable, no public API | github.com/karriereat | 13,400+ jobs (live) | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-| topjobs.lk | Not applicable, no public API | Not applicable, no public API | Not publicly available | Potentially large | No public API - the site/portal requires a jobseeker or employer login; no developer/API access is documented anywhere. |
-
----
+<table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:8pt; line-height:1.35;">
+<colgroup>
+<col style="width:15%;">
+<col style="width:13%;">
+<col style="width:11%;">
+<col style="width:12%;">
+<col style="width:11%;">
+<col style="width:38%;">
+</colgroup>
+<thead><tr>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Provider</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Pricing Model</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Payment After<br>Free Tier</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Official<br>Reference</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Approx. Jobs<br>Available</th>
+<th style="text-align:left; vertical-align:bottom; padding:4px 5px; border-bottom:1.5px solid #333; background:#eef1f5;">Reason Not Implemented</th>
+</tr></thead>
+<tbody>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">104 Job Bank (104人力銀行)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://104.com.tw">104.com.tw</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~1.1 million (110萬, Feb 2026)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1111 Job Bank (1111人力銀行)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://1111.com.tw">1111.com.tw</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">51job (前程无忧 / Qiancheng Wuyou)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://51job.com">51job.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">AMS eJob-Room (Austria public employment service)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">APEC (Association Pour l'Emploi des Cadres, France)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">APS Jobs (Australian Public Service careers)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://apsjobs.gov.au">apsjobs.gov.au</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Moderate</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Adecco India</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Agencia Publica de Empleo SENA (APE)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://edu.co">edu.co</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">AllJobs.co.il</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://AllJobs.co.il">AllJobs.co.il</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Apideck</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://apideck.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid middleware re-wrapping ATSs (Greenhouse, Lever, Workday) already integrated directly for free.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Apify</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://apify.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Apna</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Large, blue-collar (board size; no public access)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API for third-party aggregators.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Appcast</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://appcast.io/how-programmatic-recruitment-advertising-improves-cost-per-hire/">appcast.io/how-programmatic-recruitment-advertising-improves-cost-per-hire/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Aura (by Aura Intelligence)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Proprietary workforce database spanning 20M+ companies (billions of data points;…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">BMET / Ami Probashi (Bangladesh Overseas Employment)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://amiprobashi.com">amiprobashi.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">BOSS Zhipin (Kanzhun Limited, NASDAQ: BZ)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://zhipin.com">zhipin.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">BambooHR</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - per-tenant only, no aggregate feed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bayt.com</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Bayt.com">Bayt.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bdjobs.com</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bolsa Nacional de Empleo (BNE / SENCE, Chile)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bossjob</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://bossjob.com">bossjob.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bright Data</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://brightdata.com/products/web-scraper/jobs-scraper">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">116.8M+ records (general Jobs dataset); LinkedIn Jobs dataset specifically 62.4M+</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">BrighterMonday</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://brightermonday.co.ke">brightermonday.co.ke</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Broadbean (Veritone Hire)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://broadbean.com/product-suite/job-distribution-platform/">broadbean.com/product-suite/job-distribution-platform/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Built In</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (tech/startup; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Bumeran</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CEIPAL</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://ceipal.com/pricing">ceipal.com/pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CV-Library</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CWJobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://CWJobs.co.uk">CWJobs.co.uk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">12,000+ jobs (per cwjobs.co.uk About Us page)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerBuilder</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (partner-gated access; pricing undisclosed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careerbuilder.com/">careerbuilder.com/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerBuilder / Monster (Talent Network distribution)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careerbuilder.com/talent-network">careerbuilder.com/talent-network</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerLink Vietnam</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">CareerOne (Australia)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (partner-gated access; pricing undisclosed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careerone.com.au">careerone.com.au</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">100,000+ (live jobs)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Feed-ingest/distribution network only — no public read endpoint for consumers.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Careers24</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://careers24.com">careers24.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Careers@Gov</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Small (SG public sector; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Catho Developer API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (partner-gated access; pricing undisclosed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">China MOHRSS National Public Employment Service Platform (全国公共招聘服务平台)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Civil Service Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Claro Analytics (WilsonHCG)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://claroanalytics.com/">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Real-time job-postings and 500M+ global talent profiles</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Cliclavoro / Ministero del Lavoro Open Data (Italy)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Computrabajo</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Coresignal</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">399M+ multi-source records (incl. India)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-tier data vendor sold via sales contact; no published self-serve price.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Cutshort</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Small (tech; board size not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Darwinbox</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - per-tenant only, no aggregate feed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Datapeople (by Payscale)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://datapeople.io/">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A (analyzes customer job postings, not a broad aggregation…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Dice</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (tech niche; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Diffbot</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://diffbot.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Draup</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://draup.com/">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Global labor-market and job-postings data (aggregated multi-source)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Drushim</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Drushim.co.il">Drushim.co.il</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Egypt Ministry of Labour (formerly Ministry of Manpower) Job Portal</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://labour.gov.eg">labour.gov.eg</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Elempleo</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Very large (CO; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Eluta</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Employment Services of South Africa (ESSA) - Dept. of Employment and Labour</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://labour.gov.za">labour.gov.za</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Forasna</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://forasna.com/employer/pricing">forasna.com/employer/pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Foundit (Monster India)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~800k+ (board size; no public access)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API for third-party aggregators.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Freshteam</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - per-tenant only, no aggregate feed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Glassdoor Jobs API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://glassdoor.com/developer/index.htm">glassdoor.com/developer/index.htm</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Glints</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Google Cloud Talent Solution (Job Search API)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://google.com/talent-solution/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A (you populate it with your own jobs; not an aggregation…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Hosted ML search engine for your own postings — not a source of third-party listings.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Google for Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://schema.org">schema.org</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Unknown (indexes open web)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Greenwich.HR (WageScape)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://amazon.com/marketplace/pp/prodview-t5fvgfurgypxg">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~5M new US jobs/month; ~70% of all open US jobs; 1.5M+ hiring organizations</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">GreytHR</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - HRMS/payroll only, no job feed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">GulfTalent</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://gulftalent.com">gulftalent.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Gupy Public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://gupy.io">gupy.io</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~90,000 job vacancies published monthly on the Gupy R&amp;S platform (official figure)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">HackerEarth Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Small (board size not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">HasData</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://hasdata.com/prices">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Hello Work Job Information API (ハローワーク求人情報提供サービス, MHLW)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large - nationwide public employment service covering hundreds of thousands…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Real, documented API, but registration is restricted to licensed placement businesses/governments — a generic aggregator doesn't qualify.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">HelloWork ATS Partner API (France)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free, but partner/approval access required (no self-serve signup)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No, once approved, but partner/approval access is itself the…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Hired.com (LHH Recruitment Solutions)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Hired.com">Hired.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">0</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Hirist</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (tech; board size not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Hong Kong Labour Department Interactive Employment Service (iES, jobs.gov.hk)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://www.jobs.gov">www.jobs.gov</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Horsefly Analytics</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://horseflyanalytics.com/">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1 trillion+ data points; millions of job postings; supply/demand across 60+ countries</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">IEFPOnline / netEmprego (Portugal public employment service)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">5,913 ofertas de emprego (live count)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Indeed Hiring Lab</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://indeed.com">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A (publishes indices/aggregates, e.g. Job Postings Index, Wage…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Indeed's research arm — publishes aggregate labor-market indices, not individual job records.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Indeed India</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Huge (not accessible - partner-only)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise partner-only access; not available to a generic aggregator.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Indeed PLUS Job Distribution API (Recruit Holdings, Japan)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (partner-gated access; pricing undisclosed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large - aggregates postings across Japan's major job boards distributed via…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">InfoJobs (Spain)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">68,383 ofertas (live count, Spain, as of July 2026)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Instahyre</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (tech; board size not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Internshala</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Large (intern/fresher; board size not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Israeli Employment Service (Sherut HaTaasuka / taasuka.gov.il)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://taasuka.gov.il">taasuka.gov.il</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JSearch (RapidAPI, by OpenWeb Ninja)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://rapidapi.com/letscrape-6bRBa3QguO5/api/jsearch">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic B2B data vendor, not a dedicated job board — paid, overlaps with sources already integrated.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jadarat (Saudi National Employment Portal / HRDF)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Job Bank (ESDC) feed / Open Gov dataset</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Very large (100,000+)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Live feed needs ESDC partner approval; fallback open dataset lacks employer names and apply URLs.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Job Market Finland / Tyomarkkinatori (TE-palvelut, Finland)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobKorea</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~209,637 (live listings)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobStreet / JobsDB (SEEK group)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Very large if accessible (not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SEEK-group flagship boards for SEA — enterprise partner-only, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobThai</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobthai.com">jobthai.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~121,000 active jobs (121,337 shown live on jobthai.com)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobberman</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobberman.com">jobberman.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobcase (MaxRecruit)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobcase.com/products/maxrecruit">jobcase.com/products/maxrecruit</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobcase Platform API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobcase.com/">jobcase.com/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobg8</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobg8.com/Faq.aspx?contentid=10874">jobg8.com/Faq.aspx?contentid=10874</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobillico</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobindex (Denmark)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">33,600 jobs (live) / 30,000+ job ads</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobisJob (LIFULL Connect)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobboardfinder.com/jobboard-jobisjob-usa">jobboardfinder.com/jobboard-jobisjob-usa</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~9,000,000 (monthly, cross-country)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobnet.dk (Denmark public employment portal)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobrapido</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobrapido.com">jobrapido.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobs.cz</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (CZ/SK; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobsDB Hong Kong (SEEK Group) / CTgoodjobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://hk.jobs">hk.jobs</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~32,700 (JobsDB HK) / ~32,000 (CTgoodjobs)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobsEQ (Chmura Economics &amp; Analytics)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://chmura.com/jobseq">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Real-time job-posting dataset with international coverage</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JobsIreland.ie (Ireland public employment service)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">4,806 vacancies (live count)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jobsite</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Jobsite.co.uk">Jobsite.co.uk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">280,000+ live job adverts (per jobsite.co.uk About Us page)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JoinVision (JobCloud HR Tech)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://crunchbase.com/organization/joinvision">crunchbase.com/organization/joinvision</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Jora (Australia)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jora.com">jora.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Joveo</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://joveo.com/programmatic-job-advertising-platform/">joveo.com/programmatic-job-advertising-platform/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">JustRemote</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://justremote.co/remote-jobs">justremote.co/remote-jobs</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">2,000+ hidden remote jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Kalibrr</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Karir.com</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Keka</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - HRMS/payroll only, no job feed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Kelly Services India</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Kemnaker Karirhub (SIAPkerja)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free, but partner/approval access required (no self-serve signup)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No, once approved, but partner/approval access is itself the…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Kombo.dev</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://kombo.dev/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid middleware re-wrapping ATSs (Greenhouse, Lever, Workday) already integrated directly for free.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Ladders</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (niche; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Lensa</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://lensa.com/">lensa.com/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Lightcast (formerly Emsi Burning Glass) Job Postings API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://lightcast.dev/apis/job-postings">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Billions of postings aggregated from 160,000+ sources (18B+ labor-market data points)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Lightcast Jobs Canada</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid labor-market-intelligence product sold via sales process, not self-serve.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">LinkUp</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://linkup.com">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Millions of postings indexed daily from 80,000+ employer websites</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">LinkedIn Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Huge (not accessible - partner-only)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise partner program only — no self-serve developer signup.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MOHRE UAE Federal Careers / iRecruitment Portal</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://mohre.gov.ae">mohre.gov.ae</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MP Rojgar</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (state-level; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">MahaJobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (state-level; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">ManpowerGroup India</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Mantiks</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://mantiks.io/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic B2B data vendor, not a dedicated job board — paid, overlaps with sources already integrated.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Merge.dev</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://merge.dev/pricing/unified">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid middleware re-wrapping ATSs (Greenhouse, Lever, Workday) already integrated directly for free.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Mitula (LIFULL Connect / Adzuna)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://lifullconnect.com/brands/mitula/">lifullconnect.com/brands/mitula/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Monster</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://monster.com/solutions/talent-management/partner-with-monster/">monster.com/solutions/talent-management/partner-with-monster/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NAVTTC National Employment Exchange Tool (NEXT / jobs.gov.pk)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">NEAIMS - National Employment Authority Kenya</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">National Career Service (NCS)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://data.gov.in">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Large in aggregate</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Periodic bulk open-government dataset, not a live per-job search API — stale snapshots only.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">National Directorate of Employment (NDE) Nigeria</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://nde.gov.ng">nde.gov.ng</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">National Job Portal (NJP) - Pakistan</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://njp.gov.pk">njp.gov.pk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Small-to-moderate</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">National Job Portal - Bangladesh (jobs.gov.bd)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobs.gov.bd">jobs.gov.bd</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Naukri</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">~1M+ (board size; no public access)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API; any access is undocumented/grey-area and India-IP-restricted.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Naukrigulf</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://naukrigulf.com">naukrigulf.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Nexxt (formerly Beyond.com)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Beyond.com">Beyond.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Nimble (Nimbleway)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://nimbleway.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">OCC Mundial</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">137,925 active vacancies ("vacantes activas en occ.com.mx", as of Oct 18, 2024);…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Outsourcely</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://outsourcely.com">outsourcely.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Oxylabs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://oxylabs.io/products/scraper-api/web/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">PandoLogic (pandoIQ) / Veritone Hire</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://pandologic.com/solutions/programmatic-advertising-pandoiq/">pandologic.com/solutions/programmatic-advertising-pandoiq/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Pangian</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://pangian.com/feed/?post_type=job_listing">pangian.com/feed/?post_type=job_listing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Varies (curated remote listings)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Site redirects to a static shutdown notice — service confirmed discontinued, not merely credential-gated.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">People Data Labs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://peopledatalabs.com/docs/job-posting-data-overview">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic B2B data vendor, not a dedicated job board — paid, overlaps with sources already integrated.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">PhilJobNet (DOLE Bureau of Local Employment)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://philjobnet.gov.ph">philjobnet.gov.ph</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Piloterr</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://piloterr.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Pnet</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://pnet.co.za">pnet.co.za</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Portal Empleo Argentina (Ministerio de Capital Humano / ex-Trabajo)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Pracuj.pl (Poland)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">762,827 job offers published in 2025</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">PredictLeads</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://predictleads.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">270M+ records since 2018; ~9.8M active jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic B2B data vendor, not a dedicated job board — paid, overlaps with sources already integrated.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Profesia</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (CZ/SK; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Public Service Commission of Sri Lanka (psc.gov.lk)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://psc.gov.lk">psc.gov.lk</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Quess Corp</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Radancy</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://radancy.com/en/programmatic-adtech/">radancy.com/en/programmatic-adtech/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Randstad India</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1,394 jobs (live count on official site)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Recruit CRM</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - per-tenant only, no aggregate feed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Recruitics</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://recruitics.com/programmatic-job-advertising">recruitics.com/programmatic-job-advertising</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Remote First Jobs (Dynamite Jobs)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remotefirstjobs.com/rss">remotefirstjobs.com/rss</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Varies (curated remote-first listings)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Blocked by an active Cloudflare JS challenge on every path — a technical barrier, not a credentials gate.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Remote.co</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://remote.co/feed">remote.co/feed</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Revelio Labs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://reveliolabs.com">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">1.1B+ workforce profiles plus job postings, transitions, sentiment, layoffs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Rikunabi / Mynavi (Recruit Co. / Mynavi Corporation)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Rojgar Sangam (UP)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (state-level; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Rozee.pk</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SEEK (SEEK.com.au / SEEK.co.nz)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free, but partner/approval access required (no self-serve signup)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No, once approved, but partner/approval access is itself the…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://SEEK.com.au">SEEK.com.au</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Feed-ingest/distribution network only — no public read endpoint for consumers.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SEPE Open Data Portal (Spain public employment service)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Publishes only static statistical open-data files — no live REST API for current vacancies.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SINE Aberto (Sistema Nacional de Emprego / Ministerio do Trabalho e Emprego)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://dados.gov.br/dataset/sine-aberto">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Suspended since Oct 2022 pending LGPD compliance review — no active API currently.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">ScraperAPI</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://scraperapi.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Scrapingdog</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://scrapingdog.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Shine</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (board size; no public access)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">SmartDreamers</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://smartdreamers.com/pricing">smartdreamers.com/pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Snagajob</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://snagajob.com/">snagajob.com/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">StepStone</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://stepstone.com">stepstone.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Superset</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (campus; per-institution, not aggregatable)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Talent.com</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Talent.com">Talent.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">40 million+ jobs (global figure stated on talent.com homepage)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TalentNeuron (Gartner)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://talentneuron.com/solutions/platform">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Real-time labor data covering ~90% of world GDP; 40TB normalized data, 3B+ profiles,…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Talroo</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://talroo.com/pro/">talroo.com/pro/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Millions (per Talroo publisher marketing)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TeamLease</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">23,082+ active job vacancies (live count on official site)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Techmap.io</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://jobdatafeeds.com">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">292M+ available jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic B2B data vendor, not a dedicated job board — paid, overlaps with sources already integrated.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Telangana T-Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (state-level; not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Textkernel Jobfeed / Market IQ</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://textkernel.com/products-solutions/labour-market-insights/market-iq/">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Large multi-country vacancy corpus (millions of postings, deduplicated/enriched)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Thailand Department of Employment - Smart Job Center (ไทยมีงานทำ)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">The Burning Glass Institute</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://burningglassinstitute.org/">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A (research using Lightcast and other data))</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise labor-market-intelligence SaaS sold via sales contract, not a self-serve jobs feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TimesJobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (board size; no public access)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TopCV</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">TotalJobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Totaljobs.com">Totaljobs.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Triplebyte</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free, but partner/approval access required (no self-serve signup)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No, once approved, but partner/approval access is itself the…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://triplebyte.com/">triplebyte.com/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Trovit (LIFULL Connect / Adzuna)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://trovit.com/feed-in-jobs/">trovit.com/feed-in-jobs/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">UWV Open Match Data (Netherlands)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - aggregated statistics only, not individual postings)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Publishes aggregate labor-market statistics only — no individual job postings or per-job ID.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Unified.to</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid middleware re-wrapping ATSs (Greenhouse, Lever, Workday) already integrated directly for free.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Unstop</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (campus/intern; not a job-listing API)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Upward.net (a Jobcase company)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://upward.net/employers">upward.net/employers</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Vagas for Business API (Vagas.com.br)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (partner-gated access; pricing undisclosed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://Vagas.com">Vagas.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">VietnamWorks Open API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (partner-gated access; pricing undisclosed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://vietnamworks.com">Enterprise Contact / Pricing</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Partner access required — gated to approved commercial partners, not open registration.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">WUZZUF</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://wuzzuf.net">wuzzuf.net</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Welcome to the Jungle</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Wellfound</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (startup roles; board size not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">WhatJobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://whatjobs.com/job-aggregators">whatjobs.com/job-aggregators</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Work and Income / Find a Job (MSD, New Zealand)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workandincome.gov">workandincome.gov</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Work at a Startup (Y Combinator)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workatastartup.com">workatastartup.com</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Unknown (thousands across 1,000+ YC companies)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">WorkIndia</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Large, blue-collar (board size; no public access)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workato</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workato.com/pricing">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid middleware re-wrapping ATSs (Greenhouse, Lever, Workday) already integrated directly for free.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workforce Australia</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://workforceaustralia.gov.au">Free Public API</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">API is write/management-only (employers post via OAuth2) — no read/search endpoint exists.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Workopolis</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">WowJobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Xing Jobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">XpressJobs (xpress.jobs)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">ZipAlerts (ZipRecruiter TrafficBoost)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (fee is for employers posting jobs on this platform, not…</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable to data access (see Pricing Model column)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://zipalerts.com/">zipalerts.com/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">ZipRecruiter API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Large (not quantified)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Zoho Recruit</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, enterprise/sales pricing, no self-serve free tier</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available (N/A - per-tenant only, no aggregate feed)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Enterprise-only access — gated behind sales/partner approval, no self-serve path.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">ZonaJobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://zonajobs.com.ar">zonajobs.com.ar</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Zyte (formerly Scrapinghub)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free Tier + Pay-as-you-go</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, beyond the free tier/quota</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://zyte.com/zyte-api/pricing.html">Pricing Page</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Generic web-scraping infrastructure, not a job-specific API — would require building a custom scraper.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">data.gov.in OGD platform</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Free</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Varies (per-resource)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">General-purpose open-government-data portal (33 sectors), not jobs-specific — static datasets, not a live feed.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">eQuest</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Paid (metered/flat; see Cost Details column source for exact terms)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Yes, paid from the outset, no free tier documented</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://equest.com/">equest.com/</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Advertiser-side distribution network — built for employers to push jobs out, not for aggregators to pull data in.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">iimjobs</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Medium (management roles; board size not public)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">jobs.ch (Switzerland)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">45,825 jobs (live)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">karriere.at (Austria)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;"><a href="https://github.com/karriereat">github.com/karriereat</a></td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">13,400+ jobs (live)</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+<tr style="border-bottom:0.75px solid #ccc;">
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">topjobs.lk</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not applicable, no public API</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Not publicly available</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">Potentially large</td>
+<td style="text-align:left; vertical-align:top; padding:4px 5px; word-wrap:break-word; overflow-wrap:break-word;">No public API — site requires jobseeker/employer login; no developer access documented.</td>
+</tr>
+</tbody></table>
 
 ## 5. Internship Requirement Coverage
 
