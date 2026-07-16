@@ -8,9 +8,6 @@
 | **Prepared by** | Reuben Jacob |
 | **Report date** | July 16, 2026 |
 | **Data snapshot as of** | Latest verified execution of all 46 providers (an earlier baseline collection preceded it — Section 3.2) |
-| **Companion document** | `Final_Project_Report_v2.md` (full technical detail, methodology, and evidence trail) |
-
-This is a condensed version of `Final_Project_Report_v2.md`, written for a single reading in approximately 15–20 minutes. No technical finding has been removed — long narrative explanations have been replaced with tables, and repeated explanations have been cut. All figures are sourced from this project's PostgreSQL database, source code, and `job_api.xlsx` research workbook (API Catalog and Sheet1). Where a fact could not be verified from these sources, this report states **"Not publicly available"** or **"Not verified during this project"** rather than estimating.
 
 ---
 
