@@ -20,7 +20,8 @@ This is a condensed version of `Final_Project_Report_v2.md`, written for a singl
 2. [Project Status](#2-project-status)
 3. [Implemented APIs](#3-implemented-apis)
 4. [Complete Provider Research (268 Providers)](#4-complete-provider-research-268-providers)
-5. [Final Recommendations](#5-final-recommendations)
+5. [Internship Requirement Coverage](#5-internship-requirement-coverage)
+6. [Final Recommendations](#6-final-recommendations)
 
 ---
 
@@ -592,7 +593,7 @@ Every provider researched in this project (`job_api.xlsx` API Catalog sheet, 268
 
 ### 4.2 Not Implemented Providers (222)
 
-Grouped by research classification at the time of this project. **Registration/Approval Required** and **Needs Live Verification** providers have a real, plausible access path (Section 5, Final Recommendations); **Not Viable** providers were rejected on structural grounds (no public API, enterprise-only, wrong data-flow direction, deprecated, or a dataset rather than a live API).
+Grouped by research classification at the time of this project. **Registration/Approval Required** and **Needs Live Verification** providers have a real, plausible access path (Section 6, Recommendations); **Not Viable** providers were rejected on structural grounds (no public API, enterprise-only, wrong data-flow direction, deprecated, or a dataset rather than a live API).
 
 #### Registration/Approval Required (4)
 
@@ -2436,9 +2437,210 @@ Grouped by research classification at the time of this project. **Registration/A
 </tr>
 </tbody></table>
 
+## 5. Internship Requirement Coverage
+
+### 6. Pricing model (Free / Free Trial / Pay-as-you-go / Subscription / Enterprise)
+
+| Pricing Model (Implemented Providers) | Count | Providers |
+|---|---:|---|
+| Free (no cost, ever) | 41 | 40 fully free/no-auth or free-registration providers, plus Trade Me Jobs (free, but approval-gated) |
+| Free Trial (time-limited, then paid) | 1 | Fantastic.jobs (7-day trial, then metered) |
+| Pay-as-you-go / Metered (has a paid, usage-based component) | 5 | Adzuna, SerpApi, OpenWebNinja, TheirStack, Fantastic.jobs |
+| Subscription (flat recurring fee) | 0 | Not used by any implemented provider |
+| Enterprise (sales-negotiated contract) | 0 | Not used by any implemented provider — 15 enterprise-only candidates were identified in research and not implemented (Section 4.2) |
+
+Full per-provider pricing model is in Section 4.1. The 222 not-implemented providers' pricing (where verifiable) is in Section 4.2.
+
+### 7. Payment required after free tier
+
+41 of the 46 implemented providers are free with no paid tier. The 5 providers below are the ones that will incur a cost once their free allowance runs out — 2 of the 5 (TheirStack, Fantastic.jobs) have already hit that point in this project's own account.
+
+| Provider | Pricing Model | Payment After Free Tier | Official Pricing Page |
+|---|---|---|---|
+| Adzuna | Free tier, then paid metered access | Yes — once the free daily call allowance is exceeded | [developer.adzuna.com/docs/search](https://developer.adzuna.com/docs/search) (no separate public pricing page; commercial terms via the developer docs) |
+| SerpApi (Google Jobs) | Free plan (250 searches/month), then paid metered plans | Yes — beyond 250 searches/month | [serpapi.com/pricing](https://serpapi.com/pricing) |
+| OpenWebNinja (JSearch) | Free plan (~200 requests/month), then paid metered plans | Yes — beyond the free monthly request quota | [openwebninja.com/api/jsearch](https://openwebninja.com/api/jsearch) |
+| TheirStack | Per-credit metered (bills 1 credit per job returned) | Yes — an active paid plan is required; this project's account is currently blocked (HTTP 402 — Section 3.2) | [theirstack.com/en/pricing](https://theirstack.com/en/pricing) |
+| Fantastic.jobs | Free 7-day trial (no credit card), then paid metered (~$1 per 1,000 jobs) | Yes — after the trial/quota ends; this project's key has already exceeded its quota (Section 3.2) | [fantastic.jobs/api](https://fantastic.jobs/api) |
+
+### 8. Pricing / documentation links
+
+All 46 implemented providers have an official reference URL, quoted directly from source code (Section 4.1). Of the 222 not-implemented providers, a documented reference (domain or URL) was found in this project's research for **166 of 268 providers overall**; for the remainder, the reference cell reads "Not publicly available" rather than a guessed link (Section 4.2).
+
+### 9. Number of jobs
+
+| Metric | Value |
+|---|---:|
+| Total unique jobs stored (PostgreSQL, cumulative across both runs) | 241,564 |
+| Total jobs fetched, all providers, pre-dedup (latest re-run) | 197,945 |
+| New jobs added in the latest re-run | 57,058 |
+| Distinct companies represented | 28,640 |
+
+Top providers by volume are in Section 3.3. Approximate job counts for not-implemented providers (where publicly known) are in Section 4.2.
+
+### 10. Region coverage
+
+| Region | Dedicated Providers | Notes |
+|---|---:|---|
+| United States | 4 | USAJOBS, CareerOneStop, Findwork.dev, Adzuna |
+| Canada | 0 | No dedicated source; incidental coverage only via global ATS boards |
+| United Kingdom | 2 | Reed, NHS Jobs |
+| Europe (non-UK) | 5 | Bundesagentur für Arbeit, Arbetsförmedlingen, France Travail, EURES, NAV Arbeidsplassen |
+| India | 2 | Freshersworld, Hasjob |
+| LATAM | 1 | Get on Board |
+| APAC | 4 | MyCareersFuture, Taiwan MOL, HK Gov Vacancies, Trade Me |
+| Africa | 1 | MyJobMag |
+| Middle East | 0 | No single-country dedicated source (Mustakbil spans 20+ countries, counted as global) |
+| Global / Remote / Multi-country | 27 | All 6 ATS platforms plus 21 aggregator/remote-board providers |
+
+Resulting job distribution is US-heavy (47.3%), then UK (14.3%) and Germany (6.9%) — a sourcing-mix effect from which countries have dense curated ATS company lists, not a normalization defect. Canada remains the clearest unresolved regional gap.
+
+### 11. Job categories
+
+**No standardized, cross-provider job category exists in this dataset, and this cannot be supported without inventing one.**
+
+Verified directly against all 46 providers' `normalize()` implementations:
+
+- **0 of 46** providers expose a job-category field that means the same thing across providers.
+- **23 of 46** expose a provider-specific department, team, business-unit, occupation, or function field (e.g. SmartRecruiters' `function`, Taiwan Ministry of Labor's occupation code, USAJOBS's federal job series) — each proprietary to that one provider.
+- **23 of 46** expose no category-like field at all (confirmed in code, e.g. Reed's module comment: "no job-category/employment-type field at all").
+
+Evidence that these fields cannot be merged: the stored tag "Engineering" comes from SmartRecruiters' `function` field (6,797 jobs), Greenhouse's `departments` field (1,154 jobs), and Ashby's `department`/`team` field (1,136 jobs) — three structurally unrelated fields that happen to use the same English word. Treating them as one taxonomy would silently merge unrelated data. This project's schema stores all of this in a single free-text `tags` array; a real crosswalk would require manually mapping each provider's raw values, which has not been done.
+
+### 12. Data quality
+
+| Dimension | Finding |
+|---|---|
+| Missing fields | Confirmed per-provider in code — e.g. Reed exposes no employment-type field at all; no provider exposes usable salary data |
+| Company info | 43 of 46 providers give a direct company-name field; 3 derive it (Ashby, Lever, Workday) |
+| Duplicate rate (latest re-run) | 8.0% — 15,865 of 197,945 fetched jobs were exact-URL duplicates within that run (item 14) |
+| Stale postings | 9.2% of stored jobs are over 1 year old |
+
+### 13. Job freshness
+
+In plain terms: this project has collected jobs from all 46 providers by hand, on two separate occasions so far — not yet on an automatic, recurring schedule. That means we can describe how old the postings looked *at the moment we collected them*, but we cannot yet say how quickly postings actually go stale or get taken down, because answering that requires comparing many collections spread out over time, and continuous monitoring hasn't started.
+
+**What we can say today, from the latest collection:**
+
+- 99.8% of stored jobs have a posting date recorded.
+- Half of all stored postings were listed within the last 16 days.
+- 63.4% of stored jobs were posted within the last 30 days.
+- 9.2% of stored jobs are more than a year old (mostly on a small number of boards, such as some government portals, that keep long-running postings visible).
+
+**What we cannot say yet, and why:** how often a typical posting is removed or filled, and whether a job is still open by the time it's shown, both require repeated collections compared against each other over time. With only two manual collections done so far, close together in time, there isn't yet enough history to measure that.
+
+### 14. Duplicate analysis
+
+Duplicate jobs are removed automatically by comparing each job's web address (URL) — if two postings share the same address, only one is kept. This works well for duplicates from the *same* provider, but not when two *different* providers list the same job under two different addresses (e.g., a company's own careers page vs. an aggregator's copy of it) — that kind of duplicate is harder to catch and isn't currently measured.
+
+Where duplicates are likely or unlikely, by provider category:
+
+**ATS Providers**
+- Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Teamtailor, Recruitee, Workable
+
+Reason: Each is queried directly against one specific company's own job board, so overlap between these eight is unlikely — no company is deliberately queried through two ATS platforms at once. The real risk is one of these companies' jobs also showing up via an aggregator below, under a different link.
+
+**Aggregators**
+- Adzuna, CareerJet, Reed, Jooble
+
+Reason: These collect postings from many outside sources, which can include companies already pulled in directly through the ATS providers above — so the same job can plausibly appear twice, under two different addresses.
+
+**Government Providers**
+- USAJOBS, Bundesagentur für Arbeit, EURES, France Travail
+
+Reason: These generally publish their own postings, so duplicates are less common — except EURES, which itself gathers postings from national agencies including Bundesagentur, so the same government job can legitimately appear on both.
+
+**Niche & Remote Job Boards**
+- Himalayas, RemoteOK, We Work Remotely, Hasjob, NoDesk, MyJobMag
+
+Reason: Small, narrowly-scoped boards; no evidence of overlap with any of the categories above.
+
+**How this is handled today:** every job's web address is checked before it's stored, so a repeated address is never stored twice — whether the repeat happens within one collection run or across multiple runs. What isn't caught yet is the same job listed under two different addresses by two different providers; catching that would mean comparing job title, company, and location instead of just the address, which hasn't been built.
+
+### 15. Rate limits
+
+In practical terms, some providers will slow us down or temporarily cut us off if we ask for data too quickly or too often. What that means for how this pipeline should be run:
+
+- **Providers with a fixed data ceiling** (USAJOBS, Bundesagentur für Arbeit, Reed) — these cap how many results they'll ever return, no matter how often we ask. Running the collection more often won't retrieve more from them. No delay is needed, and these are safe to run alongside everything else.
+- **Providers that actively throttle requests** (RemoteJobs.org, Findwork.dev, and — newly confirmed in the latest re-run — Arbeitnow) — these return a "too many requests" error if asked too fast. A short pause-and-retry already handles this for RemoteJobs.org and Findwork.dev; Arbeitnow's own request loop has no pause built in yet and needs one added (Section 3.2). None of these three should be run as two copies of themselves at once, but each can run alongside other, different providers without issue.
+- **Providers with a paid monthly quota** (SerpApi, OpenWebNinja, TheirStack, Fantastic.jobs) — every collection run uses up part of a monthly allowance. Running these on the same schedule as the free providers would burn through that allowance quickly, so they should run less often (e.g., weekly rather than daily). Fantastic.jobs has already run out of its current quota (Section 3.2).
+- **Everything else (the no-registration majority)** — no published limit, though a couple of providers turned out to have an unpublished ceiling only found through testing (e.g. Reed's ~9,900-result limit). The existing automatic pause-and-retry behavior is sufficient protection; no other change is needed.
+
+**Bottom line for scheduling:** the paid/metered providers should run less often to conserve quota; the actively-throttled providers need a delay between requests (already in place for two of the three, still missing for Arbeitnow); everything else can run as often as needed and in parallel.
+
+### 16. Response time & reliability
+
+**No formal benchmarking was performed.** The points below are observations from the latest re-run and the project's source code, not controlled or repeated measurements.
+
+- **Fast (well under a minute):** NAV Arbeidsplassen, USAJOBS, Reed, Workable, Jooble, SerpApi, and most of the small no-registration boards (Jobicy, RemoteOK, MyJobMag, NoDesk, Hasjob, and similar) — each is a single request or a small, fixed number of pages.
+- **Slower (several minutes or more):** SmartRecruiters (~9.4 min, but also by far the highest-volume provider), Greenhouse (~3.7 min), Bundesagentur (~2.3 min, includes its own retry logic), Workday (~4.2 min). **Lever was the slowest provider observed — about 42 minutes in the latest re-run, versus about 14.5 minutes in the earlier baseline run** — per-company pagination across 160+ companies, made worse this run by a dropped connection to one large company that triggered extra retries.
+- **Needing retries:** most providers (36 of 46) already call a shared helper that automatically retries a failed request after a short pause; a few (e.g. Bundesagentur) use their own custom retry logic instead.
+- **Requiring authentication:** 15 of 46 providers need an API key, OAuth, or similar credential (Section 17) — this adds a failure mode (an expired, missing, or over-quota credential) on top of ordinary network issues, and is exactly what's currently blocking CareerOneStop, Trade Me, TheirStack, and Fantastic.jobs (Section 3.2).
+- **Returned zero jobs in the latest re-run:** CareerOneStop (no credentials), Trade Me (no credentials), TheirStack (billing block), Fantastic.jobs (quota exceeded), Arbeitnow (rate-limited mid-run), and CareerJet (its allowed-IP list on the provider's side no longer includes this environment) — all six now have a specific, confirmed cause rather than a guess (Section 3.2).
+- **Stable:** the 40 providers that completed the latest re-run successfully — including Greenhouse and Lever, where a handful of individual company-level errors were isolated to those companies only, without affecting the rest of the run, confirming the project's per-provider fault isolation works as intended.
+
+### 17. Authentication
+
+| Auth Type | Count (of 46) |
+|---|---:|
+| None (no auth required) | 31 |
+| API key (registered) | 10 |
+| Public non-secret key/token (no registration) | 2 |
+| OAuth | 2 |
+| HTTP Basic | 1 |
+
+Representative providers for each type:
+
+- **No authentication:** Greenhouse, Lever, Ashby, SmartRecruiters, Himalayas, RemoteOK, and 25 others.
+- **API key (registered):** Adzuna, Reed, USAJOBS, SerpApi, Findwork.dev, Jooble, OpenWebNinja, TheirStack, Fantastic.jobs, CareerOneStop.
+- **Public non-secret key/token (no registration):** Bundesagentur für Arbeit, NAV Arbeidsplassen.
+- **OAuth:** France Travail (OAuth2 client credentials), Trade Me Jobs (OAuth 1.0a).
+- **HTTP Basic:** CareerJet.
+
+The implemented providers table (Section 4.1) identifies the authentication mechanism used by each individual provider.
+
+### 18. Filtering capabilities
+
+| Provider | Filtering Available |
+|---|---|
+| SmartRecruiters | Company, offset/limit |
+| Greenhouse | Company only |
+| Lever | Company, offset/limit |
+| NHS Jobs | Keyword |
+| USAJOBS | Page/ResultsPerPage only (no keyword/filter params implemented) |
+| Bundesagentur für Arbeit | Keyword, location |
+| Reed | Pagination only (no keyword/filter params implemented) |
+| NAV Arbeidsplassen | Modified-since cursor |
+| Ashby | Company only |
+| Workable | Company only |
+
+Filtering capability was verified for the ten highest-volume providers; it was **not independently documented for the other 36 implemented providers** in this report. No provider was found to expose salary, experience-level, or visa-sponsorship filtering.
+
+### 19. Must Have / Should Have / Nice to Have
+
+| Priority | Item |
+|---|---|
+| Must Have | Move normalization inline into the save path |
+| Must Have | Scheduled, automated recurring syncs |
+| Must Have | Resolve the 6 non-contributing providers (credentials, billing, quota, and one IP-allowlist regression — Section 3.2) |
+| Should Have | Reporting dashboard on top of PostgreSQL |
+| Should Have | Better location enrichment (~1,565 distinct unresolved country values) |
+| Should Have | Normalized employment-type field; a department/occupation crosswalk table |
+| Should Have | Dedicated Canada, broader APAC, and Middle East sources |
+| Should Have | Provider-run health alerting |
+| Should Have | Complete the 6 deferred candidate providers (Saramin, VDAB, CBOP, Work24, GOV.UK Find a Job, Job-Room Switzerland) |
+| Nice to Have | Funding-stage/company-size enrichment |
+| Nice to Have | Salary capture where a source exposes it |
+| Nice to Have | Historical trend tracking across multiple runs |
+| Nice to Have | Periodic re-verification of the 268-provider research catalog |
+
+### 20. Production recommendations
+
+Summarized here; full detail in Section 6. Before production reliance: close the 5-provider contribution gap, add provider-run health alerting, move normalization inline, and put the pipeline on a recurring schedule.
+
 ---
 
-## 5. Final Recommendations
+## 6. Final Recommendations
 
 **Current readiness.** The platform is functionally complete for a first release: 46 providers integrated, 241,564 deduplicated jobs stored in PostgreSQL, offline country/work-arrangement normalization applied, and full fault isolation so one broken provider cannot take down a run. It has been run twice as a **manual, one-off collection**, not an ongoing sync.
 
